@@ -1,0 +1,22 @@
+--- 
+title: "SPARTYN Supplementary material"
+author: "Nate Osher"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# About
+
+The purpose of this document is to serve as a "living" supplement to the first paper on the SPARTYN pipeline. While the paper itself will be static upon publication, this document will serve as both an ongoing supplement as well as a central location to give updated, detailed information on the pipeline and methods. 
+
+If you have a question that is not adequately addressed in this supplement, please email oshern (at) umich.edu.

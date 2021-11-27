@@ -1,2 +1,14 @@
 about
 introduction
+materials-and-methods
+overview
+spatial-point-processes
+intensity-thresholding-and-partition
+inference
+infiltration-probability
+results
+simulation
+application
+survival-analysis
+genomic-associations
+conclusion

@@ -5,32 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>SPARTYN Supplementary material</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="This is “living documentation” of the SPARTYN pipeline" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="SPARTYN Supplementary material" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="This is “living documentation” of the SPARTYN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="SPARTYN Supplementary material" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="This is “living documentation” of the SPARTYN pipeline" />
   
 
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-10-17" />
+<meta name="date" content="2021-11-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -39,6 +33,7 @@ set in the _output.yml file.</p>" />
   
 
 <link rel="next" href="introduction.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,7 +51,6 @@ set in the _output.yml file.</p>" />
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
@@ -81,6 +75,24 @@ set in the _output.yml file.</p>" />
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>3</b> Materials and Methods</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-processes"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Processes</a></li>
+<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.3</b> Intensity Thresholding and Partition</a></li>
+<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#inference"><i class="fa fa-check"></i><b>3.4</b> Inference</a></li>
+<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#infiltration-probability"><i class="fa fa-check"></i><b>3.5</b> Infiltration Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.1</b> Survival Analysis</a></li>
+<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.2</b> Genomic Associations</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -104,13 +116,12 @@ set in the _output.yml file.</p>" />
 <div id="header">
 <h1 class="title">SPARTYN Supplementary material</h1>
 <p class="author"><em>Nate Osher</em></p>
-<p class="date"><em>2021-10-17</em></p>
+<p class="date"><em>2021-11-27</em></p>
 </div>
-<div id="about" class="section level1">
+<div id="about" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> About</h1>
 <p>The purpose of this document is to serve as a “living” supplement to the first paper on the SPARTYN pipeline. While the paper itself will be static upon publication, this document will serve as both an ongoing supplement as well as a central location to give updated, detailed information on the pipeline and methods.</p>
 <p>If you have a question that is not adequately addressed in this supplement, please email oshern (at) umich.edu.</p>
-
 </div>
             </section>
 
@@ -172,6 +183,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

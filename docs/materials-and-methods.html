@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Materials and Methods | SPARTYN Supplementary material</title>
+  <meta name="description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Materials and Methods | SPARTYN Supplementary material" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Materials and Methods | SPARTYN Supplementary material" />
+  
+  <meta name="twitter:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  
+
+<meta name="author" content="Nate Osher" />
+
+
+<meta name="date" content="2021-11-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="results.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>3</b> Materials and Methods</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-processes"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Processes</a></li>
+<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.3</b> Intensity Thresholding and Partition</a></li>
+<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#inference"><i class="fa fa-check"></i><b>3.4</b> Inference</a></li>
+<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#infiltration-probability"><i class="fa fa-check"></i><b>3.5</b> Infiltration Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.1</b> Survival Analysis</a></li>
+<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.2</b> Genomic Associations</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTYN Supplementary material</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="materials-and-methods" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Materials and Methods</h1>
+<div id="overview" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<p>Raw data was obtained for this project using the image
+processing tools of Rao and Krishnan. A random forest model was
+trained on high definition images of cancer biopsies in order
+to automatically classify cells of different types. Images of
+Skin Cutaneous Melanoma (SKCM) biopsies from The Cancer Genome Atlas
+program were processed using this model such that
+each cell was classified as a tumor cell, a lymphocyte, or
+other. In addition, the x- and y-coordinates of each cell
+centroid (relative to the pathology slide) were determined and
+recorded. The resulting data set for each biopsy consisted of a
+row for each cell, with a column for the x-coordinate, a column
+for the y-coordinate, and an indicator of the cell type. Each
+biopsy was intensity thresholded to define a “fitted” window, i.e.
+the smallest window that fit all cells in the biopsy within it.
+This window was then divided into tiles that fully partition it,
+while containing similar numbers of tumor cells. A bayesian spatial
+point process model was then fit on each of these tiles separately,
+yielding a posterior distribution of the local interaction parameter.
+For each tile, this local distribution was then compared to a
+tile-specific null distribution, before being combined to summarize
+the overall level of interaction at the biopsy level.</p>
+<p>SKCM is an appealing target for the investigation of lymphocyte
+infiltration for several reasons. SKCM has been shown to be
+particularly responsive to Immunotherapy in some cases [CITATION].
+It is possible that the ability to quantify lymphocyte
+infiltration at a large scale may allow for more detailed
+investigation into the scenarios in which this treatment may be
+most effectively deployed. What’s more, SKCM has an unusually
+high mutational load amongst the various cancer types [CITATION].
+The ability to quantify infiltration may allow for further
+investigation into not only genomic associations of this
+occurrence but associations with mutations as well. [TODO:
+is infiltration particularly common in SKCM? I feel like it is,
+but I need to verify this.]</p>
+</div>
+<div id="spatial-point-processes" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Spatial Point Processes</h2>
+<p>Denote the number of biopsies <span class="math inline">\(n\)</span>, and for biopsy <span class="math inline">\(i\)</span>, let <span class="math inline">\(c_i\)</span>
+denote the number of cells observed and labeled within that
+biopsy, with corresponding x- and y- coordinates
+<span class="math inline">\(\mathbf{x}_i = x_{i1},...,x_{ic_i}\)</span>, <span class="math inline">\(\mathbf{y}_i = y_{i1},...,y_{ic_i}\)</span>,
+and marks
+<span class="math inline">\(\mathbf{m}_i = m_{i1},...,m_{ic_i}\)</span>. For our application,
+<span class="math inline">\(m_{ij} \in \{1, 2\}\)</span>,with <span class="math inline">\(1\)</span> indicating a tumor cell and <span class="math inline">\(2\)</span> indicating a
+lymphocyte. Further, denote the number of tumor cells observed in
+subject <span class="math inline">\(i\)</span> by <span class="math inline">\(T_i\)</span>, and the number of lymphocytes <span class="math inline">\(L_i\)</span>.
+Within each patient, this data can be naturally thought
+of as a marked point process and modeled as such.</p>
+<p>We ultimately decided to use a Hierachical
+Multitype Strauss Model for our data, the density of which is</p>
+<p><span class="math display">\[ f(\mathbf{p}_1, \mathbf{p}_2) \propto 
+\beta_1^{n_1} \beta_2^{n_2}
+\gamma_{11}^{S_{R_{11}}(\mathbf{p}_1)}
+\gamma_{22}^{S_{R_{2}}(\mathbf{p}_2)}
+\gamma_{12}^{S_{R_{12}}(\mathbf{p}_1, \mathbf{p}_2)}
+\quad (1)\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{p}_i\)</span> is a vector of points of type <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(n_i\)</span> is the number of points of type <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(\beta_i\)</span> is the first order intensity of points of type <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(S_{R_{ij}}(\cdot)\)</span> counts the number of pairs of points of types <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> within <span class="math inline">\(R_{ij}\)</span> one another, where <span class="math inline">\(R_{ij}\)</span> is selected a priori based on subject specific knowledge.</li>
+<li><span class="math inline">\(\gamma_{ij}\)</span> captures the tendency of points of type <span class="math inline">\(i\)</span> to be near points of type <span class="math inline">\(j\)</span></li>
+</ul>
+<p>We decided to use this model over the standard Multitype Strauss
+model for two reasons.
+Firstly, treating the locations of the lymphocytes as conditional
+upon the locations of the tumor cells is a priori biologically
+plausible. Secondly, the hierarchical variant of the Strauss
+model allows for the proper modeling of positive interaction
+between points of different types, while the standard
+multitype model does not. Note that because intra-type
+interaction is still confined to be negative under the
+Hierarchical Multitype Strauss Process, we constrained the
+intra-type interaction parameters <span class="math inline">\(\gamma_{11}\)</span> and <span class="math inline">\(\gamma_{22}\)</span>
+to be 1. Finally, based on prior biological knowledge, we set
+<span class="math inline">\(R_{12} = 30\)</span> <span class="math inline">\(\mu m\)</span>. In our context, <span class="math inline">\(\gamma_{12}\)</span> can be
+thought of as the degree to which lymphocytes to be close to or
+far away from tumor cells, conditional upon the locations
+of the tumor cells. This allows us to distinguish between the<br />
+mere relative abundance of different cell types (which is<br />
+captured by the <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> parameters) and the
+actual spatial associations between the different cell types.</p>
+</div>
+<div id="intensity-thresholding-and-partition" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Intensity Thresholding and Partition</h2>
+<p>Each biopsy was partitioned into non-overlapping sub-regions,
+each of which was modeled as a point process. The primary
+motivation for structuring the analysis this came from prior
+biological knowledge about tumor composition. Tumors are
+heterogeneous entities in many respects, and lymphocyte infiltration
+is no exception. Thus, partitioning the biopsy into non-
+overlapping sub-regions and fitting models on each sub-region is
+a natural way to capture this heterogeneity. This strategy has additional benefits in that it allows for the parallelization of
+model fitting across the resulting sub-regions within a single
+biopsy.</p>
+<p>In order to partition a given biopsy into non-overlapping
+sub-regions, we beganwith the smallest bounding rectangular
+window that contained cells <span class="math inline">\(1...c_i\)</span>, we applied an intensity thresholding algorithm [too much?] in order to find the smallest
+possible window that still contained all <span class="math inline">\(c_i\)</span> cells. Next, we
+applied a voronoi tesselation to the <span class="math inline">\(T_i\)</span> tumor cells within the intensity thresholded window, partitioning it into tumor cell<br />
+specific sub-windows <span class="math inline">\(1...T_i\)</span> corresponding to tumor cells<br />
+<span class="math inline">\(1...T_i\)</span>. We then applied a modified version of k-means to<br />
+tumor cells <span class="math inline">\(1...T_i\)</span>,such that each of the <span class="math inline">\(K_i\)</span> resulting<br />
+clusters was constrained to be between a pre-defined range of<br />
+cell counts. Finally, each tumor cell specific sub-window within
+a given cluster was combined into a tile, corresponding to each
+of the <span class="math inline">\(K_i\)</span> clusters from the k-means clustering. This results
+in <span class="math inline">\(K_i\)</span> tiles that fully partition the intensity thresholded
+window. This partition uniquely defines the membership of each of
+the <span class="math inline">\(c_i\)</span> total cells into one of the resulting <span class="math inline">\(K_i\)</span> total tiles.</p>
+<p>It is worth emphasizing that there is nothing particularly unique
+about this method of partitioning the biopsy. Any other method could
+be used in its place, so long as the result is a partition of the
+biopsy into some number of non-overlapping sub-regions on which the
+subsequent model fitting can proceed.</p>
+</div>
+<div id="inference" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Inference</h2>
+<p>In order to compute posterior distributions of parameters of
+interest, we used Bayesian techniques in the style of King et al.
+2012. This methodology essentially exchanges the likelihood
+function used in standard Bayesian inference for the
+pseudolikelihood function (Besag, 1975 [VERIFY]), with the
+integral approximated via the Berman-Turner device (Baddeley
+and Turner, 2000) using the spatstat package (Baddeley and Turner,
+2005). Finally, each parameter estimated (<span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>,
+<span class="math inline">\(\gamma_{12}\)</span>) was assigned a flat prior. [TODO: Technically,
+normal with mean 0 and variance <span class="math inline">\(1,000,000\)</span> because of limitations
+of JAGS- should I spell this out?] Posterior distributions were
+computed using MCMC via the R2jags package (Su, 2015). Using
+these techniques we were able to compute a
+posterior distribution <span class="math inline">\(f_{ik | \mathbf{p}}(y)\)</span> of <span class="math inline">\(\gamma_{ik,12}\)</span> for
+each for each biopsy <span class="math inline">\(i \in \{1...n\}\)</span> and tile
+<span class="math inline">\(k \in \{1...K_i\}\)</span>.</p>
+</div>
+<div id="infiltration-probability" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Infiltration Probability</h2>
+<p>In order to compute a localized probability of infiltration, each
+posterior distribution <span class="math inline">\(f_{ik | \mathbf{p}}(y)\)</span> was compared to a
+tile specific null distribution, <span class="math inline">\(f_{ik, 0}(y)\)</span>.
+Because under null interaction (<span class="math inline">\(\gamma_{ik, 12} = 1)\)</span>) our
+model reduces to two independent Poisson processes with
+intensities <span class="math inline">\(\beta_1, \beta_2\)</span>, this was accomplished by
+treating the observed tumor cells as fixed, simulating <span class="math inline">\(s\)</span>
+realizations of lymphocytes under a Poisson process with the
+observed intensity, performing the previously described model
+fitting procedure on each, and aggregating samples across
+simulation <span class="math inline">\(1...s\)</span>. Under the assumption that the posterior
+distribution <span class="math inline">\(f_{ik | \mathbf{p}}(x)\)</span> is independent from the null
+distribution <span class="math inline">\(f_{ik, 0}(y)\)</span>, we then computed the tile specific
+Infiltration Probability <span class="math inline">\(r_{ik}\)</span>, given by</p>
+<p><span class="math display">\[\text{Infiltration Probability} \quad r_{ik} = \int \int  I(x &gt; y) f_{ik | \mathbf{p}}(x) f_{ik, 0}(y)  dxdy \qquad (2)\]</span></p>
+<p>Note that <span class="math inline">\(r_{ik} \in [0, 1]\)</span>. Because <span class="math inline">\(r_{ik}\)</span> is computed as
+the integral over an indicator variable, this naturally yields
+an interpretation as a probability. Specifically, <span class="math inline">\(r_{ik}\)</span> can
+be thought of as measuring the posterior probability that the
+observed value of <span class="math inline">\(\gamma_{12}\)</span> (denoted by <span class="math inline">\(x\)</span> in the
+integral) is larger than the value of <span class="math inline">\(\gamma_{12}\)</span> we would
+expect to observe by chance (denoted by <span class="math inline">\(y\)</span> in the integral).
+We thus refer to <span class="math inline">\(r_{ik}\)</span> as the Infiltration Probability
+for that particular tile, which can be aggregated across tiles
+to yield a measure of infiltration on a particular biopsy.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

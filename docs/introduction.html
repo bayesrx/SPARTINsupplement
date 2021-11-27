@@ -5,32 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Introduction | SPARTYN Supplementary material</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="This is “living documentation” of the SPARTYN pipeline" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Introduction | SPARTYN Supplementary material" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="This is “living documentation” of the SPARTYN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 Introduction | SPARTYN Supplementary material" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="This is “living documentation” of the SPARTYN pipeline" />
   
 
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-10-17" />
+<meta name="date" content="2021-11-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -38,7 +32,8 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="materials-and-methods.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,7 +51,6 @@ set in the _output.yml file.</p>" />
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
@@ -81,6 +75,24 @@ set in the _output.yml file.</p>" />
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>3</b> Materials and Methods</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-processes"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Processes</a></li>
+<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.3</b> Intensity Thresholding and Partition</a></li>
+<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#inference"><i class="fa fa-check"></i><b>3.4</b> Inference</a></li>
+<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#infiltration-probability"><i class="fa fa-check"></i><b>3.5</b> Infiltration Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.1</b> Survival Analysis</a></li>
+<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.2</b> Genomic Associations</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -101,17 +113,69 @@ set in the _output.yml file.</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1">
+<div id="introduction" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
-
+<p>While the staining and examination of tissue samples has been a
+ubiquitous medical practice for decades at this point in time, it
+has only been relatively recently that high definition images of
+such stainings have begun to be explored through the lens of
+machine learning and statistical modeling. A considerable amount
+of work has thus far been put into building and training models
+capable of remarkably accurate classifications of overall tissue
+samples as well as subsections of tissue samples [Saltz et al 2018;
+TODO: other examples]. While valuable in their own right such
+advances have also created additional opportunities for the
+application of more traditional statistical techniques.
+Notably, the ability to quickly and accurately process high definition
+images of biopsies into cell level classification and location data
+has allowed for the development and application of more traditional
+spatial statistical modeling methods.</p>
+<p>There is ample prior reason to suspect that such applications may
+be valuable, particularly in the domain of cancer pathology. The
+longstanding conventional wisdom among pathologists is that
+tissue features such as lymphocyte infiltration as well as general
+tissue heterogeneity are meaningful prognostic indicators [TODO:
+Citations]. So far, this conventional wisdom has found support in
+the current quantitative histopathological imaging analysis literature.
+Li et al. (2018) found that the spatial associations between stromal
+cells and other types of cells were significantly associated with
+survival in non-small cell lung cancer using both a Hidden Potts
+Mixture Model as well as a mark interaction model [Note: these are
+two different papers, both by Li in 2018- not sure the correct way
+to acknowledge]. Saltz et al. (2018) specifically examined the
+presence of lymphocytes across biopsies in several types of cancer, and
+found that certain summarization metrics of lymphocyte clusters were
+significantly associated with survival in certain types of cancer.</p>
+<p>In this paper, we introduce the SPARTYN (SPatial Analysis of
+paRtitioned Tumor-lYmphocyte imagiNg) pipeline. SPARTYN is unique
+in the spatial pathological imaging analysis literature in that it
+uses statistical models to assess the association between tumor
+cells and lymphocytes across an entire partitioned biopsy. This
+allows for rigorous quantification of uncertainty in the style of Li
+et al. (2018) while still allowing for the assessment of full images
+in the style of Saltz et al. (2018). We accomplish this by
+partitioning the cell-level imaging data of each biopsy into non-
+overlapping sub-regions, which can then be modeled to capture the
+local infiltration patterns using standard techniques from
+point process theory.</p>
+<p>Spatial point processes have long been used in the domain of
+ecology to rigorously investigate spatial relationships between
+various organisms (H{"o}gmander and S{"a}rkk{"a}, 1999; King et
+al. 2012). More recently, methods from this paradigm have been
+successfully applied within the domain of Biostatistics (Kang
+et al. 2011; Kang et al. 2015). Given the relatively simple and
+granular nature of cell-level spatial imaging data, marked point
+processes are a natural way to simultaneously model the randomness
+in both the quantities and locations of the different cell types
+along with their relative spatial associations.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="materials-and-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -142,7 +206,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-introduction.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -165,6 +229,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

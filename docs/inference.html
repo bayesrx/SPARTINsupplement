@@ -4,35 +4,41 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | SPARTYN Supplementary material</title>
-  <meta name="description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <title>Chapter 5 Inference | SPARTYN Supplementary material</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | SPARTYN Supplementary material" />
+  <meta property="og:title" content="Chapter 5 Inference | SPARTYN Supplementary material" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | SPARTYN Supplementary material" />
+  <meta name="twitter:title" content="Chapter 5 Inference | SPARTYN Supplementary material" />
   
-  <meta name="twitter:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
   
 
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-27" />
+<meta name="date" content="2021-11-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="intensity-thresholding-and-partition.html"/>
+<link rel="next" href="infiltration-probability.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -79,20 +85,10 @@
 <ul>
 <li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-processes"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Processes</a></li>
-<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.3</b> Intensity Thresholding and Partition</a></li>
-<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#inference"><i class="fa fa-check"></i><b>3.4</b> Inference</a></li>
-<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#infiltration-probability"><i class="fa fa-check"></i><b>3.5</b> Infiltration Probability</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
-<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.1</b> Survival Analysis</a></li>
-<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.2</b> Genomic Associations</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="chapter" data-level="4" data-path="intensity-thresholding-and-partition.html"><a href="intensity-thresholding-and-partition.html"><i class="fa fa-check"></i><b>4</b> Intensity Thresholding and Partition</a></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a></li>
+<li class="chapter" data-level="6" data-path="infiltration-probability.html"><a href="infiltration-probability.html"><i class="fa fa-check"></i><b>6</b> Infiltration Probability</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -113,19 +109,32 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="inference" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Inference</h1>
+<p>In order to compute posterior distributions of parameters of
+interest, we used Bayesian techniques in the style of King et al.
+2012. This methodology essentially exchanges the likelihood
+function used in standard Bayesian inference for the
+pseudolikelihood function (Besag, 1975 [VERIFY]), with the
+integral approximated via the Berman-Turner device (Baddeley
+and Turner, 2000) using the spatstat package (Baddeley and Turner,
+2005). Finally, each parameter estimated (<span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>,
+<span class="math inline">\(\gamma_{12}\)</span>) was assigned a flat prior. [TODO: Technically,
+normal with mean 0 and variance <span class="math inline">\(1,000,000\)</span> because of limitations
+of JAGS- should I spell this out?] Posterior distributions were
+computed using MCMC via the R2jags package (Su, 2015). Using
+these techniques we were able to compute a
+posterior distribution <span class="math inline">\(f_{ik | \mathbf{p}}(y)\)</span> of <span class="math inline">\(\gamma_{ik,12}\)</span> for
+each for each biopsy <span class="math inline">\(i \in \{1...n\}\)</span> and tile
+<span class="math inline">\(k \in \{1...K_i\}\)</span>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="intensity-thresholding-and-partition.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="infiltration-probability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -156,7 +165,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/%s",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-materials_and_methods.Rmd",
 "text": "Edit"
 },
 "history": {

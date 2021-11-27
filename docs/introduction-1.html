@@ -4,35 +4,41 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | SPARTYN Supplementary material</title>
-  <meta name="description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <title>Chapter 6 Introduction | SPARTYN Supplementary material</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | SPARTYN Supplementary material" />
+  <meta property="og:title" content="Chapter 6 Introduction | SPARTYN Supplementary material" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | SPARTYN Supplementary material" />
+  <meta name="twitter:title" content="Chapter 6 Introduction | SPARTYN Supplementary material" />
   
-  <meta name="twitter:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
   
 
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-27" />
+<meta name="date" content="2021-11-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="conclusion.html"/>
+<link rel="next" href="materials-and-methods-1.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -93,6 +99,15 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="chapter" data-level="6" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>6</b> Introduction</a></li>
+<li class="chapter" data-level="7" data-path="materials-and-methods-1.html"><a href="materials-and-methods-1.html"><i class="fa fa-check"></i><b>7</b> Materials and Methods</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="materials-and-methods-1.html"><a href="materials-and-methods-1.html#overview-1"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.2" data-path="materials-and-methods-1.html"><a href="materials-and-methods-1.html#spatial-point-processes-1"><i class="fa fa-check"></i><b>7.2</b> Spatial Point Processes</a></li>
+<li class="chapter" data-level="7.3" data-path="materials-and-methods-1.html"><a href="materials-and-methods-1.html#intensity-thresholding-and-partition-1"><i class="fa fa-check"></i><b>7.3</b> Intensity Thresholding and Partition</a></li>
+<li class="chapter" data-level="7.4" data-path="materials-and-methods-1.html"><a href="materials-and-methods-1.html#inference-1"><i class="fa fa-check"></i><b>7.4</b> Inference</a></li>
+<li class="chapter" data-level="7.5" data-path="materials-and-methods-1.html"><a href="materials-and-methods-1.html#infiltration-probability-1"><i class="fa fa-check"></i><b>7.5</b> Infiltration Probability</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -113,19 +128,69 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="introduction-1" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Introduction</h1>
+<p>While the staining and examination of tissue samples has been a
+ubiquitous medical practice for decades at this point in time, it
+has only been relatively recently that high definition images of
+such stainings have begun to be explored through the lens of
+machine learning and statistical modeling. A considerable amount
+of work has thus far been put into building and training models
+capable of remarkably accurate classifications of overall tissue
+samples as well as subsections of tissue samples [Saltz et al 2018;
+TODO: other examples]. While valuable in their own right such
+modeling has also created additional opportunities for the
+application of more traditional statistical modeling techniques.
+Notably, the ability to quickly and accurately process high definition
+images of biopsies into cell level classification and location data
+has allowed for the development and application of more traditional
+spatial statistical modeling methods.</p>
+<p>There is ample prior reason to suspect that such applications may
+be valuable, particularly in the domain of cancer pathology. The
+longstanding conventional wisdom amongst pathologists is that
+tissue features such as lymphocyte infiltration as well as general
+tissue heterogeneity are meaningful prognostic indicators [TODO:
+Citations]. So far, this conventional wisdom has found support in
+the current quantitative histopathological imaging analysis literature.
+Li et al. (2018) found that the spatial associations between stromal
+cells and other types of cells were significantly associated with
+survival in non-small cell lung cancer using both a Hidden Potts
+Mixture Model as well as a mark interaction model [Note: these are
+two different papers, both by Li in 2018- not sure the correct way
+to acknowledge]. Saltz et al. (2018) specifically examined the
+presence of lymphocytes across biopsies in several types of cancer, and
+found that certain summarization metrics of lymphocyte clusters were
+significantly associated with survival in certain types of cancer.</p>
+<p>In this paper, we introduce the SPARTYN (SPatial Analysis of
+paRtitioned Tumor-lYmphocyte imagiNg) pipeline. SPARTYN is unique
+in the spatial pathological imaging analysis literature in that it
+uses statistical models to assess the association between tumor
+cells and lymphocytes across an entire partitioned biopsy. This
+allows for rigorous quantification of uncertainty in the style of Li
+et al. (2018) while still allowing for the assessment of full images
+in the style of Saltz et al. (2018). We accomplish this by
+partitioning the cell-level imaging data of each biopsy into non-
+overlapping sub-regions, which can then be modeled to capture the
+local infiltration patterns using standard techniques from
+point process theory.</p>
+<p>Spatial point processes have long been used in the domain of
+ecology to rigorously investigate spatial relationships between
+various organisms (H{"o}gmander and S{"a}rkk{"a}, 1999; King et
+al. 2012). More recently, methods from this paradigm have been
+successfully applied within the domain of Biostatistics (Kang
+et al. 2011; Kang et al. 2015). Given the relatively simple and
+granular nature of cell-level spatial imaging data, marked point processes are a natural way to simultaneously model the randomness
+in both the quantities and locations of the different cell types
+along with their relative spatial associations.</p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="materials-and-methods-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -156,7 +221,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/%s",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/misc1.Rmd",
 "text": "Edit"
 },
 "history": {

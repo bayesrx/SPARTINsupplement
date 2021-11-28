@@ -24,7 +24,7 @@
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-27" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -116,58 +116,53 @@
 <div id="introduction" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
 <p>While the staining and examination of tissue samples has been a
-ubiquitous medical practice for decades at this point in time, it
-has only been relatively recently that high definition images of
-such stainings have begun to be explored through the lens of
-machine learning and statistical modeling. A considerable amount
-of work has thus far been put into building and training models
-capable of remarkably accurate classifications of overall tissue
-samples as well as subsections of tissue samples [Saltz et al 2018;
-TODO: other examples]. While valuable in their own right such
-advances have also created additional opportunities for the
-application of more traditional statistical techniques.
-Notably, the ability to quickly and accurately process high definition
-images of biopsies into cell level classification and location data
-has allowed for the development and application of more traditional
-spatial statistical modeling methods.</p>
-<p>There is ample prior reason to suspect that such applications may
-be valuable, particularly in the domain of cancer pathology. The
-longstanding conventional wisdom among pathologists is that
-tissue features such as lymphocyte infiltration as well as general
-tissue heterogeneity are meaningful prognostic indicators [TODO:
-Citations]. So far, this conventional wisdom has found support in
-the current quantitative histopathological imaging analysis literature.
-Li et al. (2018) found that the spatial associations between stromal
-cells and other types of cells were significantly associated with
-survival in non-small cell lung cancer using both a Hidden Potts
-Mixture Model as well as a mark interaction model [Note: these are
-two different papers, both by Li in 2018- not sure the correct way
-to acknowledge]. Saltz et al. (2018) specifically examined the
+ubiquitous medical practice for decades at this point in time, it has
+only been relatively recently that high definition images of such
+samples have begun to be explored through a quantitative lens. A
+considerable amount of work has thus far been put into building and
+training models capable of highly accurate classifications of overall
+tissue samples as well as subsections of tissue samples [Saltz et al
+2018; TODO: other examples]. While valuable in their own right such
+advances have also created opportunities for the application of more
+traditional statistical techniques. Notably, the ability to quickly and
+accurately process high definition images of biopsies into cell level
+classification and location data has allowed for the development and
+application of more traditional spatial statistical modeling methods.</p>
+<p>There is ample prior reason to suspect that such applications may be
+valuable, particularly in the domain of cancer. The longstanding
+conventional wisdom among pathologists is that biopsy features such as
+lymphocyte infiltration and general tissue heterogeneity are meaningful
+prognostic indicators [TODO: Citations]. So far, this conventional
+wisdom has found support in the current quantitative histopathological
+imaging literature. Li et al. (2018) found that the spatial associations
+between stromal cells and other types of cells were significantly
+associated with survival in non-small cell lung cancer using both a
+Hidden Potts Mixture Model as well as a mark interaction model [Note:
+these are two different papers, both by Li in 2018- not sure the correct
+way to acknowledge]. Saltz et al. (2018) specifically examined the
 presence of lymphocytes across biopsies in several types of cancer, and
 found that certain summarization metrics of lymphocyte clusters were
 significantly associated with survival in certain types of cancer.</p>
-<p>In this paper, we introduce the SPARTYN (SPatial Analysis of
-paRtitioned Tumor-lYmphocyte imagiNg) pipeline. SPARTYN is unique
-in the spatial pathological imaging analysis literature in that it
-uses statistical models to assess the association between tumor
-cells and lymphocytes across an entire partitioned biopsy. This
-allows for rigorous quantification of uncertainty in the style of Li
-et al. (2018) while still allowing for the assessment of full images
-in the style of Saltz et al. (2018). We accomplish this by
-partitioning the cell-level imaging data of each biopsy into non-
-overlapping sub-regions, which can then be modeled to capture the
-local infiltration patterns using standard techniques from
-point process theory.</p>
-<p>Spatial point processes have long been used in the domain of
-ecology to rigorously investigate spatial relationships between
-various organisms (H{"o}gmander and S{"a}rkk{"a}, 1999; King et
-al. 2012). More recently, methods from this paradigm have been
-successfully applied within the domain of Biostatistics (Kang
-et al. 2011; Kang et al. 2015). Given the relatively simple and
-granular nature of cell-level spatial imaging data, marked point
-processes are a natural way to simultaneously model the randomness
-in both the quantities and locations of the different cell types
-along with their relative spatial associations.</p>
+<p>In this paper, we introduce the SPARTYN (SPatial Analysis of paRtitioned
+Tumor-lYmphocyte imagiNg) pipeline. SPARTYN is unique in the spatial
+pathological imaging analysis literature in that it uses statistical
+models to assess the association between tumor cells and lymphocytes
+across an entire partitioned biopsy. This allows for rigorous
+quantification of uncertainty in the style of Li et al. (2018) while
+still allowing for the assessment of full images in the style of Saltz
+et al. (2018). We accomplish this by partitioning the cell-level imaging
+data of each biopsy into non- overlapping sub-regions, which can then be
+modeled to capture the local infiltration patterns using standard
+techniques from point process theory.</p>
+<p>Spatial point processes have long been used in the domain of ecology to
+rigorously investigate spatial relationships between various organisms
+(H{“o}gmander and S{”a}rkk{“a}, 1999; King et al. 2012). More recently,
+methods from this paradigm have been successfully applied within the
+domain of Biostatistics (Kang et al. 2011; Kang et al. 2015). Given the
+relatively simple and granular nature of cell-level spatial imaging
+data, marked point processes are a natural way to simultaneously model
+the randomness in both the quantities and locations of the different
+cell types along with their relative spatial associations.</p>
 </div>
             </section>
 

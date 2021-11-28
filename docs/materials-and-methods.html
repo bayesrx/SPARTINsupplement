@@ -24,7 +24,7 @@
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-27" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,56 +117,63 @@
 <h1><span class="header-section-number">Chapter 3</span> Materials and Methods</h1>
 <div id="overview" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Overview</h2>
-<p>Raw data was obtained for this project using the image
-processing tools of Rao and Krishnan. A random forest model was
-trained on high definition images of cancer biopsies in order
-to automatically classify cells of different types. Images of
-Skin Cutaneous Melanoma (SKCM) biopsies from The Cancer Genome Atlas
-program were processed using this model such that
-each cell was classified as a tumor cell, a lymphocyte, or
-other. In addition, the x- and y-coordinates of each cell
-centroid (relative to the pathology slide) were determined and
-recorded. The resulting data set for each biopsy consisted of a
-row for each cell, with a column for the x-coordinate, a column
-for the y-coordinate, and an indicator of the cell type. Each
-biopsy was intensity thresholded to define a “fitted” window, i.e.
-the smallest window that fit all cells in the biopsy within it.
-This window was then divided into tiles that fully partition it,
-while containing similar numbers of tumor cells. A bayesian spatial
-point process model was then fit on each of these tiles separately,
-yielding a posterior distribution of the local interaction parameter.
-For each tile, this local distribution was then compared to a
-tile-specific null distribution, before being combined to summarize
-the overall level of interaction at the biopsy level.</p>
+<p>Raw data was obtained for this project using the image processing tools
+of Rao and Krishnan. Data for model training was gathered by collecting
+high definition images of cells from tumor biopsies that were classified
+by a pathologist as either a tumor cell, a lymphocyte, or a different
+type of cell. Using this classification as well as morphological
+features of each cell measured using the [CELL IMAGE ANNOTATION]
+software, a random forest model was trained on the collected data to
+algorithmically classifying cells into different types. Images of Skin
+Cutaneous Melanoma (SKCM) biopsies from The Cancer Genome Atlas program
+were processed using this model such that each cell was classified as a
+tumor cell, a lymphocyte, or other. In addition, the x- and
+y-coordinates of each cell centroid (relative to the pathology slide)
+were determined and recorded. The resulting data set for each biopsy
+consisted of a row for each cell, with a column for the x-coordinate, a
+column for the y-coordinate, and an indicator of the cell type. Each
+biopsy was intensity thresholded to define a “fitted” window, i.e. the
+smallest window that fit all cells in the biopsy within it. This window
+was then divided into tiles that fully partition it, while containing
+similar numbers of tumor cells. A bayesian spatial point process model
+was then fit on each of these tiles separately, yielding a posterior
+distribution of the local interaction parameter. For each tile, this
+local distribution was then compared to a tile-specific null
+distribution before being combined to summarize the overall level of
+interaction at the biopsy level.</p>
 <p>SKCM is an appealing target for the investigation of lymphocyte
-infiltration for several reasons. SKCM has been shown to be
-particularly responsive to Immunotherapy in some cases [CITATION].
-It is possible that the ability to quantify lymphocyte
-infiltration at a large scale may allow for more detailed
-investigation into the scenarios in which this treatment may be
-most effectively deployed. What’s more, SKCM has an unusually
-high mutational load amongst the various cancer types [CITATION].
-The ability to quantify infiltration may allow for further
-investigation into not only genomic associations of this
-occurrence but associations with mutations as well. [TODO:
-is infiltration particularly common in SKCM? I feel like it is,
-but I need to verify this.]</p>
+infiltration for several reasons. While all types of cancer can manifest
+some degree of lymphocyte infiltration, SKCM is a particularly
+immunogenic [?] form of cancer [CITATION]. Combined with burgeoning
+spatial transcriptomic technology, developing the tools to
+algorithmically quantify the presence and degree of lymphocyte
+infiltration across a biopsy may yield a better understanding of the
+genomic underpinnings of lymphocyte infiltration. Moreover, SKCM has
+been shown to be particularly responsive to Immunotherapy in some cases
+[CITATION]. It is possible that the ability to quantify lymphocyte
+infiltration at a large scale may allow for more detailed investigation
+into the scenarios in which this treatment may be most effectively
+deployed. Finally, SKCM has an unusually high mutational load amongst
+the various cancer types [CITATION]. The ability to quantify
+infiltration may allow for exploration associations with mutations as
+well. [TODO: is infiltration particularly common in SKCM? I feel like
+it is, but I need to verify this.]</p>
 </div>
 <div id="spatial-point-processes" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Spatial Point Processes</h2>
-<p>Denote the number of biopsies <span class="math inline">\(n\)</span>, and for biopsy <span class="math inline">\(i\)</span>, let <span class="math inline">\(c_i\)</span>
-denote the number of cells observed and labeled within that
-biopsy, with corresponding x- and y- coordinates
-<span class="math inline">\(\mathbf{x}_i = x_{i1},...,x_{ic_i}\)</span>, <span class="math inline">\(\mathbf{y}_i = y_{i1},...,y_{ic_i}\)</span>,
-and marks
+<p>Denote the number of biopsies <span class="math inline">\(n\)</span>, and for biopsy <span class="math inline">\(i\)</span>, let <span class="math inline">\(c_i\)</span> denote
+the number of cells observed and labeled within that biopsy, with
+corresponding x- and y- coordinates
+<span class="math inline">\(\mathbf{x}_i = x_{i1},...,x_{ic_i}\)</span>,
+<span class="math inline">\(\mathbf{y}_i = y_{i1},...,y_{ic_i}\)</span>, and marks
 <span class="math inline">\(\mathbf{m}_i = m_{i1},...,m_{ic_i}\)</span>. For our application,
-<span class="math inline">\(m_{ij} \in \{1, 2\}\)</span>,with <span class="math inline">\(1\)</span> indicating a tumor cell and <span class="math inline">\(2\)</span> indicating a
-lymphocyte. Further, denote the number of tumor cells observed in
-subject <span class="math inline">\(i\)</span> by <span class="math inline">\(T_i\)</span>, and the number of lymphocytes <span class="math inline">\(L_i\)</span>.
-Within each patient, this data can be naturally thought
-of as a marked point process and modeled as such.</p>
-<p>We ultimately decided to use a Hierachical
-Multitype Strauss Model for our data, the density of which is</p>
+<span class="math inline">\(m_{ij} \in \{1, 2\}\)</span>,with <span class="math inline">\(1\)</span> indicating a tumor cell and <span class="math inline">\(2\)</span>
+indicating a lymphocyte. Further, denote the number of tumor cells
+observed in subject <span class="math inline">\(i\)</span> by <span class="math inline">\(T_i\)</span>, and the number of lymphocytes <span class="math inline">\(L_i\)</span>.
+Within each patient, this data can be naturally thought of as a marked
+point process and modeled as such.</p>
+<p>We decided to use a Hierachical Multitype Strauss Model for our data,
+the density of which is</p>
 <p><span class="math display">\[ f(\mathbf{p}_1, \mathbf{p}_2) \propto 
 \beta_1^{n_1} \beta_2^{n_2}
 \gamma_{11}^{S_{R_{11}}(\mathbf{p}_1)}
@@ -178,108 +185,150 @@ Multitype Strauss Model for our data, the density of which is</p>
 <li><span class="math inline">\(\mathbf{p}_i\)</span> is a vector of points of type <span class="math inline">\(i\)</span></li>
 <li><span class="math inline">\(n_i\)</span> is the number of points of type <span class="math inline">\(i\)</span></li>
 <li><span class="math inline">\(\beta_i\)</span> is the first order intensity of points of type <span class="math inline">\(i\)</span></li>
-<li><span class="math inline">\(S_{R_{ij}}(\cdot)\)</span> counts the number of pairs of points of types <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> within <span class="math inline">\(R_{ij}\)</span> one another, where <span class="math inline">\(R_{ij}\)</span> is selected a priori based on subject specific knowledge.</li>
-<li><span class="math inline">\(\gamma_{ij}\)</span> captures the tendency of points of type <span class="math inline">\(i\)</span> to be near points of type <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(S_{R_{ij}}(\cdot)\)</span> counts the number of pairs of points of types
+<span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> within <span class="math inline">\(R_{ij}\)</span> one another, where <span class="math inline">\(R_{ij}\)</span> is selected
+a priori based on subject specific knowledge, and not fit from the
+data itself.</li>
+<li><span class="math inline">\(\gamma_{ij}\)</span> captures the tendency of points of type <span class="math inline">\(i\)</span> to be near
+points of type <span class="math inline">\(j\)</span></li>
 </ul>
-<p>We decided to use this model over the standard Multitype Strauss
-model for two reasons.
-Firstly, treating the locations of the lymphocytes as conditional
-upon the locations of the tumor cells is a priori biologically
-plausible. Secondly, the hierarchical variant of the Strauss
-model allows for the proper modeling of positive interaction
-between points of different types, while the standard
-multitype model does not. Note that because intra-type
-interaction is still confined to be negative under the
-Hierarchical Multitype Strauss Process, we constrained the
-intra-type interaction parameters <span class="math inline">\(\gamma_{11}\)</span> and <span class="math inline">\(\gamma_{22}\)</span>
-to be 1. Finally, based on prior biological knowledge, we set
-<span class="math inline">\(R_{12} = 30\)</span> <span class="math inline">\(\mu m\)</span>. In our context, <span class="math inline">\(\gamma_{12}\)</span> can be
-thought of as the degree to which lymphocytes to be close to or
-far away from tumor cells, conditional upon the locations
-of the tumor cells. This allows us to distinguish between the<br />
-mere relative abundance of different cell types (which is<br />
-captured by the <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> parameters) and the
-actual spatial associations between the different cell types.</p>
+<p>The usage of a Strauss model to study spatial interaction between
+different cell types is fairly natural, since Strauss models were
+originally conceived for essentially this general purpose [Strauss,
+1975 CHECK THIS]. As for the specific decision to use the hierarchical
+variant over the more standard multitype model, there were two major
+considerations that influenced our decision. Firstly, treating the
+locations of the lymphocytes as conditional upon the locations of the
+tumor cells is a priori biologically plausible. What’s more, it is quite
+plausible that while lymphocytes are responsive to the positioning of
+tumor cells, tumor cells may not be similarly responsive to the
+positioning of lymphocytes. The hierarchical Strauss models reflects the
+plausibly unidirectional nature of this spatial relationship in its
+modeling assumptions. Secondly, the hierarchical variant of the Strauss
+model allows for the proper modeling of positive interaction between
+points of different types, while the standard multitype model does not.
+Note that because intra- type interaction is still confined to be
+negative under the<br />
+Hierarchical Multitype Strauss Process, we constrained the<br />
+intra-type interaction parameters <span class="math inline">\(\gamma_{11}\)</span> and <span class="math inline">\(\gamma_{22}\)</span> to be
+1. Based on prior biological knowledge, we set <span class="math inline">\(R_{12} = 30\)</span> <span class="math inline">\(\mu m\)</span>.</p>
+<p>In our context, <span class="math inline">\(\gamma_{12}\)</span> can be thought of as the degree to which
+lymphocytes to be close to or far away from tumor cells, conditional
+upon the locations of the tumor cells. This allows us to distinguish
+between the mere relative abundance of different cell types (which is
+captured by the <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> parameters) and the actual
+spatial associations between the different cell types. This distinction
+is important, since it is possible for there to be a substantial number
+of cells of both types, but for the arrangement to be such that there is
+not meaningful interaction between them. For examples, see section 4.1
+for results from the simulation study. Finally, it is worth noting that
+in practice for various reasons these parameters are modeled on the
+log-scale. While this certainly alters interpretation, because the
+<span class="math inline">\(log(\cdot)\)</span> function is a monotonically increasing function, the basic
+intuition still holds in that larger values on the log-scale are still
+indicative of stronger spatial interaction. An additional advantage of
+modeling on the log scale is the relative ease of interpretability:
+whereas on the normal scale values of <span class="math inline">\(\gamma_{12}\)</span> between 0 and 1 are
+indicative of negative interaction and values between 1 and <span class="math inline">\(\infty\)</span> are
+indicative of positive interaction, on the log scale values less than 0
+are indicative of negative interactions and values greater than 0 are
+indicative of positive interaction.</p>
 </div>
 <div id="intensity-thresholding-and-partition" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Intensity Thresholding and Partition</h2>
-<p>Each biopsy was partitioned into non-overlapping sub-regions,
-each of which was modeled as a point process. The primary
-motivation for structuring the analysis this came from prior
-biological knowledge about tumor composition. Tumors are
-heterogeneous entities in many respects, and lymphocyte infiltration
-is no exception. Thus, partitioning the biopsy into non-
-overlapping sub-regions and fitting models on each sub-region is
-a natural way to capture this heterogeneity. This strategy has additional benefits in that it allows for the parallelization of
-model fitting across the resulting sub-regions within a single
-biopsy.</p>
-<p>In order to partition a given biopsy into non-overlapping
-sub-regions, we beganwith the smallest bounding rectangular
-window that contained cells <span class="math inline">\(1...c_i\)</span>, we applied an intensity thresholding algorithm [too much?] in order to find the smallest
-possible window that still contained all <span class="math inline">\(c_i\)</span> cells. Next, we
-applied a voronoi tesselation to the <span class="math inline">\(T_i\)</span> tumor cells within the intensity thresholded window, partitioning it into tumor cell<br />
-specific sub-windows <span class="math inline">\(1...T_i\)</span> corresponding to tumor cells<br />
-<span class="math inline">\(1...T_i\)</span>. We then applied a modified version of k-means to<br />
-tumor cells <span class="math inline">\(1...T_i\)</span>,such that each of the <span class="math inline">\(K_i\)</span> resulting<br />
-clusters was constrained to be between a pre-defined range of<br />
-cell counts. Finally, each tumor cell specific sub-window within
-a given cluster was combined into a tile, corresponding to each
-of the <span class="math inline">\(K_i\)</span> clusters from the k-means clustering. This results
-in <span class="math inline">\(K_i\)</span> tiles that fully partition the intensity thresholded
-window. This partition uniquely defines the membership of each of
-the <span class="math inline">\(c_i\)</span> total cells into one of the resulting <span class="math inline">\(K_i\)</span> total tiles.</p>
-<p>It is worth emphasizing that there is nothing particularly unique
-about this method of partitioning the biopsy. Any other method could
-be used in its place, so long as the result is a partition of the
-biopsy into some number of non-overlapping sub-regions on which the
-subsequent model fitting can proceed.</p>
+<p>Each biopsy was partitioned into non-overlapping sub-regions, each of
+which was modeled as a point process. The primary motivation for
+structuring the analysis in this manner came from prior biological
+knowledge about tumor composition. Tumors are heterogeneous entities in
+many respects, and lymphocyte infiltration is no exception. Thus,
+partitioning the biopsy into non-overlapping sub-regions and fitting
+models on each sub-region is a natural way to capture this
+heterogeneity. An additional benefit of this method is that it allows
+for the parallelization of model fitting across the resulting
+sub-regions within a single biopsy.</p>
+<p>In order to partition a given biopsy into non-overlapping sub-regions,
+we began with the smallest bounding rectangular window that contained
+cells <span class="math inline">\(1...c_i\)</span>. We then applied an intensity thresholding algorithm
+[too much?] in order to find the smallest possible window that still
+contained all <span class="math inline">\(c_i\)</span> cells. Next, we applied a voronoi tesselation to the
+<span class="math inline">\(T_i\)</span> tumor cells within the intensity thresholded window, partitioning
+it into tumor cell specific sub-windows <span class="math inline">\(1...T_i\)</span> corresponding to tumor
+cells <span class="math inline">\(1...T_i\)</span>. We then applied a modified version of k-means to the
+tumor cells, such that each of the <span class="math inline">\(K_i\)</span> resulting clusters was
+constrained to be between a pre-defined range of cell counts. Finally,
+each tumor cell specific sub-window within<br />
+a given cluster was combined into a tile, corresponding to each of the
+<span class="math inline">\(K_i\)</span> clusters from the k-means clustering. This results in <span class="math inline">\(K_i\)</span> tiles
+that fully partition the intensity thresholded window. This partition
+uniquely defines the membership of each of the <span class="math inline">\(c_i\)</span> total cells (tumor
+or lymphocyte) into one of the resulting tiles. This allowed for the
+previously described separate model fitting.</p>
+<p>It is worth emphasizing that there is nothing particularly unique about
+this method of partitioning the biopsy. Any other method could be used
+in its place, so long as the result is a partition of the biopsy into
+some number of non-overlapping sub-regions on which the subsequent model
+fitting can proceed. In particular, after the application of the Voronoi
+tesselation at the level of individual tumor cells, any other clustering
+algorithm can be easily applied in place of K-means.</p>
 </div>
 <div id="inference" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Inference</h2>
-<p>In order to compute posterior distributions of parameters of
-interest, we used Bayesian techniques in the style of King et al.
-2012. This methodology essentially exchanges the likelihood
-function used in standard Bayesian inference for the
-pseudolikelihood function (Besag, 1975 [VERIFY]), with the
-integral approximated via the Berman-Turner device (Baddeley
-and Turner, 2000) using the spatstat package (Baddeley and Turner,
-2005). Finally, each parameter estimated (<span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>,
-<span class="math inline">\(\gamma_{12}\)</span>) was assigned a flat prior. [TODO: Technically,
-normal with mean 0 and variance <span class="math inline">\(1,000,000\)</span> because of limitations
-of JAGS- should I spell this out?] Posterior distributions were
-computed using MCMC via the R2jags package (Su, 2015). Using
-these techniques we were able to compute a
-posterior distribution <span class="math inline">\(f_{ik | \mathbf{p}}(y)\)</span> of <span class="math inline">\(\gamma_{ik,12}\)</span> for
-each for each biopsy <span class="math inline">\(i \in \{1...n\}\)</span> and tile
-<span class="math inline">\(k \in \{1...K_i\}\)</span>.</p>
+<p>In order to compute posterior distributions of parameters of interest,
+we used Bayesian techniques in the style of King et al. 2012. This
+methodology essentially exchanges the likelihood function used in
+standard Bayesian inference for the pseudolikelihood function (Besag,
+1975 [VERIFY]), with the integral approximated via the Berman-Turner
+device (Baddeley and Turner, 2000) using the spatstat package (Baddeley
+and Turner, 2005). Finally, each parameter estimated (<span class="math inline">\(\beta_1\)</span>,
+<span class="math inline">\(\beta_2\)</span>, <span class="math inline">\(\gamma_{12}\)</span>) was assigned a flat prior. [TODO:
+Technically, normal with mean 0 and variance 1,000,000 because of
+limitations of JAGS- should I spell this out?] Posterior distributions
+were computed using MCMC via the R2jags package (Su, 2015). Using these
+techniques we were able to compute a posterior distribution
+<span class="math inline">\(f_{ik | \mathbf{p}}(y)\)</span> of <span class="math inline">\(\gamma_{ik,12}\)</span> for each for each biopsy
+<span class="math inline">\(i \in \{1...n\}\)</span> and tile <span class="math inline">\(k \in \{1...K_i\}\)</span>.</p>
+<p>Because the density of the hierarchical multitype Strauss model is not
+pre-implemented in JAGS, models were fit using the so-called “Poisson
+Zero trick” as detailed in Kruschke, 2014. Results were checked against
+the corresponding STAN implementation to ensure accuracy.</p>
 </div>
 <div id="infiltration-probability" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Infiltration Probability</h2>
 <p>In order to compute a localized probability of infiltration, each
-posterior distribution <span class="math inline">\(f_{ik | \mathbf{p}}(y)\)</span> was compared to a
-tile specific null distribution, <span class="math inline">\(f_{ik, 0}(y)\)</span>.
-Because under null interaction (<span class="math inline">\(\gamma_{ik, 12} = 1)\)</span>) our
-model reduces to two independent Poisson processes with
-intensities <span class="math inline">\(\beta_1, \beta_2\)</span>, this was accomplished by
-treating the observed tumor cells as fixed, simulating <span class="math inline">\(s\)</span>
-realizations of lymphocytes under a Poisson process with the
-observed intensity, performing the previously described model
-fitting procedure on each, and aggregating samples across
-simulation <span class="math inline">\(1...s\)</span>. Under the assumption that the posterior
-distribution <span class="math inline">\(f_{ik | \mathbf{p}}(x)\)</span> is independent from the null
-distribution <span class="math inline">\(f_{ik, 0}(y)\)</span>, we then computed the tile specific
-Infiltration Probability <span class="math inline">\(r_{ik}\)</span>, given by</p>
+posterior distribution <span class="math inline">\(f_{ik | \mathbf{p}}(y)\)</span> was compared to a tile
+specific null distribution, <span class="math inline">\(f_{ik, 0}(y)\)</span>. Because under null
+interaction (<span class="math inline">\(\gamma_{ik, 12} = 1)\)</span>) our model reduces to two
+independent Poisson processes with intensities <span class="math inline">\(\beta_1, \beta_2\)</span>, this
+was accomplished by treating the observed tumor cells as fixed,
+simulating <span class="math inline">\(s\)</span> realizations of lymphocytes under a Poisson process with
+the observed intensity, performing the previously described model
+fitting procedure on each, and aggregating samples across simulation
+<span class="math inline">\(1,...,s\)</span>. Under the assumption that the posterior distribution
+<span class="math inline">\(f_{ik | \mathbf{p}}(x)\)</span> is independent from the null distribution
+<span class="math inline">\(f_{ik, 0}(y)\)</span>, we then computed the tile specific Infiltration
+Probability <span class="math inline">\(r_{ik}\)</span>, given by</p>
 <p><span class="math display">\[\text{Infiltration Probability} \quad r_{ik} = \int \int  I(x &gt; y) f_{ik | \mathbf{p}}(x) f_{ik, 0}(y)  dxdy \qquad (2)\]</span></p>
-<p>Note that <span class="math inline">\(r_{ik} \in [0, 1]\)</span>. Because <span class="math inline">\(r_{ik}\)</span> is computed as
-the integral over an indicator variable, this naturally yields
-an interpretation as a probability. Specifically, <span class="math inline">\(r_{ik}\)</span> can
-be thought of as measuring the posterior probability that the
-observed value of <span class="math inline">\(\gamma_{12}\)</span> (denoted by <span class="math inline">\(x\)</span> in the
-integral) is larger than the value of <span class="math inline">\(\gamma_{12}\)</span> we would
-expect to observe by chance (denoted by <span class="math inline">\(y\)</span> in the integral).
-We thus refer to <span class="math inline">\(r_{ik}\)</span> as the Infiltration Probability
-for that particular tile, which can be aggregated across tiles
-to yield a measure of infiltration on a particular biopsy.</p>
+<p>Note that <span class="math inline">\(r_{ik} \in [0, 1]\)</span>. Because <span class="math inline">\(r_{ik}\)</span> is computed as the
+integral over an indicator random variable, this naturally yields an
+interpretation as a probability. Specifically, <span class="math inline">\(r_{ik}\)</span> can be thought
+of as measuring the posterior probability that the observed value of
+<span class="math inline">\(\gamma_{12}\)</span> (denoted by <span class="math inline">\(x\)</span> in the integral) is larger than the value
+of <span class="math inline">\(\gamma_{12}\)</span> we would expect to observe by chance (denoted by <span class="math inline">\(y\)</span> in
+the integral). We thus refer to <span class="math inline">\(r_{ik}\)</span> as the Infiltration Probability
+for that particular tile, which can be aggregated across tiles to yield
+a measure of infiltration on a particular biopsy.</p>
+<p>One might reasonably wonder why we do not simply consider the true
+observed posterior distribution of <span class="math inline">\(\gamma_{ik,12}\)</span> for each tile.
+Simply put, the advantage to considering the null distribution in this
+situation is analogous to the advantage of considering it in any other
+situation where the fundamental goal involves the quantification of
+uncertainty. We are not simply interested in the sheer size of the
+<span class="math inline">\(\gamma_{ik, 12}\)</span>, but rather interested in whether or not it is larger
+than what one would expect <em>by chance alone.</em> While it would perhaps be
+informative to consider the sheer magnitude of the parameter of interest
+alone, examining it with respect to the null distribution is more
+stringent, and allows for clearer delineation of “true” interaction
+versus chance spatial associations.</p>
 </div>
 </div>
             </section>

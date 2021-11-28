@@ -24,7 +24,7 @@
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-27" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -118,80 +118,78 @@
 <div id="simulation" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Simulation</h2>
 <p>To compare our model’s detection of spatial association between
-different cell types, we ran a small-scale simulation study in
-which we tested the ability of this method to accurately classify
-positive interaction across a range of different simulated cell
-compositions and spatial associations. For each of four sets of
-simulations, the number of simulated tumor cells and lymphocytes
-were set a priori at <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span> respectively. Further,
-interaction was controlled by a parameter <span class="math inline">\(\phi \in [-1, 1]\)</span>, with
-<span class="math inline">\(-1\)</span> indicating the most negative possible interaction and <span class="math inline">\(1\)</span>
-indicating the most positive possible interaction.</p>
-<p>For a given combination of <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span>, the positive and
-negative simulations proceeded differently. For the negative
-simulations (<span class="math inline">\(\phi \in [-1, 0]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells and <span class="math inline">\(L_s\)</span>
-lymphocytes were simulated as independent poisson processes in
-regions of the window that overlapped to varying degrees. The
-overlap was controlled by <span class="math inline">\(\phi\)</span>, such that the processes overlapped
-on <span class="math inline">\((100 \cdot (1 + \phi)) \%\)</span> of the window in which the
-simulation occurred. Note that when <span class="math inline">\(\phi = -1\)</span> there was no overlap,
-and when <span class="math inline">\(\phi = 0\)</span> (complete overlap) the simulation reduced to
-simulating two independent Poisson Processes within the same window.</p>
-<p>For the positive simulations (<span class="math inline">\(\phi \in (0, 1]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells
-were simulated under a Poisson process. After their locations were
-determined, <span class="math inline">\(L_s\)</span> lymphocytes were simulated. For each lymphocyte
-<span class="math inline">\(l_i\)</span>, a Bernoulli random variable <span class="math inline">\(C_i \thicksim Bern(\phi)\)</span> was
-drawn. If <span class="math inline">\(C_i = 1\)</span>, <span class="math inline">\(l_i\)</span> was simulated within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of a<br />
-randomly selected tumor cell <span class="math inline">\(t_j\)</span>. Otherwise, <span class="math inline">\(l_i\)</span> was simulated
-from a Poisson process. Thus, the level of interaction was again
-controlled by <span class="math inline">\(p\)</span>, with <span class="math inline">\(p = 0\)</span> now corresponding to two independent
-Poisson Processes and <span class="math inline">\(p = 1\)</span> corresponding to a situation in which
-all lymphocytes are within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of at least one tumor cell.</p>
-<p>Across the different simulation settings, accurate classification
-was possible using IP, with the minimum AUC across simulations
-being <span class="math inline">\(0.84\)</span>. For detailed descriptions of simulation settings,
-simulated data, and results, see Figure [N].</p>
+different cell types, we ran a small-scale simulation study in which we
+tested the ability of this method to accurately classify positive
+interaction across a range of different simulated cell compositions and
+spatial associations. For each of four sets of simulations, the number
+of simulated tumor cells and lymphocytes were set a priori at <span class="math inline">\(T_s\)</span> and
+<span class="math inline">\(L_s\)</span> respectively. Further, interaction was controlled by a parameter
+<span class="math inline">\(\phi \in [-1, 1]\)</span>, with <span class="math inline">\(-1\)</span> indicating the most negative possible
+interaction and <span class="math inline">\(1\)</span> indicating the most positive possible interaction.</p>
+<p>For a given combination of <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span>, the positive and negative
+simulations proceeded differently. For the negative simulations (
+), <span class="math inline">\(T_s\)</span> tumor cells and <span class="math inline">\(L_s\)</span> lymphocytes were simulated
+as independent poisson processes in regions of the window that
+overlapped to varying degrees. The overlap was controlled by <span class="math inline">\(\phi\)</span>,
+such that the processes overlapped on <span class="math inline">\((100 \cdot (1 + \phi)) \%\)</span> of the
+window in which the simulation occurred. Note that when <span class="math inline">\(\phi = -1\)</span>
+there was no overlap, and when <span class="math inline">\(\phi = 0\)</span> (complete overlap) the
+simulation reduced to simulating two independent Poisson Processes
+within the same window.</p>
+<p>For the positive simulations (<span class="math inline">\(\phi \in (0, 1]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells were
+simulated under a Poisson process. After their locations were
+determined, <span class="math inline">\(L_s\)</span> lymphocytes were simulated. For each lymphocyte <span class="math inline">\(l_i\)</span>,
+a Bernoulli random variable <span class="math inline">\(C_i \thicksim Bern(\phi)\)</span> was drawn. If
+<span class="math inline">\(C_i = 1\)</span>, <span class="math inline">\(l_i\)</span> was simulated within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of a<br />
+randomly selected tumor cell <span class="math inline">\(t_j\)</span>. Otherwise, <span class="math inline">\(l_i\)</span> was simulated from
+a Poisson process. Thus, the level of interaction was again controlled
+by <span class="math inline">\(p\)</span>, with <span class="math inline">\(p = 0\)</span> now corresponding to two independent Poisson
+Processes and <span class="math inline">\(p = 1\)</span> corresponding to a situation in which all
+lymphocytes are within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of at least one tumor cell.</p>
+<p>Across the different simulation settings, accurate classification was
+possible using IP, with the minimum AUC across simulations being <span class="math inline">\(0.84\)</span>.
+For detailed descriptions of simulation settings, simulated data, and
+results, see Figure [N].</p>
 </div>
 <div id="application" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Application</h2>
-<p>We applied our method to a data set consisting of 335 images of
-skin cutaneous melanoma taken from The Cancer Genome Atlas. Images
-were processed as described in section 2.1. Our methods were applied
-to the resulting data sets. [GIVE SUMMARY STATISTICS ABOUT TILES?]</p>
+<p>We applied our method to a data set consisting of 335 images of skin
+cutaneous melanoma taken from The Cancer Genome Atlas. Images were
+processed as described in section 2.1. Our methods were applied to the
+resulting data sets. [GIVE SUMMARY STATISTICS ABOUT TILES?]</p>
 <div id="survival-analysis" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Survival Analysis</h3>
-<p>In order to assess association between PPPI and survival, we fit
-a Cox Proportional Hazards model. In addition to adjusting for
-average logit-PPPI, we adjusted for patient level factors such as
-cancer stage, age, and sex. In addition, we adjusted for readily
-calculable tumor level features, such as number of tumor cells (as
-a proxy for size) and logit lymphocyte proportion (the number of
-TILs divided by the number of tumor cells and TILs). We found that
-after adjusting for these other factors, an increase in logit-PPPI
-was significantly associated with increased risk of death
-(<span class="math inline">\(p &lt; 0.05\)</span>). The same model was fitted with average logit-PPPI
-exchanged for the average normalized value of the estimated Mark
-Correlation Function evaluated at <span class="math inline">\(r = 30\)</span> (the same as the radius
-of interaction used in our model fitting). See Table 1 for
+<p>In order to assess association between PPPI and survival, we fit a Cox
+Proportional Hazards model. In addition to adjusting for average
+logit-PPPI, we adjusted for patient level factors such as cancer stage,
+age, and sex. In addition, we adjusted for readily calculable tumor
+level features, such as number of tumor cells (as a proxy for size) and
+logit lymphocyte proportion (the number of TILs divided by the number of
+tumor cells and TILs). We found that after adjusting for these other
+factors, an increase in logit-PPPI was significantly associated with
+increased risk of death (<span class="math inline">\(p &lt; 0.05\)</span>). The same model was fitted with
+average logit-PPPI exchanged for the average normalized value of the
+estimated Mark Correlation Function evaluated at <span class="math inline">\(r = 30\)</span> (the same as
+the radius of interaction used in our model fitting). See Table 1 for
 coefficients and standard errors in each model.</p>
 </div>
 <div id="genomic-associations" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Genomic Associations</h3>
 <p>In addition to associations with survival, we investigated the
-association between our measurement and gene expression. Gene
-expression [RNA-seq] data was acquired for all 335 patients in our
-sample using TCGA Assembler [citation here]. Additionally, 42
-significantly mutated genes of interest were identified using
-previous work investigating the genomic differences in SCM [TCGA
-Network, 2015]. Of the 335 patients in our sample, 240 had gene
-expression data for all genes of interest, while 95 were missing
-data for all genes of interest. We examined the marginal association
-between the normalized gene expression data for the 240 patients with
-complete data and average logit PPPI values. After correcting for
-multiple testing using the Benjamini-Hochberg procedure, we found that
-the expression of three genes were significantly associated with
-average logit PPPI: LRRC37A3, B2M, and TP53. See supplementary Table
-[N] for full details on significance of associations with each gene.</p>
+association between our measurement and gene expression. Gene expression
+[RNA-seq] data was acquired for all 335 patients in our sample using
+TCGA Assembler [citation here]. Additionally, 42 significantly mutated
+genes of interest were identified using previous work investigating the
+genomic differences in SCM [TCGA Network, 2015]. Of the 335 patients
+in our sample, 240 had gene expression data for all genes of interest,
+while 95 were missing data for all genes of interest. We examined the
+marginal association between the normalized gene expression data for the
+240 patients with complete data and average logit PPPI values. After
+correcting for multiple testing using the Benjamini-Hochberg procedure,
+we found that the expression of three genes were significantly
+associated with average logit PPPI: LRRC37A3, B2M, and TP53. See
+supplementary Table [N] for full details on significance of
+associations with each gene.</p>
 </div>
 </div>
 </div>

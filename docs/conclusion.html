@@ -24,7 +24,7 @@
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-27" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,38 +117,39 @@
 <h1><span class="header-section-number">Chapter 5</span> Conclusion</h1>
 <p>As algorithms for cell-level image classification improve, the
 opportunities for more and more granular quantitative analysis of
-histopathological imaging data will become both more numerous and
-more fruitful. Moreover, as spatial gene expression data becomes
-more and more common, so too will opportunities for synthesizing
-data on the relative spatial locations of different cell types
-along with local gene expression data through complex modeling.</p>
-<p>The SPARTYN pipeline represents a valuable contribution in and of
-itself to the histopathological imaging analysis literature through
-its ability to model and quantify lymphocyte infiltration across
-entire biopsies in a way that captures meaningful variation across
-patients. However, it also creates numerous opportunities for future
-work. Partitioning each biopsy into non-overlapping sub-regions such
-that each is assigned a value invites the usage of other tools from
-the spatial statistical canon. Specifically, tools from areal data
-analysis may be readily applied without any modifications or further
-theoretical development. Moreover, recall that our usage of Bayesian
-methods allows for not only the computation of scalar summary
-statistics for each sub-region but also posterior distributions.
-Future work may involve adapting more traditional methods to model
-correlated density functions, or developing new methods as necessary.</p>
-<p>It also bears mentioning that while we limited ourselves to investigating
-two cell types throughout this paper, there is nothing in our pipeline
-or model that depends on this limitation in such a way that would render
-future investigation of more cell types impossible. It is highly likely
-that future iterations of our pipeline and methodology will seek to
-investigate the spatial associations between three or more cell types.</p>
+histopathological imaging data will become both more numerous and more
+fruitful. Moreover, as spatial gene expression data becomes more and
+more common, so too will opportunities for synthesizing data on the
+relative spatial locations of different cell types along with local gene
+expression data through complex modeling.</p>
+<p>The SPARTYN pipeline represents a valuable contribution in and of itself
+to the histopathological imaging analysis literature through its ability
+to model and quantify lymphocyte infiltration across entire biopsies in
+a way that captures meaningful variation across patients. However, it
+also creates numerous opportunities for future work. Partitioning each
+biopsy into non-overlapping sub-regions such that each is assigned a
+value invites the usage of other tools from the spatial statistical
+canon. Specifically, tools from areal data analysis may be readily
+applied without any modifications or further theoretical development.
+Moreover, recall that our usage of Bayesian methods allows for not only
+the computation of scalar summary statistics for each sub-region but
+also posterior distributions. Future work may involve adapting more
+traditional methods to model correlated density functions, or developing
+new methods as necessary.</p>
+<p>It also bears mentioning that while we limited ourselves to
+investigating two cell types throughout this paper, there is nothing in
+our pipeline or model that depends on this limitation in such a way that
+would render future investigation of more cell types impossible. It is
+highly likely that future iterations of our pipeline and methodology
+will seek to investigate the spatial associations between three or more
+cell types.</p>
 <p>Finally, our work could very easily take advantage of the burgeoning
 field of spatial transcriptomics. It would be quite trivial
-(particularly in a Bayesian framework) to model a function of one or
-all of the parameters of interest as a linear combination of the
-local gene expression data for genes that are known to be relevant
-to immune response. Alternatively, future methods in this area could
-be developed at the intersection of spatial data and high dimensional<br />
+(particularly in a Bayesian framework) to model a function of one or all
+of the parameters of interest as a linear combination of the local gene
+expression data for genes that are known to be relevant to immune
+response. Alternatively, future methods in this area could be developed
+at the intersection of spatial data and high dimensional<br />
 data in order to identify such genes.</p>
 
 </div>

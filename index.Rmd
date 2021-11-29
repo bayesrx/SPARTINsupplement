@@ -288,15 +288,17 @@ Probability $r_{ik}$, given by
 
 $$\text{Infiltration Probability} \quad r_{ik} = \int \int  I(x > y) f_{ik | \mathbf{p}}(x) f_{ik, 0}(y)  dxdy \qquad (2)$$
 
-Note that $r_{ik} \in [0, 1]$. Because $r_{ik}$ is computed as the
-integral over an indicator random variable, this naturally yields an
-interpretation as a probability. Specifically, $r_{ik}$ can be thought
-of as measuring the posterior probability that the observed value of
-$\gamma_{12}$ (denoted by $x$ in the integral) is larger than the value
-of $\gamma_{12}$ we would expect to observe by chance (denoted by $y$ in
-the integral). We thus refer to $r_{ik}$ as the Infiltration Probability
-for that particular tile, which can be aggregated across tiles to yield
-a measure of infiltration on a particular biopsy.
+Note that $r_{ik} \in [0, 1]$. Because $r_{ik}$ is computed as the 
+expected value of an indicator random variable with respect to the 
+joint distribution of $\gamma_{ik,12}$ and $\gamma_{ik,12,0}$ (i.e. the 
+value of the interaction parameter under the null distribution), this 
+naturally yields an interpretation of $r_{ik}$ as a probability. 
+Specifically, it can be thought of as measuring the posterior probability 
+that the observed value of $\gamma_{ik,12}$ (with posterior distribution $f_{ik|\mathbf{p}}(\cdot)$) is larger than the value of $\gamma_{ik,12,0}$
+(with posterior distribution $f_{ik,0}(\cdot)$). We thus refer to $r_{ik}$ 
+as the Infiltration Probability for that particular tile, which can be
+aggregated across tiles to yield a measure of infiltration on a particular
+biopsy.
 
 One might reasonably wonder why we do not simply consider the true
 observed posterior distribution of $\gamma_{ik,12}$ for each tile.
@@ -326,14 +328,14 @@ $\phi \in [-1, 1]$, with $-1$ indicating the most negative possible
 interaction and $1$ indicating the most positive possible interaction.
 
 For a given combination of $T_s$ and $L_s$, the positive and negative
-simulations proceeded differently. For the negative simulations (\phi
-\in [-1, 0]), $T_s$ tumor cells and $L_s$ lymphocytes were simulated
-as independent poisson processes in regions of the window that
-overlapped to varying degrees. The overlap was controlled by $\phi$,
-such that the processes overlapped on $(100 \cdot (1 + \phi)) \%$ of the
-window in which the simulation occurred. Note that when $\phi = -1$
-there was no overlap, and when $\phi = 0$ (complete overlap) the
-simulation reduced to simulating two independent Poisson Processes
+simulations proceeded differently. For the negative simulations 
+($\phi \in [-1, 0]$), $T_s$ tumor cells and $L_s$ lymphocytes were 
+simulated as independent poisson processes in regions of the window 
+that overlapped to varying degrees. The overlap was controlled by 
+$\phi$, such that the processes overlapped on $(100 \cdot (1 + \phi)) \%$ 
+of the window in which the simulation occurred. Note that when $\phi = -1$ 
+there was no overlap, and when $\phi = 0$ (complete overlap) the 
+simulation reduced to simulating two independent Poisson Processes 
 within the same window.
 
 For the positive simulations ($\phi \in (0, 1]$), $T_s$ tumor cells were
@@ -361,19 +363,30 @@ resulting data sets. [GIVE SUMMARY STATISTICS ABOUT TILES?]
 
 ### Survival Analysis
 
-In order to assess association between PPPI and survival, we fit a Cox
+In order to assess association between IP and survival, we fit a Cox
 Proportional Hazards model. In addition to adjusting for average
-logit-PPPI, we adjusted for patient level factors such as cancer stage,
+logit-IP, we adjusted for patient level factors such as cancer stage,
 age, and sex. In addition, we adjusted for readily calculable tumor
 level features, such as number of tumor cells (as a proxy for size) and
 logit lymphocyte proportion (the number of TILs divided by the number of
 tumor cells and TILs). We found that after adjusting for these other
-factors, an increase in logit-PPPI was significantly associated with
+factors, an increase in logit-IP was significantly associated with
 increased risk of death ($p < 0.05$). The same model was fitted with
-average logit-PPPI exchanged for the average normalized value of the
+average logit-IP exchanged for the average normalized value of the
 estimated Mark Correlation Function evaluated at $r = 30$ (the same as
-the radius of interaction used in our model fitting). See Table 1 for
-coefficients and standard errors in each model.
+the radius of interaction used in our model fitting), though the 
+coefficient of the MCF did not achieve statistical significance. See 
+Table 1 for coefficients and standard errors in each model.
+
+Despite the fact that both the MCF and IP lie between 0 and 1, we 
+ultimately did not apply a logit transform to MCF before exploring
+its association with survival. This is because all MCF values fell
+between 0 and 0.4, and thus the logit transformation actually
+led to a more skewed measurement for the MCF. Thus, while presenting
+the results from a logit transformed version of both variables
+superficially appears more "fair," in reality we believe that 
+presenting the MCF on the normal scale actually results in a more
+fair comparison between the two measures.
 
 ### Genomic Associations
 
@@ -386,12 +399,26 @@ genomic differences in SCM [TCGA Network, 2015]. Of the 335 patients
 in our sample, 240 had gene expression data for all genes of interest,
 while 95 were missing data for all genes of interest. We examined the
 marginal association between the normalized gene expression data for the
-240 patients with complete data and average logit PPPI values. After
+240 patients with complete data and average logit IP values. After
 correcting for multiple testing using the Benjamini-Hochberg procedure,
 we found that the expression of three genes were significantly
-associated with average logit PPPI: LRRC37A3, B2M, and TP53. See
+associated with average logit IP: LRRC37A3, B2M, and TP53. See
 supplementary Table [N] for full details on significance of
 associations with each gene.
+
+While it is perhaps not terribly worthwhile to craft a narrative around
+specific statistically significant findings, particularly in the realm of
+genetics and gene expression. However, we feel that we can confidently 
+state that these results provide evidence of a possible association between 
+a tumor's gene expression and the corresponding level of lymphocyte
+infiltration. Of course, substantially more data would be needed to 
+properly investigate such an association. It is also worth considering 
+the possibility that such associations may also occur at a level not 
+captured by traditional gene expression data. A natural extension of 
+traditional tools would be, as mentioned previously, to incorporate data 
+from more novel gene expression measurement techniques that allow for 
+more granular spatial investigation of gene expression throughout
+the tumor.
 
 # Conclusion
 

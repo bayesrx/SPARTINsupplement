@@ -24,7 +24,7 @@
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-28" />
+<meta name="date" content="2021-11-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -127,12 +127,12 @@ of simulated tumor cells and lymphocytes were set a priori at <span class="math 
 <span class="math inline">\(\phi \in [-1, 1]\)</span>, with <span class="math inline">\(-1\)</span> indicating the most negative possible
 interaction and <span class="math inline">\(1\)</span> indicating the most positive possible interaction.</p>
 <p>For a given combination of <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span>, the positive and negative
-simulations proceeded differently. For the negative simulations (
-), <span class="math inline">\(T_s\)</span> tumor cells and <span class="math inline">\(L_s\)</span> lymphocytes were simulated
-as independent poisson processes in regions of the window that
-overlapped to varying degrees. The overlap was controlled by <span class="math inline">\(\phi\)</span>,
-such that the processes overlapped on <span class="math inline">\((100 \cdot (1 + \phi)) \%\)</span> of the
-window in which the simulation occurred. Note that when <span class="math inline">\(\phi = -1\)</span>
+simulations proceeded differently. For the negative simulations
+(<span class="math inline">\(\phi \in [-1, 0]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells and <span class="math inline">\(L_s\)</span> lymphocytes were
+simulated as independent poisson processes in regions of the window
+that overlapped to varying degrees. The overlap was controlled by
+<span class="math inline">\(\phi\)</span>, such that the processes overlapped on <span class="math inline">\((100 \cdot (1 + \phi)) \%\)</span>
+of the window in which the simulation occurred. Note that when <span class="math inline">\(\phi = -1\)</span>
 there was no overlap, and when <span class="math inline">\(\phi = 0\)</span> (complete overlap) the
 simulation reduced to simulating two independent Poisson Processes
 within the same window.</p>
@@ -159,19 +159,29 @@ processed as described in section 2.1. Our methods were applied to the
 resulting data sets. [GIVE SUMMARY STATISTICS ABOUT TILES?]</p>
 <div id="survival-analysis" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Survival Analysis</h3>
-<p>In order to assess association between PPPI and survival, we fit a Cox
+<p>In order to assess association between IP and survival, we fit a Cox
 Proportional Hazards model. In addition to adjusting for average
-logit-PPPI, we adjusted for patient level factors such as cancer stage,
+logit-IP, we adjusted for patient level factors such as cancer stage,
 age, and sex. In addition, we adjusted for readily calculable tumor
 level features, such as number of tumor cells (as a proxy for size) and
 logit lymphocyte proportion (the number of TILs divided by the number of
 tumor cells and TILs). We found that after adjusting for these other
-factors, an increase in logit-PPPI was significantly associated with
+factors, an increase in logit-IP was significantly associated with
 increased risk of death (<span class="math inline">\(p &lt; 0.05\)</span>). The same model was fitted with
-average logit-PPPI exchanged for the average normalized value of the
+average logit-IP exchanged for the average normalized value of the
 estimated Mark Correlation Function evaluated at <span class="math inline">\(r = 30\)</span> (the same as
-the radius of interaction used in our model fitting). See Table 1 for
-coefficients and standard errors in each model.</p>
+the radius of interaction used in our model fitting), though the
+coefficient of the MCF did not achieve statistical significance. See
+Table 1 for coefficients and standard errors in each model.</p>
+<p>Despite the fact that both the MCF and IP lie between 0 and 1, we
+ultimately did not apply a logit transform to MCF before exploring
+its association with survival. This is because all MCF values fell
+between 0 and 0.4, and thus the logit transformation actually
+led to a more skewed measurement for the MCF. Thus, while presenting
+the results from a logit transformed version of both variables
+superficially appears more “fair,” in reality we believe that
+presenting the MCF on the normal scale actually results in a more
+fair comparison between the two measures.</p>
 </div>
 <div id="genomic-associations" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Genomic Associations</h3>
@@ -184,12 +194,25 @@ genomic differences in SCM [TCGA Network, 2015]. Of the 335 patients
 in our sample, 240 had gene expression data for all genes of interest,
 while 95 were missing data for all genes of interest. We examined the
 marginal association between the normalized gene expression data for the
-240 patients with complete data and average logit PPPI values. After
+240 patients with complete data and average logit IP values. After
 correcting for multiple testing using the Benjamini-Hochberg procedure,
 we found that the expression of three genes were significantly
-associated with average logit PPPI: LRRC37A3, B2M, and TP53. See
+associated with average logit IP: LRRC37A3, B2M, and TP53. See
 supplementary Table [N] for full details on significance of
 associations with each gene.</p>
+<p>While it is perhaps not terribly worthwhile to craft a narrative around
+specific statistically significant findings, particularly in the realm of
+genetics and gene expression. However, we feel that we can confidently
+state that these results provide evidence of a possible association between
+a tumor’s gene expression and the corresponding level of lymphocyte
+infiltration. Of course, substantially more data would be needed to
+properly investigate such an association. It is also worth considering
+the possibility that such associations may also occur at a level not
+captured by traditional gene expression data. A natural extension of
+traditional tools would be, as mentioned previously, to incorporate data
+from more novel gene expression measurement techniques that allow for
+more granular spatial investigation of gene expression throughout
+the tumor.</p>
 </div>
 </div>
 </div>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>S.2 Introduction | SPARTYN Supplementary material</title>
+  <title>S.5 Discussion and Limitations | SPARTYN Supplementary material</title>
   <meta name="description" content="Supplementary material related to the SPARTYN pipeline" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="S.2 Introduction | SPARTYN Supplementary material" />
+  <meta property="og:title" content="S.5 Discussion and Limitations | SPARTYN Supplementary material" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="S.2 Introduction | SPARTYN Supplementary material" />
+  <meta name="twitter:title" content="S.5 Discussion and Limitations | SPARTYN Supplementary material" />
   
   <meta name="twitter:description" content="Supplementary material related to the SPARTYN pipeline" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="materials-and-methods.html"/>
+<link rel="prev" href="results.html"/>
+
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -136,209 +136,152 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1" number="2">
-<h1><span class="header-section-number">S.2</span> Introduction</h1>
-<p>While the staining and examination of tissue samples has been a
-ubiquitous medical practice for decades, it
-has only been relatively recently that high definition images of
-such stainings have begun to be explored through the lens of
-machine learning and statistical modeling. A considerable amount
-of work has thus far been put into building and training models
-capable of accurate classifications of overall tissue
-samples as well as subsections of tissue samples (<span class="citation"><a href="#ref-Saltz18" role="doc-biblioref">Saltz et al.</a> (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span>; <span class="citation"><a href="#ref-Amgad19" role="doc-biblioref">Amgad et al.</a> (<a href="#ref-Amgad19" role="doc-biblioref">2019</a>)</span>; <span class="citation"><a href="#ref-Lu20" role="doc-biblioref">Lu et al.</a> (<a href="#ref-Lu20" role="doc-biblioref">2020</a>)</span>;
-<span class="citation"><a href="#ref-Negahbani21" role="doc-biblioref">Negahbani et al.</a> (<a href="#ref-Negahbani21" role="doc-biblioref">2021</a>)</span>; <span class="citation"><a href="#ref-Bian21" role="doc-biblioref">Bian et al.</a> (<a href="#ref-Bian21" role="doc-biblioref">2021</a>)</span>). This work, often broadly
-referred to as Histopathological Image Analysis or Digital
-Pathology, encompasses a wide range of methods and goals ranging
-from developing models to assist in the scoring and staging of
-cancer biopsies to the classification of cells in tumor biopsies (<span class="citation"><a href="#ref-Komura18" role="doc-biblioref">Komura and Ishikawa</a> (<a href="#ref-Komura18" role="doc-biblioref">2018</a>)</span>). This work has important implications for
-biomedical research. Because of the precision with
-which such algorithms can assess biopsies at the cellular level,
-it is possible to uncover structures and associations not immediately apparent to human pathologists. This degree of precision allows for
-the rigorous modeling and examination of intratumoral heterogeneity
-with respect to arbitrary factors and patient characteristics.
-These methods also allow for the assessment of specific features
-of pathology images in a volume previously only available via the
-time and energy of a substantial number of trained pathologists.</p>
-<p>While valuable in its own right such modeling has also created
-additional downstream opportunities for the application of more
-traditional modeling techniques. Specifically, the ability to
-quickly and accurately process high definition images of biopsies
-into cell level classification and location data has allowed for
-the development and application of more traditional spatial
-statistical methods to the resulting data. Despite this, there has been limited work to
-build off of the cell classification abilities of modern machine
-learning methods. To the author’s knowledge, the most notable
-attempts to do so have been Li {.}’s work in 2019,
-which utilized data classified by the ConvPath pipeline
-(<span class="citation"><a href="#ref-Wang19" role="doc-biblioref">Wang et al.</a> (<a href="#ref-Wang19" role="doc-biblioref">2019</a>)</span>).</p>
-<p>There is ample prior reason to suspect that such applications may
-be valuable. <span class="citation"><a href="#ref-Pages10" role="doc-biblioref">Pagès et al.</a> (<a href="#ref-Pages10" role="doc-biblioref">2010</a>)</span> proposed immune reaction as the seventh hallmark of cancer, and laid out different associations between various types of immune cells and outcomes of interest. Of the different types of immune cells, the most well-studied are lymphocytes.
-Lymphocyte infiltration is both
-a meaningful prognostic indicator that can help inform treatment
-and predict survival across different types of cancer, including
-in colorectal cancer (<span class="citation"><a href="#ref-Idos20" role="doc-biblioref">Idos et al.</a> (<a href="#ref-Idos20" role="doc-biblioref">2020</a>)</span>), Breast cancer
-(<span class="citation"><a href="#ref-Dieci18" role="doc-biblioref">Dieci et al.</a> (<a href="#ref-Dieci18" role="doc-biblioref">2018</a>)</span>; <span class="citation"><a href="#ref-Denkert15" role="doc-biblioref">Denkert et al.</a> (<a href="#ref-Denkert15" role="doc-biblioref">2015</a>)</span>), and melanoma
-(<span class="citation"><a href="#ref-Fu19" role="doc-biblioref">Fu et al.</a> (<a href="#ref-Fu19" role="doc-biblioref">2019</a>)</span>). This has led to increased interest in Computational
-TILs Assessment (CTA), a sub-field of digital pathology devoted to
-developing computational methods to assess lymphocyte infiltration
-in biopsy images. Thus far, results that have emerged from CTA
-research have provided additional evidence regarding the importance of
-tumor infiltrating lymphocytes and their spatial
-features in the assessment of pathology images.
-<span class="citation"><a href="#ref-Saltz18" role="doc-biblioref">Saltz et al.</a> (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span> specifically
-examined the presence of lymphocytes across biopsies in
-several types of cancer, and found that certain summarization
-metrics of lymphocyte clusters were significantly associated
-with survival in certain types of cancer. <span class="citation"><a href="#ref-Lu20" role="doc-biblioref">Lu et al.</a> (<a href="#ref-Lu20" role="doc-biblioref">2020</a>)</span> also
-found that various spatial statistical features of TILs present
-in a sample of breast cancer biopsies were significantly associated
-with survival both marginally and after adjusting for other factors.
-Further, they found that these associations actually differed by
-tumor subtype. In addition to this, they found that certain
-spatial features of TILs were also significantly associated with
-gene expression data.</p>
-<p>While the presence of lymphocyte infiltration is consistently associated with positive prognosis and survival outcomes, the same cannot be said for all types of immune cells. It is well accepted that the presence of Tumor-Associated Macrophages (TAMs) generally have a negative impact on survival due to their association with inflammation and their inhibition of adaptive immune response (<span class="citation"><a href="#ref-Sica08" role="doc-biblioref">Sica, Allavena, and Mantovani</a> (<a href="#ref-Sica08" role="doc-biblioref">2008</a>)</span>, <span class="citation"><a href="#ref-Tsutsui05" role="doc-biblioref">Tsutsui et al.</a> (<a href="#ref-Tsutsui05" role="doc-biblioref">2005</a>)</span>). While TAMs are less studied in the domain of digital pathology, there has been recent work on the development of pipelines for the classification of TAMs. This work combined with the established effects of TAMs on cancer prognosis suggest both a possible avenue of investigation as well as a method by which to do so.</p>
-<p>While this is only a sample of the different types of immune cells that may be present in the Tumor Microenvironment (TME) for a given patient, this broadly suggests that investigating the spatial association between general immune infiltration and the tumor itself may prove fruitful in better understanding the prognostic implications of tumor immunogenicity. Traditionally, immunogenic features of cancer have been assessed (and therfore investigated) at the biopsy level by pathologists. While this macro-assessment allows for assessment of inter-patient heterogeneity, by definition it does not allow for the investigation of \textit{intra-patient heterogeneity. Heterogeneity in the TME, including spatial heterogeneity, has proven to be an important component of understanding cancers of various kinds (<span class="citation"><a href="#ref-Heindl15" role="doc-biblioref">Heindl, Nawaz, and Yuan</a> (<a href="#ref-Heindl15" role="doc-biblioref">2015</a>)</span>; <span class="citation"><a href="#ref-Yuan16" role="doc-biblioref">Yuan</a> (<a href="#ref-Yuan16" role="doc-biblioref">2016</a>)</span>; <span class="citation"><a href="#ref-Bareche20" role="doc-biblioref">Bareche et al.</a> (<a href="#ref-Bareche20" role="doc-biblioref">2020</a>)</span>; <span class="citation"><a href="#ref-Boxberg19" role="doc-biblioref">Boxberg et al.</a> (<a href="#ref-Boxberg19" role="doc-biblioref">2019</a>)</span>; <span class="citation"><a href="#ref-Yan19" role="doc-biblioref">Yan et al.</a> (<a href="#ref-Yan19" role="doc-biblioref">2019</a>)</span>; <span class="citation"><a href="#ref-Hunter21" role="doc-biblioref">Hunter et al.</a> (<a href="#ref-Hunter21" role="doc-biblioref">2021</a>)</span>). It is therefore plausible that developing methods to rigorously model the spatial variation in immune activation will yield insights into both the patient level clinical implications of such heterogeneity as well as possible genomic associations.</p>
-<p>Spatial point processes have long been used in the domain of
-ecology to rigorously investigate spatial relationships between
-various organisms (<span class="citation"><a href="#ref-Hogsar99" role="doc-biblioref">Högmander and Särkkä</a> (<a href="#ref-Hogsar99" role="doc-biblioref">1999</a>)</span>; <span class="citation"><a href="#ref-King12" role="doc-biblioref">King et al.</a> (<a href="#ref-King12" role="doc-biblioref">2012</a>)</span>). More
-recently, methods from this paradigm have been successfully
-applied within the domain of Biostatistics (<span class="citation"><a href="#ref-Kang11" role="doc-biblioref">Kang et al.</a> (<a href="#ref-Kang11" role="doc-biblioref">2011</a>)</span>;
-<span class="citation"><a href="#ref-Ray15" role="doc-biblioref">Ray, Kang, and Zhang</a> (<a href="#ref-Ray15" role="doc-biblioref">2015</a>)</span>). Given the relatively simple and granular nature
-of cell-level spatial imaging data, marked point processes are a
-natural way to simultaneously model the randomness in both the
-quantities and locations of the different cell types along with
-their relative spatial associations.</p>
-<p>In this paper, we introduce the SPARTIN (SPatial Analysis of
-paRtitioned Tumor-Immune imagiNg) pipeline. SPARTIN is unique
-in the spatial pathological imaging analysis literature in that it
-uses statistical models to assess the association between tumor
-cells and immune cells across an entire partitioned biopsy. This
-allows for rigorous quantification of uncertainty in the style of
-<span class="citation"><a href="#ref-LiMIM19" role="doc-biblioref">Q. Li et al.</a> (<a href="#ref-LiMIM19" role="doc-biblioref">2019</a>)</span> while still allowing for the assessment of full
-images in the style of <span class="citation"><a href="#ref-Saltz18" role="doc-biblioref">Saltz et al.</a> (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span>. We accomplish this by
-partitioning the cell-level imaging data of each biopsy into
-non-overlapping sub-regions, which can then be modeled to capture
-the local infiltration patterns using standard techniques from
-point process theory.
-In section 2, we discuss the theory behind
-the models we chose to apply and the details of how the SPARTIN
-pipeline works. We also define Cell Type Infiltration Probability (CTIP), a measure of local immune cell infiltration. In section 3, we present results from a simulation
-study as well as an application to an actual data set consisting of
-SKCM biopsies.
-Finally, in section 4, we discuss the implications
-of this pipeline as well as potential future directions for the
-work.</p>
-<p>The results of our simulations suggest that CTIP reliably identifies
-local positive spatial associations across a variety of different
-combinations of cell abundances and strengths of associations. We also found that CTIP was significantly
-associated with biopsy-level gene expression among genes related to immune cells. Additionally, we found that CTIP was significantly associated with various outcomes as assessed by <span class="citation"><a href="#ref-Akbani15" role="doc-biblioref">Akbani et al.</a> (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span>, including transcriptomic class and pathologist assessment.
-Finally, at the patient outcome level, we found that immune cell infiltration as
-measured by CTIP was significantly associated
-with overall survival.</p>
-<p>We focus our analysis on Skin Cutaneous Melanoma
-(SKCM). SKCM is an appealing target for the investigation of
-immune cell infiltration for several reasons.
-SKCM has been shown
-to be particularly responsive to Immunotherapy in some cases
-(<span class="citation"><a href="#ref-Franklin17" role="doc-biblioref">Franklin et al.</a> (<a href="#ref-Franklin17" role="doc-biblioref">2017</a>)</span>; <span class="citation"><a href="#ref-Achkar17" role="doc-biblioref">Achkar and Tarhini</a> (<a href="#ref-Achkar17" role="doc-biblioref">2017</a>)</span>). It is possible that
-the ability to quantify immune infiltration at a large scale
-may allow for more detailed investigation into the scenarios in
-which this treatment may be most effectively deployed. It is also
-well established that SKCM has an unusually high mutational load
-amongst the various cancer types (<span class="citation"><a href="#ref-Berger12" role="doc-biblioref">Berger et al.</a> (<a href="#ref-Berger12" role="doc-biblioref">2012</a>)</span>). The
-ability to quantify infiltration may allow for further
-investigation into not only genomic associations of this<br />
-occurrence but associations with mutations as well.</p>
-</div>
-<h3>References</h3>
+<div id="discussion-and-limitations" class="section level1" number="5">
+<h1><span class="header-section-number">S.5</span> Discussion and Limitations</h1>
+<p>The results presented in this paper provide evidence
+of an immune phenotype in SKCM that corresponds to poor prognosis from a number of different perspectives. In terms of survival, we have demonstrated that adjusting for other relevant clinical factors, an increase in average logit-IP is associated with an increased hazard of death. In terms of gene expression data, average logit-IP is associated with decreased expression of genes related to immune cells that are generally associated with good overall prognosis. And finally, we found that average logit-IP is significantly lower in biopsies that have been classified as immune enriched through gene expression clustering, as well as biopsies that have been assessed by pathologists to have higher densities and spatial distributions of tumor infiltrating lymphocytes. These results fundamentally support the notion that CTIP is capturing an anti-immunogenic phenotype that is associated with poor prognosis, possibly due to an overall negative association with the presence of immune cells that are associated with improved prognosis such as tumor infiltrating lymphocytes and natural killer cells.</p>
+<p>A fundamental limitation of this analysis is that immune cells were modeled as a single class rather than as separate cell types belonging to the same family. While the results paint a consistent picture from several different angles, the exact mechanism of these various associations remains fundamentally opaque because of this. It is worth emphasizing, however, that nothing about the structure of our pipeline depends on the presence of only one type of immune cell in addition to the cancer cells. Thus, while our present analysis raises questions about the impact of spatial immune activation on the progression of a tumor, it also offers the tools to further investigate such questions.</p>
+<p>The SPARTIN pipeline represents a valuable contribution in and of
+itself to digital pathology
+through its ability to model and quantify immune infiltration
+across entire biopsies in a way that captures meaningful variation
+across patients. However, it also creates numerous opportunities
+for future work unrelated to the present investigation. As algorithms for cell-level image classification improve, the
+opportunities for more and more granular quantitative analysis of
+histopathological imaging data will become both more numerous and
+more fruitful. Specifically, as the ability to reliably distinguish between different types of immune cells will allow for more granular investigations into the prognoses associated with interaction between immune cells of different kinds and the tumor. Moreover, as spatial gene expression data becomes
+more and more common, so too will opportunities for synthesizing
+data on the relative spatial locations of different cell types
+along with local gene expression data through complex modeling. It would be quite
+trivial (particularly in a Bayesian framework) to model a function
+of one or all of the parameters of interest as a linear combination
+of the local gene expression data for genes that are known to be
+relevant to immune response. Alternatively, future methods in this
+area could be developed at the intersection of spatial data and
+high dimensional data in order to identify such genes.</p>
+<p>The SPARTIN pipeline also creates numerous opportunities for further investigation not directly related to assessing immune infiltration. Partitioning each biopsy into non-overlapping
+sub-regions invites the application
+of other tools from the spatial statistical canon to arbitrary spatial features of the tumor microenvironment. In fact, the primary feature of interest need not even be spatial in nature; so long as a feature (such as average tumor cell size) can be quantified at the cellular level and may be expected to vary across the tumor microenvironment, SPARTIN provides a framework for mapping the variation the variation of that feature across the entire biopsy.</p>
+<p>There is another limitation of our analysis that suggests an avenue for future methodological development. Note that the result of fitting models on the partitioned tumor microenvironment is a set of repeated observations with some underlying spatial covariance structure related to the spatial relationships between the different subspaces. For now, we have ignored this spatial covariance, and instead chosen to summarize the variation at the biopsy level. While there is nothing intrinsically incorrect about this approach, it is quite likely that incorporating the spatial structure across the biopsy will lead to gains in efficiency, and possibly insight into the nature of the spatial variation in immune activation in the tumor microenvironment. Thus, future work will likely include the development of methods to efficiently analyze this complex structured areal data.</p>
+
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Achkar17" class="csl-entry">
+<div class="csl-entry">
 Achkar, Tala, and Ahmad A Tarhini. 2017. <span>“The Use of Immunotherapy in the Treatment of Melanoma.”</span> <em>Journal of Hematology &amp; Oncology</em> 10 (1): 1–9.
 </div>
-<div id="ref-Akbani15" class="csl-entry">
+<div class="csl-entry">
 Akbani, Rehan, Kadir C Akdemir, B Arman Aksoy, Monique Albert, Adrian Ally, Samirkumar B Amin, Harindra Arachchi, et al. 2015. <span>“Genomic Classification of Cutaneous Melanoma.”</span> <em>Cell</em> 161 (7): 1681–96.
 </div>
-<div id="ref-Amgad19" class="csl-entry">
+<div class="csl-entry">
 Amgad, Mohamed, Anindya Sarkar, Chukka Srinivas, Rachel Redman, Simrath Ratra, Charles J Bechert, Benjamin C Calhoun, et al. 2019. <span>“Joint Region and Nucleus Segmentation for Characterization of Tumor Infiltrating Lymphocytes in Breast Cancer.”</span> In <em>Medical Imaging 2019: Digital Pathology</em>, 10956:129–36. SPIE.
 </div>
-<div id="ref-Bareche20" class="csl-entry">
+<div class="csl-entry">
+Baddeley, Adrian, and Rolf Turner. 2000. <span>“Practical Maximum Pseudolikelihood for Spatial Point Patterns: (With Discussion).”</span> <em>Australian &amp; New Zealand Journal of Statistics</em> 42 (3): 283–322.
+</div>
+<div class="csl-entry">
+———. 2005. <span>“Spatstat: An r Package for Analyzing Spatial Point Patterns.”</span> <em>Journal of Statistical Software</em> 12: 1–42.
+</div>
+<div class="csl-entry">
 Bareche, Yacine, Laurence Buisseret, Tina Gruosso, Edwina Girard, David Venet, Floriane Dupont, Christine Desmedt, et al. 2020. <span>“Unraveling Triple-Negative Breast Cancer Tumor Microenvironment Heterogeneity: Towards an Optimized Treatment Approach.”</span> <em>JNCI: Journal of the National Cancer Institute</em> 112 (7): 708–19.
 </div>
-<div id="ref-Berger12" class="csl-entry">
+<div class="csl-entry">
+Becht, Etienne, Nicolas A. Giraldo, Laetitia Lacroix, Bénédicte Buttard, Nabila Elarouci, Florent Petitprez, Janick Selves, et al. 2016. <span>“Estimating the Population Abundance of Tissue-Infiltrating Immune and Stromal Cell Populations Using Gene Expression.”</span> <em>Genome Biology</em> 17 (1): 218. <a href="https://doi.org/10.1186/s13059-016-1070-5">https://doi.org/10.1186/s13059-016-1070-5</a>.
+</div>
+<div class="csl-entry">
 Berger, Michael F, Eran Hodis, Timothy P Heffernan, Yonathan Lissanu Deribe, Michael S Lawrence, Alexei Protopopov, Elena Ivanova, et al. 2012. <span>“Melanoma Genome Sequencing Reveals Frequent Prex2 Mutations.”</span> <em>Nature</em> 485 (7399): 502–6.
 </div>
-<div id="ref-Bian21" class="csl-entry">
+<div class="csl-entry">
+Bhattacharya, Sanchita, Patrick Dunn, Cristel G Thomas, Barry Smith, Henry Schaefer, Jieming Chen, Zicheng Hu, et al. 2018. <span>“ImmPort, Toward Repurposing of Open Access Immunological Assay Data for Translational and Clinical Research.”</span> <em>Scientific Data</em> 5 (1): 1–9.
+</div>
+<div class="csl-entry">
 Bian, Yun, Yan Fang Liu, Hui Jiang, Yinghao Meng, Fang Liu, Kai Cao, Hao Zhang, et al. 2021. <span>“Machine Learning for MRI Radiomics: A Study Predicting Tumor-Infiltrating Lymphocytes in Patients with Pancreatic Ductal Adenocarcinoma.”</span> <em>Abdominal Radiology</em> 46 (10): 4800–4816.
 </div>
-<div id="ref-Boxberg19" class="csl-entry">
+<div class="csl-entry">
 Boxberg, Melanie, Lena Leising, Katja Steiger, Moritz Jesinghaus, Aezlat Alkhamas, Marion Mielke, Nicole Pfarr, et al. 2019. <span>“Composition and Clinical Impact of the Immunologic Tumor Microenvironment in Oral Squamous Cell Carcinoma.”</span> <em>The Journal of Immunology</em> 202 (1): 278–91.
 </div>
-<div id="ref-Denkert15" class="csl-entry">
+<div class="csl-entry">
 Denkert, Carsten, Gunter Von Minckwitz, Jan C Brase, Bruno V Sinn, Stephan Gade, Ralf Kronenwett, Berit M Pfitzner, et al. 2015. <span>“Tumor-Infiltrating Lymphocytes and Response to Neoadjuvant Chemotherapy with or Without Carboplatin in Human Epidermal Growth Factor Receptor 2-Positive and Triple-Negative Primary Breast Cancers.”</span> <em>J Clin Oncol</em> 33 (9): 983–91.
 </div>
-<div id="ref-Dieci18" class="csl-entry">
+<div class="csl-entry">
 Dieci, Maria Vittoria, Nina Radosevic-Robin, Susan Fineberg, Gert Van den Eynden, Nils Ternes, Frédérique Penault-Llorca, Giancarlo Pruneri, et al. 2018. <span>“Update on Tumor-Infiltrating Lymphocytes (TILs) in Breast Cancer, Including Recommendations to Assess TILs in Residual Disease After Neoadjuvant Therapy and in Carcinoma in Situ: A Report of the International Immuno-Oncology Biomarker Working Group on Breast Cancer.”</span> In <em>Seminars in Cancer Biology</em>, 52:16–25. Elsevier.
 </div>
-<div id="ref-Franklin17" class="csl-entry">
+<div class="csl-entry">
 Franklin, C, E Livingstone, A Roesch, B Schilling, and D Schadendorf. 2017. <span>“Immunotherapy in Melanoma: Recent Advances and Future Directions.”</span> <em>European Journal of Surgical Oncology (EJSO)</em> 43 (3): 604–11.
 </div>
-<div id="ref-Fu19" class="csl-entry">
+<div class="csl-entry">
 Fu, Qiaofen, Nan Chen, Chunlei Ge, Ruilei Li, Zhen Li, Baozhen Zeng, Chunyan Li, et al. 2019. <span>“Prognostic Value of Tumor-Infiltrating Lymphocytes in Melanoma: A Systematic Review and Meta-Analysis.”</span> <em>Oncoimmunology</em> 8 (7): e1593806.
 </div>
-<div id="ref-Heindl15" class="csl-entry">
+<div class="csl-entry">
 Heindl, Andreas, Sidra Nawaz, and Yinyin Yuan. 2015. <span>“Mapping Spatial Heterogeneity in the Tumor Microenvironment: A New Era for Digital Pathology.”</span> <em>Laboratory Investigation</em> 95 (4): 377–84.
 </div>
-<div id="ref-Hogsar99" class="csl-entry">
+<div class="csl-entry">
 Högmander, Harri, and Aila Särkkä. 1999. <span>“Multitype Spatial Point Patterns with Hierarchical Interactions.”</span> <em>Biometrics</em> 55 (4): 1051–58.
 </div>
-<div id="ref-Hunter21" class="csl-entry">
+<div class="csl-entry">
 Hunter, Miranda V, Reuben Moncada, Joshua M Weiss, Itai Yanai, and Richard M White. 2021. <span>“Spatially Resolved Transcriptomics Reveals the Architecture of the Tumor-Microenvironment Interface.”</span> <em>Nature Communications</em> 12 (1): 1–16.
 </div>
-<div id="ref-Idos20" class="csl-entry">
+<div class="csl-entry">
 Idos, Gregory E, Janet Kwok, Nirupama Bonthala, Lynn Kysh, Stephen B Gruber, and Chenxu Qu. 2020. <span>“The Prognostic Implications of Tumor Infiltrating Lymphocytes in Colorectal Cancer: A Systematic Review and Meta-Analysis.”</span> <em>Scientific Reports</em> 10 (1): 1–14.
 </div>
-<div id="ref-Kang11" class="csl-entry">
+<div class="csl-entry">
 Kang, Jian, Timothy D Johnson, Thomas E Nichols, and Tor D Wager. 2011. <span>“Meta Analysis of Functional Neuroimaging Data via Bayesian Spatial Point Processes.”</span> <em>Journal of the American Statistical Association</em> 106 (493): 124–34.
 </div>
-<div id="ref-King12" class="csl-entry">
+<div class="csl-entry">
 King, Ruth, Janine B Illian, Stuart E King, Glenna F Nightingale, and Ditte K Hendrichsen. 2012. <span>“A Bayesian Approach to Fitting Gibbs Processes with Temporal Random Effects.”</span> <em>Journal of Agricultural, Biological, and Environmental Statistics</em> 17 (4): 601–22.
 </div>
-<div id="ref-Komura18" class="csl-entry">
+<div class="csl-entry">
 Komura, Daisuke, and Shumpei Ishikawa. 2018. <span>“Machine Learning Methods for Histopathological Image Analysis.”</span> <em>Computational and Structural Biotechnology Journal</em> 16: 34–42.
 </div>
-<div id="ref-LiMIM19" class="csl-entry">
+<div class="csl-entry">
 Li, Qiwei, Xinlei Wang, Faming Liang, and Guanghua Xiao. 2019. <span>“A Bayesian Mark Interaction Model for Analysis of Tumor Pathology Images.”</span> <em>The Annals of Applied Statistics</em> 13 (3): 1708.
 </div>
-<div id="ref-Lu20" class="csl-entry">
+<div class="csl-entry">
+Li, Taiwen, Jingxin Fu, Zexian Zeng, David Cohen, Jing Li, Qianming Chen, Bo Li, and X Shirley Liu. 2020. <span>“Timer2.0 for Analysis of Tumor-Infiltrating Immune Cells.”</span> <em>Nucleic Acids Research</em> 48 (W1): W509–14. <a href="https://doi.org/10.1093/nar/gkaa407">https://doi.org/10.1093/nar/gkaa407</a>.
+</div>
+<div class="csl-entry">
 Lu, Zixiao, Siwen Xu, Wei Shao, Yi Wu, Jie Zhang, Zhi Han, Qianjin Feng, and Kun Huang. 2020. <span>“Deep-Learning–Based Characterization of Tumor-Infiltrating Lymphocytes in Breast Cancers from Histopathology Images and Multiomics Data.”</span> <em>JCO Clinical Cancer Informatics</em> 4: 480–90.
 </div>
-<div id="ref-Negahbani21" class="csl-entry">
+<div class="csl-entry">
 Negahbani, Farzin, Rasool Sabzi, Bita Pakniyat Jahromi, Dena Firouzabadi, Fateme Movahedi, Mahsa Kohandel Shirazi, Shayan Majidi, and Amirreza Dehghanian. 2021. <span>“PathoNet Introduced as a Deep Neural Network Backend for Evaluation of Ki-67 and Tumor-Infiltrating Lymphocytes in Breast Cancer.”</span> <em>Scientific Reports</em> 11 (1): 1–13.
 </div>
-<div id="ref-Pages10" class="csl-entry">
+<div class="csl-entry">
 Pagès, F, J Galon, M-C Dieu-Nosjean, E Tartour, C Sautès-Fridman, and W-H Fridman. 2010. <span>“Immune Infiltration in Human Tumors: A Prognostic Factor That Should Not Be Ignored.”</span> <em>Oncogene</em> 29 (8): 1093–1102. <a href="https://doi.org/10.1038/onc.2009.416">https://doi.org/10.1038/onc.2009.416</a>.
 </div>
-<div id="ref-Ray15" class="csl-entry">
+<div class="csl-entry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div class="csl-entry">
 Ray, Meredith, Jian Kang, and Hongmei Zhang. 2015. <span>“Identifying Activation Centers with Spatial Cox Point Processes Using Fmri Data.”</span> <em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em> 13 (6): 1130–41.
 </div>
-<div id="ref-Saltz18" class="csl-entry">
+<div class="csl-entry">
 Saltz, Joel, Rajarsi Gupta, Le Hou, Tahsin Kurc, Pankaj Singh, Vu Nguyen, Dimitris Samaras, et al. 2018. <span>“Spatial Organization and Molecular Correlation of Tumor-Infiltrating Lymphocytes Using Deep Learning on Pathology Images.”</span> <em>Cell Reports</em> 23 (1): 181–93.
 </div>
-<div id="ref-Sica08" class="csl-entry">
+<div class="csl-entry">
 Sica, Antonio, Paola Allavena, and Alberto Mantovani. 2008. <span>“Cancer Related Inflammation: The Macrophage Connection.”</span> <em>Cancer Letters</em> 267 (2): 204–15. <a href="https://doi.org/10.1016/j.canlet.2008.03.028">https://doi.org/10.1016/j.canlet.2008.03.028</a>.
 </div>
-<div id="ref-Tsutsui05" class="csl-entry">
+<div class="csl-entry">
+Strauss, David J. 1975. <span>“A Model for Clustering.”</span> <em>Biometrika</em> 62 (2): 467–75.
+</div>
+<div class="csl-entry">
+Sturm, Gregor, Francesca Finotello, Florent Petitprez, Jitao David Zhang, Jan Baumbach, Wolf H Fridman, Markus List, and Tatsiana Aneichyk. 2019. <span>“Comprehensive Evaluation of Transcriptome-Based Cell-Type Quantification Methods for Immuno-Oncology.”</span> <em>Bioinformatics</em> 35 (14): i436–45. <a href="https://doi.org/10.1093/bioinformatics/btz363">https://doi.org/10.1093/bioinformatics/btz363</a>.
+</div>
+<div class="csl-entry">
+Su, Yu-Sung, Masanao Yajima, Maintainer Yu-Sung Su, and JAGS SystemRequirements. 2015. <span>“Package <span>‘R2jags’</span>.”</span> <em>R Package Version 0.03-08, URL Http://CRAN. R-Project. Org/Package= R2jags</em>.
+</div>
+<div class="csl-entry">
 Tsutsui, Shinichi, Kazuhiro Yasuda, Kosuke Suzuki, Kouichirou Tahara, Hidefumi Higashi, and Shoichi Era. 2005. <span>“Macrophage Infiltration and Its Prognostic Implications in Breast Cancer: The Relationship with VEGF Expression and Microvessel Density.”</span> <em>Oncology Reports</em>, August. <a href="https://doi.org/10.3892/or.14.2.425">https://doi.org/10.3892/or.14.2.425</a>.
 </div>
-<div id="ref-Wang19" class="csl-entry">
+<div class="csl-entry">
 Wang, Shidan, Tao Wang, Lin Yang, Donghan M Yang, Junya Fujimoto, Faliu Yi, Xin Luo, et al. 2019. <span>“ConvPath: A Software Tool for Lung Adenocarcinoma Digital Pathological Image Analysis Aided by a Convolutional Neural Network.”</span> <em>EBioMedicine</em> 50: 103–10.
 </div>
-<div id="ref-Yan19" class="csl-entry">
+<div class="csl-entry">
 Yan, Yiyi, Alexey A Leontovich, Michael J Gerdes, Keyur Desai, Jinhong Dong, Anup Sood, Alberto Santamaria-Pang, et al. 2019. <span>“Understanding Heterogeneous Tumor Microenvironment in Metastatic Melanoma.”</span> <em>PloS One</em> 14 (6): e0216485.
 </div>
-<div id="ref-Yuan16" class="csl-entry">
+<div class="csl-entry">
 Yuan, Yinyin. 2016. <span>“Spatial Heterogeneity in the Tumor Microenvironment.”</span> <em>Cold Spring Harbor Perspectives in Medicine</em> 6 (8): a026583.
+</div>
+<div class="csl-entry">
+Zhu, Yitan, Peng Qiu, and Yuan Ji. 2014. <span>“TCGA-Assembler: Open-Source Software for Retrieving and Processing TCGA Data.”</span> <em>Nature Methods</em> 11 (6): 599–600.
+</div>
 </div>
 </div>
             </section>
@@ -346,8 +289,8 @@ Yuan, Yinyin. 2016. <span>“Spatial Heterogeneity in the Tumor Microenvironment
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="materials-and-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="results.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

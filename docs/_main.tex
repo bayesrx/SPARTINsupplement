@@ -6,7 +6,7 @@
 ]{book}
 \title{SPARTYN Supplementary material}
 \author{Nate Osher}
-\date{2021-11-29}
+\date{}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -73,12 +73,11 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\usepackage{bm}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
-\bibliographystyle{plainnat}
+\bibliographystyle{apalike}
 
 \begin{document}
 \maketitle
@@ -87,6 +86,10 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\newcommand{\vb}[1]{\textcolor{blue}{\textsf{#1}}}
+\newcommand{\no}[1]{\textcolor{red}{\textsf{[#1]}}}
+\newcommand{\bm}[1]{{\mathbf{#1}}}
+
 \hypertarget{about}{%
 \chapter{About}\label{about}}
 
@@ -103,56 +106,125 @@ supplement, please email oshern (at) umich.edu.
 \chapter{Introduction}\label{introduction}}
 
 While the staining and examination of tissue samples has been a
-ubiquitous medical practice for decades at this point in time, it has
-only been relatively recently that high definition images of such
-samples have begun to be explored through a quantitative lens. A
-considerable amount of work has thus far been put into building and
-training models capable of highly accurate classifications of overall
-tissue samples as well as subsections of tissue samples {[}Saltz et al
-2018; TODO: other examples{]}. While valuable in their own right such
-advances have also created opportunities for the application of more
-traditional statistical techniques. Notably, the ability to quickly and
-accurately process high definition images of biopsies into cell level
-classification and location data has allowed for the development and
-application of more traditional spatial statistical modeling methods.
+ubiquitous medical practice for decades, it
+has only been relatively recently that high definition images of
+such stainings have begun to be explored through the lens of
+machine learning and statistical modeling. A considerable amount
+of work has thus far been put into building and training models
+capable of accurate classifications of overall tissue
+samples as well as subsections of tissue samples (\citet{Saltz18}; \citet{Amgad19}; \citet{Lu20};
+\citet{Negahbani21}; \citet{Bian21}). This work, often broadly
+referred to as Histopathological Image Analysis or Digital
+Pathology, encompasses a wide range of methods and goals ranging
+from developing models to assist in the scoring and staging of
+cancer biopsies to the classification of cells in tumor biopsies (\citet{Komura18}). This work has important implications for
+biomedical research. Because of the precision with
+which such algorithms can assess biopsies at the cellular level,
+it is possible to uncover structures and associations not immediately apparent to human pathologists. This degree of precision allows for
+the rigorous modeling and examination of intratumoral heterogeneity
+with respect to arbitrary factors and patient characteristics.
+These methods also allow for the assessment of specific features
+of pathology images in a volume previously only available via the
+time and energy of a substantial number of trained pathologists.
 
-There is ample prior reason to suspect that such applications may be
-valuable, particularly in the domain of cancer. The longstanding
-conventional wisdom among pathologists is that biopsy features such as
-lymphocyte infiltration and general tissue heterogeneity are meaningful
-prognostic indicators {[}TODO: Citations{]}. So far, this conventional
-wisdom has found support in the current quantitative histopathological
-imaging literature. Li et al.~(2018) found that the spatial associations
-between stromal cells and other types of cells were significantly
-associated with survival in non-small cell lung cancer using both a
-Hidden Potts Mixture Model as well as a mark interaction model {[}Note:
-these are two different papers, both by Li in 2018- not sure the correct
-way to acknowledge{]}. Saltz et al.~(2018) specifically examined the
-presence of lymphocytes across biopsies in several types of cancer, and
-found that certain summarization metrics of lymphocyte clusters were
-significantly associated with survival in certain types of cancer.
+While valuable in its own right such modeling has also created
+additional downstream opportunities for the application of more
+traditional modeling techniques. Specifically, the ability to
+quickly and accurately process high definition images of biopsies
+into cell level classification and location data has allowed for
+the development and application of more traditional spatial
+statistical methods to the resulting data. Despite this, there has been limited work to
+build off of the cell classification abilities of modern machine
+learning methods. To the author's knowledge, the most notable
+attempts to do so have been Li \{\textit{et al}.\}'s work in 2019,
+which utilized data classified by the ConvPath pipeline
+(\citet{Wang19}).
 
-In this paper, we introduce the SPARTYN (SPatial Analysis of paRtitioned
-Tumor-lYmphocyte imagiNg) pipeline. SPARTYN is unique in the spatial
-pathological imaging analysis literature in that it uses statistical
-models to assess the association between tumor cells and lymphocytes
-across an entire partitioned biopsy. This allows for rigorous
-quantification of uncertainty in the style of Li et al.~(2018) while
-still allowing for the assessment of full images in the style of Saltz
-et al.~(2018). We accomplish this by partitioning the cell-level imaging
-data of each biopsy into non- overlapping sub-regions, which can then be
-modeled to capture the local infiltration patterns using standard
-techniques from point process theory.
+There is ample prior reason to suspect that such applications may
+be valuable. \citet{Pages10} proposed immune reaction as the seventh hallmark of cancer, and laid out different associations between various types of immune cells and outcomes of interest. Of the different types of immune cells, the most well-studied are lymphocytes.
+Lymphocyte infiltration is both
+a meaningful prognostic indicator that can help inform treatment
+and predict survival across different types of cancer, including
+in colorectal cancer (\citet{Idos20}), Breast cancer
+(\citet{Dieci18}; \citet{Denkert15}), and melanoma
+(\citet{Fu19}). This has led to increased interest in Computational
+TILs Assessment (CTA), a sub-field of digital pathology devoted to
+developing computational methods to assess lymphocyte infiltration
+in biopsy images. Thus far, results that have emerged from CTA
+research have provided additional evidence regarding the importance of
+tumor infiltrating lymphocytes and their spatial
+features in the assessment of pathology images.
+\citet{Saltz18} specifically
+examined the presence of lymphocytes across biopsies in
+several types of cancer, and found that certain summarization
+metrics of lymphocyte clusters were significantly associated
+with survival in certain types of cancer. \citet{Lu20} also
+found that various spatial statistical features of TILs present
+in a sample of breast cancer biopsies were significantly associated
+with survival both marginally and after adjusting for other factors.
+Further, they found that these associations actually differed by
+tumor subtype. In addition to this, they found that certain
+spatial features of TILs were also significantly associated with
+gene expression data.
 
-Spatial point processes have long been used in the domain of ecology to
-rigorously investigate spatial relationships between various organisms
-(H\{``o\}gmander and S\{''a\}rkk\{``a\}, 1999; King et al.~2012). More recently,
-methods from this paradigm have been successfully applied within the
-domain of Biostatistics (Kang et al.~2011; Kang et al.~2015). Given the
-relatively simple and granular nature of cell-level spatial imaging
-data, marked point processes are a natural way to simultaneously model
-the randomness in both the quantities and locations of the different
-cell types along with their relative spatial associations.
+While the presence of lymphocyte infiltration is consistently associated with positive prognosis and survival outcomes, the same cannot be said for all types of immune cells. It is well accepted that the presence of Tumor-Associated Macrophages (TAMs) generally have a negative impact on survival due to their association with inflammation and their inhibition of adaptive immune response (\citet{Sica08}, \citet{Tsutsui05}). While TAMs are less studied in the domain of digital pathology, there has been recent work on the development of pipelines for the classification of TAMs. This work combined with the established effects of TAMs on cancer prognosis suggest both a possible avenue of investigation as well as a method by which to do so.
+
+While this is only a sample of the different types of immune cells that may be present in the Tumor Microenvironment (TME) for a given patient, this broadly suggests that investigating the spatial association between general immune infiltration and the tumor itself may prove fruitful in better understanding the prognostic implications of tumor immunogenicity. Traditionally, immunogenic features of cancer have been assessed (and therfore investigated) at the biopsy level by pathologists. While this macro-assessment allows for assessment of inter-patient heterogeneity, by definition it does not allow for the investigation of \textbackslash textit\{intra-patient heterogeneity. Heterogeneity in the TME, including spatial heterogeneity, has proven to be an important component of understanding cancers of various kinds (\citet{Heindl15}; \citet{Yuan16}; \citet{Bareche20}; \citet{Boxberg19}; \citet{Yan19}; \citet{Hunter21}). It is therefore plausible that developing methods to rigorously model the spatial variation in immune activation will yield insights into both the patient level clinical implications of such heterogeneity as well as possible genomic associations.
+
+Spatial point processes have long been used in the domain of
+ecology to rigorously investigate spatial relationships between
+various organisms (\citet{Hogsar99}; \citet{King12}). More
+recently, methods from this paradigm have been successfully
+applied within the domain of Biostatistics (\citet{Kang11};
+\citet{Ray15}). Given the relatively simple and granular nature
+of cell-level spatial imaging data, marked point processes are a
+natural way to simultaneously model the randomness in both the
+quantities and locations of the different cell types along with
+their relative spatial associations.
+
+In this paper, we introduce the SPARTIN (SPatial Analysis of
+paRtitioned Tumor-Immune imagiNg) pipeline. SPARTIN is unique
+in the spatial pathological imaging analysis literature in that it
+uses statistical models to assess the association between tumor
+cells and immune cells across an entire partitioned biopsy. This
+allows for rigorous quantification of uncertainty in the style of
+\citet{LiMIM19} while still allowing for the assessment of full
+images in the style of \citet{Saltz18}. We accomplish this by
+partitioning the cell-level imaging data of each biopsy into
+non-overlapping sub-regions, which can then be modeled to capture
+the local infiltration patterns using standard techniques from
+point process theory.
+In section 2, we discuss the theory behind
+the models we chose to apply and the details of how the SPARTIN
+pipeline works. We also define Cell Type Infiltration Probability (CTIP), a measure of local immune cell infiltration. In section 3, we present results from a simulation
+study as well as an application to an actual data set consisting of
+SKCM biopsies.
+Finally, in section 4, we discuss the implications
+of this pipeline as well as potential future directions for the
+work.
+
+The results of our simulations suggest that CTIP reliably identifies
+local positive spatial associations across a variety of different
+combinations of cell abundances and strengths of associations. We also found that CTIP was significantly
+associated with biopsy-level gene expression among genes related to immune cells. Additionally, we found that CTIP was significantly associated with various outcomes as assessed by \citet{Akbani15}, including transcriptomic class and pathologist assessment.
+Finally, at the patient outcome level, we found that immune cell infiltration as
+measured by CTIP was significantly associated
+with overall survival.
+
+We focus our analysis on Skin Cutaneous Melanoma
+(SKCM). SKCM is an appealing target for the investigation of
+immune cell infiltration for several reasons.
+SKCM has been shown
+to be particularly responsive to Immunotherapy in some cases
+(\citet{Franklin17}; \citet{Achkar17}). It is possible that
+the ability to quantify immune infiltration at a large scale
+may allow for more detailed investigation into the scenarios in
+which this treatment may be most effectively deployed. It is also
+well established that SKCM has an unusually high mutational load
+amongst the various cancer types (\citet{Berger12}). The
+ability to quantify infiltration may allow for further
+investigation into not only genomic associations of this\\
+occurrence but associations with mutations as well.
 
 \hypertarget{materials-and-methods}{%
 \chapter{Materials and Methods}\label{materials-and-methods}}
@@ -160,241 +232,275 @@ cell types along with their relative spatial associations.
 \hypertarget{overview}{%
 \section{Overview}\label{overview}}
 
-Raw data was obtained for this project using the image processing tools
-of Rao and Krishnan. Data for model training was gathered by collecting
-high definition images of cells from tumor biopsies that were classified
-by a pathologist as either a tumor cell, a lymphocyte, or a different
-type of cell. Using this classification as well as morphological
-features of each cell measured using the {[}CELL IMAGE ANNOTATION{]}
-software, a random forest model was trained on the collected data to
-algorithmically classifying cells into different types. Images of Skin
-Cutaneous Melanoma (SKCM) biopsies from The Cancer Genome Atlas program
-were processed using this model such that each cell was classified as a
-tumor cell, a lymphocyte, or other. In addition, the x- and
-y-coordinates of each cell centroid (relative to the pathology slide)
-were determined and recorded. The resulting data set for each biopsy
-consisted of a row for each cell, with a column for the x-coordinate, a
-column for the y-coordinate, and an indicator of the cell type. Each
-biopsy was intensity thresholded to define a ``fitted'' window, i.e.~the
-smallest window that fit all cells in the biopsy within it. This window
-was then divided into tiles that fully partition it, while containing
-similar numbers of tumor cells. A bayesian spatial point process model
-was then fit on each of these tiles separately, yielding a posterior
-distribution of the local interaction parameter. For each tile, this
-local distribution was then compared to a tile-specific null
-distribution before being combined to summarize the overall level of
-interaction at the biopsy level.
+Figure \ref{fig:01}b) illustrates the analysis pipeline for the processed data. For each
+biopsy, the smallest window that fit all cells in the biopsy is constructed by thresholding the image intensity
+(Figure 1, step A to step B).
+This window is then divided into tiles that fully partition it,
+while containing similar numbers of tumor cells (step B to step C). A Bayesian spatial
+point process model is then fit on each of these tiles separately,
+yielding a posterior distribution of the local interaction parameter (step C to step D).
+For each tile, this local distribution is compared to a
+tile-specific null distribution to compute the local CTIP value (step E), before being combined to summarize
+the overall level of interaction at the biopsy level (steps F and G).
 
-SKCM is an appealing target for the investigation of lymphocyte
-infiltration for several reasons. While all types of cancer can manifest
-some degree of lymphocyte infiltration, SKCM is a particularly
-immunogenic {[}?{]} form of cancer {[}CITATION{]}. Combined with burgeoning
-spatial transcriptomic technology, developing the tools to
-algorithmically quantify the presence and degree of lymphocyte
-infiltration across a biopsy may yield a better understanding of the
-genomic underpinnings of lymphocyte infiltration. Moreover, SKCM has
-been shown to be particularly responsive to Immunotherapy in some cases
-{[}CITATION{]}. It is possible that the ability to quantify lymphocyte
-infiltration at a large scale may allow for more detailed investigation
-into the scenarios in which this treatment may be most effectively
-deployed. Finally, SKCM has an unusually high mutational load amongst
-the various cancer types {[}CITATION{]}. The ability to quantify
-infiltration may allow for exploration associations with mutations as
-well. {[}TODO: is infiltration particularly common in SKCM? I feel like
-it is, but I need to verify this.{]}
+\hypertarget{spatial-point-process-models}{%
+\section{Spatial Point Process Models}\label{spatial-point-process-models}}
 
-\hypertarget{spatial-point-processes}{%
-\section{Spatial Point Processes}\label{spatial-point-processes}}
+\paragraph{\textbf{Data Structure}}
 
-Denote the number of biopsies \(n\), and for biopsy \(i\), let \(c_i\) denote
-the number of cells observed and labeled within that biopsy, with
-corresponding x- and y- coordinates
-\(\mathbf{x}_i = x_{i1},...,x_{ic_i}\),
-\(\mathbf{y}_i = y_{i1},...,y_{ic_i}\), and marks
-\(\mathbf{m}_i = m_{i1},...,m_{ic_i}\). For our application,
-\(m_{ij} \in \{1, 2\}\),with \(1\) indicating a tumor cell and \(2\)
-indicating a lymphocyte. Further, denote the number of tumor cells
-observed in subject \(i\) by \(T_i\), and the number of lymphocytes \(L_i\).
-Within each patient, this data can be naturally thought of as a marked
-point process and modeled as such.
+Let \(B_1...B_n\) be a set of independent regions with \(B_i \in \mathbb{R}^2 \times \mathbb{R}^2\), such that each \(B_i\) has been partitioned into \(n_i\) non-overlapping sub-regions \(b_{i1}..b_{in_i}\) each with well-defined boundaries. Denote the set of points observed within sub-region \(j\) of region \(i\) by \({\mathbf{x}}_{ij}\), and the marks of those points as \({\mathbf{m}}_{ij}\) where each mark \(m_{ijk} \in \{K_1,...,K_\ell\}\). Within each sub-region, this data can be naturally viewed as the realization of a marked point process and modeled as a Hierarchical Multitype Strauss Process.
 
-We decided to use a Hierachical Multitype Strauss Model for our data,
-the density of which is
+\paragraph{\textbf{Model}}
 
-\[ f(\mathbf{p}_1, \mathbf{p}_2) \propto 
-\beta_1^{n_1} \beta_2^{n_2}
-\gamma_{11}^{S_{R_{11}}(\mathbf{p}_1)}
-\gamma_{22}^{S_{R_{2}}(\mathbf{p}_2)}
-\gamma_{12}^{S_{R_{12}}(\mathbf{p}_1, \mathbf{p}_2)}
-\quad (1)\]
-
-Where:
-
-\begin{itemize}
-\tightlist
-\item
-  \(\mathbf{p}_i\) is a vector of points of type \(i\)
-\item
-  \(n_i\) is the number of points of type \(i\)
-\item
-  \(\beta_i\) is the first order intensity of points of type \(i\)
-\item
-  \(S_{R_{ij}}(\cdot)\) counts the number of pairs of points of types
-  \(i\) and \(j\) within \(R_{ij}\) one another, where \(R_{ij}\) is selected
-  a priori based on subject specific knowledge, and not fit from the
-  data itself.
-\item
-  \(\gamma_{ij}\) captures the tendency of points of type \(i\) to be near
-  points of type \(j\)
-\end{itemize}
-
-The usage of a Strauss model to study spatial interaction between
-different cell types is fairly natural, since Strauss models were
-originally conceived for essentially this general purpose {[}Strauss,
-1975 CHECK THIS{]}. As for the specific decision to use the hierarchical
-variant over the more standard multitype model, there were two major
-considerations that influenced our decision. Firstly, treating the
-locations of the lymphocytes as conditional upon the locations of the
-tumor cells is a priori biologically plausible. What's more, it is quite
-plausible that while lymphocytes are responsive to the positioning of
-tumor cells, tumor cells may not be similarly responsive to the
-positioning of lymphocytes. The hierarchical Strauss models reflects the
+The usage of a Strauss model to study spatial interaction in a marked point process is natural, since Strauss models were
+originally conceived for this purpose
+(\citet{Strauss75}) \textcolor{red}{\textsf{[While this paper introduced Strauss models, the original model actually couldn't model positive interaction, which was pointed out a year later in a different paper (hence our usage of the hierarchical variant). Is this worth mentioning?]}}. As for the specific decision to use
+the hierarchical variant over the more standard multitype model,
+there were two major considerations that influenced our decision.
+First, in our application treating the locations of the immune cells as conditional
+upon the locations of the tumor cells is a priori biologically
+plausible. Moreover, it is quite plausible that while
+immune cells are responsive to the positioning of tumor cells, tumor
+cells may not be similarly responsive to the positioning of
+immune cells. The hierarchical Strauss models reflects the
 plausibly unidirectional nature of this spatial relationship in its
-modeling assumptions. Secondly, the hierarchical variant of the Strauss
-model allows for the proper modeling of positive interaction between
-points of different types, while the standard multitype model does not.
-Note that because intra- type interaction is still confined to be
-negative under the\\
-Hierarchical Multitype Strauss Process, we constrained the\\
-intra-type interaction parameters \(\gamma_{11}\) and \(\gamma_{22}\) to be
-1. Based on prior biological knowledge, we set \(R_{12} = 30\) \(\mu m\).
+modeling assumptions. Second, the hierarchical variant of the
+Strauss model allows for the proper modeling of positive
+interaction between points of different types, while the standard
+multitype model does not. Because we are interested in modeling not only negative interaction between different cell types but positive interaction as well, the hierarchical variant is the clear choice. It bears mentioning that this model
+can be extended to arbitrary numbers of marks. For our current
+application, we have limited ourselves to two, but it would
+be entirely possible to extend the chosen model to as many
+cell types as were available for study in the future.
 
-In our context, \(\gamma_{12}\) can be thought of as the degree to which
-lymphocytes to be close to or far away from tumor cells, conditional
-upon the locations of the tumor cells. This allows us to distinguish
-between the mere relative abundance of different cell types (which is
-captured by the \(\beta_1\) and \(\beta_2\) parameters) and the actual
-spatial associations between the different cell types. This distinction
-is important, since it is possible for there to be a substantial number
-of cells of both types, but for the arrangement to be such that there is
-not meaningful interaction between them. For examples, see section 4.1
-for results from the simulation study. Finally, it is worth noting that
-in practice for various reasons these parameters are modeled on the
-log-scale. While this certainly alters interpretation, because the
-\(log(\cdot)\) function is a monotonically increasing function, the basic
-intuition still holds in that larger values on the log-scale are still
-indicative of stronger spatial interaction. An additional advantage of
-modeling on the log scale is the relative ease of interpretability:
-whereas on the normal scale values of \(\gamma_{12}\) between 0 and 1 are
-indicative of negative interaction and values between 1 and \(\infty\) are
-indicative of positive interaction, on the log scale values less than 0
-are indicative of negative interactions and values greater than 0 are
-indicative of positive interaction.
+The density function of the Hierarchical Multitype Strauss Process when there are \(\ell = 2\) qualitative marks
+is defined by
+
+\begin{equation}
+\label{eqn:density}
+f({\mathbf{p}}_1, {\mathbf{p}}_2) \propto 
+\beta_1^{n_1} \beta_2^{n_2}
+\gamma_{11}^{S_{R_{11}}({\mathbf{p}}_1)}
+\gamma_{22}^{S_{R_{2}}({\mathbf{p}}_2)}
+\gamma_{12}^{S_{R_{12}}({\mathbf{p}}_1, {\mathbf{p}}_2)}
+\tag{1}  
+\end{equation}
+
+where \({\mathbf{p}}_t\) is a vector of points of type \(t\), \(n_t\) is the number of points of type \(t\), \(\beta_t\) is the first order intensity of points of type \(t\), \(S_{R_{tl}}(\cdot)\) counts the number of pairs of points of types \(t\) and \(l\) within \(R_{tl}\) of one another where \(R_{tl}\) is selected a priori based on subject specific knowledge, and \(\gamma_{tl}\) captures the tendency of points of type \(l\) to be near points of type \(t\).
+
+\paragraph{\textbf{Interpretation}}
+
+As previously mentioned, \(\gamma_{tl}\) can be thought of as the
+degree to which points of type \(l\) tend to be close to or far away
+from points of type \(t\). This allows us to distinguish between
+the mere relative abundance of different types of points (which is
+captured by the \(\beta_1\) and \(\beta_2\) parameters) and the
+actual spatial associations between the different types of points.
+This distinction is important in situations where there are
+substantial numbers of points of both types but no positive
+spatial association (and possibly a negative one). For examples,
+see section 3 for results from the simulation study. When
+\(t = 1\) and \(l = 2\), this association
+is interpreted as conditional upon the locations of the type 1
+points. Under the Hierarchical Strauss Model,
+\(\gamma_{12} \in [0, \infty)\), with \(\gamma_{12} \in [0,1)\)
+implying negative interaction, \(\gamma_{12} \in (1, \infty)\)
+implying negative interaction, and \(\gamma_{12} = 1\) implying
+no interaction at all. As one might intuitively expect, larger values of
+\(\gamma_{12}\) correspond to more positive interaction, and
+smaller values correspond to a more negative interaction. Due to mathematical constraints on the density,
+we must have \(\gamma_{11}, \gamma_{22} \in [0,1]\). This
+constrains interaction between points of the same
+type to be modeled as negative. Since this constraint is unlikely
+to be satisfied in the context of a tumor biopsy, we set
+\(\gamma_{11} = \gamma_{12} = 1\), in effect assuming no
+interaction between cells of the same type. Based on prior
+biological knowledge, we set \(R_{12} = 30\) \(\mu m\).
+
+In practice for various reasons these parameters are modeled on
+the log-scale. While this alters interpretation,
+because the \(log(\cdot)\) function is a monotonically increasing
+function, the basic intuition still holds in that larger values
+on the log-scale are still indicative of stronger spatial
+interaction. An additional advantage of modeling on the log scale
+is the relative ease of interpretability. Whereas on the normal
+scale values of \(\gamma_{12}\) between 0 and 1 are indicative of
+negative interaction, values between 1 and \(\infty\) are
+indicative of positive interaction, and 1 is indicative of no interaction,
+on the log scale negative values of \(\log(\gamma_{12})\) indicate negative
+interaction, positive values indicate positive interaction, and a value
+of 0 indicates no interaction.
+
+\hypertarget{pseudolikelihood-function}{%
+\section{Pseudolikelihood Function}\label{pseudolikelihood-function}}
+
+Except in the trivial case where \(\gamma_{12} = 1\), the normalizing constant of this distribution is computationally intractable. This motivates the usage of the pseudolikelihood as outlined in \citet{BT00}. For the density \(f(\cdot)\) of the simplified Hierarchical Strauss model outlined above, define the conditional intensity function at a point \(u\) given \(\theta = \{\beta_1, \beta_2, \gamma_{12}\}\) and points \({\mathbf{x}}\) observed in window \(A\) by
+
+\begin{equation}
+\label{eqn:CL}
+\lambda(u|\theta, {\mathbf{x}}) = 
+\begin{cases}
+\frac{f({\mathbf{x}} \cup \{u\})}{f({\mathbf{x}})} & u \not\in {\mathbf{x}} \\
+\frac{f({\mathbf{x}})}{f({\mathbf{x}} - \{u\})} & u \in {\mathbf{x}}
+\end{cases}
+\tag{2}
+\end{equation}
+
+Given this, the pseudolikelihood is defined by
+
+\begin{equation}
+\label{eqn:PL}
+PL(\theta | {\mathbf{x}}) = 
+\prod_{x_i \in {\mathbf{x}}} \lambda(x_i | \theta, {\mathbf{x}}) \exp(-\int_A \lambda(u | \theta, {\mathbf{x}}) du) \tag{3}
+\end{equation}
+
+This provides a computationally tractable alternative to the likelihood function that can be used in inference. Specifically, the integral in the pseudolikelihood function can be easily approximated by summing over a weighted quadrature on \(A\). Thus, given a quadrature \({\mathbf{u}}\) on \(A\) with corresponding weights \({\mathbf{w}}\), Equation (\ref{eqn:PL}) can be approximated by
+
+\begin{equation}
+\label{eqn:PL_approx}
+PL(\theta | {\mathbf{x}}) \approx
+\prod_{x_i \in {\mathbf{x}}} \lambda(x_i | \theta, {\mathbf{x}}) \exp(-\sum_{u_j \in {\mathbf{u}}} \lambda(u_j | \theta, {\mathbf{x}}) w_j) \tag{4}
+\end{equation}
+
+The density of the selected quadrature \({\mathbf{u}}\) on \(A\) is chosen to balance the accuracy of the approximation against the computational load that larger quadratures impose.
+
+Using this approximation of the pseudolikelihood function in place of the more standard likelihood fnction, Bayesian analysis can proceed in the style of \citet{King12} by simply assigning priors to the parameters of interest and using techniques to sample from non-closed form posterior likelihoods. We assigned non-informative normal priors with mean 0 and variance \(10^6\) to \(\log(\gamma_{12})\), \(\log(\beta_1)\), and \(\log(\beta_2)\). In all analysis presented below the quadrature and weights used to estimate the integral in the pseudolikelihood function was generated by the spatstat package (\citet{BT05}). Samples from the posterior were taken using JAGS via the R2jags package
+(\citet{Su15}).
 
 \hypertarget{intensity-thresholding-and-partition}{%
 \section{Intensity Thresholding and Partition}\label{intensity-thresholding-and-partition}}
 
-Each biopsy was partitioned into non-overlapping sub-regions, each of
-which was modeled as a point process. The primary motivation for
-structuring the analysis in this manner came from prior biological
-knowledge about tumor composition. Tumors are heterogeneous entities in
-many respects, and lymphocyte infiltration is no exception. Thus,
-partitioning the biopsy into non-overlapping sub-regions and fitting
-models on each sub-region is a natural way to capture this
-heterogeneity. An additional benefit of this method is that it allows
-for the parallelization of model fitting across the resulting
-sub-regions within a single biopsy.
+\paragraph{\textbf{Motivation for partition}}
 
-In order to partition a given biopsy into non-overlapping sub-regions,
-we began with the smallest bounding rectangular window that contained
-cells \(1...c_i\). We then applied an intensity thresholding algorithm
-{[}too much?{]} in order to find the smallest possible window that still
-contained all \(c_i\) cells. Next, we applied a voronoi tesselation to the
-\(T_i\) tumor cells within the intensity thresholded window, partitioning
-it into tumor cell specific sub-windows \(1...T_i\) corresponding to tumor
-cells \(1...T_i\). We then applied a modified version of k-means to the
-tumor cells, such that each of the \(K_i\) resulting clusters was
-constrained to be between a pre-defined range of cell counts. Finally,
-each tumor cell specific sub-window within\\
-a given cluster was combined into a tile, corresponding to each of the
-\(K_i\) clusters from the k-means clustering. This results in \(K_i\) tiles
-that fully partition the intensity thresholded window. This partition
-uniquely defines the membership of each of the \(c_i\) total cells (tumor
-or lymphocyte) into one of the resulting tiles. This allowed for the
-previously described separate model fitting.
+Each biopsy was partitioned into non-overlapping sub-regions,
+each of which was modeled separately as a point process. The
+primary motivation for structuring the analysis in this manner
+came from prior biological knowledge about tumor composition.
+Tumors are heterogeneous entities in many respects, and
+immune infiltration is no exception. Thus, partitioning
+the biopsy into non-overlapping sub-regions and fitting models
+on each sub-region is a natural way to capture this heterogeneity.
+An additional benefit of this method is that it allows for the
+parallelization of model fitting across the resulting sub-regions
+within a single biopsy. Much like selecting a quadrature when approximating
+an integral, calibrating the fineness of the partition entails a
+tradeoff between the precision with which one can assess the
+spatial heterogeneity within the biopsy and the computational
+load that a finer partition entails.
 
-It is worth emphasizing that there is nothing particularly unique about
-this method of partitioning the biopsy. Any other method could be used
-in its place, so long as the result is a partition of the biopsy into
-some number of non-overlapping sub-regions on which the subsequent model
-fitting can proceed. In particular, after the application of the Voronoi
-tesselation at the level of individual tumor cells, any other clustering
-algorithm can be easily applied in place of K-means.
+\paragraph{\textbf{Partition pipeline}}
 
-\hypertarget{inference}{%
-\section{Inference}\label{inference}}
+In order to partition a given biopsy into non-overlapping
+sub-regions, we began with the smallest bounding rectangular
+window that contained cells \(1...c_i\). We then applied an
+intensity thresholding algorithm in order to find the
+smallest possible window that still contained all \(c_i\) cells;
+see section {[}S{]} of the supplementary material for details.
+Next, we applied a voronoi tesselation to the \(T_i\) tumor cells
+within the intensity thresholded window, partitioning it into
+tumor cell specific sub-windows \(1...T_i\) corresponding to tumor
+cells \(1...T_i\). We then applied a modified version of k-means to
+the tumor cells, such that each of the \(K_i\) resulting clusters
+was constrained to be between a pre-defined range of cell counts.
+Finally, each tumor cell specific sub-window within~a given
+cluster was combined into a tile, corresponding to each of the
+\(K_i\) clusters from the k-means clustering; see Figure 1 for
+an illustration of the process. This results in \(K_i\)
+tiles that fully partition the intensity thresholded window. This
+partition uniquely defines the membership of each of the \(c_i\)
+total cells (tumor or immune) into one of the resulting tiles.
+Because each resulting tile has a well-defined boundary and
+each cell in the biopsy belongs to exactly one tile, a
+Hierarchical Strauss model can be fit on each tile to compute
+a tile specific value of each parameter in the model. Most
+notably, this allows for the computation of a tile-specific
+value of \(\gamma_{12}\), which captures the local degree
+of tumor cell-immune cell interaction. By modeling this
+parameter locally to each tile, we are able to capture not
+only the overall level of infiltration in the biopsy, but
+also the potentially spatially heterogeneous nature of the
+infiltration.
 
-In order to compute posterior distributions of parameters of interest,
-we used Bayesian techniques in the style of King et al.~2012. This
-methodology essentially exchanges the likelihood function used in
-standard Bayesian inference for the pseudolikelihood function (Besag,
-1975 {[}VERIFY{]}), with the integral approximated via the Berman-Turner
-device (Baddeley and Turner, 2000) using the spatstat package (Baddeley
-and Turner, 2005). Finally, each parameter estimated (\(\beta_1\),
-\(\beta_2\), \(\gamma_{12}\)) was assigned a flat prior. {[}TODO:
-Technically, normal with mean 0 and variance 1,000,000 because of
-limitations of JAGS- should I spell this out?{]} Posterior distributions
-were computed using MCMC via the R2jags package (Su, 2015). Using these
-techniques we were able to compute a posterior distribution
-\(f_{ik | \mathbf{p}}(y)\) of \(\gamma_{ik,12}\) for each for each biopsy
-\(i \in \{1...n\}\) and tile \(k \in \{1...K_i\}\).
+It is worth emphasizing at this point the modular nature of our
+pipeline. The clustering method does not depend on the details
+of the model used, and the model in turn does not depend on details
+of the clustering method. Either can be exchanged for a different
+algorithm or model without disrupting the rest of the pipeline,
+so long as the output of the clustering algorithm is a spatial
+partition of the biopsy. Further, while the value ultimately
+selected to summarize the local infiltration at the tile level
+will obviously be informed by the exact model selected, there
+is considerable latitude in the choice of this quantity as well.
+We ultimately decided to summarize local infiltration using
+CTIP, defined in section 2.5.
 
-Because the density of the hierarchical multitype Strauss model is not
-pre-implemented in JAGS, models were fit using the so-called ``Poisson
-Zero trick'' as detailed in Kruschke, 2014. Results were checked against
-the corresponding STAN implementation to ensure accuracy.
+\hypertarget{cell-type-interaction-probability}{%
+\section{Cell Type Interaction Probability}\label{cell-type-interaction-probability}}
 
-\hypertarget{infiltration-probability}{%
-\section{Infiltration Probability}\label{infiltration-probability}}
+\textcolor{red}{\textsf{[Right now I am putting this section last, because the notation depends on the notion of the "tiles"/partition. If we re-organize this section so that the data structure explanation goes last, this could come right after the section on the pseudolikelihood function, which I think would flow best.]}}
 
-In order to compute a localized probability of infiltration, each
-posterior distribution \(f_{ik | \mathbf{p}}(y)\) was compared to a tile
-specific null distribution, \(f_{ik, 0}(y)\). Because under null
-interaction (\(\gamma_{ik, 12} = 1)\)) our model reduces to two
-independent Poisson processes with intensities \(\beta_1, \beta_2\), this
-was accomplished by treating the observed tumor cells as fixed,
-simulating \(s\) realizations of lymphocytes under a Poisson process with
-the observed intensity, performing the previously described model
-fitting procedure on each, and aggregating samples across simulation
-\(1,...,s\). Under the assumption that the posterior distribution
-\(f_{ik | \mathbf{p}}(x)\) is independent from the null distribution
-\(f_{ik, 0}(y)\), we then computed the tile specific Infiltration
-Probability \(r_{ik}\), given by
+\paragraph{\textbf{Motivation}}
 
-\[\text{Infiltration Probability} \quad r_{ik} = \int \int  I(x > y) f_{ik | \mathbf{p}}(x) f_{ik, 0}(y)  dxdy \qquad (2)\]
+For ease of notation denote the \(\gamma_{12}\) parameter
+corresponding to tile \(k\) of biopsy \(i\) by \(\gamma_{i_{(k)}}\). While
+\(\gamma_{i_{(k)}}\) allows us to distinguish between the relative
+abundance of cells of different types and their tendency to
+be spatially near one another, as well as the uncertainty
+around this tendency, this fundamentally does not capture
+the difference between the observed spatial association
+and what one would expect to observe by chance given a
+particular configuration of tumor cells. In order to properly
+assess this, the observed distribution of \(\log(\gamma_{i_{(k)}})\)
+must be compared to a counterfactual distribution that captures
+the tendency when there is no interaction. This motivated
+the development of Cell Type Interaction Probability (CTIP).
 
-Note that \(r_{ik} \in [0, 1]\). Because \(r_{ik}\) is computed as the
-integral over an indicator random variable, this naturally yields an
-interpretation as a probability. Specifically, \(r_{ik}\) can be thought
-of as measuring the posterior probability that the observed value of
-\(\gamma_{12}\) (denoted by \(x\) in the integral) is larger than the value
-of \(\gamma_{12}\) we would expect to observe by chance (denoted by \(y\) in
-the integral). We thus refer to \(r_{ik}\) as the Infiltration Probability
-for that particular tile, which can be aggregated across tiles to yield
-a measure of infiltration on a particular biopsy.
+\paragraph{\textbf{Definition}}
 
-One might reasonably wonder why we do not simply consider the true
-observed posterior distribution of \(\gamma_{ik,12}\) for each tile.
-Simply put, the advantage to considering the null distribution in this
-situation is analogous to the advantage of considering it in any other
-situation where the fundamental goal involves the quantification of
-uncertainty. We are not simply interested in the sheer size of the
-\(\gamma_{ik, 12}\), but rather interested in whether or not it is larger
-than what one would expect \emph{by chance alone.} While it would perhaps be
-informative to consider the sheer magnitude of the parameter of interest
-alone, examining it with respect to the null distribution is more
-stringent, and allows for clearer delineation of ``true'' interaction
-versus chance spatial associations.
+Let \(f_{i_{(k)}}(\gamma)\) be the true posterior distribution of \(\log(\gamma_{i_{(k)}})\), and \(f_{i_{(k)},0}(\gamma_0)\) be the distribution of the log-interaction parameter absent interaction conditional upon the location of the tumor cells in tile \(k\) of biopsy \(i\). Further, assume independence between the true distribution and the null distribution. Then we define the CTIP for tile \(k\) of biopsy \(i\) by:
+
+\begin{equation}
+\label{eqn:CTIP}
+\text{CTIP} \quad r_{i_{(k)}} = \int \int  I(\gamma > \gamma_0) f_{i_{(k)}}(\gamma) f_{i_{(k)},0}(\gamma_0)  d\gamma d\gamma_0 
+\tag{5}
+\end{equation}
+
+\paragraph{\textbf{Estimating the empirical null distribution}}
+
+The problem of estimating CTIP hinges on being able to estimate and sample from the null distribution of \(\log(\gamma_{i_{(k)}})\), since estimation of the true posterior can proceed as described in section 2.3.
+In order to estimate the null distribution
+of \(\log(\gamma_{i_{(k)}})\) conditional upon the location of the observed tumor cells, we used simulation to construct an empirical ``null'' distribution.
+Recall that when there is no interaction, by definition \(\gamma_{i_{(k)}} = 1\). This means that the Hierarchical Strauss density
+reduces to two independent Poisson processes with
+intensities \(\beta_1, \beta_2\), which are trivial to simulate.
+
+\textcolor{red}{\textsf{[I could get even more rigorous with the notation and "algorithm" here, but this section is getting quite long as is- let me know if you think that would be a good idea.]}}
+
+Given this, the estimation of the null distribution for a given tile proceeded as follows. First, the first order intensity of the lymphocytes was estimated using the standard estimator, \(\hat{\beta}_2 = \frac{I_{ik}}{A_{ik}}\) where \(I_{ik}\) is the number of immune cells observed in tile \(k\) of biopsy \(i\) and \(A_{ik}\) is the area in \(\mu m^2\) of the tile. Next, \(S\) simulations of immune cells were generated from a poisson process with intensity \(\hat{\beta}_2\), \(S\) being selected a priori. Finally, each simulated set of immune cells was superimposed over the actual observed tumor cells, and samples were drawn from the resulting posterior distribution. These samples, combined across simulations \(1...S\) served to estimate the tile specific null distribution of \(\log(\gamma)\).
+
+\paragraph{\textbf{Computation of CTIP}}
+
+Having established the ability to sample from the true posterior distribution as well as the tile specific null distribution for \(\log(\gamma)\), estimation of CTIP can be done via stochastic integration \textcolor{red}{\textsf{[Or should I call it "Monte Carlo integration?" I've heard it both ways]}}. Note that equation (\ref{eqn:CTIP}) is equivalent to \(E_{\gamma, \gamma_0}[I(\gamma > \gamma_0)]\). Thus, given \(P\) posterior samples\(\gamma_1,...,\gamma_P\) from the true posterior \(f_\gamma\) and \(\gamma_{01},...,\gamma_{0P}\) from the empirical null \(f_{\gamma_0}\), (\(\ref{eqn:CTIP}\)) can be estimated by
+
+\begin{equation}
+\label{eqn:CTIP_EST}
+    \widehat{r_{i_{(k)}}} = \frac{1}{P} \sum_{j=1}^P I(\gamma_j > \gamma_{0j})
+    \tag{6}
+\end{equation}
+
+\paragraph{\textbf{Interpretation}}
+
+By definition, \(r_{i_{(k)}} \in [0, 1]\). As previously mentioned, \(r_{i_{(k)}}\) can be
+understood as the expected value of an indicator random variable
+with respect to the joint distribution of \(\gamma_{i_{(k)}}\)
+and \(\gamma_{i_{(k)},0}\), this naturally yields
+an interpretation of \(r_{i_{(k)}}\) as a probability.\\
+Specifically, it can be thought of as measuring the posterior
+probability that the observed value of \(\gamma_{i_{(k)}}\)
+is larger than the value of \(\gamma_{i_{(k)},0}\).\\
+So \(r_{i_{(k)}}\) captures immune infiltration for a particular tile, which separately capture the heterogeneity across a biopsy and can be
+aggregated across tiles to yield a measure of immune infiltration
+on a particular biopsy.
 
 \hypertarget{results}{%
 \chapter{Results}\label{results}}
@@ -402,155 +508,209 @@ versus chance spatial associations.
 \hypertarget{simulation}{%
 \section{Simulation}\label{simulation}}
 
+\paragraph{\textbf{Simulation overview}}
+
 To compare our model's detection of spatial association between
-different cell types, we ran a small-scale simulation study in which we
-tested the ability of this method to accurately classify positive
-interaction across a range of different simulated cell compositions and
-spatial associations. For each of four sets of simulations, the number
-of simulated tumor cells and lymphocytes were set a priori at \(T_s\) and
-\(L_s\) respectively. Further, interaction was controlled by a parameter
-\(\phi \in [-1, 1]\), with \(-1\) indicating the most negative possible
-interaction and \(1\) indicating the most positive possible interaction.
+different cell types, we ran a small-scale simulation study in
+which we tested the ability of this method to accurately classify
+positive interaction across a range of different simulated cell
+compositions and spatial associations. For each of four sets of
+simulations, the number of simulated tumor cells and immune cells
+were set a priori at \(T_s\) and \(L_s\) respectively. Further,
+interaction was controlled by a parameter \(\phi \in [-1, 1]\),
+with \(-1\) indicating the most negative possible interaction and
+\(1\) indicating the most positive possible interaction. Because
+the goal was classification as either positive interaction or
+non-positive (i.e.~null or negative) interaction, we used AUC
+as our summary metric. This is a natural choice, since IP
+is interpreted as the posterior probability of positive
+interaction.
 
-For a given combination of \(T_s\) and \(L_s\), the positive and negative
-simulations proceeded differently. For the negative simulations
-(\(\phi \in [-1, 0]\)), \(T_s\) tumor cells and \(L_s\) lymphocytes were
-simulated as independent poisson processes in regions of the window
-that overlapped to varying degrees. The overlap was controlled by
-\(\phi\), such that the processes overlapped on \((100 \cdot (1 + \phi)) \%\)
-of the window in which the simulation occurred. Note that when \(\phi = -1\)
-there was no overlap, and when \(\phi = 0\) (complete overlap) the
-simulation reduced to simulating two independent Poisson Processes
-within the same window.
+\paragraph{\textbf{Negative simulations}}
 
-For the positive simulations (\(\phi \in (0, 1]\)), \(T_s\) tumor cells were
-simulated under a Poisson process. After their locations were
-determined, \(L_s\) lymphocytes were simulated. For each lymphocyte \(l_i\),
-a Bernoulli random variable \(C_i \thicksim Bern(\phi)\) was drawn. If
-\(C_i = 1\), \(l_i\) was simulated within \(30\) \(\mu m\) of a\\
-randomly selected tumor cell \(t_j\). Otherwise, \(l_i\) was simulated from
-a Poisson process. Thus, the level of interaction was again controlled
-by \(p\), with \(p = 0\) now corresponding to two independent Poisson
-Processes and \(p = 1\) corresponding to a situation in which all
-lymphocytes are within \(30\) \(\mu m\) of at least one tumor cell.
+For a given combination of \(T_s\) and \(L_s\), the positive and
+negative simulations proceeded differently. For the negative
+simulations (\(\phi \in [-1, 0]\)), \(T_s\) tumor cells and \(L_s\)
+immune cells were simulated as independent poisson processes in
+regions of the window that overlapped to varying degrees. The
+overlap was controlled by \(\phi\), such that the processes
+overlapped on \((100 \cdot (1 + \phi)) \%\) of the window in which
+the simulation occurred. Note that when \(\phi = -1\) there was no
+overlap, and when \(\phi = 0\) (complete overlap) the simulation
+reduced to simulating two independent Poisson Processes within
+the same window.
 
-Across the different simulation settings, accurate classification was
-possible using IP, with the minimum AUC across simulations being \(0.84\).
-For detailed descriptions of simulation settings, simulated data, and
-results, see Figure {[}N{]}.
+\paragraph{\textbf{Positive simulations}}
+
+For the positive simulations (\(\phi \in (0, 1]\)), \(T_s\) tumor
+cells were simulated under a Poisson process. After their
+locations were determined, \(L_s\) immune cells were simulated. For
+each immune cell \(l_i\), a Bernoulli random variable
+\(C_i \thicksim Bern(\phi)\) was drawn. If \(C_i = 1\), \(l_i\) was
+simulated within \(30\) \(\mu m\) of a~randomly selected tumor cell. Otherwise, \(l_i\) was simulated from a Poisson process.
+Thus, the level of interaction was again controlled by \(\phi\), with
+\(\phi = 0\) again corresponding to two independent Poisson Processes and
+\(\phi = 1\) corresponding to a situation in which all immune cells are
+within \(30\) \(\mu m\) of at least one tumor cell.
+
+Across the different simulation settings, accurate classification
+was possible using IP, with the minimum AUC across simulations
+being \(0.84\). For detailed descriptions of simulation settings,
+simulated data, and results, see Figure 2.
 
 \hypertarget{application}{%
 \section{Application}\label{application}}
 
-We applied our method to a data set consisting of 335 images of skin
-cutaneous melanoma taken from The Cancer Genome Atlas. Images were
-processed as described in section 2.1. Our methods were applied to the
-resulting data sets. {[}GIVE SUMMARY STATISTICS ABOUT TILES?{]}
+We applied the SPARTIN pipeline to a data set consisting of 335 high definition images of SKCM biopsies stained using hematoxylin and eosin (H\&E). All images were taken from The Cancer Genome Atlas SKCM project. These images were processed using the cellular classification model of Rao and Krishnan {[}TODO: Figure out exact citation{]}. The result of this processing for each biopsy was cell type and location relative to the pathology slide. For this analysis, only data for tumor cells and immune cells were kept.
 
-\hypertarget{survival-analysis}{%
-\subsection{Survival Analysis}\label{survival-analysis}}
-
-In order to assess association between IP and survival, we fit a Cox
-Proportional Hazards model. In addition to adjusting for average
-logit-IP, we adjusted for patient level factors such as cancer stage,
-age, and sex. In addition, we adjusted for readily calculable tumor
-level features, such as number of tumor cells (as a proxy for size) and
-logit lymphocyte proportion (the number of TILs divided by the number of
-tumor cells and TILs). We found that after adjusting for these other
-factors, an increase in logit-IP was significantly associated with
-increased risk of death (\(p < 0.05\)). The same model was fitted with
-average logit-IP exchanged for the average normalized value of the
-estimated Mark Correlation Function evaluated at \(r = 30\) (the same as
-the radius of interaction used in our model fitting), though the
-coefficient of the MCF did not achieve statistical significance. See
-Table 1 for coefficients and standard errors in each model.
-
-Despite the fact that both the MCF and IP lie between 0 and 1, we
-ultimately did not apply a logit transform to MCF before exploring
-its association with survival. This is because all MCF values fell
-between 0 and 0.4, and thus the logit transformation actually
-led to a more skewed measurement for the MCF. Thus, while presenting
-the results from a logit transformed version of both variables
-superficially appears more ``fair,'' in reality we believe that
-presenting the MCF on the normal scale actually results in a more
-fair comparison between the two measures.
+In order to compute IP,
+images were processed and models were fit in using the methods
+described in section 2. The same settings were used for all
+biopsies across the pipeline. For a sample of results, see Figure 3. The color of each tile indicates the value of CTIP estimated for that tile. More varied colors across a given biopsy are indicative of more spatial variation in CTIP, and thus infiltration. CTIP was summarized at the biopsy level by taking the empirical mean across all tiles for a given biopsy. Across biopsies, the median biopsy level CTIP was 0.69, and the interquartile range was 0.19. These results are consistent with the conventional wisdom that melanoma is a generally more immunogenic cancer.
 
 \hypertarget{genomic-associations}{%
 \subsection{Genomic Associations}\label{genomic-associations}}
 
+\paragraph{\textbf{Association with expression of significantly mutated genes}}
+
 In addition to associations with survival, we investigated the
-association between our measurement and gene expression. Gene expression
-{[}RNA-seq{]} data was acquired for all 335 patients in our sample using
-TCGA Assembler {[}citation here{]}. Additionally, 42 significantly mutated
-genes of interest were identified using previous work investigating the
-genomic differences in SCM {[}TCGA Network, 2015{]}. Of the 335 patients
-in our sample, 240 had gene expression data for all genes of interest,
-while 95 were missing data for all genes of interest. We examined the
-marginal association between the normalized gene expression data for the
-240 patients with complete data and average logit IP values. After
-correcting for multiple testing using the Benjamini-Hochberg procedure,
-we found that the expression of three genes were significantly
-associated with average logit IP: LRRC37A3, B2M, and TP53. See
-supplementary Table {[}N{]} for full details on significance of
-associations with each gene.
+association between our measurement and gene expression. Gene
+expression data was acquired for all 335 patients in
+\% A quick note about citations here: the Zhu one is the paper
+\% I meant to cite- that paper lays out the TCGA assembler and
+\% talks about the specific modules I used to get the data.
+\% Re: Akbani, that's a little more complicated. See:
+\% \url{https://scholar.google.com/scholar?hl=en\&q=genomic+classification+of+cutaneous+melanoma}
+\% This yields two different citations for (as far as I can tell
+\% the same paper; the more utilized one is the one I included.
+our sample using TCGA Assembler (\citet{Zhu14}). Additionally,
+42 significantly mutated genes (SMGs) of interest were identified
+using previous work investigating the genomic differences in
+SKCM (\citet{Akbani15}).
 
-While it is perhaps not terribly worthwhile to craft a narrative around
-specific statistically significant findings, particularly in the realm of
-genetics and gene expression. However, we feel that we can confidently
-state that these results provide evidence of a possible association between
-a tumor's gene expression and the corresponding level of lymphocyte
-infiltration. Of course, substantially more data would be needed to
-properly investigate such an association. It is also worth considering
-the possibility that such associations may also occur at a level not
-captured by traditional gene expression data. A natural extension of
-traditional tools would be, as mentioned previously, to incorporate data
-from more novel gene expression measurement techniques that allow for
-more granular spatial investigation of gene expression throughout
-the tumor.
+Of the 335 patients in our sample, 330 had gene expression data
+for all genes of interest, while 95 were missing data for all
+genes of interest. We examined the marginal association between
+the normalized gene expression data for the 330 patients with
+complete data and average logit CTIP values. Marginal association
+was assessed via univariate simple linear regression, carried out
+separately for each gene. The Wald statistic of the coefficient
+corresponding to gene expression was used to produce a \(p\)-value.
+After correcting for multiple testing using the Benjamini
+-Hochberg procedure, we found that the expression of three genes
+were significantly associated with average logit IP: LRRC37A3,
+B2M, and TP53. LRRC37A3 and TP53 were positively associated with
+average logit CTIP (\(\beta = 0.21\) and \(0.16\) respectively), while
+B2M was negatively associated (\(\beta = -0.17\)).
+See supplementary Table 2 for full details on
+significance of associations with each gene.
 
-\hypertarget{conclusion}{%
-\chapter{Conclusion}\label{conclusion}}
+\paragraph{\textbf{Association with expression of immune genes}}
 
-As algorithms for cell-level image classification improve, the
+We also assessed the association between CTIP and genes that are
+associated with immune activity. \citet{Bhattacharya18} have collected and classified a list of 1,793 unique genes associated with various aspects of human immune activity. Of these, gene expression data was available for 1,305 genes across the same 330 patients used in the previous gene expression analysis. We assessed the univariate association between biopsy level mean logit CTIP and these genes using Spearman Correlation. The advantage of Spearman correlation as opposed to the more standard Pearson correlation is that the former does not assume a linear relationship between the underlying variables of interest. Such assumptions can be problematic, particularly when there is no strong reason a priori to believe the relationship between the two variables is of a particular form. However, like Pearson correlation Spearman correlation is defined to lie in \([-1,1]\), with each extreme indicating the same directionality and strength of association as Pearson Correlation. Finally, statistical significance of associations was calculated using the cor.test function of the R programming language (\citet{Rteam}). After applying a Bonferroni correction, we found that 28 genes were significantly associated with IP. For the complete list of genes, see supplementary table {[}N{]}.
+
+\hypertarget{association-with-deconvolution-data}{%
+\subsection{Association with Deconvolution Data}\label{association-with-deconvolution-data}}
+
+Using data from TIMER2.0 (\citet{TIMER20}), we examined the association between the prevalence of different types of immune cells and biopsy level mean logit CTIP. We ultimately decided to use the MCP-counter algorithm (\citet{Becht16}) based on the analysis of \citet{Sturm19}, since it was judged to be most effective in detecting the presence and prevalence of the most relevant types of immune cells. We investigated the association of the score of each type of immune cell estimated by MCP-counter with biopsy level mean logit CTIP using Spearman correlation. Significance was assessed using the standard test of statistical significance of Spearman correlation as implemented by the pspearman package.
+
+After applying a Bonferroni correction (\(\alpha = 0.05\)), we found that six different immune cell scores as computed by MCP-counter were significantly negatively associated with biopsy level mean logit CTIP: CD8+ T cells, B cells, Monocytes, Macrophages, Myeloid Dendritic Cells, and Natural Killer cells. No cell types were significantly positively associated with biopsy level mean logit CTIP after the Bonferroni correction, though the magnitude of the positive association with Cancer Associated Fibroblasts (CAFs) is notable, and while not statistically significant still highly consistent with a truly positive underlying association between biopsy level CTIP and prevalence of CAFs.
+
+\hypertarget{association-with-other-outcomes-of-interest}{%
+\subsection{Association with Other Outcomes of Interest}\label{association-with-other-outcomes-of-interest}}
+
+\paragraph{\textbf{Transcriptomic classes}}
+
+\citet{Akbani15} also identified three transcriptomic classes by applying consensus hierarchical clustering techniques to gene expression data from 1,500 genes: the ``immune'' subclass, the ``keratin'' subclass, and the ``MITF-low'' subclass. Most notably for our current application, the immune subclass was characterized by overexpression of genes associated with T cells, B cells, and Natural Killer cells. Of the patients classified using these methods, 235 were present in our data set. Of these 235, 114 (\(49\%\)) were in the immune subclass, 78 (\(33\%\)) were in the keratin subclass, and 43 (\(18\%\)) were in the MITF-low subclass. {[}Note: the proportions in the original paper are \(51\%\), \(31\%\), and \(18\%\) respectively, which are quite close- is this worth mentioning?{]} We examined mean differences in average logit-IP between each pair of classes using a standard two-sided t-test, and found that the mean logit-IP in the immune class was significantly lower than either the keratin or the MITF-low subclass (\(p << 0.0001\) {[}\(2.563e-06\) to be exact- is this how I should report it?{]} and \(p = 0.011\), respectively). We found no significant difference between the mean logit-IP in the MITF-low subclass and the keratin subclass (\(p = 0.21\)).
+
+\paragraph{\textbf{Pathologist assessment}}
+
+In addition to classifying the biopsies into transcriptomic subclasses, \citet{Akbani15} had pathologists assess biopsies for lymphocyte infiltration. Biopsies were scored from 0 to 3 on lymphocyte distribution, with 0 indicating no lymphocytes present in the tissue and 3 indicating that lymphocytes were present in over \(50\%\) of the tissue. They were also scored from 0 to 3 on lymphocyte density, with 0 indicating an absence of lymphocytes and 3 indicating a ``severe'' presence {[}this is the language used in the supplementary material{]}. These measures were added to create a Lymphocyte Score, a measure that ranged from 0 to 6 meant to summarize the general presence and degree of lymphocyte infiltration in that biopsy. Of the 235 patients in our sample that were assessed by the pathologists, \(29\%\) had a score of zero, \(23\%\) had a score of two, \(10\%\) had a score of three, \(13\%\) had a score of four, \(15\%\) had a score of five, and \(9\%\) had a score of six. Note that by definition of the component scores, a score of one is not possible. We performed a linear regression of Lymphocyte Score on mean biopsy level logit-CTIP, treating Lymphocyte Score as continuous. We found that a one unit increase in mean biopsy level logit-CTIP was highly significantly associated with a 0.45 unit decrease in mean Lymphocyte Score (\(p << 0.0001\)).
+
+\hypertarget{survival-analysis}{%
+\subsection{Survival Analysis}\label{survival-analysis}}
+
+In order to assess association between CTIP and survival, we fit a
+Cox Proportional Hazards model using clinical data as well as CTIP
+values. Clinical patient data were retrieved from the TCGA
+website and matched to biopsy images via TCGA identifier. Logit
+IP was computed at the tile level for each biopsy, and the
+resulting values were averaged to provide a summary of
+infiltration for each biopsy. In addition to adjusting for average
+logit IP, we adjusted for cancer stage, age in years, and sex.
+In both models, age in years was standardized
+by subtracting the mean value and dividing by the standard deviation,
+as was average logit IP.
+
+Using this model, we found that after adjusting for other
+factors an increase in normalized logit-IP was significantly
+associated with increased hazard of death (\(p = 0.02\)). See
+{[}Figure 4{]} for hazard ratio estimates and associated confidence
+intervals. It also bears mentioning that the inclusion of
+normalized logit-IP modestly improved the C-statistic
+(\cite{Uno11}) of the Cox model relative to the model that
+contained only demographic information.
+{[}Note: this is obviously a pretty negligible improvement, and MCON
+improved it slightly more, from 0.61 to 0.63, so I'm somewhat
+ambivalent about appealing to C-statistics in this section
+In addition to this, we found that
+normalized age was significantly positively associated with an
+increased hazard of death \((p < 0.05)\), as was having stage 3
+disease (relative to stage 1, \(p < 0.05\)). Having stage 4 disease
+was positively associated with increased hazard of death, though
+not significantly. This is most likely due to the lack of patients
+with stage 4 disease in the data set.
+
+In order to assess the the performance of CTIP relative to a more
+traditional measure of spatial association the same model was
+fitted with average logit CTIP exchanged for the average normalized
+value of the estimated Mark Connection Function (MCON) evaluated at
+\(r = 30\), which is the same as the radius of interaction used in
+our computation of IP. The Mark Connection Function is a natural
+point of comparison both because it is a commonly used tool for
+investigating spatial associations between points with discrete
+marks and also because it has been used elsewhere as a comparison
+point for similar survival modeling using spatial information
+(\citet{LiMIM19}). As with the CTIP model, MCON was standardized
+by subtracting the mean and dividing by the standard deviation.
+While increased normalized MCON was also associated with an
+increased hazard of death, the association was not significant
+\((p = 0.057)\).
+
+\hypertarget{discussion-and-limitations}{%
+\chapter{Discussion and Limitations}\label{discussion-and-limitations}}
+
+The results presented in this paper provide evidence
+of an immune phenotype in SKCM that corresponds to poor prognosis from a number of different perspectives. In terms of survival, we have demonstrated that adjusting for other relevant clinical factors, an increase in average logit-IP is associated with an increased hazard of death. In terms of gene expression data, average logit-IP is associated with decreased expression of genes related to immune cells that are generally associated with good overall prognosis. And finally, we found that average logit-IP is significantly lower in biopsies that have been classified as immune enriched through gene expression clustering, as well as biopsies that have been assessed by pathologists to have higher densities and spatial distributions of tumor infiltrating lymphocytes. These results fundamentally support the notion that CTIP is capturing an anti-immunogenic phenotype that is associated with poor prognosis, possibly due to an overall negative association with the presence of immune cells that are associated with improved prognosis such as tumor infiltrating lymphocytes and natural killer cells.
+
+A fundamental limitation of this analysis is that immune cells were modeled as a single class rather than as separate cell types belonging to the same family. While the results paint a consistent picture from several different angles, the exact mechanism of these various associations remains fundamentally opaque because of this. It is worth emphasizing, however, that nothing about the structure of our pipeline depends on the presence of only one type of immune cell in addition to the cancer cells. Thus, while our present analysis raises questions about the impact of spatial immune activation on the progression of a tumor, it also offers the tools to further investigate such questions.
+
+The SPARTIN pipeline represents a valuable contribution in and of
+itself to digital pathology
+through its ability to model and quantify immune infiltration
+across entire biopsies in a way that captures meaningful variation
+across patients. However, it also creates numerous opportunities
+for future work unrelated to the present investigation. As algorithms for cell-level image classification improve, the
 opportunities for more and more granular quantitative analysis of
-histopathological imaging data will become both more numerous and more
-fruitful. Moreover, as spatial gene expression data becomes more and
-more common, so too will opportunities for synthesizing data on the
-relative spatial locations of different cell types along with local gene
-expression data through complex modeling.
+histopathological imaging data will become both more numerous and
+more fruitful. Specifically, as the ability to reliably distinguish between different types of immune cells will allow for more granular investigations into the prognoses associated with interaction between immune cells of different kinds and the tumor. Moreover, as spatial gene expression data becomes
+more and more common, so too will opportunities for synthesizing
+data on the relative spatial locations of different cell types
+along with local gene expression data through complex modeling. It would be quite
+trivial (particularly in a Bayesian framework) to model a function
+of one or all of the parameters of interest as a linear combination
+of the local gene expression data for genes that are known to be
+relevant to immune response. Alternatively, future methods in this
+area could be developed at the intersection of spatial data and
+high dimensional data in order to identify such genes.
 
-The SPARTYN pipeline represents a valuable contribution in and of itself
-to the histopathological imaging analysis literature through its ability
-to model and quantify lymphocyte infiltration across entire biopsies in
-a way that captures meaningful variation across patients. However, it
-also creates numerous opportunities for future work. Partitioning each
-biopsy into non-overlapping sub-regions such that each is assigned a
-value invites the usage of other tools from the spatial statistical
-canon. Specifically, tools from areal data analysis may be readily
-applied without any modifications or further theoretical development.
-Moreover, recall that our usage of Bayesian methods allows for not only
-the computation of scalar summary statistics for each sub-region but
-also posterior distributions. Future work may involve adapting more
-traditional methods to model correlated density functions, or developing
-new methods as necessary.
+The SPARTIN pipeline also creates numerous opportunities for further investigation not directly related to assessing immune infiltration. Partitioning each biopsy into non-overlapping
+sub-regions invites the application
+of other tools from the spatial statistical canon to arbitrary spatial features of the tumor microenvironment. In fact, the primary feature of interest need not even be spatial in nature; so long as a feature (such as average tumor cell size) can be quantified at the cellular level and may be expected to vary across the tumor microenvironment, SPARTIN provides a framework for mapping the variation the variation of that feature across the entire biopsy.
 
-It also bears mentioning that while we limited ourselves to
-investigating two cell types throughout this paper, there is nothing in
-our pipeline or model that depends on this limitation in such a way that
-would render future investigation of more cell types impossible. It is
-highly likely that future iterations of our pipeline and methodology
-will seek to investigate the spatial associations between three or more
-cell types.
+There is another limitation of our analysis that suggests an avenue for future methodological development. Note that the result of fitting models on the partitioned tumor microenvironment is a set of repeated observations with some underlying spatial covariance structure related to the spatial relationships between the different subspaces. For now, we have ignored this spatial covariance, and instead chosen to summarize the variation at the biopsy level. While there is nothing intrinsically incorrect about this approach, it is quite likely that incorporating the spatial structure across the biopsy will lead to gains in efficiency, and possibly insight into the nature of the spatial variation in immune activation in the tumor microenvironment. Thus, future work will likely include the development of methods to efficiently analyze this complex structured areal data.
 
-Finally, our work could very easily take advantage of the burgeoning
-field of spatial transcriptomics. It would be quite trivial
-(particularly in a Bayesian framework) to model a function of one or all
-of the parameters of interest as a linear combination of the local gene
-expression data for genes that are known to be relevant to immune
-response. Alternatively, future methods in this area could be developed
-at the intersection of spatial data and high dimensional\\
-data in order to identify such genes.
-
-  \bibliography{book.bib,packages.bib}
+  \bibliography{bibliography.bib}
 
 \end{document}

@@ -4,27 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Results | SPARTYN Supplementary material</title>
-  <meta name="description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <title>S.4 Results | SPARTYN Supplementary material</title>
+  <meta name="description" content="Supplementary material related to the SPARTYN pipeline" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Results | SPARTYN Supplementary material" />
+  <meta property="og:title" content="S.4 Results | SPARTYN Supplementary material" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta property="og:description" content="Supplementary material related to the SPARTYN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Results | SPARTYN Supplementary material" />
+  <meta name="twitter:title" content="S.4 Results | SPARTYN Supplementary material" />
   
-  <meta name="twitter:description" content="This is “living documentation” of the SPARTYN pipeline" />
+  <meta name="twitter:description" content="Supplementary material related to the SPARTYN pipeline" />
   
 
 <meta name="author" content="Nate Osher" />
 
 
-<meta name="date" content="2021-11-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +31,7 @@
   
   
 <link rel="prev" href="materials-and-methods.html"/>
-<link rel="next" href="conclusion.html"/>
+<link rel="next" href="discussion-and-limitations.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -56,6 +55,28 @@
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -78,21 +99,23 @@
 <li class="chapter" data-level="3" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>3</b> Materials and Methods</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-processes"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Processes</a></li>
-<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.3</b> Intensity Thresholding and Partition</a></li>
-<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#inference"><i class="fa fa-check"></i><b>3.4</b> Inference</a></li>
-<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#infiltration-probability"><i class="fa fa-check"></i><b>3.5</b> Infiltration Probability</a></li>
+<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Process Models</a></li>
+<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>3.3</b> Pseudolikelihood Function</a></li>
+<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.4</b> Intensity Thresholding and Partition</a></li>
+<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>3.5</b> Cell Type Interaction Probability</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
 <li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.1</b> Survival Analysis</a></li>
-<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.2</b> Genomic Associations</a></li>
+<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.1</b> Genomic Associations</a></li>
+<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#association-with-deconvolution-data"><i class="fa fa-check"></i><b>4.2.2</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="4.2.3" data-path="results.html"><a href="results.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>4.2.3</b> Association with Other Outcomes of Interest</a></li>
+<li class="chapter" data-level="4.2.4" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.4</b> Survival Analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="chapter" data-level="5" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>5</b> Discussion and Limitations</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -114,106 +137,176 @@
 
             <section class="normal" id="section-">
 <div id="results" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Results</h1>
+<h1><span class="header-section-number">S.4</span> Results</h1>
 <div id="simulation" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Simulation</h2>
 <p>To compare our model’s detection of spatial association between
-different cell types, we ran a small-scale simulation study in which we
-tested the ability of this method to accurately classify positive
-interaction across a range of different simulated cell compositions and
-spatial associations. For each of four sets of simulations, the number
-of simulated tumor cells and lymphocytes were set a priori at <span class="math inline">\(T_s\)</span> and
-<span class="math inline">\(L_s\)</span> respectively. Further, interaction was controlled by a parameter
-<span class="math inline">\(\phi \in [-1, 1]\)</span>, with <span class="math inline">\(-1\)</span> indicating the most negative possible
-interaction and <span class="math inline">\(1\)</span> indicating the most positive possible interaction.</p>
-<p>For a given combination of <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span>, the positive and negative
-simulations proceeded differently. For the negative simulations
-(<span class="math inline">\(\phi \in [-1, 0]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells and <span class="math inline">\(L_s\)</span> lymphocytes were
-simulated as independent poisson processes in regions of the window
-that overlapped to varying degrees. The overlap was controlled by
-<span class="math inline">\(\phi\)</span>, such that the processes overlapped on <span class="math inline">\((100 \cdot (1 + \phi)) \%\)</span>
-of the window in which the simulation occurred. Note that when <span class="math inline">\(\phi = -1\)</span>
-there was no overlap, and when <span class="math inline">\(\phi = 0\)</span> (complete overlap) the
-simulation reduced to simulating two independent Poisson Processes
-within the same window.</p>
-<p>For the positive simulations (<span class="math inline">\(\phi \in (0, 1]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells were
-simulated under a Poisson process. After their locations were
-determined, <span class="math inline">\(L_s\)</span> lymphocytes were simulated. For each lymphocyte <span class="math inline">\(l_i\)</span>,
-a Bernoulli random variable <span class="math inline">\(C_i \thicksim Bern(\phi)\)</span> was drawn. If
-<span class="math inline">\(C_i = 1\)</span>, <span class="math inline">\(l_i\)</span> was simulated within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of a<br />
-randomly selected tumor cell <span class="math inline">\(t_j\)</span>. Otherwise, <span class="math inline">\(l_i\)</span> was simulated from
-a Poisson process. Thus, the level of interaction was again controlled
-by <span class="math inline">\(p\)</span>, with <span class="math inline">\(p = 0\)</span> now corresponding to two independent Poisson
-Processes and <span class="math inline">\(p = 1\)</span> corresponding to a situation in which all
-lymphocytes are within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of at least one tumor cell.</p>
-<p>Across the different simulation settings, accurate classification was
-possible using IP, with the minimum AUC across simulations being <span class="math inline">\(0.84\)</span>.
-For detailed descriptions of simulation settings, simulated data, and
-results, see Figure [N].</p>
+different cell types, we ran a small-scale simulation study in
+which we tested the ability of this method to accurately classify
+positive interaction across a range of different simulated cell
+compositions and spatial associations. For each of four sets of
+simulations, the number of simulated tumor cells and immune cells
+were set a priori at <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span> respectively. Further,
+interaction was controlled by a parameter <span class="math inline">\(\phi \in [-1, 1]\)</span>,
+with <span class="math inline">\(-1\)</span> indicating the most negative possible interaction and
+<span class="math inline">\(1\)</span> indicating the most positive possible interaction. Because
+the goal was classification as either positive interaction or
+non-positive (i.e. null or negative) interaction, we used AUC
+as our summary metric. This is a natural choice, since IP
+is interpreted as the posterior probability of positive
+interaction.</p>
+<p>For a given combination of <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span>, the positive and
+negative simulations proceeded differently. For the negative
+simulations (<span class="math inline">\(\phi \in [-1, 0]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells and <span class="math inline">\(L_s\)</span>
+immune cells were simulated as independent poisson processes in
+regions of the window that overlapped to varying degrees. The
+overlap was controlled by <span class="math inline">\(\phi\)</span>, such that the processes
+overlapped on <span class="math inline">\((100 \cdot (1 + \phi)) \%\)</span> of the window in which
+the simulation occurred. Note that when <span class="math inline">\(\phi = -1\)</span> there was no
+overlap, and when <span class="math inline">\(\phi = 0\)</span> (complete overlap) the simulation
+reduced to simulating two independent Poisson Processes within
+the same window.</p>
+<p>For the positive simulations (<span class="math inline">\(\phi \in (0, 1]\)</span>), <span class="math inline">\(T_s\)</span> tumor
+cells were simulated under a Poisson process. After their
+locations were determined, <span class="math inline">\(L_s\)</span> immune cells were simulated. For
+each immune cell <span class="math inline">\(l_i\)</span>, a Bernoulli random variable
+<span class="math inline">\(C_i \thicksim Bern(\phi)\)</span> was drawn. If <span class="math inline">\(C_i = 1\)</span>, <span class="math inline">\(l_i\)</span> was
+simulated within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of a randomly selected tumor cell. Otherwise, <span class="math inline">\(l_i\)</span> was simulated from a Poisson process.
+Thus, the level of interaction was again controlled by <span class="math inline">\(\phi\)</span>, with
+<span class="math inline">\(\phi = 0\)</span> again corresponding to two independent Poisson Processes and
+<span class="math inline">\(\phi = 1\)</span> corresponding to a situation in which all immune cells are
+within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of at least one tumor cell.</p>
+<p>Across the different simulation settings, accurate classification
+was possible using IP, with the minimum AUC across simulations
+being <span class="math inline">\(0.84\)</span>. For detailed descriptions of simulation settings,
+simulated data, and results, see Figure 2.</p>
 </div>
 <div id="application" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Application</h2>
-<p>We applied our method to a data set consisting of 335 images of skin
-cutaneous melanoma taken from The Cancer Genome Atlas. Images were
-processed as described in section 2.1. Our methods were applied to the
-resulting data sets. [GIVE SUMMARY STATISTICS ABOUT TILES?]</p>
-<div id="survival-analysis" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Survival Analysis</h3>
-<p>In order to assess association between IP and survival, we fit a Cox
-Proportional Hazards model. In addition to adjusting for average
-logit-IP, we adjusted for patient level factors such as cancer stage,
-age, and sex. In addition, we adjusted for readily calculable tumor
-level features, such as number of tumor cells (as a proxy for size) and
-logit lymphocyte proportion (the number of TILs divided by the number of
-tumor cells and TILs). We found that after adjusting for these other
-factors, an increase in logit-IP was significantly associated with
-increased risk of death (<span class="math inline">\(p &lt; 0.05\)</span>). The same model was fitted with
-average logit-IP exchanged for the average normalized value of the
-estimated Mark Correlation Function evaluated at <span class="math inline">\(r = 30\)</span> (the same as
-the radius of interaction used in our model fitting), though the
-coefficient of the MCF did not achieve statistical significance. See
-Table 1 for coefficients and standard errors in each model.</p>
-<p>Despite the fact that both the MCF and IP lie between 0 and 1, we
-ultimately did not apply a logit transform to MCF before exploring
-its association with survival. This is because all MCF values fell
-between 0 and 0.4, and thus the logit transformation actually
-led to a more skewed measurement for the MCF. Thus, while presenting
-the results from a logit transformed version of both variables
-superficially appears more “fair,” in reality we believe that
-presenting the MCF on the normal scale actually results in a more
-fair comparison between the two measures.</p>
-</div>
-<div id="genomic-associations" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Genomic Associations</h3>
+<p>We applied the SPARTIN pipeline to a data set consisting of 335 high definition images of SKCM biopsies stained using hematoxylin and eosin (H&amp;E). All images were taken from The Cancer Genome Atlas SKCM project. These images were processed using the cellular classification model of Rao and Krishnan [TODO: Figure out exact citation]. The result of this processing for each biopsy was cell type and location relative to the pathology slide. For this analysis, only data for tumor cells and immune cells were kept.</p>
+<p>In order to compute IP,
+images were processed and models were fit in using the methods
+described in section 2. The same settings were used for all
+biopsies across the pipeline. For a sample of results, see Figure 3. The color of each tile indicates the value of CTIP estimated for that tile. More varied colors across a given biopsy are indicative of more spatial variation in CTIP, and thus infiltration. CTIP was summarized at the biopsy level by taking the empirical mean across all tiles for a given biopsy. Across biopsies, the median biopsy level CTIP was 0.69, and the interquartile range was 0.19. These results are consistent with the conventional wisdom that melanoma is a generally more immunogenic cancer.</p>
+<div id="genomic-associations" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Genomic Associations</h3>
 <p>In addition to associations with survival, we investigated the
-association between our measurement and gene expression. Gene expression
-[RNA-seq] data was acquired for all 335 patients in our sample using
-TCGA Assembler [citation here]. Additionally, 42 significantly mutated
-genes of interest were identified using previous work investigating the
-genomic differences in SCM [TCGA Network, 2015]. Of the 335 patients
-in our sample, 240 had gene expression data for all genes of interest,
-while 95 were missing data for all genes of interest. We examined the
-marginal association between the normalized gene expression data for the
-240 patients with complete data and average logit IP values. After
-correcting for multiple testing using the Benjamini-Hochberg procedure,
-we found that the expression of three genes were significantly
-associated with average logit IP: LRRC37A3, B2M, and TP53. See
-supplementary Table [N] for full details on significance of
-associations with each gene.</p>
-<p>While it is perhaps not terribly worthwhile to craft a narrative around
-specific statistically significant findings, particularly in the realm of
-genetics and gene expression. However, we feel that we can confidently
-state that these results provide evidence of a possible association between
-a tumor’s gene expression and the corresponding level of lymphocyte
-infiltration. Of course, substantially more data would be needed to
-properly investigate such an association. It is also worth considering
-the possibility that such associations may also occur at a level not
-captured by traditional gene expression data. A natural extension of
-traditional tools would be, as mentioned previously, to incorporate data
-from more novel gene expression measurement techniques that allow for
-more granular spatial investigation of gene expression throughout
-the tumor.</p>
+association between our measurement and gene expression. Gene
+expression data was acquired for all 335 patients in
+% A quick note about citations here: the Zhu one is the paper
+% I meant to cite- that paper lays out the TCGA assembler and
+% talks about the specific modules I used to get the data.
+% Re: Akbani, that’s a little more complicated. See:
+% <a href="https://scholar.google.com/scholar?hl=en&amp;q=genomic+classification+of+cutaneous+melanoma" class="uri">https://scholar.google.com/scholar?hl=en&amp;q=genomic+classification+of+cutaneous+melanoma</a>
+% This yields two different citations for (as far as I can tell
+% the same paper; the more utilized one is the one I included.
+our sample using TCGA Assembler (<span class="citation"><a href="#ref-Zhu14" role="doc-biblioref">Zhu, Qiu, and Ji</a> (<a href="#ref-Zhu14" role="doc-biblioref">2014</a>)</span>). Additionally,
+42 significantly mutated genes (SMGs) of interest were identified
+using previous work investigating the genomic differences in
+SKCM (<span class="citation"><a href="#ref-Akbani15" role="doc-biblioref">Akbani et al.</a> (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span>).</p>
+<p>Of the 335 patients in our sample, 330 had gene expression data
+for all genes of interest, while 95 were missing data for all
+genes of interest. We examined the marginal association between
+the normalized gene expression data for the 330 patients with
+complete data and average logit CTIP values. Marginal association
+was assessed via univariate simple linear regression, carried out
+separately for each gene. The Wald statistic of the coefficient
+corresponding to gene expression was used to produce a <span class="math inline">\(p\)</span>-value.
+After correcting for multiple testing using the Benjamini
+-Hochberg procedure, we found that the expression of three genes
+were significantly associated with average logit IP: LRRC37A3,
+B2M, and TP53. LRRC37A3 and TP53 were positively associated with
+average logit CTIP (<span class="math inline">\(\beta = 0.21\)</span> and <span class="math inline">\(0.16\)</span> respectively), while
+B2M was negatively associated (<span class="math inline">\(\beta = -0.17\)</span>).
+See supplementary Table 2 for full details on
+significance of associations with each gene.</p>
+<p>We also assessed the association between CTIP and genes that are
+associated with immune activity. <span class="citation"><a href="#ref-Bhattacharya18" role="doc-biblioref">Bhattacharya et al.</a> (<a href="#ref-Bhattacharya18" role="doc-biblioref">2018</a>)</span> have collected and classified a list of 1,793 unique genes associated with various aspects of human immune activity. Of these, gene expression data was available for 1,305 genes across the same 330 patients used in the previous gene expression analysis. We assessed the univariate association between biopsy level mean logit CTIP and these genes using Spearman Correlation. The advantage of Spearman correlation as opposed to the more standard Pearson correlation is that the former does not assume a linear relationship between the underlying variables of interest. Such assumptions can be problematic, particularly when there is no strong reason a priori to believe the relationship between the two variables is of a particular form. However, like Pearson correlation Spearman correlation is defined to lie in <span class="math inline">\([-1,1]\)</span>, with each extreme indicating the same directionality and strength of association as Pearson Correlation. Finally, statistical significance of associations was calculated using the cor.test function of the R programming language (<span class="citation"><a href="#ref-Rteam" role="doc-biblioref">R Core Team</a> (<a href="#ref-Rteam" role="doc-biblioref">2021</a>)</span>). After applying a Bonferroni correction, we found that 28 genes were significantly associated with IP. For the complete list of genes, see supplementary table [N].</p>
 </div>
+<div id="association-with-deconvolution-data" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Association with Deconvolution Data</h3>
+<p>Using data from TIMER2.0 (<span class="citation"><a href="#ref-TIMER20" role="doc-biblioref">T. Li et al.</a> (<a href="#ref-TIMER20" role="doc-biblioref">2020</a>)</span>), we examined the association between the prevalence of different types of immune cells and biopsy level mean logit CTIP. We ultimately decided to use the MCP-counter algorithm (<span class="citation"><a href="#ref-Becht16" role="doc-biblioref">Becht et al.</a> (<a href="#ref-Becht16" role="doc-biblioref">2016</a>)</span>) based on the analysis of <span class="citation"><a href="#ref-Sturm19" role="doc-biblioref">Sturm et al.</a> (<a href="#ref-Sturm19" role="doc-biblioref">2019</a>)</span>, since it was judged to be most effective in detecting the presence and prevalence of the most relevant types of immune cells. We investigated the association of the score of each type of immune cell estimated by MCP-counter with biopsy level mean logit CTIP using Spearman correlation. Significance was assessed using the standard test of statistical significance of Spearman correlation as implemented by the pspearman package.</p>
+<p>After applying a Bonferroni correction (<span class="math inline">\(\alpha = 0.05\)</span>), we found that six different immune cell scores as computed by MCP-counter were significantly negatively associated with biopsy level mean logit CTIP: CD8+ T cells, B cells, Monocytes, Macrophages, Myeloid Dendritic Cells, and Natural Killer cells. No cell types were significantly positively associated with biopsy level mean logit CTIP after the Bonferroni correction, though the magnitude of the positive association with Cancer Associated Fibroblasts (CAFs) is notable, and while not statistically significant still highly consistent with a truly positive underlying association between biopsy level CTIP and prevalence of CAFs.</p>
+</div>
+<div id="association-with-other-outcomes-of-interest" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Association with Other Outcomes of Interest</h3>
+<p><span class="citation"><a href="#ref-Akbani15" role="doc-biblioref">Akbani et al.</a> (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span> also identified three transcriptomic classes by applying consensus hierarchical clustering techniques to gene expression data from 1,500 genes: the “immune” subclass, the “keratin” subclass, and the “MITF-low” subclass. Most notably for our current application, the immune subclass was characterized by overexpression of genes associated with T cells, B cells, and Natural Killer cells. Of the patients classified using these methods, 235 were present in our data set. Of these 235, 114 (<span class="math inline">\(49\%\)</span>) were in the immune subclass, 78 (<span class="math inline">\(33\%\)</span>) were in the keratin subclass, and 43 (<span class="math inline">\(18\%\)</span>) were in the MITF-low subclass. [Note: the proportions in the original paper are <span class="math inline">\(51\%\)</span>, <span class="math inline">\(31\%\)</span>, and <span class="math inline">\(18\%\)</span> respectively, which are quite close- is this worth mentioning?] We examined mean differences in average logit-IP between each pair of classes using a standard two-sided t-test, and found that the mean logit-IP in the immune class was significantly lower than either the keratin or the MITF-low subclass (<span class="math inline">\(p &lt;&lt; 0.0001\)</span> [<span class="math inline">\(2.563e-06\)</span> to be exact- is this how I should report it?] and <span class="math inline">\(p = 0.011\)</span>, respectively). We found no significant difference between the mean logit-IP in the MITF-low subclass and the keratin subclass (<span class="math inline">\(p = 0.21\)</span>).</p>
+<p>In addition to classifying the biopsies into transcriptomic subclasses, <span class="citation"><a href="#ref-Akbani15" role="doc-biblioref">Akbani et al.</a> (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span> had pathologists assess biopsies for lymphocyte infiltration. Biopsies were scored from 0 to 3 on lymphocyte distribution, with 0 indicating no lymphocytes present in the tissue and 3 indicating that lymphocytes were present in over <span class="math inline">\(50\%\)</span> of the tissue. They were also scored from 0 to 3 on lymphocyte density, with 0 indicating an absence of lymphocytes and 3 indicating a “severe” presence [this is the language used in the supplementary material]. These measures were added to create a Lymphocyte Score, a measure that ranged from 0 to 6 meant to summarize the general presence and degree of lymphocyte infiltration in that biopsy. Of the 235 patients in our sample that were assessed by the pathologists, <span class="math inline">\(29\%\)</span> had a score of zero, <span class="math inline">\(23\%\)</span> had a score of two, <span class="math inline">\(10\%\)</span> had a score of three, <span class="math inline">\(13\%\)</span> had a score of four, <span class="math inline">\(15\%\)</span> had a score of five, and <span class="math inline">\(9\%\)</span> had a score of six. Note that by definition of the component scores, a score of one is not possible. We performed a linear regression of Lymphocyte Score on mean biopsy level logit-CTIP, treating Lymphocyte Score as continuous. We found that a one unit increase in mean biopsy level logit-CTIP was highly significantly associated with a 0.45 unit decrease in mean Lymphocyte Score (<span class="math inline">\(p &lt;&lt; 0.0001\)</span>).</p>
+</div>
+<div id="survival-analysis" class="section level3" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Survival Analysis</h3>
+<p>In order to assess association between CTIP and survival, we fit a
+Cox Proportional Hazards model using clinical data as well as CTIP
+values. Clinical patient data were retrieved from the TCGA
+website and matched to biopsy images via TCGA identifier. Logit
+IP was computed at the tile level for each biopsy, and the
+resulting values were averaged to provide a summary of
+infiltration for each biopsy. In addition to adjusting for average
+logit IP, we adjusted for cancer stage, age in years, and sex.
+In both models, age in years was standardized
+by subtracting the mean value and dividing by the standard deviation,
+as was average logit IP.</p>
+<p>Using this model, we found that after adjusting for other
+factors an increase in normalized logit-IP was significantly
+associated with increased hazard of death (<span class="math inline">\(p = 0.02\)</span>). See
+[Figure 4] for hazard ratio estimates and associated confidence
+intervals. It also bears mentioning that the inclusion of
+normalized logit-IP modestly improved the C-statistic
+() of the Cox model relative to the model that
+contained only demographic information.
+[Note: this is obviously a pretty negligible improvement, and MCON
+improved it slightly more, from 0.61 to 0.63, so I’m somewhat
+ambivalent about appealing to C-statistics in this section
+In addition to this, we found that
+normalized age was significantly positively associated with an
+increased hazard of death <span class="math inline">\((p &lt; 0.05)\)</span>, as was having stage 3
+disease (relative to stage 1, <span class="math inline">\(p &lt; 0.05\)</span>). Having stage 4 disease
+was positively associated with increased hazard of death, though
+not significantly. This is most likely due to the lack of patients
+with stage 4 disease in the data set.</p>
+<p>In order to assess the the performance of CTIP relative to a more
+traditional measure of spatial association the same model was
+fitted with average logit CTIP exchanged for the average normalized
+value of the estimated Mark Connection Function (MCON) evaluated at
+<span class="math inline">\(r = 30\)</span>, which is the same as the radius of interaction used in
+our computation of IP. The Mark Connection Function is a natural
+point of comparison both because it is a commonly used tool for
+investigating spatial associations between points with discrete
+marks and also because it has been used elsewhere as a comparison
+point for similar survival modeling using spatial information
+(<span class="citation"><a href="#ref-LiMIM19" role="doc-biblioref">Q. Li et al.</a> (<a href="#ref-LiMIM19" role="doc-biblioref">2019</a>)</span>). As with the CTIP model, MCON was standardized
+by subtracting the mean and dividing by the standard deviation.
+While increased normalized MCON was also associated with an
+increased hazard of death, the association was not significant
+<span class="math inline">\((p = 0.057)\)</span>.</p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Akbani15" class="csl-entry">
+Akbani, Rehan, Kadir C Akdemir, B Arman Aksoy, Monique Albert, Adrian Ally, Samirkumar B Amin, Harindra Arachchi, et al. 2015. <span>“Genomic Classification of Cutaneous Melanoma.”</span> <em>Cell</em> 161 (7): 1681–96.
+</div>
+<div id="ref-Becht16" class="csl-entry">
+Becht, Etienne, Nicolas A. Giraldo, Laetitia Lacroix, Bénédicte Buttard, Nabila Elarouci, Florent Petitprez, Janick Selves, et al. 2016. <span>“Estimating the Population Abundance of Tissue-Infiltrating Immune and Stromal Cell Populations Using Gene Expression.”</span> <em>Genome Biology</em> 17 (1): 218. <a href="https://doi.org/10.1186/s13059-016-1070-5">https://doi.org/10.1186/s13059-016-1070-5</a>.
+</div>
+<div id="ref-Bhattacharya18" class="csl-entry">
+Bhattacharya, Sanchita, Patrick Dunn, Cristel G Thomas, Barry Smith, Henry Schaefer, Jieming Chen, Zicheng Hu, et al. 2018. <span>“ImmPort, Toward Repurposing of Open Access Immunological Assay Data for Translational and Clinical Research.”</span> <em>Scientific Data</em> 5 (1): 1–9.
+</div>
+<div id="ref-LiMIM19" class="csl-entry">
+Li, Qiwei, Xinlei Wang, Faming Liang, and Guanghua Xiao. 2019. <span>“A Bayesian Mark Interaction Model for Analysis of Tumor Pathology Images.”</span> <em>The Annals of Applied Statistics</em> 13 (3): 1708.
+</div>
+<div id="ref-TIMER20" class="csl-entry">
+Li, Taiwen, Jingxin Fu, Zexian Zeng, David Cohen, Jing Li, Qianming Chen, Bo Li, and X Shirley Liu. 2020. <span>“Timer2.0 for Analysis of Tumor-Infiltrating Immune Cells.”</span> <em>Nucleic Acids Research</em> 48 (W1): W509–14. <a href="https://doi.org/10.1093/nar/gkaa407">https://doi.org/10.1093/nar/gkaa407</a>.
+</div>
+<div id="ref-Rteam" class="csl-entry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-Sturm19" class="csl-entry">
+Sturm, Gregor, Francesca Finotello, Florent Petitprez, Jitao David Zhang, Jan Baumbach, Wolf H Fridman, Markus List, and Tatsiana Aneichyk. 2019. <span>“Comprehensive Evaluation of Transcriptome-Based Cell-Type Quantification Methods for Immuno-Oncology.”</span> <em>Bioinformatics</em> 35 (14): i436–45. <a href="https://doi.org/10.1093/bioinformatics/btz363">https://doi.org/10.1093/bioinformatics/btz363</a>.
+</div>
+<div id="ref-Zhu14" class="csl-entry">
+Zhu, Yitan, Peng Qiu, and Yuan Ji. 2014. <span>“TCGA-Assembler: Open-Source Software for Retrieving and Processing TCGA Data.”</span> <em>Nature Methods</em> 11 (6): 599–600.
 </div>
 </div>
             </section>
@@ -222,7 +315,7 @@ the tumor.</p>
         </div>
       </div>
 <a href="materials-and-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="discussion-and-limitations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

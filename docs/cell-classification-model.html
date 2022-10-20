@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>SPARTIN Supplementary material</title>
+  <title>S.4 Cell Classification Model | SPARTIN Supplementary material</title>
   <meta name="description" content="Supplementary material related to the SPARTIN pipeline" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="SPARTIN Supplementary material" />
+  <meta property="og:title" content="S.4 Cell Classification Model | SPARTIN Supplementary material" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Supplementary material related to the SPARTIN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="SPARTIN Supplementary material" />
+  <meta name="twitter:title" content="S.4 Cell Classification Model | SPARTIN Supplementary material" />
   
   <meta name="twitter:description" content="Supplementary material related to the SPARTIN pipeline" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="model-fitting.html"/>
+<link rel="prev" href="biopsy-partition.html"/>
+<link rel="next" href="genomic-associations.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,27 +198,98 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">SPARTIN Supplementary material</h1>
-<p class="author"><em>Nate Osher</em></p>
+<div id="cell-classification-model" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">S.4</span> Cell Classification Model<a href="cell-classification-model.html#cell-classification-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="whole-slide-image-wsi-retrieval-and-obtaining-training-labels" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels<a href="cell-classification-model.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>WSI from 20 different patients were used as our primary training and testing data. The images were imported from The Cancer Genome Atlas (TCGA) Genomic Data Commons Data Portal, which is a repository of validated datasets from various National Cancer Institute Programs. Also known as the gigapixel pathology image, one image slide contained two tissue smears stained with hematoxylin and eosin, imported in a vendor specific format. The imported image for classification is scanned at the ‘high’ magnification level in a microscope of 40X. The pixel size for images was approximately 0.25 microns per pixel. Manual marking of a minimum of ten samples from each of the classes i.e., Tumors, Immune, Macrophage, and other cell was performed by a pathologist on all slides. Care was taken to ensure that the samples were as diverse as possible, to account for all possible morphologies of the same cell type across all cases. In total, 1250 annotations were made in all the images, with each annotated cell labelled by a pathologist. The reasons for the comparatively smaller labelled dataset available lie in the large size of the slide, and pathologist availability; the large size makes parsing through difficult and explains the diversity of labelled structures in each image.</p>
 </div>
-<div id="preface" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">S.1</span> Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of this document is to serve as a “living” supplement to the
-first paper on the SPARTYN pipeline. While the paper itself will be
-static upon publication, this document will serve as both an ongoing
-supplement as well as a central location to give updated, detailed
-information on the pipeline and methods.</p>
-<p>If you have a question that is not adequately addressed in this
-supplement, please email oshern (at) umich.edu.</p>
+<div id="whole-slide-image-wsi-nucleus-segmentation" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Whole-Slide Image (WSI) Nucleus Segmentation<a href="cell-classification-model.html#whole-slide-image-wsi-nucleus-segmentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before nuclear segmentation and extraction can be performed on the WSIs, certain pre-processing steps are carried out to ensure staining uniformity across images. A representative and generalizable stain vector estimation for each of the stains being used in the image is estimated, to normalize the staining intensities across all the images. In our application, vectors from hematoxylin, eosin and residual stains were estimated from a standard image, selected by the clinician. These vectors are then applied across all images to keep the stain detection parameters uniform across the dataset (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead18" role="doc-biblioref">2018</a>)</span>).</p>
+<p>Due to the variations in staining procedures across the dataset, it is difficult to accurately isolate whole cells on the slide, as the cytoplasmic boundaries are not well-defined due to lack of membrane staining. As heterogeneity in nuclear morphology has been shown to be a good discriminator, only the nucleus is segmented out of each cell in every image for classification purposes, using Qupath (<span class="citation">Yuan et al. (<a href="#ref-Yuan12" role="doc-biblioref">2012</a>)</span>). Watershed segmentation is used to obtain separated and contoured nuclei from the hematoxylin color channel of the whole slide image, in a patch-based manner (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead18" role="doc-biblioref">2018</a>)</span>). The separate hematoxylin channel is obtained by performing color deconvolution to separate out the stains used in the slide (<span class="citation">Ruifrok, Johnston, et al. (<a href="#ref-Ruifrok01" role="doc-biblioref">2001</a>)</span>). It was observed that an average of 200,000 cells were segmented out per image, and morphological and intensity features such as spatial location, eccentricity, circularity, and stain intensities were computed. All pertinent image analysis and nuclear segmentation was performed using Qupath, an open-sourced software platform that can be used for a range of pathological image analysis applications (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead17" role="doc-biblioref">2017</a>)</span>).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Tumor (1)
+</th>
+<th style="text-align:left;">
+Immune (2)
+</th>
+<th style="text-align:left;">
+Other Cells (3)
+</th>
+<th style="text-align:left;">
+Macrophage (4)
+</th>
+<th style="text-align:left;">
+Total Cells
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Number of Labels
+</td>
+<td style="text-align:left;">
+288
+</td>
+<td style="text-align:left;">
+349
+</td>
+<td style="text-align:left;">
+252
+</td>
+<td style="text-align:left;">
+361
+</td>
+<td style="text-align:left;">
+1250
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; border:0;" colspan="100%">
+<sup></sup> Table 4.2: Cell type composition of training dataset.
+</td>
+</tr>
+</tfoot>
+</table>
+<p>A Random Forest model is a type of ensemble learning method, where the weak predictive power of multiple decision trees is aggregated to produce an accurate result <span class="citation">Breiman (<a href="#ref-Breiman01" role="doc-biblioref">2001</a>)</span>. Our four-class classifier model was developed with a pathologist labelled dataset of 1250 morphologically diverse cells, each belonging to Tumor, Immune, Macrophage, or other cells (including cell types such as stromal cells). 5-fold cross-validation was used to assess model accuracy and the receiver operator characteristic curve AUC for each class, with proportional representation of all 4 classes ensured. After adjusting for multiple parameters, including the number of decision trees, the accuracy was obtained in the range of 87-91%.</p>
+<p>This step allowed for a preparation of a dataset for each cell with its spatial location using global coordinates and class of the cell, which is then used for further downstream analysis. The training, testing, and classification of cells from the WSIs was performed on MATLAB version 2017A.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bankhead18" class="csl-entry">
+Bankhead, Peter, José A Fernández, Darragh G McArt, David P Boyle, Gerald Li, Maurice B Loughrey, Gareth W Irwin, et al. 2018. <span>“Integrated Tumor Identification and Automated Scoring Minimizes Pathologist Involvement and Provides New Insights to Key Biomarkers in Breast Cancer.”</span> <em>Laboratory Investigation</em> 98 (1): 15–26.
+</div>
+<div id="ref-Bankhead17" class="csl-entry">
+Bankhead, Peter, Maurice B Loughrey, José A Fernández, Yvonne Dombrowski, Darragh G McArt, Philip D Dunne, Stephen McQuaid, et al. 2017. <span>“QuPath: Open Source Software for Digital Pathology Image Analysis.”</span> <em>Scientific Reports</em> 7 (1): 1–7.
+</div>
+<div id="ref-Breiman01" class="csl-entry">
+Breiman, L. 2001. <span>“Random Forests Machine Learning. 45: 5–32.”</span> <em>View Article PubMed/NCBI Google Scholar</em>.
+</div>
+<div id="ref-Ruifrok01" class="csl-entry">
+Ruifrok, Arnout C, Dennis A Johnston, et al. 2001. <span>“Quantification of Histochemical Staining by Color Deconvolution.”</span> <em>Analytical and Quantitative Cytology and Histology</em> 23 (4): 291–99.
+</div>
+<div id="ref-Yuan12" class="csl-entry">
+Yuan, Yinyin, Henrik Failmezger, Oscar M Rueda, H Raza Ali, Stefan Gräf, Suet-Feung Chin, Roland F Schwarz, et al. 2012. <span>“Quantitative Image Analysis of Cellular Heterogeneity in Breast Tumors Complements Genomic Profiling.”</span> <em>Science Translational Medicine</em> 4 (157): 157ra143–43.
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="model-fitting.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="biopsy-partition.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="genomic-associations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

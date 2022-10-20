@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>SPARTIN Supplementary material</title>
+  <title>S.6 Association with Deconvolution Data | SPARTIN Supplementary material</title>
   <meta name="description" content="Supplementary material related to the SPARTIN pipeline" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="SPARTIN Supplementary material" />
+  <meta property="og:title" content="S.6 Association with Deconvolution Data | SPARTIN Supplementary material" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Supplementary material related to the SPARTIN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="SPARTIN Supplementary material" />
+  <meta name="twitter:title" content="S.6 Association with Deconvolution Data | SPARTIN Supplementary material" />
   
   <meta name="twitter:description" content="Supplementary material related to the SPARTIN pipeline" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="model-fitting.html"/>
+<link rel="prev" href="genomic-associations.html"/>
+<link rel="next" href="spartin-r-package.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,27 +198,181 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">SPARTIN Supplementary material</h1>
-<p class="author"><em>Nate Osher</em></p>
+<div id="association-with-deconvolution-data" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">S.6</span> Association with Deconvolution Data<a href="association-with-deconvolution-data.html#association-with-deconvolution-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Using data from TIMER2.0 (<span class="citation">Li et al. (<a href="#ref-TIMER20" role="doc-biblioref">2020</a>)</span>), we examined the association between the prevalence of different types of immune cells and biopsy level mean logit CTIP. We ultimately decided to use the MCP-counter algorithm (<span class="citation">Becht et al. (<a href="#ref-Becht16" role="doc-biblioref">2016</a>)</span>) based on the analysis of <span class="citation">Sturm et al. (<a href="#ref-Sturm19" role="doc-biblioref">2019</a>)</span>, since it was judged to be most effective in detecting the presence and prevalence of the most relevant types of immune cells. We investigated the association of the score of each type of immune cell estimated by MCP-counter with biopsy level mean logit CTIP using Spearman correlation. Significance was assessed using the standard test of statistical significance of Spearman correlation as implemented by the pspearman package.</p>
+<p>After applying a Bonferroni correction (<span class="math inline">\(\alpha = 0.05\)</span>), we found that six different immune cell scores as computed by MCP-counter were significantly negatively associated with biopsy level mean logit CTIP: CD8+ T cells, B cells, Monocytes, Macrophages, Myeloid Dendritic Cells, and Natural Killer cells. No cell types were significantly positively associated with biopsy level mean logit CTIP after the Bonferroni correction, though the magnitude of the positive association with Cancer Associated Fibroblasts (CAFs) is notable, and while not statistically significant still highly consistent with a truly positive underlying association between biopsy level CTIP and prevalence of CAFs.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:05"></span>
+<img src="Figures/MCP%20Spearman%20Volcano.png" alt="Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05." width="100%" />
+<p class="caption">
+Figure 6.1: Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05.
+</p>
 </div>
-<div id="preface" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">S.1</span> Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of this document is to serve as a “living” supplement to the
-first paper on the SPARTYN pipeline. While the paper itself will be
-static upon publication, this document will serve as both an ongoing
-supplement as well as a central location to give updated, detailed
-information on the pipeline and methods.</p>
-<p>If you have a question that is not adequately addressed in this
-supplement, please email oshern (at) umich.edu.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Cell Type
+</th>
+<th style="text-align:right;">
+Spearman Correlation
+</th>
+<th style="text-align:right;">
+P-Value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+T cell
+</td>
+<td style="text-align:right;">
+-0.1345989
+</td>
+<td style="text-align:right;">
+0.0138744
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T cell CD8+
+</td>
+<td style="text-align:right;">
+-0.2349456
+</td>
+<td style="text-align:right;">
+0.0000152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cytotoxicity score
+</td>
+<td style="text-align:right;">
+-0.1334298
+</td>
+<td style="text-align:right;">
+0.0147288
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NK cell
+</td>
+<td style="text-align:right;">
+-0.1651353
+</td>
+<td style="text-align:right;">
+0.0024940
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B cell
+</td>
+<td style="text-align:right;">
+-0.2128785
+</td>
+<td style="text-align:right;">
+0.0000914
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Monocyte
+</td>
+<td style="text-align:right;">
+-0.1930875
+</td>
+<td style="text-align:right;">
+0.0003958
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Macrophage/Monocyte
+</td>
+<td style="text-align:right;">
+-0.1930875
+</td>
+<td style="text-align:right;">
+0.0003958
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Myeloid dendritic cell
+</td>
+<td style="text-align:right;">
+-0.1771510
+</td>
+<td style="text-align:right;">
+0.0011674
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Neutrophil
+</td>
+<td style="text-align:right;">
+0.0172481
+</td>
+<td style="text-align:right;">
+0.7533506
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Endothelial cell
+</td>
+<td style="text-align:right;">
+0.0614183
+</td>
+<td style="text-align:right;">
+0.2628597
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cancer associated fibroblast
+</td>
+<td style="text-align:right;">
+0.1419220
+</td>
+<td style="text-align:right;">
+0.0094486
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; border:0;" colspan="100%">
+<sup></sup> Table 6.1: IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Becht16" class="csl-entry">
+Becht, Etienne, Nicolas A. Giraldo, Laetitia Lacroix, Bénédicte Buttard, Nabila Elarouci, Florent Petitprez, Janick Selves, et al. 2016. <span>“Estimating the Population Abundance of Tissue-Infiltrating Immune and Stromal Cell Populations Using Gene Expression.”</span> <em>Genome Biology</em> 17 (1): 218. <a href="https://doi.org/10.1186/s13059-016-1070-5">https://doi.org/10.1186/s13059-016-1070-5</a>.
+</div>
+<div id="ref-TIMER20" class="csl-entry">
+Li, Taiwen, Jingxin Fu, Zexian Zeng, David Cohen, Jing Li, Qianming Chen, Bo Li, and X Shirley Liu. 2020. <span>“Timer2.0 for Analysis of Tumor-Infiltrating Immune Cells.”</span> <em>Nucleic Acids Research</em> 48 (W1): W509–14. <a href="https://doi.org/10.1093/nar/gkaa407">https://doi.org/10.1093/nar/gkaa407</a>.
+</div>
+<div id="ref-Sturm19" class="csl-entry">
+Sturm, Gregor, Francesca Finotello, Florent Petitprez, Jitao David Zhang, Jan Baumbach, Wolf H Fridman, Markus List, and Tatsiana Aneichyk. 2019. <span>“Comprehensive Evaluation of Transcriptome-Based Cell-Type Quantification Methods for Immuno-Oncology.”</span> <em>Bioinformatics</em> 35 (14): i436–45. <a href="https://doi.org/10.1093/bioinformatics/btz363">https://doi.org/10.1093/bioinformatics/btz363</a>.
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="model-fitting.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="genomic-associations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="spartin-r-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

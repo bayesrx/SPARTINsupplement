@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>S.5 Discussion and Limitations | SPARTYN Supplementary material</title>
+  <title>S.13 Discussion and Limitations | SPARTIN Supplementary material</title>
   <meta name="description" content="Supplementary material related to the SPARTYN pipeline" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="S.5 Discussion and Limitations | SPARTYN Supplementary material" />
+  <meta property="og:title" content="S.13 Discussion and Limitations | SPARTIN Supplementary material" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Supplementary material related to the SPARTYN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="S.5 Discussion and Limitations | SPARTYN Supplementary material" />
+  <meta name="twitter:title" content="S.13 Discussion and Limitations | SPARTIN Supplementary material" />
   
   <meta name="twitter:description" content="Supplementary material related to the SPARTYN pipeline" />
   
@@ -30,9 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="results.html"/>
+<link rel="prev" href="application.html"/>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,10 +48,75 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -94,28 +157,79 @@ div.csl-indent {
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>3</b> Materials and Methods</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="model-fitting.html"><a href="model-fitting.html"><i class="fa fa-check"></i><b>2</b> Model Fitting</a></li>
+<li class="chapter" data-level="3" data-path="biopsy-partition.html"><a href="biopsy-partition.html"><i class="fa fa-check"></i><b>3</b> Biopsy Partition</a></li>
+<li class="chapter" data-level="4" data-path="cell-classification-model.html"><a href="cell-classification-model.html"><i class="fa fa-check"></i><b>4</b> Cell Classification Model</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Process Models</a></li>
-<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>3.3</b> Pseudolikelihood Function</a></li>
-<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.4</b> Intensity Thresholding and Partition</a></li>
-<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>3.5</b> Cell Type Interaction Probability</a></li>
+<li class="chapter" data-level="4.1" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels"><i class="fa fa-check"></i><b>4.1</b> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels</a></li>
+<li class="chapter" data-level="4.2" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-nucleus-segmentation"><i class="fa fa-check"></i><b>4.2</b> Whole-Slide Image (WSI) Nucleus Segmentation</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<li class="chapter" data-level="5" data-path="genomic-associations.html"><a href="genomic-associations.html"><i class="fa fa-check"></i><b>5</b> Genomic Associations</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
-<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
+<li class="chapter" data-level="5.1" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-significantly-mutated-genes"><i class="fa fa-check"></i><b>5.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="5.2" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-immune-genes"><i class="fa fa-check"></i><b>5.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="association-with-deconvolution-data.html"><a href="association-with-deconvolution-data.html"><i class="fa fa-check"></i><b>6</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="7" data-path="spartin-r-package.html"><a href="spartin-r-package.html"><i class="fa fa-check"></i><b>7</b> SPARTIN R package</a></li>
+<li class="chapter" data-level="8" data-path="preface-1.html"><a href="preface-1.html"><i class="fa fa-check"></i><b>8</b> Preface</a></li>
+<li class="chapter" data-level="9" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
+<li class="chapter" data-level="10" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>10</b> Materials and Methods</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.1</b> Genomic Associations</a></li>
-<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#association-with-deconvolution-data"><i class="fa fa-check"></i><b>4.2.2</b> Association with Deconvolution Data</a></li>
-<li class="chapter" data-level="4.2.3" data-path="results.html"><a href="results.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>4.2.3</b> Association with Other Outcomes of Interest</a></li>
-<li class="chapter" data-level="4.2.4" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.4</b> Survival Analysis</a></li>
+<li class="chapter" data-level="10.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>10.2</b> Spatial Point Process Models</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#data-structure"><i class="fa fa-check"></i><b>10.2.1</b> Data Structure</a></li>
+<li class="chapter" data-level="10.2.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#model"><i class="fa fa-check"></i><b>10.2.2</b> Model</a></li>
+<li class="chapter" data-level="10.2.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation"><i class="fa fa-check"></i><b>10.2.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>10.3</b> Pseudolikelihood Function</a></li>
+<li class="chapter" data-level="10.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>10.4</b> Intensity Thresholding and Partition</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation-for-partition"><i class="fa fa-check"></i><b>10.4.1</b> Motivation for partition</a></li>
+<li class="chapter" data-level="10.4.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#partition-pipeline"><i class="fa fa-check"></i><b>10.4.2</b> Partition pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>10.5</b> Cell Type Interaction Probability</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation"><i class="fa fa-check"></i><b>10.5.1</b> Motivation</a></li>
+<li class="chapter" data-level="10.5.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#definition"><i class="fa fa-check"></i><b>10.5.2</b> Definition</a></li>
+<li class="chapter" data-level="10.5.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#estimating-the-empirical-null-distribution"><i class="fa fa-check"></i><b>10.5.3</b> Estimating the empirical null distribution</a></li>
+<li class="chapter" data-level="10.5.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#computation-of-ctip"><i class="fa fa-check"></i><b>10.5.4</b> Computation of CTIP</a></li>
+<li class="chapter" data-level="10.5.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation-1"><i class="fa fa-check"></i><b>10.5.5</b> Interpretation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>5</b> Discussion and Limitations</a></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#simulation-overview"><i class="fa fa-check"></i><b>11.1</b> Simulation Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#negative-simulations"><i class="fa fa-check"></i><b>11.2</b> Negative simulations</a></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#positive-simulations"><i class="fa fa-check"></i><b>11.3</b> Positive simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>12</b> Application</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="application.html"><a href="application.html#background"><i class="fa fa-check"></i><b>12.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="application.html"><a href="application.html#data-and-pre-processing"><i class="fa fa-check"></i><b>12.1.1</b> Data and Pre-Processing</a></li>
+<li class="chapter" data-level="12.1.2" data-path="application.html"><a href="application.html#cell-classification-model-1"><i class="fa fa-check"></i><b>12.1.2</b> Cell Classification Model</a></li>
+<li class="chapter" data-level="12.1.3" data-path="application.html"><a href="application.html#melanoma"><i class="fa fa-check"></i><b>12.1.3</b> Melanoma</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="application.html"><a href="application.html#genomic-associations-1"><i class="fa fa-check"></i><b>12.2</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application.html"><a href="application.html#association-with-expression-of-significantly-mutated-genes-1"><i class="fa fa-check"></i><b>12.2.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application.html"><a href="application.html#association-with-expression-of-immune-genes-1"><i class="fa fa-check"></i><b>12.2.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="application.html"><a href="application.html#association-with-deconvolution-data-1"><i class="fa fa-check"></i><b>12.3</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="12.4" data-path="application.html"><a href="application.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>12.4</b> Association with Other Outcomes of Interest</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="application.html"><a href="application.html#transcriptomic-classes"><i class="fa fa-check"></i><b>12.4.1</b> Transcriptomic classes</a></li>
+<li class="chapter" data-level="12.4.2" data-path="application.html"><a href="application.html#pathologist-assessment"><i class="fa fa-check"></i><b>12.4.2</b> Pathologist assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="application.html"><a href="application.html#survival-analysis"><i class="fa fa-check"></i><b>12.5</b> Survival Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>13</b> Discussion and Limitations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#r-markdown"><i class="fa fa-check"></i><b>13.1</b> R Markdown</a></li>
+<li class="chapter" data-level="13.2" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#including-plots"><i class="fa fa-check"></i><b>13.2</b> Including Plots</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -128,7 +242,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTYN Supplementary material</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTIN Supplementary material</a>
           </h1>
         </div>
 
@@ -136,8 +250,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="discussion-and-limitations" class="section level1" number="5">
-<h1><span class="header-section-number">S.5</span> Discussion and Limitations</h1>
+<div id="discussion-and-limitations" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">S.13</span> Discussion and Limitations<a href="discussion-and-limitations.html#discussion-and-limitations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The results presented in this paper provide evidence
 of an immune phenotype in SKCM that corresponds to poor prognosis from a number of different perspectives. In terms of survival, we have demonstrated that adjusting for other relevant clinical factors, an increase in average logit-IP is associated with an increased hazard of death. In terms of gene expression data, average logit-IP is associated with decreased expression of genes related to immune cells that are generally associated with good overall prognosis. And finally, we found that average logit-IP is significantly lower in biopsies that have been classified as immune enriched through gene expression clustering, as well as biopsies that have been assessed by pathologists to have higher densities and spatial distributions of tumor infiltrating lymphocytes. These results fundamentally support the notion that CTIP is capturing an anti-immunogenic phenotype that is associated with poor prognosis, possibly due to an overall negative association with the presence of immune cells that are associated with improved prognosis such as tumor infiltrating lymphocytes and natural killer cells.</p>
 <p>A fundamental limitation of this analysis is that immune cells were modeled as a single class rather than as separate cell types belonging to the same family. While the results paint a consistent picture from several different angles, the exact mechanism of these various associations remains fundamentally opaque because of this. It is worth emphasizing, however, that nothing about the structure of our pipeline depends on the presence of only one type of immune cell in addition to the cancer cells. Thus, while our present analysis raises questions about the impact of spatial immune activation on the progression of a tumor, it also offers the tools to further investigate such questions.</p>
@@ -163,6 +277,29 @@ high dimensional data in order to identify such genes.</p>
 sub-regions invites the application
 of other tools from the spatial statistical canon to arbitrary spatial features of the tumor microenvironment. In fact, the primary feature of interest need not even be spatial in nature; so long as a feature (such as average tumor cell size) can be quantified at the cellular level and may be expected to vary across the tumor microenvironment, SPARTIN provides a framework for mapping the variation the variation of that feature across the entire biopsy.</p>
 <p>There is another limitation of our analysis that suggests an avenue for future methodological development. Note that the result of fitting models on the partitioned tumor microenvironment is a set of repeated observations with some underlying spatial covariance structure related to the spatial relationships between the different subspaces. For now, we have ignored this spatial covariance, and instead chosen to summarize the variation at the biopsy level. While there is nothing intrinsically incorrect about this approach, it is quite likely that incorporating the spatial structure across the biopsy will lead to gains in efficiency, and possibly insight into the nature of the spatial variation in immune activation in the tumor microenvironment. Thus, future work will likely include the development of methods to efficiently analyze this complex structured areal data.</p>
+<p>title: “scratch”
+author: “Nate Osher”
+date: ‘2022-05-30’
+output: html_document
+—</p>
+<div id="r-markdown" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> R Markdown<a href="discussion-and-limitations.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="discussion-and-limitations.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+</div>
+<div id="including-plots" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Including Plots<a href="discussion-and-limitations.html#including-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="_main_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">
@@ -175,10 +312,19 @@ Akbani, Rehan, Kadir C Akdemir, B Arman Aksoy, Monique Albert, Adrian Ally, Sami
 Amgad, Mohamed, Anindya Sarkar, Chukka Srinivas, Rachel Redman, Simrath Ratra, Charles J Bechert, Benjamin C Calhoun, et al. 2019. <span>“Joint Region and Nucleus Segmentation for Characterization of Tumor Infiltrating Lymphocytes in Breast Cancer.”</span> In <em>Medical Imaging 2019: Digital Pathology</em>, 10956:129–36. SPIE.
 </div>
 <div class="csl-entry">
+Antohe, Mihaela, Roxana Nedelcu, Luciana Nichita, Cristiana Popp, Mirela Cioplea, Alice Brinzea, Anastasia Hodorogea, et al. 2019. <span>“Tumor Infiltrating Lymphocytes: The Regulator of Melanoma Evolution (Review).”</span> <em>Oncology Letters</em>, January. <a href="https://doi.org/10.3892/ol.2019.9940">https://doi.org/10.3892/ol.2019.9940</a>.
+</div>
+<div class="csl-entry">
 Baddeley, Adrian, and Rolf Turner. 2000. <span>“Practical Maximum Pseudolikelihood for Spatial Point Patterns: (With Discussion).”</span> <em>Australian &amp; New Zealand Journal of Statistics</em> 42 (3): 283–322.
 </div>
 <div class="csl-entry">
 ———. 2005. <span>“Spatstat: An r Package for Analyzing Spatial Point Patterns.”</span> <em>Journal of Statistical Software</em> 12: 1–42.
+</div>
+<div class="csl-entry">
+Bankhead, Peter, José A Fernández, Darragh G McArt, David P Boyle, Gerald Li, Maurice B Loughrey, Gareth W Irwin, et al. 2018. <span>“Integrated Tumor Identification and Automated Scoring Minimizes Pathologist Involvement and Provides New Insights to Key Biomarkers in Breast Cancer.”</span> <em>Laboratory Investigation</em> 98 (1): 15–26.
+</div>
+<div class="csl-entry">
+Bankhead, Peter, Maurice B Loughrey, José A Fernández, Yvonne Dombrowski, Darragh G McArt, Philip D Dunne, Stephen McQuaid, et al. 2017. <span>“QuPath: Open Source Software for Digital Pathology Image Analysis.”</span> <em>Scientific Reports</em> 7 (1): 1–7.
 </div>
 <div class="csl-entry">
 Bareche, Yacine, Laurence Buisseret, Tina Gruosso, Edwina Girard, David Venet, Floriane Dupont, Christine Desmedt, et al. 2020. <span>“Unraveling Triple-Negative Breast Cancer Tumor Microenvironment Heterogeneity: Towards an Optimized Treatment Approach.”</span> <em>JNCI: Journal of the National Cancer Institute</em> 112 (7): 708–19.
@@ -197,6 +343,12 @@ Bian, Yun, Yan Fang Liu, Hui Jiang, Yinghao Meng, Fang Liu, Kai Cao, Hao Zhang, 
 </div>
 <div class="csl-entry">
 Boxberg, Melanie, Lena Leising, Katja Steiger, Moritz Jesinghaus, Aezlat Alkhamas, Marion Mielke, Nicole Pfarr, et al. 2019. <span>“Composition and Clinical Impact of the Immunologic Tumor Microenvironment in Oral Squamous Cell Carcinoma.”</span> <em>The Journal of Immunology</em> 202 (1): 278–91.
+</div>
+<div class="csl-entry">
+Breiman, L. 2001. <span>“Random Forests Machine Learning. 45: 5–32.”</span> <em>View Article PubMed/NCBI Google Scholar</em>.
+</div>
+<div class="csl-entry">
+Carpenter, Bob, Andrew Gelman, Matthew D Hoffman, Daniel Lee, Ben Goodrich, Michael Betancourt, Marcus Brubaker, Jiqiang Guo, Peter Li, and Allen Riddell. 2017. <span>“Stan: A Probabilistic Programming Language.”</span> <em>Journal of Statistical Software</em> 76 (1).
 </div>
 <div class="csl-entry">
 Denkert, Carsten, Gunter Von Minckwitz, Jan C Brase, Bruno V Sinn, Stephan Gade, Ralf Kronenwett, Berit M Pfitzner, et al. 2015. <span>“Tumor-Infiltrating Lymphocytes and Response to Neoadjuvant Chemotherapy with or Without Carboplatin in Human Epidermal Growth Factor Receptor 2-Positive and Triple-Negative Primary Breast Cancers.”</span> <em>J Clin Oncol</em> 33 (9): 983–91.
@@ -232,6 +384,9 @@ King, Ruth, Janine B Illian, Stuart E King, Glenna F Nightingale, and Ditte K He
 Komura, Daisuke, and Shumpei Ishikawa. 2018. <span>“Machine Learning Methods for Histopathological Image Analysis.”</span> <em>Computational and Structural Biotechnology Journal</em> 16: 34–42.
 </div>
 <div class="csl-entry">
+Kruschke, John. 2014. <span>“Doing Bayesian Data Analysis: A Tutorial with r, JAGS, and Stan.”</span>
+</div>
+<div class="csl-entry">
 Li, Qiwei, Xinlei Wang, Faming Liang, and Guanghua Xiao. 2019. <span>“A Bayesian Mark Interaction Model for Analysis of Tumor Pathology Images.”</span> <em>The Annals of Applied Statistics</em> 13 (3): 1708.
 </div>
 <div class="csl-entry">
@@ -241,16 +396,31 @@ Li, Taiwen, Jingxin Fu, Zexian Zeng, David Cohen, Jing Li, Qianming Chen, Bo Li,
 Lu, Zixiao, Siwen Xu, Wei Shao, Yi Wu, Jie Zhang, Zhi Han, Qianjin Feng, and Kun Huang. 2020. <span>“Deep-Learning–Based Characterization of Tumor-Infiltrating Lymphocytes in Breast Cancers from Histopathology Images and Multiomics Data.”</span> <em>JCO Clinical Cancer Informatics</em> 4: 480–90.
 </div>
 <div class="csl-entry">
+Mukherji, Bijay. 2013. <span>“Immunology of Melanoma.”</span> <em>Clinics in Dermatology</em> 31 (2): 156–65. <a href="https://doi.org/10.1016/j.clindermatol.2012.08.017">https://doi.org/10.1016/j.clindermatol.2012.08.017</a>.
+</div>
+<div class="csl-entry">
 Negahbani, Farzin, Rasool Sabzi, Bita Pakniyat Jahromi, Dena Firouzabadi, Fateme Movahedi, Mahsa Kohandel Shirazi, Shayan Majidi, and Amirreza Dehghanian. 2021. <span>“PathoNet Introduced as a Deep Neural Network Backend for Evaluation of Ki-67 and Tumor-Infiltrating Lymphocytes in Breast Cancer.”</span> <em>Scientific Reports</em> 11 (1): 1–13.
 </div>
 <div class="csl-entry">
+Nguyen, Linh T., Pei Hua Yen, Jessica Nie, Nicole Liadis, Danny Ghazarian, Ayman Al-Habeeb, Alexandra Easson, et al. 2010. <span>“Expansion and Characterization of Human Melanoma Tumor-Infiltrating Lymphocytes (TILs).”</span> Edited by Derya Unutmaz. <em>PLoS ONE</em> 5 (11): e13940. <a href="https://doi.org/10.1371/journal.pone.0013940">https://doi.org/10.1371/journal.pone.0013940</a>.
+</div>
+<div class="csl-entry">
+Oble, Darryl A., Robert Loewe, Ping Yu, and Martin C. Mihm Jr. 2009. <span>“Focus on TILs: Prognostic Significance of Tumor Infiltrating Lymphocytes in Human Melanoma.”</span> <em>Cancer Immunity</em> 9: 20.
+</div>
+<div class="csl-entry">
 Pagès, F, J Galon, M-C Dieu-Nosjean, E Tartour, C Sautès-Fridman, and W-H Fridman. 2010. <span>“Immune Infiltration in Human Tumors: A Prognostic Factor That Should Not Be Ignored.”</span> <em>Oncogene</em> 29 (8): 1093–1102. <a href="https://doi.org/10.1038/onc.2009.416">https://doi.org/10.1038/onc.2009.416</a>.
+</div>
+<div class="csl-entry">
+Pitcovski, Jacob, Ehud Shahar, Elina Aizenshtein, and Raphael Gorodetsky. 2017. <span>“Melanoma Antigens and Related Immunological Markers.”</span> <em>Critical Reviews in Oncology/Hematology</em> 115 (July): 36–49. <a href="https://doi.org/10.1016/j.critrevonc.2017.05.001">https://doi.org/10.1016/j.critrevonc.2017.05.001</a>.
 </div>
 <div class="csl-entry">
 R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div class="csl-entry">
 Ray, Meredith, Jian Kang, and Hongmei Zhang. 2015. <span>“Identifying Activation Centers with Spatial Cox Point Processes Using Fmri Data.”</span> <em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em> 13 (6): 1130–41.
+</div>
+<div class="csl-entry">
+Ruifrok, Arnout C, Dennis A Johnston, et al. 2001. <span>“Quantification of Histochemical Staining by Color Deconvolution.”</span> <em>Analytical and Quantitative Cytology and Histology</em> 23 (4): 291–99.
 </div>
 <div class="csl-entry">
 Saltz, Joel, Rajarsi Gupta, Le Hou, Tahsin Kurc, Pankaj Singh, Vu Nguyen, Dimitris Samaras, et al. 2018. <span>“Spatial Organization and Molecular Correlation of Tumor-Infiltrating Lymphocytes Using Deep Learning on Pathology Images.”</span> <em>Cell Reports</em> 23 (1): 181–93.
@@ -271,7 +441,13 @@ Su, Yu-Sung, Masanao Yajima, Maintainer Yu-Sung Su, and JAGS SystemRequirements.
 Tsutsui, Shinichi, Kazuhiro Yasuda, Kosuke Suzuki, Kouichirou Tahara, Hidefumi Higashi, and Shoichi Era. 2005. <span>“Macrophage Infiltration and Its Prognostic Implications in Breast Cancer: The Relationship with VEGF Expression and Microvessel Density.”</span> <em>Oncology Reports</em>, August. <a href="https://doi.org/10.3892/or.14.2.425">https://doi.org/10.3892/or.14.2.425</a>.
 </div>
 <div class="csl-entry">
+Uno, Hajime, Tianxi Cai, Michael J Pencina, Ralph B D’Agostino, and Lee-Jen Wei. 2011. <span>“On the c-Statistics for Evaluating Overall Adequacy of Risk Prediction Procedures with Censored Survival Data.”</span> <em>Statistics in Medicine</em> 30 (10): 1105–17.
+</div>
+<div class="csl-entry">
 Wang, Shidan, Tao Wang, Lin Yang, Donghan M Yang, Junya Fujimoto, Faliu Yi, Xin Luo, et al. 2019. <span>“ConvPath: A Software Tool for Lung Adenocarcinoma Digital Pathological Image Analysis Aided by a Convolutional Neural Network.”</span> <em>EBioMedicine</em> 50: 103–10.
+</div>
+<div class="csl-entry">
+Weiss, Sarah A., Sung Won Han, Kevin Lui, Jeremy Tchack, Richard Shapiro, Russell Berman, Judy Zhong, Michelle Krogsgaard, Iman Osman, and Farbod Darvishian. 2016. <span>“Immunologic Heterogeneity of Tumor-Infiltrating Lymphocyte Composition in Primary Melanoma.”</span> <em>Human Pathology</em> 57 (November): 116–25. <a href="https://doi.org/10.1016/j.humpath.2016.07.008">https://doi.org/10.1016/j.humpath.2016.07.008</a>.
 </div>
 <div class="csl-entry">
 Yan, Yiyi, Alexey A Leontovich, Michael J Gerdes, Keyur Desai, Jinhong Dong, Anup Sood, Alberto Santamaria-Pang, et al. 2019. <span>“Understanding Heterogeneous Tumor Microenvironment in Metastatic Melanoma.”</span> <em>PloS One</em> 14 (6): e0216485.
@@ -280,7 +456,11 @@ Yan, Yiyi, Alexey A Leontovich, Michael J Gerdes, Keyur Desai, Jinhong Dong, Anu
 Yuan, Yinyin. 2016. <span>“Spatial Heterogeneity in the Tumor Microenvironment.”</span> <em>Cold Spring Harbor Perspectives in Medicine</em> 6 (8): a026583.
 </div>
 <div class="csl-entry">
+Yuan, Yinyin, Henrik Failmezger, Oscar M Rueda, H Raza Ali, Stefan Gräf, Suet-Feung Chin, Roland F Schwarz, et al. 2012. <span>“Quantitative Image Analysis of Cellular Heterogeneity in Breast Tumors Complements Genomic Profiling.”</span> <em>Science Translational Medicine</em> 4 (157): 157ra143–43.
+</div>
+<div class="csl-entry">
 Zhu, Yitan, Peng Qiu, and Yuan Ji. 2014. <span>“TCGA-Assembler: Open-Source Software for Retrieving and Processing TCGA Data.”</span> <em>Nature Methods</em> 11 (6): 599–600.
+</div>
 </div>
 </div>
 </div>
@@ -289,7 +469,7 @@ Zhu, Yitan, Peng Qiu, and Yuan Ji. 2014. <span>“TCGA-Assembler: Open-Source So
           </div>
         </div>
       </div>
-<a href="results.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="application.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -321,7 +501,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/scratch.Rmd",
 "text": "Edit"
 },
 "history": {

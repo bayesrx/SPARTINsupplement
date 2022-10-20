@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>S.7 SPARTIN R package | SPARTIN Supplementary material</title>
+  <meta name="description" content="Supplementary material related to the SPARTIN pipeline" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="S.7 SPARTIN R package | SPARTIN Supplementary material" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Supplementary material related to the SPARTIN pipeline" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="S.7 SPARTIN R package | SPARTIN Supplementary material" />
+  
+  <meta name="twitter:description" content="Supplementary material related to the SPARTIN pipeline" />
+  
+
+<meta name="author" content="Nate Osher" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="association-with-deconvolution-data.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SPARTIN Supplement</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="model-fitting.html"><a href="model-fitting.html"><i class="fa fa-check"></i><b>2</b> Model Fitting</a></li>
+<li class="chapter" data-level="3" data-path="biopsy-partition.html"><a href="biopsy-partition.html"><i class="fa fa-check"></i><b>3</b> Biopsy Partition</a></li>
+<li class="chapter" data-level="4" data-path="cell-classification-model.html"><a href="cell-classification-model.html"><i class="fa fa-check"></i><b>4</b> Cell Classification Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels"><i class="fa fa-check"></i><b>4.1</b> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels</a></li>
+<li class="chapter" data-level="4.2" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-nucleus-segmentation"><i class="fa fa-check"></i><b>4.2</b> Whole-Slide Image (WSI) Nucleus Segmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="genomic-associations.html"><a href="genomic-associations.html"><i class="fa fa-check"></i><b>5</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-significantly-mutated-genes"><i class="fa fa-check"></i><b>5.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="5.2" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-immune-genes"><i class="fa fa-check"></i><b>5.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="association-with-deconvolution-data.html"><a href="association-with-deconvolution-data.html"><i class="fa fa-check"></i><b>6</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="7" data-path="spartin-r-package.html"><a href="spartin-r-package.html"><i class="fa fa-check"></i><b>7</b> SPARTIN R package</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="spartin-r-package.html"><a href="spartin-r-package.html#simulation-and-model-fitting"><i class="fa fa-check"></i><b>7.1</b> Simulation and Model Fitting</a></li>
+<li class="chapter" data-level="7.2" data-path="spartin-r-package.html"><a href="spartin-r-package.html#estimating-ctip"><i class="fa fa-check"></i><b>7.2</b> Estimating CTIP</a></li>
+<li class="chapter" data-level="7.3" data-path="spartin-r-package.html"><a href="spartin-r-package.html#tesselation-and-intensity-thresholding"><i class="fa fa-check"></i><b>7.3</b> Tesselation and Intensity Thresholding</a></li>
+<li class="chapter" data-level="7.4" data-path="spartin-r-package.html"><a href="spartin-r-package.html#interactive-visualization"><i class="fa fa-check"></i><b>7.4</b> Interactive Visualization</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTIN Supplementary material</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spartin-r-package" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">S.7</span> SPARTIN R package<a href="spartin-r-package.html#spartin-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This is a brief tutorial on the usage of the SPARTIN R package. It is also available as a vignette in the package itself.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="spartin-r-package.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span>
+<span id="cb1-2"><a href="spartin-r-package.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SPARTIN)</span>
+<span id="cb1-3"><a href="spartin-r-package.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb1-4"><a href="spartin-r-package.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10000</span>)</span></code></pre></div>
+<p>The following two functions are purely for visualization. They aren’t technically part of the package (yet), but you may find them useful if you decide to use this package. Regardless, we’ll be using them for this vignette.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="spartin-r-package.html#cb2-1" aria-hidden="true" tabindex="-1"></a>CustomHeatmap <span class="ot">=</span> CH <span class="ot">=</span> <span class="cf">function</span>(m, <span class="at">t=</span><span class="st">&quot;&quot;</span>, <span class="at">min.v =</span> <span class="cn">NA</span>, <span class="at">max.v =</span> <span class="cn">NA</span>){</span>
+<span id="cb2-2"><a href="spartin-r-package.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  plot.tib <span class="ot">=</span> <span class="fu">tibble</span>(<span class="at">r =</span> <span class="fu">numeric</span>(<span class="dv">0</span>), <span class="at">c =</span> <span class="fu">numeric</span>(<span class="dv">0</span>), <span class="at">val =</span> <span class="fu">numeric</span>(<span class="dv">0</span>))</span>
+<span id="cb2-3"><a href="spartin-r-package.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(m)){</span>
+<span id="cb2-4"><a href="spartin-r-package.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    plot.tib <span class="ot">=</span> <span class="fu">bind_rows</span>(plot.tib, <span class="fu">tibble</span>(</span>
+<span id="cb2-5"><a href="spartin-r-package.html#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">r =</span> <span class="fu">rep</span>(i, <span class="fu">ncol</span>(m)),</span>
+<span id="cb2-6"><a href="spartin-r-package.html#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">c =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(m),</span>
+<span id="cb2-7"><a href="spartin-r-package.html#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">val =</span> <span class="fu">as.numeric</span>(m[i,])))</span>
+<span id="cb2-8"><a href="spartin-r-package.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-9"><a href="spartin-r-package.html#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-10"><a href="spartin-r-package.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  plot.tib<span class="sc">$</span>c <span class="ot">=</span> <span class="fu">as.factor</span>(plot.tib<span class="sc">$</span>c)</span>
+<span id="cb2-11"><a href="spartin-r-package.html#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="spartin-r-package.html#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.na</span>(min.v) <span class="sc">||</span> <span class="fu">is.na</span>(max.v)){</span>
+<span id="cb2-13"><a href="spartin-r-package.html#cb2-13" aria-hidden="true" tabindex="-1"></a>    min.v <span class="ot">=</span> <span class="fu">min</span>(plot.tib<span class="sc">$</span>val, <span class="at">na.rm =</span> T)</span>
+<span id="cb2-14"><a href="spartin-r-package.html#cb2-14" aria-hidden="true" tabindex="-1"></a>    max.v <span class="ot">=</span> <span class="fu">max</span>(plot.tib<span class="sc">$</span>val, <span class="at">na.rm =</span> T)</span>
+<span id="cb2-15"><a href="spartin-r-package.html#cb2-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-16"><a href="spartin-r-package.html#cb2-16" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">=</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;#0a0722&quot;</span>, <span class="st">&quot;#3d0965&quot;</span>, <span class="st">&quot;#721a6e&quot;</span>, <span class="st">&quot;#a52c60&quot;</span>, <span class="st">&quot;#d44842&quot;</span>,</span>
+<span id="cb2-17"><a href="spartin-r-package.html#cb2-17" aria-hidden="true" tabindex="-1"></a>                            <span class="st">&quot;#f37819&quot;</span>, <span class="st">&quot;#fcb216&quot;</span>))(<span class="dv">7</span>) <span class="co">#, &quot;#f1f179&quot;))(8)</span></span>
+<span id="cb2-18"><a href="spartin-r-package.html#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="spartin-r-package.html#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(plot.tib) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="spartin-r-package.html#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_tile</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> c, <span class="at">y =</span> <span class="fu">reorder</span>(r, <span class="sc">-</span>r), <span class="at">fill =</span> val)) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="spartin-r-package.html#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="spartin-r-package.html#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(t) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="spartin-r-package.html#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_gradientn</span>(<span class="at">colors =</span> cols,</span>
+<span id="cb2-24"><a href="spartin-r-package.html#cb2-24" aria-hidden="true" tabindex="-1"></a>                         <span class="at">limits =</span> <span class="fu">c</span>(min.v, max.v),</span>
+<span id="cb2-25"><a href="spartin-r-package.html#cb2-25" aria-hidden="true" tabindex="-1"></a>                         <span class="co"># breaks = seq(min.v, max.v, 2),</span></span>
+<span id="cb2-26"><a href="spartin-r-package.html#cb2-26" aria-hidden="true" tabindex="-1"></a>                         <span class="at">na.value =</span> <span class="st">&#39;white&#39;</span>) <span class="sc">+</span></span>
+<span id="cb2-27"><a href="spartin-r-package.html#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb2-28"><a href="spartin-r-package.html#cb2-28" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb2-29"><a href="spartin-r-package.html#cb2-29" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb2-30"><a href="spartin-r-package.html#cb2-30" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb2-31"><a href="spartin-r-package.html#cb2-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb2-32"><a href="spartin-r-package.html#cb2-32" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb2-33"><a href="spartin-r-package.html#cb2-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>,</span>
+<span id="cb2-34"><a href="spartin-r-package.html#cb2-34" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb2-35"><a href="spartin-r-package.html#cb2-35" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>))</span>
+<span id="cb2-36"><a href="spartin-r-package.html#cb2-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-37"><a href="spartin-r-package.html#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="spartin-r-package.html#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize PPP</span></span>
+<span id="cb2-39"><a href="spartin-r-package.html#cb2-39" aria-hidden="true" tabindex="-1"></a>vis <span class="ot">=</span> <span class="cf">function</span>(p, <span class="at">t=</span><span class="st">&quot;&quot;</span>, <span class="at">suppWarn =</span> F){</span>
+<span id="cb2-40"><a href="spartin-r-package.html#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(suppWarn){</span>
+<span id="cb2-41"><a href="spartin-r-package.html#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">suppressWarnings</span>(</span>
+<span id="cb2-42"><a href="spartin-r-package.html#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plot</span>(p, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb2-43"><a href="spartin-r-package.html#cb2-43" aria-hidden="true" tabindex="-1"></a>           <span class="at">shape =</span> <span class="fu">c</span>(<span class="st">&quot;circles&quot;</span>, <span class="st">&quot;circles&quot;</span>),</span>
+<span id="cb2-44"><a href="spartin-r-package.html#cb2-44" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">6</span>,</span>
+<span id="cb2-45"><a href="spartin-r-package.html#cb2-45" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> t)</span>
+<span id="cb2-46"><a href="spartin-r-package.html#cb2-46" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-47"><a href="spartin-r-package.html#cb2-47" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
+<span id="cb2-48"><a href="spartin-r-package.html#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(p, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb2-49"><a href="spartin-r-package.html#cb2-49" aria-hidden="true" tabindex="-1"></a>         <span class="at">shape =</span> <span class="fu">c</span>(<span class="st">&quot;circles&quot;</span>, <span class="st">&quot;circles&quot;</span>),</span>
+<span id="cb2-50"><a href="spartin-r-package.html#cb2-50" aria-hidden="true" tabindex="-1"></a>         <span class="at">size =</span> <span class="dv">6</span>,</span>
+<span id="cb2-51"><a href="spartin-r-package.html#cb2-51" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> t)</span>
+<span id="cb2-52"><a href="spartin-r-package.html#cb2-52" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-53"><a href="spartin-r-package.html#cb2-53" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="simulation-and-model-fitting" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Simulation and Model Fitting<a href="spartin-r-package.html#simulation-and-model-fitting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First, we’ll simulate some data.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="spartin-r-package.html#cb3-1" aria-hidden="true" tabindex="-1"></a>ex_ppp <span class="ot">=</span> <span class="fu">SimulateData</span>(<span class="at">n1 =</span> <span class="dv">100</span>, <span class="at">n2 =</span> <span class="dv">40</span>, <span class="at">phi =</span> <span class="fl">0.3</span>,</span>
+<span id="cb3-2"><a href="spartin-r-package.html#cb3-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">winX =</span> <span class="dv">300</span>, <span class="at">winY =</span> <span class="dv">300</span>, <span class="at">r =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p>Breaking down this function call:</p>
+<ul>
+<li><code>n1</code> specifies the number of points of type 1</li>
+<li><code>n2</code> specifies the number of points of type 2</li>
+<li><code>phi</code> specifies the interaction between the points, -1 being the most negative (points of different types tend to “avoid” each other) and 1 being the most positive (points of different types tend to be close together)</li>
+<li><code>winX</code> specifies the horizontal width of the window of simulation</li>
+<li><code>winY</code> specifies the vertical height of the window of simulation</li>
+<li><code>r</code> specifies the radius of interaction</li>
+</ul>
+<p>Next, we’ll fit a Frequentist version of the model using the <code>FitHSFreq</code> function. The “HS” stands for “Hierarchical Strauss,” the variant of the model that we’ll be using. This is essentially a wrapper around the <code>spatstat</code> function <code>ppm</code> with certain parameters, since the SPARTIN pipeline uses a special case of the Hierarchical Strauss model. Below, I pass the point process we simulated, and specify that the radius of interaction is 30 units, and that the quadrature used in the fitting should have 3 units of space between each point. As always, there is a tradeoff here: the larger the quadrature (and thus the smaller that <code>quad.spacing</code> parameter), the more accurate the fitting will be. However, it will also be more computationally expensive. On the other hand, a small quadrature may lead to quicker fittings, but may also be less accurate. Unfortunately, there isn’t a one size fits all solution to this across all use cases. Some situations call for larger quadratures and more precise estimation, while for others a rough approximation will probably be fine.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="spartin-r-package.html#cb4-1" aria-hidden="true" tabindex="-1"></a>ex_freq <span class="ot">=</span> <span class="fu">FitHSFreq</span>(ex_ppp, <span class="at">r =</span> <span class="dv">30</span>, <span class="at">quad.spacing =</span> <span class="dv">3</span>)</span>
+<span id="cb4-2"><a href="spartin-r-package.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(ex_freq))</span></code></pre></div>
+<pre><code>##                 Estimate      S.E.    CI95.lo    CI95.hi Ztest         Zval
+## (Intercept) -6.802394763 0.1000000 -6.9983912 -6.6063984   *** -68.02394763
+## marks2      -0.936072712 0.4214038 -1.7620089 -0.1101365     *  -2.22132023
+## markX1xX2    0.006326801 0.1204110 -0.2296744  0.2423280         0.05254337</code></pre>
+<p>As expected, the interaction parameter (<code>markX1xX2</code>) is fairly close to zero, which makes sense given that we simulated weakly positive interaction.</p>
+<p>We can also fit the same model using Bayesian methods. Here’s how we would fit a Bayesian version of the same model given above:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="spartin-r-package.html#cb6-1" aria-hidden="true" tabindex="-1"></a>ex_bayes <span class="ot">=</span> <span class="fu">FitHSBayes</span>(ex_ppp, <span class="at">r =</span> <span class="dv">30</span>, <span class="at">quad.spacing =</span> <span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="spartin-r-package.html#cb6-2" aria-hidden="true" tabindex="-1"></a>ex_bayes</span></code></pre></div>
+<pre><code>## Inference for Bugs model at &quot;/var/folders/jz/pkw0zld53pz3dxvzc5fs4hy00000gn/T//RtmpoGhJGl/modele6a46b99c05.txt&quot;, fit using jags,
+##  1 chains, each with 11000 iterations (first 1000 discarded), n.thin = 5
+##  n.sims = 2000 iterations saved
+##               mu.vect sd.vect       2.5%        25%        50%        75%
+## log.beta.1     -6.809   0.099     -7.008     -6.874     -6.803     -6.742
+## log.beta.2     -7.762   0.331     -8.413     -7.986     -7.747     -7.540
+## log.gamma       0.006   0.092     -0.178     -0.053      0.006      0.069
+## deviance   282260.902   2.368 282258.182 282259.172 282260.279 282261.990
+##                 97.5%
+## log.beta.1     -6.616
+## log.beta.2     -7.124
+## log.gamma       0.180
+## deviance   282266.853
+## 
+## DIC info (using the rule, pD = var(deviance)/2)
+## pD = 2.8 and DIC = 282263.7
+## DIC is an estimate of expected predictive error (lower deviance is better).</code></pre>
+<p>There are a couple of important things to note. Firstly, you might notice that the object returned by the Frequentist fitting function is <em>very</em> different from the object returned by the Bayesian fitting function. That’s because the Frequentist version returns a <code>ppm</code> object defined in the <code>spatstat</code> package, whereas the Bayesian version returns an <code>rjags</code> object as defined by the <code>R2jags</code> package.</p>
+<p>Secondly, you might notice that while two of the parameter estimates (<code>log.gamma</code>/<code>markX1xX2</code> and <code>log.beta.1</code>/<code>(Intercept)</code>) are virtually identical, the estimate for <code>marks2</code> is extremely different from <code>log.beta.2</code>. This is because <code>marks2</code> is actually the <em>difference</em> between the log first order intensity of points of type 1 (<span class="math inline">\(\log(\beta_1)\)</span>) and the log first order intensity of points of type 2 (<span class="math inline">\(\log(\beta_2)\)</span>), whereas <code>log.beta.2</code> is just the value of <span class="math inline">\(\log(\beta_2)\)</span>. Sure enough, if you add the estimate of <code>(Intercept)</code> to the estimate of <code>marks2</code>, you should get something virtually identical to the estimate of <code>log.beta.2</code>.</p>
+</div>
+<div id="estimating-ctip" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Estimating CTIP<a href="spartin-r-package.html#estimating-ctip" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the paper associated with this package, we define CTIP. For a rigorous definition, I recommend checking the paper. For now, here is how you can use this package to calculate CTIP for a given point process realization:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="spartin-r-package.html#cb8-1" aria-hidden="true" tabindex="-1"></a>ex_CTIP <span class="ot">=</span> <span class="fu">CTIP</span>(ex_ppp, <span class="at">r =</span> <span class="dv">30</span>, <span class="at">quad.spacing =</span> <span class="dv">3</span>, </span>
+<span id="cb8-2"><a href="spartin-r-package.html#cb8-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">n.null =</span> <span class="dv">5</span>, <span class="at">n.burn =</span> <span class="dv">1000</span>,</span>
+<span id="cb8-3"><a href="spartin-r-package.html#cb8-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">n.sample =</span> <span class="dv">11000</span>, <span class="at">null.n.burn =</span> <span class="dv">1000</span>, <span class="at">null.n.sample =</span> <span class="dv">11000</span>,</span>
+<span id="cb8-4"><a href="spartin-r-package.html#cb8-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">n.thin =</span> <span class="dv">5</span>)</span>
+<span id="cb8-5"><a href="spartin-r-package.html#cb8-5" aria-hidden="true" tabindex="-1"></a>ex_CTIP</span></code></pre></div>
+<pre><code>## [1] &quot;0.503&quot;</code></pre>
+<p>Again, it’s worth breaking down this function call. I won’t go into too much detail here, but for more information on how CTIP is actually computed, see the SPARTIN paper.</p>
+<ul>
+<li><code>ex_ppp</code> - This is the point process realization we want to estimate CTIP for.</li>
+<li><code>n.null</code> - In order to compute CTIP, null simulations are performed; this parameter specifies how many should be performed. More simulations yield a more stable and accurate estimate, but naturally take longer.</li>
+<li><code>n.burn</code> - Number of burn-in samples for the model fitting on the true data.</li>
+<li><code>n.sample</code> - Total number of samples to draw when fitting the model on the true data.</li>
+<li><code>null.n.burn</code> - Number of burn-in samples for the model fitting on the simulated data.</li>
+<li><code>null.n.sample</code> - Total number of samples to draw for each null simulation in model fitting.</li>
+<li><code>n.thin</code> - How much to “thin” each of the chains, both in the actual model fitting and the null model fitting</li>
+</ul>
+<p>The total number of samples drawn on the true data is given by <span class="math inline">\(\frac{n.sample - n.burn}{n.thin}\)</span>, while for the null simulations it’s <span class="math inline">\(n.null \cdot \frac{null.n.sample - null.n.burn}{n.thin}\)</span>.</p>
+</div>
+<div id="tesselation-and-intensity-thresholding" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Tesselation and Intensity Thresholding<a href="spartin-r-package.html#tesselation-and-intensity-thresholding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Another important part of the SPARTIN pipeline is the intensity thresholding to remove excess whitespace. First, I’ll create a biopsy with a large amount of excess space.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="spartin-r-package.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate a biopsy</span></span>
+<span id="cb10-2"><a href="spartin-r-package.html#cb10-2" aria-hidden="true" tabindex="-1"></a>ex_biopsy_part_1 <span class="ot">=</span> <span class="fu">SimulateData</span>(<span class="at">n1 =</span> <span class="dv">5000</span>, <span class="at">n2 =</span> <span class="dv">1000</span>, <span class="at">phi =</span> <span class="fl">0.4</span>,</span>
+<span id="cb10-3"><a href="spartin-r-package.html#cb10-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">winX =</span> <span class="dv">1000</span>, <span class="at">winY =</span> <span class="dv">1000</span>, <span class="at">r =</span> <span class="dv">30</span>)</span>
+<span id="cb10-4"><a href="spartin-r-package.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="spartin-r-package.html#cb10-5" aria-hidden="true" tabindex="-1"></a>ex_biopsy_part_2 <span class="ot">=</span> <span class="fu">SimulateData</span>(<span class="at">n1 =</span> <span class="dv">5000</span>, <span class="at">n2 =</span> <span class="dv">1000</span>, <span class="at">phi =</span> <span class="fl">0.4</span>,</span>
+<span id="cb10-6"><a href="spartin-r-package.html#cb10-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">winX =</span> <span class="dv">1000</span>, <span class="at">winY =</span> <span class="dv">1000</span>, <span class="at">r =</span> <span class="dv">30</span>)</span>
+<span id="cb10-7"><a href="spartin-r-package.html#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="spartin-r-package.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Place in a large window to demonstrate intensity thresholding in action</span></span>
+<span id="cb10-9"><a href="spartin-r-package.html#cb10-9" aria-hidden="true" tabindex="-1"></a>ex_biopsy_excess <span class="ot">=</span> <span class="fu">ppp</span>(<span class="at">x =</span> <span class="fu">c</span>(ex_biopsy_part_1<span class="sc">$</span>x, ex_biopsy_part_2<span class="sc">$</span>x <span class="sc">-</span> <span class="dv">1000</span>),</span>
+<span id="cb10-10"><a href="spartin-r-package.html#cb10-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> <span class="fu">c</span>(ex_biopsy_part_1<span class="sc">$</span>y, ex_biopsy_part_2<span class="sc">$</span>y <span class="sc">-</span> <span class="dv">1000</span>),</span>
+<span id="cb10-11"><a href="spartin-r-package.html#cb10-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">marks =</span> <span class="fu">c</span>(ex_biopsy_part_1<span class="sc">$</span>marks,</span>
+<span id="cb10-12"><a href="spartin-r-package.html#cb10-12" aria-hidden="true" tabindex="-1"></a>                                 ex_biopsy_part_2<span class="sc">$</span>marks),</span>
+<span id="cb10-13"><a href="spartin-r-package.html#cb10-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">window =</span> <span class="fu">owin</span>(<span class="at">xrange =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1000</span>, <span class="dv">1000</span>),</span>
+<span id="cb10-14"><a href="spartin-r-package.html#cb10-14" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">yrange =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1000</span>, <span class="dv">1000</span>)))</span>
+<span id="cb10-15"><a href="spartin-r-package.html#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="spartin-r-package.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">vis</span>(ex_biopsy_excess)</span></code></pre></div>
+<p><img src="Figures/Package%20Figs/Simulated_Data.png" width="294" /></p>
+<p>To see what each of the parameters do for this function, it’s probably best to directly read the documentation. Here, I’ll offer some advice on how to achieve a good tessellation/partition of the subspace. First, I’ll start with a bad example: sigma (the bandwidth) is too small and the threshold is too high. Thus, the resulting intensity thresholded window has too much unnecessary white space, and the resulting windows are too”choppy.” It also takes longer, and can lead to errors.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="spartin-r-package.html#cb11-1" aria-hidden="true" tabindex="-1"></a>bad_tessellation_1 <span class="ot">=</span> <span class="fu">TessellateBiopsy</span>(<span class="fu">PPPToTibble</span>(ex_biopsy_excess),</span>
+<span id="cb11-2"><a href="spartin-r-package.html#cb11-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">sigma =</span> <span class="dv">1</span>, <span class="at">eps =</span> <span class="dv">15</span>,</span>
+<span id="cb11-3"><a href="spartin-r-package.html#cb11-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">threshold =</span> (ex_biopsy_excess<span class="sc">$</span>n)<span class="sc">/</span></span>
+<span id="cb11-4"><a href="spartin-r-package.html#cb11-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">area.owin</span>(ex_biopsy_excess<span class="sc">$</span>window),</span>
+<span id="cb11-5"><a href="spartin-r-package.html#cb11-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">clust.size =</span> <span class="dv">75</span>,</span>
+<span id="cb11-6"><a href="spartin-r-package.html#cb11-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">max.clust.size =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p>Notice the “checkerboard” pattern of the tessellations:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="spartin-r-package.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis</span>(bad_tessellation_1<span class="sc">$</span>window)</span></code></pre></div>
+<p><img src="Figures/Package%20Figs/bad_window.png" width="269" /></p>
+<p>This leads to poorly shaped tiles:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="spartin-r-package.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis</span>(bad_tessellation_1<span class="sc">$</span>tiles[[<span class="dv">1</span>]])</span></code></pre></div>
+<p><img src="Figures/Package%20Figs/bad_tile.png" width="319" /></p>
+<p>Let’s try increasing the value of sigma. Note that all other parameters remain the same.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="spartin-r-package.html#cb14-1" aria-hidden="true" tabindex="-1"></a>good_tessellation <span class="ot">=</span> <span class="fu">TessellateBiopsy</span>(<span class="fu">PPPToTibble</span>(ex_biopsy_excess),</span>
+<span id="cb14-2"><a href="spartin-r-package.html#cb14-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">sigma =</span> <span class="dv">30</span>, <span class="at">eps =</span> <span class="dv">15</span>,</span>
+<span id="cb14-3"><a href="spartin-r-package.html#cb14-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">threshold =</span> (ex_biopsy_excess<span class="sc">$</span>n)<span class="sc">/</span></span>
+<span id="cb14-4"><a href="spartin-r-package.html#cb14-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="fu">area.owin</span>(ex_biopsy_excess<span class="sc">$</span>window),</span>
+<span id="cb14-5"><a href="spartin-r-package.html#cb14-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">clust.size =</span> <span class="dv">75</span>,</span>
+<span id="cb14-6"><a href="spartin-r-package.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">max.clust.size =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p>This looks much better:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="spartin-r-package.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis</span>(good_tessellation<span class="sc">$</span>window)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="spartin-r-package.html#cb16-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">&quot;Figures/Package Figs/good_window.png&quot;</span>))</span></code></pre></div>
+<p><img src="Figures/Package%20Figs/good_window.png" width="261" /></p>
+<p>Ultimately, these are tuning parameters, and to find good values you may have to experiment a bit. The best advice I can offer is: start with a relatively large value of <code>sigma</code> (at least as large as <code>eps</code>), a relatively large value of <code>eps</code>, and a small <code>threshold</code>. Starting with a moderate <code>eps</code> is particularly important- if it’s too small, the tessellation will not be computationally tractable. Once you have a working tessellation, reduce the values of sigma and eps as necessary, and increase the threshold as necessary. In my experience, the settings that work for one data set of a certain type will work for others; you should only need to go through this process once.</p>
+</div>
+<div id="interactive-visualization" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Interactive Visualization<a href="spartin-r-package.html#interactive-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose you want to visualize all of the tiles all together, and a value associated with each tile. To do this, you can simply use the <code>PlotTessellation</code> function. First, we need a value to plot for each tile. In this case, I’ll use the number of simulated tumor cells:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="spartin-r-package.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Result is a vector, each entry of which is the number of tumor cells</span></span>
+<span id="cb17-2"><a href="spartin-r-package.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in the corresponding tile of the tessellation</span></span>
+<span id="cb17-3"><a href="spartin-r-package.html#cb17-3" aria-hidden="true" tabindex="-1"></a>bad_tes_n_tum <span class="ot">=</span> <span class="fu">map_dbl</span>(bad_tessellation_1<span class="sc">$</span>tiles, <span class="sc">~</span> <span class="fu">sum</span>(.x<span class="sc">$</span>marks <span class="sc">==</span> <span class="dv">1</span>))</span>
+<span id="cb17-4"><a href="spartin-r-package.html#cb17-4" aria-hidden="true" tabindex="-1"></a>good_tes_n_tum <span class="ot">=</span> <span class="fu">map_dbl</span>(good_tessellation<span class="sc">$</span>tiles, <span class="sc">~</span> <span class="fu">sum</span>(.x<span class="sc">$</span>marks <span class="sc">==</span> <span class="dv">1</span>))</span></code></pre></div>
+<p>Then we pass both these things to the <code>PlotTessellation</code> function:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="spartin-r-package.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PlotTessellation</span>(bad_tessellation_1, bad_tes_n_tum, <span class="st">&quot;# Tumor Cells&quot;</span>)</span></code></pre></div>
+<p><img src="Figures/Package%20Figs/bad_heatmap.png" width="617" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="spartin-r-package.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PlotTessellation</span>(good_tessellation, good_tes_n_tum, <span class="st">&quot;# Tumor Cells&quot;</span>)</span></code></pre></div>
+<p><img src="Figures/Package%20Figs/good_heatmap.png" width="608" /></p>
+<p>However, there are clear limitations to this visualization method. What if you want to zoom in on a particular tile? Unfortunately, there’s no easy way to do this in R. However, this can be easily accomplished in the companion web app, and the <code>ExportToVis</code> function. This function exports a tessellation as well as associated values so that they can be interactively visualized here: <a href="https://nateosher.github.io/SPARTIN.html" class="uri">https://nateosher.github.io/SPARTIN.html</a>.</p>
+<p>In fact, unlike the static visualization above, it’s fairly easy to switch between multiple tile level summaries. First, we create a list of all of the tile level values we want to summarize. Each list entry should have the same set of keys, each of which will be a value we’re interested in. I’ll keep it simple here and just use three: number of cells, number of tumor cells, and number of immune cells:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="spartin-r-package.html#cb20-1" aria-hidden="true" tabindex="-1"></a>val_list <span class="ot">=</span> <span class="fu">map</span>(good_tessellation<span class="sc">$</span>tiles, <span class="cf">function</span>(t){</span>
+<span id="cb20-2"><a href="spartin-r-package.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb20-3"><a href="spartin-r-package.html#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cells =</span> t<span class="sc">$</span>n,</span>
+<span id="cb20-4"><a href="spartin-r-package.html#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Tumor =</span> <span class="fu">sum</span>(t<span class="sc">$</span>marks <span class="sc">==</span> <span class="dv">1</span>),</span>
+<span id="cb20-5"><a href="spartin-r-package.html#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Immune =</span> <span class="fu">sum</span>(t<span class="sc">$</span>marks <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb20-6"><a href="spartin-r-package.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-7"><a href="spartin-r-package.html#cb20-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>Then we export it. This command actually writes a <code>.json</code> file to the provided path:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="spartin-r-package.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ExportToVis</span>(good_tessellation, val_list, <span class="st">&quot;path/where/you/want/output&quot;</span>)</span></code></pre></div>
+<p>If you upload the resulting <code>.json</code> file to the visualization application, it will let you more easily examine multiple measures on the same biopsy, and zoom in on specific tiles to see the configuration of points.</p>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Akbani, Rehan, Kadir C Akdemir, B Arman Aksoy, Monique Albert, Adrian Ally, Samirkumar B Amin, Harindra Arachchi, et al. 2015. <span>“Genomic Classification of Cutaneous Melanoma.”</span> <em>Cell</em> 161 (7): 1681–96.
+</div>
+<div class="csl-entry">
+Baddeley, Adrian, and Rolf Turner. 2005. <span>“Spatstat: An r Package for Analyzing Spatial Point Patterns.”</span> <em>Journal of Statistical Software</em> 12: 1–42.
+</div>
+<div class="csl-entry">
+Bankhead, Peter, José A Fernández, Darragh G McArt, David P Boyle, Gerald Li, Maurice B Loughrey, Gareth W Irwin, et al. 2018. <span>“Integrated Tumor Identification and Automated Scoring Minimizes Pathologist Involvement and Provides New Insights to Key Biomarkers in Breast Cancer.”</span> <em>Laboratory Investigation</em> 98 (1): 15–26.
+</div>
+<div class="csl-entry">
+Bankhead, Peter, Maurice B Loughrey, José A Fernández, Yvonne Dombrowski, Darragh G McArt, Philip D Dunne, Stephen McQuaid, et al. 2017. <span>“QuPath: Open Source Software for Digital Pathology Image Analysis.”</span> <em>Scientific Reports</em> 7 (1): 1–7.
+</div>
+<div class="csl-entry">
+Becht, Etienne, Nicolas A. Giraldo, Laetitia Lacroix, Bénédicte Buttard, Nabila Elarouci, Florent Petitprez, Janick Selves, et al. 2016. <span>“Estimating the Population Abundance of Tissue-Infiltrating Immune and Stromal Cell Populations Using Gene Expression.”</span> <em>Genome Biology</em> 17 (1): 218. <a href="https://doi.org/10.1186/s13059-016-1070-5">https://doi.org/10.1186/s13059-016-1070-5</a>.
+</div>
+<div class="csl-entry">
+Bhattacharya, Sanchita, Patrick Dunn, Cristel G Thomas, Barry Smith, Henry Schaefer, Jieming Chen, Zicheng Hu, et al. 2018. <span>“ImmPort, Toward Repurposing of Open Access Immunological Assay Data for Translational and Clinical Research.”</span> <em>Scientific Data</em> 5 (1): 1–9.
+</div>
+<div class="csl-entry">
+Breiman, L. 2001. <span>“Random Forests Machine Learning. 45: 5–32.”</span> <em>View Article PubMed/NCBI Google Scholar</em>.
+</div>
+<div class="csl-entry">
+Carpenter, Bob, Andrew Gelman, Matthew D Hoffman, Daniel Lee, Ben Goodrich, Michael Betancourt, Marcus Brubaker, Jiqiang Guo, Peter Li, and Allen Riddell. 2017. <span>“Stan: A Probabilistic Programming Language.”</span> <em>Journal of Statistical Software</em> 76 (1).
+</div>
+<div class="csl-entry">
+King, Ruth, Janine B Illian, Stuart E King, Glenna F Nightingale, and Ditte K Hendrichsen. 2012. <span>“A Bayesian Approach to Fitting Gibbs Processes with Temporal Random Effects.”</span> <em>Journal of Agricultural, Biological, and Environmental Statistics</em> 17 (4): 601–22.
+</div>
+<div class="csl-entry">
+Kruschke, John. 2014. <span>“Doing Bayesian Data Analysis: A Tutorial with r, JAGS, and Stan.”</span>
+</div>
+<div class="csl-entry">
+Li, Taiwen, Jingxin Fu, Zexian Zeng, David Cohen, Jing Li, Qianming Chen, Bo Li, and X Shirley Liu. 2020. <span>“Timer2.0 for Analysis of Tumor-Infiltrating Immune Cells.”</span> <em>Nucleic Acids Research</em> 48 (W1): W509–14. <a href="https://doi.org/10.1093/nar/gkaa407">https://doi.org/10.1093/nar/gkaa407</a>.
+</div>
+<div class="csl-entry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div class="csl-entry">
+Ruifrok, Arnout C, Dennis A Johnston, et al. 2001. <span>“Quantification of Histochemical Staining by Color Deconvolution.”</span> <em>Analytical and Quantitative Cytology and Histology</em> 23 (4): 291–99.
+</div>
+<div class="csl-entry">
+Sturm, Gregor, Francesca Finotello, Florent Petitprez, Jitao David Zhang, Jan Baumbach, Wolf H Fridman, Markus List, and Tatsiana Aneichyk. 2019. <span>“Comprehensive Evaluation of Transcriptome-Based Cell-Type Quantification Methods for Immuno-Oncology.”</span> <em>Bioinformatics</em> 35 (14): i436–45. <a href="https://doi.org/10.1093/bioinformatics/btz363">https://doi.org/10.1093/bioinformatics/btz363</a>.
+</div>
+<div class="csl-entry">
+Su, Yu-Sung, Masanao Yajima, Maintainer Yu-Sung Su, and JAGS SystemRequirements. 2015. <span>“Package <span>‘R2jags’</span>.”</span> <em>R Package Version 0.03-08, URL Http://CRAN. R-Project. Org/Package= R2jags</em>.
+</div>
+<div class="csl-entry">
+Yuan, Yinyin, Henrik Failmezger, Oscar M Rueda, H Raza Ali, Stefan Gräf, Suet-Feung Chin, Roland F Schwarz, et al. 2012. <span>“Quantitative Image Analysis of Cellular Heterogeneity in Breast Tumors Complements Genomic Profiling.”</span> <em>Science Translational Medicine</em> 4 (157): 157ra143–43.
+</div>
+<div class="csl-entry">
+Zhu, Yitan, Peng Qiu, and Yuan Ji. 2014. <span>“TCGA-Assembler: Open-Source Software for Retrieving and Processing TCGA Data.”</span> <em>Nature Methods</em> 11 (6): 599–600.
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="association-with-deconvolution-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

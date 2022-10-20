@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>S.2 Introduction | SPARTYN Supplementary material</title>
+  <title>S.9 Introduction | SPARTIN Supplementary material</title>
   <meta name="description" content="Supplementary material related to the SPARTYN pipeline" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="S.2 Introduction | SPARTYN Supplementary material" />
+  <meta property="og:title" content="S.9 Introduction | SPARTIN Supplementary material" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Supplementary material related to the SPARTYN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="S.2 Introduction | SPARTYN Supplementary material" />
+  <meta name="twitter:title" content="S.9 Introduction | SPARTIN Supplementary material" />
   
   <meta name="twitter:description" content="Supplementary material related to the SPARTYN pipeline" />
   
@@ -30,9 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
+<link rel="prev" href="preface-1.html"/>
 <link rel="next" href="materials-and-methods.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,10 +48,75 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -94,28 +157,79 @@ div.csl-indent {
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>3</b> Materials and Methods</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="model-fitting.html"><a href="model-fitting.html"><i class="fa fa-check"></i><b>2</b> Model Fitting</a></li>
+<li class="chapter" data-level="3" data-path="biopsy-partition.html"><a href="biopsy-partition.html"><i class="fa fa-check"></i><b>3</b> Biopsy Partition</a></li>
+<li class="chapter" data-level="4" data-path="cell-classification-model.html"><a href="cell-classification-model.html"><i class="fa fa-check"></i><b>4</b> Cell Classification Model</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Process Models</a></li>
-<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>3.3</b> Pseudolikelihood Function</a></li>
-<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.4</b> Intensity Thresholding and Partition</a></li>
-<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>3.5</b> Cell Type Interaction Probability</a></li>
+<li class="chapter" data-level="4.1" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels"><i class="fa fa-check"></i><b>4.1</b> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels</a></li>
+<li class="chapter" data-level="4.2" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-nucleus-segmentation"><i class="fa fa-check"></i><b>4.2</b> Whole-Slide Image (WSI) Nucleus Segmentation</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<li class="chapter" data-level="5" data-path="genomic-associations.html"><a href="genomic-associations.html"><i class="fa fa-check"></i><b>5</b> Genomic Associations</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
-<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
+<li class="chapter" data-level="5.1" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-significantly-mutated-genes"><i class="fa fa-check"></i><b>5.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="5.2" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-immune-genes"><i class="fa fa-check"></i><b>5.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="association-with-deconvolution-data.html"><a href="association-with-deconvolution-data.html"><i class="fa fa-check"></i><b>6</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="7" data-path="spartin-r-package.html"><a href="spartin-r-package.html"><i class="fa fa-check"></i><b>7</b> SPARTIN R package</a></li>
+<li class="chapter" data-level="8" data-path="preface-1.html"><a href="preface-1.html"><i class="fa fa-check"></i><b>8</b> Preface</a></li>
+<li class="chapter" data-level="9" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
+<li class="chapter" data-level="10" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>10</b> Materials and Methods</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.1</b> Genomic Associations</a></li>
-<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#association-with-deconvolution-data"><i class="fa fa-check"></i><b>4.2.2</b> Association with Deconvolution Data</a></li>
-<li class="chapter" data-level="4.2.3" data-path="results.html"><a href="results.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>4.2.3</b> Association with Other Outcomes of Interest</a></li>
-<li class="chapter" data-level="4.2.4" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.4</b> Survival Analysis</a></li>
+<li class="chapter" data-level="10.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>10.2</b> Spatial Point Process Models</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#data-structure"><i class="fa fa-check"></i><b>10.2.1</b> Data Structure</a></li>
+<li class="chapter" data-level="10.2.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#model"><i class="fa fa-check"></i><b>10.2.2</b> Model</a></li>
+<li class="chapter" data-level="10.2.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation"><i class="fa fa-check"></i><b>10.2.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>10.3</b> Pseudolikelihood Function</a></li>
+<li class="chapter" data-level="10.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>10.4</b> Intensity Thresholding and Partition</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation-for-partition"><i class="fa fa-check"></i><b>10.4.1</b> Motivation for partition</a></li>
+<li class="chapter" data-level="10.4.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#partition-pipeline"><i class="fa fa-check"></i><b>10.4.2</b> Partition pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>10.5</b> Cell Type Interaction Probability</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation"><i class="fa fa-check"></i><b>10.5.1</b> Motivation</a></li>
+<li class="chapter" data-level="10.5.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#definition"><i class="fa fa-check"></i><b>10.5.2</b> Definition</a></li>
+<li class="chapter" data-level="10.5.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#estimating-the-empirical-null-distribution"><i class="fa fa-check"></i><b>10.5.3</b> Estimating the empirical null distribution</a></li>
+<li class="chapter" data-level="10.5.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#computation-of-ctip"><i class="fa fa-check"></i><b>10.5.4</b> Computation of CTIP</a></li>
+<li class="chapter" data-level="10.5.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation-1"><i class="fa fa-check"></i><b>10.5.5</b> Interpretation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>5</b> Discussion and Limitations</a></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#simulation-overview"><i class="fa fa-check"></i><b>11.1</b> Simulation Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#negative-simulations"><i class="fa fa-check"></i><b>11.2</b> Negative simulations</a></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#positive-simulations"><i class="fa fa-check"></i><b>11.3</b> Positive simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>12</b> Application</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="application.html"><a href="application.html#background"><i class="fa fa-check"></i><b>12.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="application.html"><a href="application.html#data-and-pre-processing"><i class="fa fa-check"></i><b>12.1.1</b> Data and Pre-Processing</a></li>
+<li class="chapter" data-level="12.1.2" data-path="application.html"><a href="application.html#cell-classification-model-1"><i class="fa fa-check"></i><b>12.1.2</b> Cell Classification Model</a></li>
+<li class="chapter" data-level="12.1.3" data-path="application.html"><a href="application.html#melanoma"><i class="fa fa-check"></i><b>12.1.3</b> Melanoma</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="application.html"><a href="application.html#genomic-associations-1"><i class="fa fa-check"></i><b>12.2</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application.html"><a href="application.html#association-with-expression-of-significantly-mutated-genes-1"><i class="fa fa-check"></i><b>12.2.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application.html"><a href="application.html#association-with-expression-of-immune-genes-1"><i class="fa fa-check"></i><b>12.2.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="application.html"><a href="application.html#association-with-deconvolution-data-1"><i class="fa fa-check"></i><b>12.3</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="12.4" data-path="application.html"><a href="application.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>12.4</b> Association with Other Outcomes of Interest</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="application.html"><a href="application.html#transcriptomic-classes"><i class="fa fa-check"></i><b>12.4.1</b> Transcriptomic classes</a></li>
+<li class="chapter" data-level="12.4.2" data-path="application.html"><a href="application.html#pathologist-assessment"><i class="fa fa-check"></i><b>12.4.2</b> Pathologist assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="application.html"><a href="application.html#survival-analysis"><i class="fa fa-check"></i><b>12.5</b> Survival Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>13</b> Discussion and Limitations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#r-markdown"><i class="fa fa-check"></i><b>13.1</b> R Markdown</a></li>
+<li class="chapter" data-level="13.2" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#including-plots"><i class="fa fa-check"></i><b>13.2</b> Including Plots</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -128,7 +242,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTYN Supplementary material</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTIN Supplementary material</a>
           </h1>
         </div>
 
@@ -136,8 +250,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1" number="2">
-<h1><span class="header-section-number">S.2</span> Introduction</h1>
+<div id="introduction" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">S.9</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>While the staining and examination of tissue samples has been a
 ubiquitous medical practice for decades, it
 has only been relatively recently that high definition images of
@@ -145,12 +259,12 @@ such stainings have begun to be explored through the lens of
 machine learning and statistical modeling. A considerable amount
 of work has thus far been put into building and training models
 capable of accurate classifications of overall tissue
-samples as well as subsections of tissue samples (<span class="citation"><a href="#ref-Saltz18" role="doc-biblioref">Saltz et al.</a> (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span>; <span class="citation"><a href="#ref-Amgad19" role="doc-biblioref">Amgad et al.</a> (<a href="#ref-Amgad19" role="doc-biblioref">2019</a>)</span>; <span class="citation"><a href="#ref-Lu20" role="doc-biblioref">Lu et al.</a> (<a href="#ref-Lu20" role="doc-biblioref">2020</a>)</span>;
-<span class="citation"><a href="#ref-Negahbani21" role="doc-biblioref">Negahbani et al.</a> (<a href="#ref-Negahbani21" role="doc-biblioref">2021</a>)</span>; <span class="citation"><a href="#ref-Bian21" role="doc-biblioref">Bian et al.</a> (<a href="#ref-Bian21" role="doc-biblioref">2021</a>)</span>). This work, often broadly
+samples as well as subsections of tissue samples (<span class="citation">Saltz et al. (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span>; <span class="citation">Amgad et al. (<a href="#ref-Amgad19" role="doc-biblioref">2019</a>)</span>; <span class="citation">Lu et al. (<a href="#ref-Lu20" role="doc-biblioref">2020</a>)</span>;
+<span class="citation">Negahbani et al. (<a href="#ref-Negahbani21" role="doc-biblioref">2021</a>)</span>; <span class="citation">Bian et al. (<a href="#ref-Bian21" role="doc-biblioref">2021</a>)</span>). This work, often broadly
 referred to as Histopathological Image Analysis or Digital
 Pathology, encompasses a wide range of methods and goals ranging
 from developing models to assist in the scoring and staging of
-cancer biopsies to the classification of cells in tumor biopsies (<span class="citation"><a href="#ref-Komura18" role="doc-biblioref">Komura and Ishikawa</a> (<a href="#ref-Komura18" role="doc-biblioref">2018</a>)</span>). This work has important implications for
+cancer biopsies to the classification of cells in tumor biopsies (<span class="citation">Komura and Ishikawa (<a href="#ref-Komura18" role="doc-biblioref">2018</a>)</span>). This work has important implications for
 biomedical research. Because of the precision with
 which such algorithms can assess biopsies at the cellular level,
 it is possible to uncover structures and associations not immediately apparent to human pathologists. This degree of precision allows for
@@ -170,26 +284,26 @@ build off of the cell classification abilities of modern machine
 learning methods. To the author’s knowledge, the most notable
 attempts to do so have been Li {.}’s work in 2019,
 which utilized data classified by the ConvPath pipeline
-(<span class="citation"><a href="#ref-Wang19" role="doc-biblioref">Wang et al.</a> (<a href="#ref-Wang19" role="doc-biblioref">2019</a>)</span>).</p>
+(<span class="citation">Wang et al. (<a href="#ref-Wang19" role="doc-biblioref">2019</a>)</span>).</p>
 <p>There is ample prior reason to suspect that such applications may
-be valuable. <span class="citation"><a href="#ref-Pages10" role="doc-biblioref">Pagès et al.</a> (<a href="#ref-Pages10" role="doc-biblioref">2010</a>)</span> proposed immune reaction as the seventh hallmark of cancer, and laid out different associations between various types of immune cells and outcomes of interest. Of the different types of immune cells, the most well-studied are lymphocytes.
+be valuable. <span class="citation">Pagès et al. (<a href="#ref-Pages10" role="doc-biblioref">2010</a>)</span> proposed immune reaction as the seventh hallmark of cancer, and laid out different associations between various types of immune cells and outcomes of interest. Of the different types of immune cells, the most well-studied are lymphocytes.
 Lymphocyte infiltration is both
 a meaningful prognostic indicator that can help inform treatment
 and predict survival across different types of cancer, including
-in colorectal cancer (<span class="citation"><a href="#ref-Idos20" role="doc-biblioref">Idos et al.</a> (<a href="#ref-Idos20" role="doc-biblioref">2020</a>)</span>), Breast cancer
-(<span class="citation"><a href="#ref-Dieci18" role="doc-biblioref">Dieci et al.</a> (<a href="#ref-Dieci18" role="doc-biblioref">2018</a>)</span>; <span class="citation"><a href="#ref-Denkert15" role="doc-biblioref">Denkert et al.</a> (<a href="#ref-Denkert15" role="doc-biblioref">2015</a>)</span>), and melanoma
-(<span class="citation"><a href="#ref-Fu19" role="doc-biblioref">Fu et al.</a> (<a href="#ref-Fu19" role="doc-biblioref">2019</a>)</span>). This has led to increased interest in Computational
+in colorectal cancer (<span class="citation">Idos et al. (<a href="#ref-Idos20" role="doc-biblioref">2020</a>)</span>), Breast cancer
+(<span class="citation">Dieci et al. (<a href="#ref-Dieci18" role="doc-biblioref">2018</a>)</span>; <span class="citation">Denkert et al. (<a href="#ref-Denkert15" role="doc-biblioref">2015</a>)</span>), and melanoma
+(<span class="citation">Fu et al. (<a href="#ref-Fu19" role="doc-biblioref">2019</a>)</span>). This has led to increased interest in Computational
 TILs Assessment (CTA), a sub-field of digital pathology devoted to
 developing computational methods to assess lymphocyte infiltration
 in biopsy images. Thus far, results that have emerged from CTA
 research have provided additional evidence regarding the importance of
 tumor infiltrating lymphocytes and their spatial
 features in the assessment of pathology images.
-<span class="citation"><a href="#ref-Saltz18" role="doc-biblioref">Saltz et al.</a> (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span> specifically
+<span class="citation">Saltz et al. (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span> specifically
 examined the presence of lymphocytes across biopsies in
 several types of cancer, and found that certain summarization
 metrics of lymphocyte clusters were significantly associated
-with survival in certain types of cancer. <span class="citation"><a href="#ref-Lu20" role="doc-biblioref">Lu et al.</a> (<a href="#ref-Lu20" role="doc-biblioref">2020</a>)</span> also
+with survival in certain types of cancer. <span class="citation">Lu et al. (<a href="#ref-Lu20" role="doc-biblioref">2020</a>)</span> also
 found that various spatial statistical features of TILs present
 in a sample of breast cancer biopsies were significantly associated
 with survival both marginally and after adjusting for other factors.
@@ -197,26 +311,32 @@ Further, they found that these associations actually differed by
 tumor subtype. In addition to this, they found that certain
 spatial features of TILs were also significantly associated with
 gene expression data.</p>
-<p>While the presence of lymphocyte infiltration is consistently associated with positive prognosis and survival outcomes, the same cannot be said for all types of immune cells. It is well accepted that the presence of Tumor-Associated Macrophages (TAMs) generally have a negative impact on survival due to their association with inflammation and their inhibition of adaptive immune response (<span class="citation"><a href="#ref-Sica08" role="doc-biblioref">Sica, Allavena, and Mantovani</a> (<a href="#ref-Sica08" role="doc-biblioref">2008</a>)</span>, <span class="citation"><a href="#ref-Tsutsui05" role="doc-biblioref">Tsutsui et al.</a> (<a href="#ref-Tsutsui05" role="doc-biblioref">2005</a>)</span>). While TAMs are less studied in the domain of digital pathology, there has been recent work on the development of pipelines for the classification of TAMs. This work combined with the established effects of TAMs on cancer prognosis suggest both a possible avenue of investigation as well as a method by which to do so.</p>
-<p>While this is only a sample of the different types of immune cells that may be present in the Tumor Microenvironment (TME) for a given patient, this broadly suggests that investigating the spatial association between general immune infiltration and the tumor itself may prove fruitful in better understanding the prognostic implications of tumor immunogenicity. Traditionally, immunogenic features of cancer have been assessed (and therfore investigated) at the biopsy level by pathologists. While this macro-assessment allows for assessment of inter-patient heterogeneity, by definition it does not allow for the investigation of \textit{intra-patient heterogeneity. Heterogeneity in the TME, including spatial heterogeneity, has proven to be an important component of understanding cancers of various kinds (<span class="citation"><a href="#ref-Heindl15" role="doc-biblioref">Heindl, Nawaz, and Yuan</a> (<a href="#ref-Heindl15" role="doc-biblioref">2015</a>)</span>; <span class="citation"><a href="#ref-Yuan16" role="doc-biblioref">Yuan</a> (<a href="#ref-Yuan16" role="doc-biblioref">2016</a>)</span>; <span class="citation"><a href="#ref-Bareche20" role="doc-biblioref">Bareche et al.</a> (<a href="#ref-Bareche20" role="doc-biblioref">2020</a>)</span>; <span class="citation"><a href="#ref-Boxberg19" role="doc-biblioref">Boxberg et al.</a> (<a href="#ref-Boxberg19" role="doc-biblioref">2019</a>)</span>; <span class="citation"><a href="#ref-Yan19" role="doc-biblioref">Yan et al.</a> (<a href="#ref-Yan19" role="doc-biblioref">2019</a>)</span>; <span class="citation"><a href="#ref-Hunter21" role="doc-biblioref">Hunter et al.</a> (<a href="#ref-Hunter21" role="doc-biblioref">2021</a>)</span>). It is therefore plausible that developing methods to rigorously model the spatial variation in immune activation will yield insights into both the patient level clinical implications of such heterogeneity as well as possible genomic associations.</p>
+<p>While the presence of lymphocyte infiltration is consistently associated with positive prognosis and survival outcomes, the same cannot be said for all types of immune cells. It is well accepted that the presence of Tumor-Associated Macrophages (TAMs) generally have a negative impact on survival due to their association with inflammation and their inhibition of adaptive immune response (<span class="citation">Sica, Allavena, and Mantovani (<a href="#ref-Sica08" role="doc-biblioref">2008</a>)</span>, <span class="citation">Tsutsui et al. (<a href="#ref-Tsutsui05" role="doc-biblioref">2005</a>)</span>). While TAMs are less studied in the domain of digital pathology, there has been recent work on the development of pipelines for the classification of TAMs. This work combined with the established effects of TAMs on cancer prognosis suggest both a possible avenue of investigation as well as a method by which to do so.</p>
+<p>While this is only a sample of the different types of immune cells that may be present in the Tumor Microenvironment (TME) for a given patient, this broadly suggests that investigating the spatial association between general immune infiltration and the tumor itself may prove fruitful in better understanding the prognostic implications of tumor immunogenicity. Traditionally, immunogenic features of cancer have been assessed (and therfore investigated) at the biopsy level by pathologists. While this macro-assessment allows for assessment of inter-patient heterogeneity, by definition it does not allow for the investigation of -patient heterogeneity. Heterogeneity in the TME, including spatial heterogeneity, has proven to be an important component of understanding cancers of various kinds (<span class="citation">Heindl, Nawaz, and Yuan (<a href="#ref-Heindl15" role="doc-biblioref">2015</a>)</span>; <span class="citation">Yuan (<a href="#ref-Yuan16" role="doc-biblioref">2016</a>)</span>; <span class="citation">Bareche et al. (<a href="#ref-Bareche20" role="doc-biblioref">2020</a>)</span>; <span class="citation">Boxberg et al. (<a href="#ref-Boxberg19" role="doc-biblioref">2019</a>)</span>; <span class="citation">Yan et al. (<a href="#ref-Yan19" role="doc-biblioref">2019</a>)</span>; <span class="citation">Hunter et al. (<a href="#ref-Hunter21" role="doc-biblioref">2021</a>)</span>). It is therefore plausible that developing methods to rigorously model the spatial variation in immune activation will yield insights into both the patient level clinical implications of such heterogeneity as well as possible genomic associations.</p>
 <p>Spatial point processes have long been used in the domain of
 ecology to rigorously investigate spatial relationships between
-various organisms (<span class="citation"><a href="#ref-Hogsar99" role="doc-biblioref">Högmander and Särkkä</a> (<a href="#ref-Hogsar99" role="doc-biblioref">1999</a>)</span>; <span class="citation"><a href="#ref-King12" role="doc-biblioref">King et al.</a> (<a href="#ref-King12" role="doc-biblioref">2012</a>)</span>). More
+various organisms (<span class="citation">Högmander and Särkkä (<a href="#ref-Hogsar99" role="doc-biblioref">1999</a>)</span>; <span class="citation">King et al. (<a href="#ref-King12" role="doc-biblioref">2012</a>)</span>). More
 recently, methods from this paradigm have been successfully
-applied within the domain of Biostatistics (<span class="citation"><a href="#ref-Kang11" role="doc-biblioref">Kang et al.</a> (<a href="#ref-Kang11" role="doc-biblioref">2011</a>)</span>;
-<span class="citation"><a href="#ref-Ray15" role="doc-biblioref">Ray, Kang, and Zhang</a> (<a href="#ref-Ray15" role="doc-biblioref">2015</a>)</span>). Given the relatively simple and granular nature
+applied within the domain of Biostatistics (<span class="citation">Kang et al. (<a href="#ref-Kang11" role="doc-biblioref">2011</a>)</span>;
+<span class="citation">Ray, Kang, and Zhang (<a href="#ref-Ray15" role="doc-biblioref">2015</a>)</span>). Given the relatively simple and granular nature
 of cell-level spatial imaging data, marked point processes are a
 natural way to simultaneously model the randomness in both the
 quantities and locations of the different cell types along with
 their relative spatial associations.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:01"></span>
+<img src="Figures/pipeline_and_cartoon.png" alt="An illustration of spatial interaction between cells of different types and an overview of the pre-processing pipeline. 1a) depicts different strengths of spatial interaction. (A) depicts low/no interaction; (B) depicts moderate interaction; (C) depicts strong interaction. 1b) shows an overview of the SPARTIN pipeline, from pre-processing to biopsy level assessment. Raw biopsy images (A) are pre-processed into cell types (tumor cells or immune cells, colored black and red respectively) and locations. The points are intensity thresholded, removing excess white space from the image and producing a more closely fitted window (B). Next, the biopsy is tessellated into non-overlapping sub-regions containing comparable numbers of tumor cells (C). Models are fit on each tile (D), and tile-specific Cell Type Interaction Probability is calculated from the resulting posterior distributions (E), allowing us to capture heterogeneity in infiltration across the biopsy in a manner that can be aggregated (F) and appropriately summarized (G)." width="100%" />
+<p class="caption">
+Figure 9.1: An illustration of spatial interaction between cells of different types and an overview of the pre-processing pipeline. 1a) depicts different strengths of spatial interaction. (A) depicts low/no interaction; (B) depicts moderate interaction; (C) depicts strong interaction. 1b) shows an overview of the SPARTIN pipeline, from pre-processing to biopsy level assessment. Raw biopsy images (A) are pre-processed into cell types (tumor cells or immune cells, colored black and red respectively) and locations. The points are intensity thresholded, removing excess white space from the image and producing a more closely fitted window (B). Next, the biopsy is tessellated into non-overlapping sub-regions containing comparable numbers of tumor cells (C). Models are fit on each tile (D), and tile-specific Cell Type Interaction Probability is calculated from the resulting posterior distributions (E), allowing us to capture heterogeneity in infiltration across the biopsy in a manner that can be aggregated (F) and appropriately summarized (G).
+</p>
+</div>
 <p>In this paper, we introduce the SPARTIN (SPatial Analysis of
 paRtitioned Tumor-Immune imagiNg) pipeline. SPARTIN is unique
 in the spatial pathological imaging analysis literature in that it
 uses statistical models to assess the association between tumor
 cells and immune cells across an entire partitioned biopsy. This
 allows for rigorous quantification of uncertainty in the style of
-<span class="citation"><a href="#ref-LiMIM19" role="doc-biblioref">Q. Li et al.</a> (<a href="#ref-LiMIM19" role="doc-biblioref">2019</a>)</span> while still allowing for the assessment of full
-images in the style of <span class="citation"><a href="#ref-Saltz18" role="doc-biblioref">Saltz et al.</a> (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span>. We accomplish this by
+<span class="citation">Q. Li et al. (<a href="#ref-LiMIM19" role="doc-biblioref">2019</a>)</span> while still allowing for the assessment of full
+images in the style of <span class="citation">Saltz et al. (<a href="#ref-Saltz18" role="doc-biblioref">2018</a>)</span>. We accomplish this by
 partitioning the cell-level imaging data of each biopsy into
 non-overlapping sub-regions, which can then be modeled to capture
 the local infiltration patterns using standard techniques from
@@ -232,7 +352,7 @@ work.</p>
 <p>The results of our simulations suggest that CTIP reliably identifies
 local positive spatial associations across a variety of different
 combinations of cell abundances and strengths of associations. We also found that CTIP was significantly
-associated with biopsy-level gene expression among genes related to immune cells. Additionally, we found that CTIP was significantly associated with various outcomes as assessed by <span class="citation"><a href="#ref-Akbani15" role="doc-biblioref">Akbani et al.</a> (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span>, including transcriptomic class and pathologist assessment.
+associated with biopsy-level gene expression among genes related to immune cells. Additionally, we found that CTIP was significantly associated with various outcomes as assessed by <span class="citation">Akbani et al. (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span>, including transcriptomic class and pathologist assessment.
 Finally, at the patient outcome level, we found that immune cell infiltration as
 measured by CTIP was significantly associated
 with overall survival.</p>
@@ -241,12 +361,12 @@ with overall survival.</p>
 immune cell infiltration for several reasons.
 SKCM has been shown
 to be particularly responsive to Immunotherapy in some cases
-(<span class="citation"><a href="#ref-Franklin17" role="doc-biblioref">Franklin et al.</a> (<a href="#ref-Franklin17" role="doc-biblioref">2017</a>)</span>; <span class="citation"><a href="#ref-Achkar17" role="doc-biblioref">Achkar and Tarhini</a> (<a href="#ref-Achkar17" role="doc-biblioref">2017</a>)</span>). It is possible that
+(<span class="citation">Franklin et al. (<a href="#ref-Franklin17" role="doc-biblioref">2017</a>)</span>; <span class="citation">Achkar and Tarhini (<a href="#ref-Achkar17" role="doc-biblioref">2017</a>)</span>). It is possible that
 the ability to quantify immune infiltration at a large scale
 may allow for more detailed investigation into the scenarios in
 which this treatment may be most effectively deployed. It is also
 well established that SKCM has an unusually high mutational load
-amongst the various cancer types (<span class="citation"><a href="#ref-Berger12" role="doc-biblioref">Berger et al.</a> (<a href="#ref-Berger12" role="doc-biblioref">2012</a>)</span>). The
+amongst the various cancer types (<span class="citation">Berger et al. (<a href="#ref-Berger12" role="doc-biblioref">2012</a>)</span>). The
 ability to quantify infiltration may allow for further
 investigation into not only genomic associations of this<br />
 occurrence but associations with mutations as well.</p>
@@ -346,7 +466,7 @@ Yuan, Yinyin. 2016. <span>“Spatial Heterogeneity in the Tumor Microenvironment
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="preface-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="materials-and-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -378,7 +498,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/scratch.Rmd",
 "text": "Edit"
 },
 "history": {

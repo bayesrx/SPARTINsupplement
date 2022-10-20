@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>S.11 Simulation | SPARTIN Supplementary material</title>
+  <meta name="description" content="Supplementary material related to the SPARTYN pipeline" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="S.11 Simulation | SPARTIN Supplementary material" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Supplementary material related to the SPARTYN pipeline" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="S.11 Simulation | SPARTIN Supplementary material" />
+  
+  <meta name="twitter:description" content="Supplementary material related to the SPARTYN pipeline" />
+  
+
+<meta name="author" content="Nate Osher" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="materials-and-methods.html"/>
+<link rel="next" href="application.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="model-fitting.html"><a href="model-fitting.html"><i class="fa fa-check"></i><b>2</b> Model Fitting</a></li>
+<li class="chapter" data-level="3" data-path="biopsy-partition.html"><a href="biopsy-partition.html"><i class="fa fa-check"></i><b>3</b> Biopsy Partition</a></li>
+<li class="chapter" data-level="4" data-path="cell-classification-model.html"><a href="cell-classification-model.html"><i class="fa fa-check"></i><b>4</b> Cell Classification Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels"><i class="fa fa-check"></i><b>4.1</b> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels</a></li>
+<li class="chapter" data-level="4.2" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-nucleus-segmentation"><i class="fa fa-check"></i><b>4.2</b> Whole-Slide Image (WSI) Nucleus Segmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="genomic-associations.html"><a href="genomic-associations.html"><i class="fa fa-check"></i><b>5</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-significantly-mutated-genes"><i class="fa fa-check"></i><b>5.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="5.2" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-immune-genes"><i class="fa fa-check"></i><b>5.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="association-with-deconvolution-data.html"><a href="association-with-deconvolution-data.html"><i class="fa fa-check"></i><b>6</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="7" data-path="spartin-r-package.html"><a href="spartin-r-package.html"><i class="fa fa-check"></i><b>7</b> SPARTIN R package</a></li>
+<li class="chapter" data-level="8" data-path="preface-1.html"><a href="preface-1.html"><i class="fa fa-check"></i><b>8</b> Preface</a></li>
+<li class="chapter" data-level="9" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
+<li class="chapter" data-level="10" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>10</b> Materials and Methods</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>10.2</b> Spatial Point Process Models</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#data-structure"><i class="fa fa-check"></i><b>10.2.1</b> Data Structure</a></li>
+<li class="chapter" data-level="10.2.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#model"><i class="fa fa-check"></i><b>10.2.2</b> Model</a></li>
+<li class="chapter" data-level="10.2.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation"><i class="fa fa-check"></i><b>10.2.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>10.3</b> Pseudolikelihood Function</a></li>
+<li class="chapter" data-level="10.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>10.4</b> Intensity Thresholding and Partition</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation-for-partition"><i class="fa fa-check"></i><b>10.4.1</b> Motivation for partition</a></li>
+<li class="chapter" data-level="10.4.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#partition-pipeline"><i class="fa fa-check"></i><b>10.4.2</b> Partition pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>10.5</b> Cell Type Interaction Probability</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation"><i class="fa fa-check"></i><b>10.5.1</b> Motivation</a></li>
+<li class="chapter" data-level="10.5.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#definition"><i class="fa fa-check"></i><b>10.5.2</b> Definition</a></li>
+<li class="chapter" data-level="10.5.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#estimating-the-empirical-null-distribution"><i class="fa fa-check"></i><b>10.5.3</b> Estimating the empirical null distribution</a></li>
+<li class="chapter" data-level="10.5.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#computation-of-ctip"><i class="fa fa-check"></i><b>10.5.4</b> Computation of CTIP</a></li>
+<li class="chapter" data-level="10.5.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation-1"><i class="fa fa-check"></i><b>10.5.5</b> Interpretation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#simulation-overview"><i class="fa fa-check"></i><b>11.1</b> Simulation Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#negative-simulations"><i class="fa fa-check"></i><b>11.2</b> Negative simulations</a></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#positive-simulations"><i class="fa fa-check"></i><b>11.3</b> Positive simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>12</b> Application</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="application.html"><a href="application.html#background"><i class="fa fa-check"></i><b>12.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="application.html"><a href="application.html#data-and-pre-processing"><i class="fa fa-check"></i><b>12.1.1</b> Data and Pre-Processing</a></li>
+<li class="chapter" data-level="12.1.2" data-path="application.html"><a href="application.html#cell-classification-model-1"><i class="fa fa-check"></i><b>12.1.2</b> Cell Classification Model</a></li>
+<li class="chapter" data-level="12.1.3" data-path="application.html"><a href="application.html#melanoma"><i class="fa fa-check"></i><b>12.1.3</b> Melanoma</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="application.html"><a href="application.html#genomic-associations-1"><i class="fa fa-check"></i><b>12.2</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application.html"><a href="application.html#association-with-expression-of-significantly-mutated-genes-1"><i class="fa fa-check"></i><b>12.2.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application.html"><a href="application.html#association-with-expression-of-immune-genes-1"><i class="fa fa-check"></i><b>12.2.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="application.html"><a href="application.html#association-with-deconvolution-data-1"><i class="fa fa-check"></i><b>12.3</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="12.4" data-path="application.html"><a href="application.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>12.4</b> Association with Other Outcomes of Interest</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="application.html"><a href="application.html#transcriptomic-classes"><i class="fa fa-check"></i><b>12.4.1</b> Transcriptomic classes</a></li>
+<li class="chapter" data-level="12.4.2" data-path="application.html"><a href="application.html#pathologist-assessment"><i class="fa fa-check"></i><b>12.4.2</b> Pathologist assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="application.html"><a href="application.html#survival-analysis"><i class="fa fa-check"></i><b>12.5</b> Survival Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>13</b> Discussion and Limitations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#r-markdown"><i class="fa fa-check"></i><b>13.1</b> R Markdown</a></li>
+<li class="chapter" data-level="13.2" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#including-plots"><i class="fa fa-check"></i><b>13.2</b> Including Plots</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTIN Supplementary material</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulation" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">S.11</span> Simulation<a href="simulation.html#simulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="simulation-overview" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Simulation Overview<a href="simulation.html#simulation-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To compare our model’s detection of spatial association between
+different cell types, we ran a small-scale simulation study in
+which we tested the ability of this method to accurately classify
+positive interaction across a range of different simulated cell
+compositions and spatial associations. For each of four sets of
+simulations, the number of simulated tumor cells and immune cells
+were set a priori at <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span> respectively. Further,
+interaction was controlled by a parameter <span class="math inline">\(\phi \in [-1, 1]\)</span>,
+with <span class="math inline">\(-1\)</span> indicating the most negative possible interaction and
+<span class="math inline">\(1\)</span> indicating the most positive possible interaction. Because
+the goal was classification as either positive interaction or
+non-positive (i.e. null or negative) interaction, we used AUC
+as our summary metric. This is a natural choice, since IP
+is interpreted as the posterior probability of positive
+interaction.</p>
+</div>
+<div id="negative-simulations" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Negative simulations<a href="simulation.html#negative-simulations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a given combination of <span class="math inline">\(T_s\)</span> and <span class="math inline">\(L_s\)</span>, the positive and
+negative simulations proceeded differently. For the negative
+simulations (<span class="math inline">\(\phi \in [-1, 0]\)</span>), <span class="math inline">\(T_s\)</span> tumor cells and <span class="math inline">\(L_s\)</span>
+immune cells were simulated as independent poisson processes in
+regions of the window that overlapped to varying degrees. The
+overlap was controlled by <span class="math inline">\(\phi\)</span>, such that the processes
+overlapped on <span class="math inline">\((100 \cdot (1 + \phi)) \%\)</span> of the window in which
+the simulation occurred. Note that when <span class="math inline">\(\phi = -1\)</span> there was no
+overlap, and when <span class="math inline">\(\phi = 0\)</span> (complete overlap) the simulation
+reduced to simulating two independent Poisson Processes within
+the same window.</p>
+</div>
+<div id="positive-simulations" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Positive simulations<a href="simulation.html#positive-simulations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For the positive simulations (<span class="math inline">\(\phi \in (0, 1]\)</span>), <span class="math inline">\(T_s\)</span> tumor
+cells were simulated under a Poisson process. After their
+locations were determined, <span class="math inline">\(L_s\)</span> immune cells were simulated. For
+each immune cell <span class="math inline">\(l_i\)</span>, a Bernoulli random variable
+<span class="math inline">\(C_i \thicksim Bern(\phi)\)</span> was drawn. If <span class="math inline">\(C_i = 1\)</span>, <span class="math inline">\(l_i\)</span> was
+simulated within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of a randomly selected tumor cell.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:02"></span>
+<img src="Figures/Sim_Fig.png" alt="Top: examples of positive and negative simulations for different values of p, all from simulation setting 1. Bottom left: box plots of CTIP across all simulated compositions for different values of p on logit scale. Bottom right: ROC curves and associated AUC for classification (positive interaction vs. non-positive interaction) for different simulation settings. Simulation setting 1 consisted of 20 tumor cells and 50 immune cells; simulation setting 2 consisted of 100 tumor cells and 100 immune cells; simulation setting 3 consisted of 50 tumor cells and 20 immune cells; and simulation setting 4 consisted of 50 tumor cells and 50 immune cells." width="100%" />
+<p class="caption">
+Figure 11.1: Top: examples of positive and negative simulations for different values of p, all from simulation setting 1. Bottom left: box plots of CTIP across all simulated compositions for different values of p on logit scale. Bottom right: ROC curves and associated AUC for classification (positive interaction vs. non-positive interaction) for different simulation settings. Simulation setting 1 consisted of 20 tumor cells and 50 immune cells; simulation setting 2 consisted of 100 tumor cells and 100 immune cells; simulation setting 3 consisted of 50 tumor cells and 20 immune cells; and simulation setting 4 consisted of 50 tumor cells and 50 immune cells.
+</p>
+</div>
+<!-- \begin{figure}[!ht] % Genomic Table -->
+<!-- {\centering  -->
+<!-- \includegraphics[width=4.5cm]{Figures/Genomic Table.png} \\} -->
+<!-- Table 1: P-values of univariate regression coefficients -->
+<!-- for 10 most significant genes. An asterisk indicates -->
+<!-- significance under a Benjamini-Hochberg correction. -->
+<!-- \end{figure} -->
+<p>Otherwise, <span class="math inline">\(l_i\)</span> was simulated from a Poisson process.
+Thus, the level of interaction was again controlled by <span class="math inline">\(\phi\)</span>, with
+<span class="math inline">\(\phi = 0\)</span> again corresponding to two independent Poisson Processes and
+<span class="math inline">\(\phi = 1\)</span> corresponding to a situation in which all immune cells are
+within <span class="math inline">\(30\)</span> <span class="math inline">\(\mu m\)</span> of at least one tumor cell.</p>
+<p>Across the different simulation settings, accurate classification
+was possible using IP, with the minimum AUC across simulations
+being <span class="math inline">\(0.84\)</span>. For detailed descriptions of simulation settings,
+simulated data, and results, see Figure 2.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="materials-and-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="application.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/scratch.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

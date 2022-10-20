@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>S.12 Application | SPARTIN Supplementary material</title>
+  <meta name="description" content="Supplementary material related to the SPARTYN pipeline" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="S.12 Application | SPARTIN Supplementary material" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Supplementary material related to the SPARTYN pipeline" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="S.12 Application | SPARTIN Supplementary material" />
+  
+  <meta name="twitter:description" content="Supplementary material related to the SPARTYN pipeline" />
+  
+
+<meta name="author" content="Nate Osher" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="simulation.html"/>
+<link rel="next" href="discussion-and-limitations.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="model-fitting.html"><a href="model-fitting.html"><i class="fa fa-check"></i><b>2</b> Model Fitting</a></li>
+<li class="chapter" data-level="3" data-path="biopsy-partition.html"><a href="biopsy-partition.html"><i class="fa fa-check"></i><b>3</b> Biopsy Partition</a></li>
+<li class="chapter" data-level="4" data-path="cell-classification-model.html"><a href="cell-classification-model.html"><i class="fa fa-check"></i><b>4</b> Cell Classification Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels"><i class="fa fa-check"></i><b>4.1</b> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels</a></li>
+<li class="chapter" data-level="4.2" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-nucleus-segmentation"><i class="fa fa-check"></i><b>4.2</b> Whole-Slide Image (WSI) Nucleus Segmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="genomic-associations.html"><a href="genomic-associations.html"><i class="fa fa-check"></i><b>5</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-significantly-mutated-genes"><i class="fa fa-check"></i><b>5.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="5.2" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-immune-genes"><i class="fa fa-check"></i><b>5.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="association-with-deconvolution-data.html"><a href="association-with-deconvolution-data.html"><i class="fa fa-check"></i><b>6</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="7" data-path="spartin-r-package.html"><a href="spartin-r-package.html"><i class="fa fa-check"></i><b>7</b> SPARTIN R package</a></li>
+<li class="chapter" data-level="8" data-path="preface-1.html"><a href="preface-1.html"><i class="fa fa-check"></i><b>8</b> Preface</a></li>
+<li class="chapter" data-level="9" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
+<li class="chapter" data-level="10" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>10</b> Materials and Methods</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>10.2</b> Spatial Point Process Models</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#data-structure"><i class="fa fa-check"></i><b>10.2.1</b> Data Structure</a></li>
+<li class="chapter" data-level="10.2.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#model"><i class="fa fa-check"></i><b>10.2.2</b> Model</a></li>
+<li class="chapter" data-level="10.2.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation"><i class="fa fa-check"></i><b>10.2.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>10.3</b> Pseudolikelihood Function</a></li>
+<li class="chapter" data-level="10.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>10.4</b> Intensity Thresholding and Partition</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation-for-partition"><i class="fa fa-check"></i><b>10.4.1</b> Motivation for partition</a></li>
+<li class="chapter" data-level="10.4.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#partition-pipeline"><i class="fa fa-check"></i><b>10.4.2</b> Partition pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>10.5</b> Cell Type Interaction Probability</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation"><i class="fa fa-check"></i><b>10.5.1</b> Motivation</a></li>
+<li class="chapter" data-level="10.5.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#definition"><i class="fa fa-check"></i><b>10.5.2</b> Definition</a></li>
+<li class="chapter" data-level="10.5.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#estimating-the-empirical-null-distribution"><i class="fa fa-check"></i><b>10.5.3</b> Estimating the empirical null distribution</a></li>
+<li class="chapter" data-level="10.5.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#computation-of-ctip"><i class="fa fa-check"></i><b>10.5.4</b> Computation of CTIP</a></li>
+<li class="chapter" data-level="10.5.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation-1"><i class="fa fa-check"></i><b>10.5.5</b> Interpretation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#simulation-overview"><i class="fa fa-check"></i><b>11.1</b> Simulation Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#negative-simulations"><i class="fa fa-check"></i><b>11.2</b> Negative simulations</a></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#positive-simulations"><i class="fa fa-check"></i><b>11.3</b> Positive simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>12</b> Application</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="application.html"><a href="application.html#background"><i class="fa fa-check"></i><b>12.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="application.html"><a href="application.html#data-and-pre-processing"><i class="fa fa-check"></i><b>12.1.1</b> Data and Pre-Processing</a></li>
+<li class="chapter" data-level="12.1.2" data-path="application.html"><a href="application.html#cell-classification-model-1"><i class="fa fa-check"></i><b>12.1.2</b> Cell Classification Model</a></li>
+<li class="chapter" data-level="12.1.3" data-path="application.html"><a href="application.html#melanoma"><i class="fa fa-check"></i><b>12.1.3</b> Melanoma</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="application.html"><a href="application.html#genomic-associations-1"><i class="fa fa-check"></i><b>12.2</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application.html"><a href="application.html#association-with-expression-of-significantly-mutated-genes-1"><i class="fa fa-check"></i><b>12.2.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application.html"><a href="application.html#association-with-expression-of-immune-genes-1"><i class="fa fa-check"></i><b>12.2.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="application.html"><a href="application.html#association-with-deconvolution-data-1"><i class="fa fa-check"></i><b>12.3</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="12.4" data-path="application.html"><a href="application.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>12.4</b> Association with Other Outcomes of Interest</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="application.html"><a href="application.html#transcriptomic-classes"><i class="fa fa-check"></i><b>12.4.1</b> Transcriptomic classes</a></li>
+<li class="chapter" data-level="12.4.2" data-path="application.html"><a href="application.html#pathologist-assessment"><i class="fa fa-check"></i><b>12.4.2</b> Pathologist assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="application.html"><a href="application.html#survival-analysis"><i class="fa fa-check"></i><b>12.5</b> Survival Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>13</b> Discussion and Limitations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#r-markdown"><i class="fa fa-check"></i><b>13.1</b> R Markdown</a></li>
+<li class="chapter" data-level="13.2" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#including-plots"><i class="fa fa-check"></i><b>13.2</b> Including Plots</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTIN Supplementary material</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="application" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">S.12</span> Application<a href="application.html#application" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="background" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Background<a href="application.html#background" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-and-pre-processing" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Data and Pre-Processing<a href="application.html#data-and-pre-processing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We applied the SPARTIN pipeline to a data set consisting of 335 high definition images of SKCM biopsies stained using hematoxylin and eosin (H&amp;E). All images were taken from The Cancer Genome Atlas SKCM project. These images were processed using the cellular classification model, the details of which are explained below. The result of this processing for each biopsy was cell type and location relative to the pathology slide. For this analysis, only data for tumor cells and immune cells were kept.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:03"></span>
+<img src="Figures/data_violin_forest.png" alt="Selected examples of actual biopsies, both raw data and with tessellations and CTIP by tile. The leftmost biopsy pictured has among the lowest mean estimated CTIP in the sample (0.4), while the rightmost has among the highest (0.94). The middle biopsy has average mean CTIP (0.7), but also exhibits more spatial variation than the left or right biopsy. Bottom: distribution of mean CTIP by biopsy for all biopsies investigated. This illustrates the between-biopsy variation in overall levels of infiltration." width="100%" />
+<p class="caption">
+Figure 12.1: Selected examples of actual biopsies, both raw data and with tessellations and CTIP by tile. The leftmost biopsy pictured has among the lowest mean estimated CTIP in the sample (0.4), while the rightmost has among the highest (0.94). The middle biopsy has average mean CTIP (0.7), but also exhibits more spatial variation than the left or right biopsy. Bottom: distribution of mean CTIP by biopsy for all biopsies investigated. This illustrates the between-biopsy variation in overall levels of infiltration.
+</p>
+</div>
+</div>
+<div id="cell-classification-model-1" class="section level3 hasAnchor" number="12.1.2">
+<h3><span class="header-section-number">12.1.2</span> Cell Classification Model<a href="application.html#cell-classification-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="whole-slide-image-wsi-retrieval-and-obtaining-training-labels-1" class="section level4 hasAnchor" number="12.1.2.1">
+<h4><span class="header-section-number">12.1.2.1</span> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels<a href="application.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>WSI from 20 different patients were used as our primary training and testing data. The images were imported from The Cancer Genome Atlas (TCGA) Genomic Data Commons Data Portal, which is a repository of validated datasets from various National Cancer Institute Programs. Also known as the gigapixel pathology image, one image slide contained two tissue smears stained with hematoxylin and eosin, imported in a vendor specific format. The imported image for classification is scanned at the ‘high’ magnification level in a microscope of 40X. The pixel size for images was approximately 0.25 microns per pixel. Manual marking of a minimum of ten samples from each of the classes i.e., Tumors, Immune, Macrophage, and other cell was performed by a pathologist on all slides. Care was taken to ensure that the samples were as diverse as possible, to account for all possible morphologies of the same cell type across all cases. In total, 1250 annotations were made in all the images, with each annotated cell labelled by a pathologist. The reasons for the comparatively smaller labelled dataset available lie in the large size of the slide, and pathologist availability; the large size makes parsing through difficult and explains the diversity of labelled structures in each image.</p>
+</div>
+<div id="whole-slide-image-wsi-nucleus-segmentation-1" class="section level4 hasAnchor" number="12.1.2.2">
+<h4><span class="header-section-number">12.1.2.2</span> Whole-Slide Image (WSI) Nucleus Segmentation<a href="application.html#whole-slide-image-wsi-nucleus-segmentation-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Before nuclear segmentation and extraction can be performed on the WSIs, certain pre-processing steps are carried out to ensure staining uniformity across images. A representative and generalizable stain vector estimation for each of the stains being used in the image is estimated, to normalize the staining intensities across all the images. In our application, vectors from hematoxylin, eosin and residual stains were estimated from a standard image, selected by the clinician. These vectors are then applied across all images to keep the stain detection parameters uniform across the dataset (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead18" role="doc-biblioref">2018</a>)</span>).</p>
+<p>Due to the variations in staining procedures across the dataset, it is difficult to accurately isolate whole cells on the slide, as the cytoplasmic boundaries are not well-defined due to lack of membrane staining. As heterogeneity in nuclear morphology has been shown to be a good discriminator, only the nucleus is segmented out of each cell in every image for classification purposes, using Qupath (<span class="citation">Yuan et al. (<a href="#ref-Yuan12" role="doc-biblioref">2012</a>)</span>). Watershed segmentation is used to obtain separated and contoured nuclei from the hematoxylin color channel of the whole slide image, in a patch-based manner (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead18" role="doc-biblioref">2018</a>)</span>). The separate hematoxylin channel is obtained by performing color deconvolution to separate out the stains used in the slide (<span class="citation">Ruifrok, Johnston, et al. (<a href="#ref-Ruifrok01" role="doc-biblioref">2001</a>)</span>). It was observed that an average of 200,000 cells were segmented out per image, and morphological and intensity features such as spatial location, eccentricity, circularity, and stain intensities were computed. All pertinent image analysis and nuclear segmentation was performed using Qupath, an open-sourced software platform that can be used for a range of pathological image analysis applications (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead17" role="doc-biblioref">2017</a>)</span>).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Tumor (1)
+</th>
+<th style="text-align:left;">
+Immune (2)
+</th>
+<th style="text-align:left;">
+Other Cells (3)
+</th>
+<th style="text-align:left;">
+Macrophage (4)
+</th>
+<th style="text-align:left;">
+Total Cells
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Number of Labels
+</td>
+<td style="text-align:left;">
+288
+</td>
+<td style="text-align:left;">
+349
+</td>
+<td style="text-align:left;">
+252
+</td>
+<td style="text-align:left;">
+361
+</td>
+<td style="text-align:left;">
+1250
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; border:0;" colspan="100%">
+<sup></sup> Table 5.1.1: Cell type composition of training dataset.
+</td>
+</tr>
+</tfoot>
+</table>
+<p>A Random Forest model is a type of ensemble learning method, where the weak predictive power of multiple decision trees is aggregated to produce an accurate result <span class="citation">Breiman (<a href="#ref-Breiman01" role="doc-biblioref">2001</a>)</span>. Our four-class classifier model was developed with a pathologist labelled dataset of 1250 morphologically diverse cells, each belonging to Tumor, Immune, Macrophage, or other cells (including cell types such as stromal cells). 5-fold cross-validation was used to assess model accuracy and the receiver operator characteristic curve AUC for each class, with proportional representation of all 4 classes ensured. After adjusting for multiple parameters, including the number of decision trees, the accuracy was obtained in the range of 87-91%.</p>
+<p>This step allowed for a preparation of a dataset for each cell with its spatial location using global coordinates and class of the cell, which is then used for further downstream analysis. The training, testing, and classification of cells from the WSIs was performed on MATLAB version 2017A.</p>
+</div>
+</div>
+<div id="melanoma" class="section level3 hasAnchor" number="12.1.3">
+<h3><span class="header-section-number">12.1.3</span> Melanoma<a href="application.html#melanoma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While we are broadly grouping immune cells together for the purposes of this analysis, it is important to note that within the microevironment of melanoma there is a great deal of heterogeneity in the types of immune cells present. Tumor Infiltrating Lymphocytes (TILs) receive a disproportionate amount of attention in cancer literature due to the well-established prognostic value of the presence. However, in the context of melanoma this focus can obscure the tremendous amount of variability in the types of immune cells present in the microenvironment. Even referring to TILs as a monolith obfuscates the different cell types captured under this umbrella, many of which serve different purposes (<span class="citation">Antohe et al. (<a href="#ref-Antohe19" role="doc-biblioref">2019</a>)</span>, <span class="citation">Mukherji (<a href="#ref-Mukherji13" role="doc-biblioref">2013</a>)</span>, <span class="citation">Weiss et al. (<a href="#ref-Weiss16" role="doc-biblioref">2016</a>)</span>). The richness of the immunological aspect of the melanoma microenvironment makes it a logical target of analysis via the SPARTIN pipeline. And while advances in modern technologies may allow for a more granular understanding of the exact spatial role of these various cell types, a broad first-order spatial analysis allows for the detection of arbitrary spatial dynamics that can be further investigated as technical constraints ease. </p>
+<p>Another reason to consider melanoma is the uniquely rich literature regarding the potential applications of immunotherapy. There are many factors that have contributed to this, not the least of which is the relative accessibility of melanoma compared to other types of cancer. Regardless, the net result is a far more mature understanding of immunotherapy in the context of melanoma than other types of cancer (<span class="citation">Oble et al. (<a href="#ref-Oble09" role="doc-biblioref">2009</a>)</span>, <span class="citation">Nguyen et al. (<a href="#ref-Nguyen10" role="doc-biblioref">2010</a>)</span>, <span class="citation">Pitcovski et al. (<a href="#ref-Pitcovski17" role="doc-biblioref">2017</a>)</span>). Thus, possible implications of the spatial immune organization in melanoma for immunotherapy may be more readily interpreted within the context of melanoma than other cancer types, particularly as the ability to distinguish between different types of immune cells improves.</p>
+<p>In order to compute CTIP,
+models were fit in using the methods
+described in section 2. The same settings were used for all
+biopsies across the pipeline. The mean number of tumor and immune cells in each biopsy was 112,258 (standard deviation 67,275). For tumor cells and immune cells, the mean numbers were 29,570 and 82,688 respectively (standard deviations 18,504 and 53,890, respectively). For a sample of results, see Figure 3. The color of each tile indicates the value of CTIP estimated for that tile. More varied colors across a given biopsy are indicative of more spatial variation in CTIP, and thus infiltration. CTIP was summarized at the biopsy level by taking the empirical mean across all tiles for a given biopsy. Across biopsies, the median biopsy level CTIP was 0.69, and the interquartile range was 0.19. These results are consistent with the conventional wisdom that melanoma is a generally more immunogenic cancer.</p>
+</div>
+</div>
+<div id="genomic-associations-1" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Genomic Associations<a href="application.html#genomic-associations-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="association-with-expression-of-significantly-mutated-genes-1" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Association with expression of significantly mutated genes<a href="application.html#association-with-expression-of-significantly-mutated-genes-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In addition to associations with survival, we investigated the
+association between our measurement and gene expression. Gene
+expression data was acquired for all 335 patients in
+<!-- A quick note about citations here: the Zhu one is the paper -->
+<!-- I meant to cite- that paper lays out the TCGA assembler and -->
+<!-- talks about the specific modules I used to get the data. -->
+<!-- Re: Akbani, that's a little more complicated. See: -->
+<!-- https://scholar.google.com/scholar?hl=en&q=genomic+classification+of+cutaneous+melanoma -->
+<!-- This yields two different citations for (as far as I can tell -->
+<!-- the same paper; the more utilized one is the one I included.  -->
+our sample using TCGA Assembler (<span class="citation">Zhu, Qiu, and Ji (<a href="#ref-Zhu14" role="doc-biblioref">2014</a>)</span>). Additionally,
+42 significantly mutated genes (SMGs) of interest were identified
+using previous work investigating the genomic differences in
+SKCM (<span class="citation">Akbani et al. (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span>).</p>
+<p>Of the 335 patients in our sample, 330 had gene expression data
+for all genes of interest, while 95 were missing data for all
+genes of interest. We examined the marginal association between
+the normalized gene expression data for the 330 patients with
+complete data and average logit CTIP values. Marginal association
+was assessed via univariate simple linear regression, carried out
+separately for each gene. The Wald statistic of the coefficient
+corresponding to gene expression was used to produce a <span class="math inline">\(p\)</span>-value.
+After correcting for multiple testing using a Bonferroni correction with <span class="math inline">\(\alpha = 0.05\)</span>, we found that LRRC37A3 was significantly positively associated with
+average logit CTIP (<span class="math inline">\(p &lt;&lt; 0.0001\)</span>). See Table 5.1.1 below for the full list of genes, significance of associations, and directionality of associations.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Gene
+</th>
+<th style="text-align:left;">
+P-value
+</th>
+<th style="text-align:left;">
+Direction of Association
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+LRRC37A3
+</td>
+<td style="text-align:left;">
+3.9e-05 *
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B2M
+</td>
+<td style="text-align:left;">
+0.0012
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP53
+</td>
+<td style="text-align:left;">
+0.0019
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BRAF
+</td>
+<td style="text-align:left;">
+0.024
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCAN2
+</td>
+<td style="text-align:left;">
+0.027
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TMEM216
+</td>
+<td style="text-align:left;">
+0.032
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACD
+</td>
+<td style="text-align:left;">
+0.033
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PPIAL4G
+</td>
+<td style="text-align:left;">
+0.043
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TBC1D3B
+</td>
+<td style="text-align:left;">
+0.052
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FAM113B
+</td>
+<td style="text-align:left;">
+0.055
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COL9A2
+</td>
+<td style="text-align:left;">
+0.057
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SIRPB1
+</td>
+<td style="text-align:left;">
+0.064
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ZFX
+</td>
+<td style="text-align:left;">
+0.073
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RB1
+</td>
+<td style="text-align:left;">
+0.087
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DDX3X
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RQCD1
+</td>
+<td style="text-align:left;">
+0.13
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CCDC28A
+</td>
+<td style="text-align:left;">
+0.14
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NDUFB9
+</td>
+<td style="text-align:left;">
+0.15
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EMG1
+</td>
+<td style="text-align:left;">
+0.15
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ITGA4
+</td>
+<td style="text-align:left;">
+0.18
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OXA1L
+</td>
+<td style="text-align:left;">
+0.19
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CTNNB1
+</td>
+<td style="text-align:left;">
+0.2
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STK19
+</td>
+<td style="text-align:left;">
+0.27
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MAP2K1
+</td>
+<td style="text-align:left;">
+0.28
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NRAS
+</td>
+<td style="text-align:left;">
+0.28
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GNAI2
+</td>
+<td style="text-align:left;">
+0.32
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RAPGEF5
+</td>
+<td style="text-align:left;">
+0.36
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NF1
+</td>
+<td style="text-align:left;">
+0.37
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IDH1
+</td>
+<td style="text-align:left;">
+0.37
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTEN
+</td>
+<td style="text-align:left;">
+0.4
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ARID2
+</td>
+<td style="text-align:left;">
+0.42
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RAC1
+</td>
+<td style="text-align:left;">
+0.42
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDKN2A
+</td>
+<td style="text-align:left;">
+0.56
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MRPS31
+</td>
+<td style="text-align:left;">
+0.64
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MSR1
+</td>
+<td style="text-align:left;">
+0.7
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WDR12
+</td>
+<td style="text-align:left;">
+0.72
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NOTCH2NL
+</td>
+<td style="text-align:left;">
+0.83
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PPP6C
+</td>
+<td style="text-align:left;">
+0.85
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C3orf71
+</td>
+<td style="text-align:left;">
+0.89
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RPS27
+</td>
+<td style="text-align:left;">
+0.9
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FAM58A
+</td>
+<td style="text-align:left;">
+0.95
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KNSTRN
+</td>
+<td style="text-align:left;">
+0.98
+</td>
+<td style="text-align:left;">
+Positive
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; border:0;" colspan="100%">
+<sup></sup> Table 5.2.1: Significantly mutated genes, unadjusted p-values, and direction of association with biopsy level average logit CTIP. Asterisk indicates significance under Bonferroni correction, alpha = 0.05.
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div id="association-with-expression-of-immune-genes-1" class="section level3 hasAnchor" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Association with expression of immune genes<a href="application.html#association-with-expression-of-immune-genes-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We also assessed the association between CTIP and genes that are
+associated with immune activity. <span class="citation">Bhattacharya et al. (<a href="#ref-Bhattacharya18" role="doc-biblioref">2018</a>)</span> have collected and classified a list of 1,793 unique genes associated with various aspects of human immune activity. Of these, gene expression data was available for 1,305 genes across the same 330 patients used in the previous gene expression analysis. We assessed the univariate association between biopsy level mean logit CTIP and these genes using Spearman Correlation. The advantage of Spearman correlation as opposed to the more standard Pearson correlation is that the former does not assume a linear relationship between the underlying variables of interest. Such assumptions can be problematic, particularly when there is no strong reason a priori to believe the relationship between the two variables is of a particular form. However, like Pearson correlation Spearman correlation is defined to lie in <span class="math inline">\([-1,1]\)</span>, with each extreme indicating the same directionality and strength of association as Pearson Correlation. Finally, statistical significance of associations was calculated using the cor.test function of the R programming language (<span class="citation">R Core Team (<a href="#ref-Rteam" role="doc-biblioref">2021</a>)</span>). After applying a Bonferroni correction, we found that 28 genes were significantly associated with IP. For the complete list of genes, see Table 5.1.2 below.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:04"></span>
+<img src="Figures/IMMPORT%20Spearman.png" alt="$-log_{10}$ p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction" width="100%" />
+<p class="caption">
+Figure 12.2: <span class="math inline">\(-log_{10}\)</span> p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction
+</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Gene
+</th>
+<th style="text-align:left;">
+Group
+</th>
+<th style="text-align:left;">
+Spearman Correlation
+</th>
+<th style="text-align:left;">
+P-Value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CD244
+</td>
+<td style="text-align:left;">
+Natural Killer Cell
+</td>
+<td style="text-align:left;">
+-0.29
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CTSS
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+-0.29
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CCR8
+</td>
+<td style="text-align:left;">
+Cytokine Receptors
+</td>
+<td style="text-align:left;">
+-0.27
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CD3G
+</td>
+<td style="text-align:left;">
+TCR Signaling Pathway
+</td>
+<td style="text-align:left;">
+-0.26
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PTPRC
+</td>
+<td style="text-align:left;">
+TCR Signaling Pathway
+</td>
+<td style="text-align:left;">
+-0.26
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TLR8
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+-0.26
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ITK
+</td>
+<td style="text-align:left;">
+TCR Signaling Pathway
+</td>
+<td style="text-align:left;">
+-0.26
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TLR3
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+-0.25
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STAT1
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+-0.25
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TNFRSF9
+</td>
+<td style="text-align:left;">
+TNF Family Members Receptors
+</td>
+<td style="text-align:left;">
+-0.25
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EREG
+</td>
+<td style="text-align:left;">
+Cytokines
+</td>
+<td style="text-align:left;">
+0.24
+</td>
+<td style="text-align:left;">
+&lt;&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LCK
+</td>
+<td style="text-align:left;">
+TCR Signaling Pathway
+</td>
+<td style="text-align:left;">
+-0.24
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PIK3CG
+</td>
+<td style="text-align:left;">
+TCR Signaling Pathway
+</td>
+<td style="text-align:left;">
+-0.24
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ERAP1
+</td>
+<td style="text-align:left;">
+Antigen Processing and Presentation
+</td>
+<td style="text-align:left;">
+-0.24
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TNFSF14
+</td>
+<td style="text-align:left;">
+TNF Family Members
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IL6R
+</td>
+<td style="text-align:left;">
+Interleukins Receptors
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CIITA
+</td>
+<td style="text-align:left;">
+Antigen Processing and Presentation
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ICOS
+</td>
+<td style="text-align:left;">
+TCR Signaling Pathway
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DES
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+APLN
+</td>
+<td style="text-align:left;">
+Cytokines
+</td>
+<td style="text-align:left;">
+0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IFIH1
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RFX5
+</td>
+<td style="text-align:left;">
+Antigen Processing and Presentation
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LYZ
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CXCR6
+</td>
+<td style="text-align:left;">
+Cytokine Receptors
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CRABP1
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CYBB
+</td>
+<td style="text-align:left;">
+Antimicrobials
+</td>
+<td style="text-align:left;">
+-0.23
+</td>
+<td style="text-align:left;">
+&lt; 0.0001
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; border:0;" colspan="100%">
+<sup></sup> Table 5.2.2: IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div id="association-with-deconvolution-data-1" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Association with Deconvolution Data<a href="application.html#association-with-deconvolution-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Using data from TIMER2.0 (<span class="citation">T. Li et al. (<a href="#ref-TIMER20" role="doc-biblioref">2020</a>)</span>), we examined the association between the prevalence of different types of immune cells and biopsy level mean logit CTIP. We ultimately decided to use the MCP-counter algorithm (<span class="citation">Becht et al. (<a href="#ref-Becht16" role="doc-biblioref">2016</a>)</span>) based on the analysis of <span class="citation">Sturm et al. (<a href="#ref-Sturm19" role="doc-biblioref">2019</a>)</span>, since it was judged to be most effective in detecting the presence and prevalence of the most relevant types of immune cells. We investigated the association of the score of each type of immune cell estimated by MCP-counter with biopsy level mean logit CTIP using Spearman correlation. Significance was assessed using the standard test of statistical significance of Spearman correlation as implemented by the pspearman package.</p>
+<p>After applying a Bonferroni correction (<span class="math inline">\(\alpha = 0.05\)</span>), we found that six different immune cell scores as computed by MCP-counter were significantly negatively associated with biopsy level mean logit CTIP: CD8+ T cells, B cells, Monocytes, Macrophages, Myeloid Dendritic Cells, and Natural Killer cells. No cell types were significantly positively associated with biopsy level mean logit CTIP after the Bonferroni correction, though the magnitude of the positive association with Cancer Associated Fibroblasts (CAFs) is notable, and while not statistically significant still highly consistent with a truly positive underlying association between biopsy level CTIP and prevalence of CAFs.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:05"></span>
+<img src="Figures/MCP%20Spearman%20Volcano.png" alt="Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05." width="100%" />
+<p class="caption">
+Figure 12.3: Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05.
+</p>
+</div>
+</div>
+<div id="association-with-other-outcomes-of-interest" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Association with Other Outcomes of Interest<a href="application.html#association-with-other-outcomes-of-interest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="transcriptomic-classes" class="section level3 hasAnchor" number="12.4.1">
+<h3><span class="header-section-number">12.4.1</span> Transcriptomic classes<a href="application.html#transcriptomic-classes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="citation">Akbani et al. (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span> also identified three transcriptomic classes by applying consensus hierarchical clustering techniques to gene expression data from 1,500 genes: the “immune” subclass, the “keratin” subclass, and the “MITF-low” subclass. Most notably for our current application, the immune subclass was characterized by overexpression of genes associated with T cells, B cells, and Natural Killer cells. Of the patients classified using these methods, 235 were present in our data set. Of these 235, 114 (<span class="math inline">\(49\%\)</span>) were in the immune subclass, 78 (<span class="math inline">\(33\%\)</span>) were in the keratin subclass, and 43 (<span class="math inline">\(18\%\)</span>) were in the MITF-low subclass. [Note: the proportions in the original paper are <span class="math inline">\(51\%\)</span>, <span class="math inline">\(31\%\)</span>, and <span class="math inline">\(18\%\)</span> respectively, which are quite close- is this worth mentioning?] We examined mean differences in average logit-IP between each pair of classes using a standard two-sided t-test, and found that the mean logit-IP in the immune class was significantly lower than either the keratin or the MITF-low subclass (<span class="math inline">\(p &lt;&lt; 0.0001\)</span> [<span class="math inline">\(2.563e-06\)</span> to be exact- is this how I should report it?] and <span class="math inline">\(p = 0.011\)</span>, respectively). We found no significant difference between the mean logit-IP in the MITF-low subclass and the keratin subclass (<span class="math inline">\(p = 0.21\)</span>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:07"></span>
+<img src="Figures/Transcriptomic%20Violin.png" alt="Distribution of average biopsy level logit-CTIP by transcriptomic subclass." width="100%" />
+<p class="caption">
+Figure 12.4: Distribution of average biopsy level logit-CTIP by transcriptomic subclass.
+</p>
+</div>
+</div>
+<div id="pathologist-assessment" class="section level3 hasAnchor" number="12.4.2">
+<h3><span class="header-section-number">12.4.2</span> Pathologist assessment<a href="application.html#pathologist-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In addition to classifying the biopsies into transcriptomic subclasses, <span class="citation">Akbani et al. (<a href="#ref-Akbani15" role="doc-biblioref">2015</a>)</span> had pathologists assess biopsies for lymphocyte infiltration. Biopsies were scored from 0 to 3 on lymphocyte distribution, with 0 indicating no lymphocytes present in the tissue and 3 indicating that lymphocytes were present in over <span class="math inline">\(50\%\)</span> of the tissue. They were also scored from 0 to 3 on lymphocyte density, with 0 indicating an absence of lymphocytes and 3 indicating a severe presence [this is the language used in the supplementary material]. These measures were added to create a Lymphocyte Score, a measure that ranged from 0 to 6 meant to summarize the general presence and degree of lymphocyte infiltration in that biopsy. Of the 235 patients in our sample that were assessed by the pathologists, <span class="math inline">\(29\%\)</span> had a score of zero, <span class="math inline">\(23\%\)</span> had a score of two, <span class="math inline">\(10\%\)</span> had a score of three, <span class="math inline">\(13\%\)</span> had a score of four, <span class="math inline">\(15\%\)</span> had a score of five, and <span class="math inline">\(9\%\)</span> had a score of six. Note that by definition of the component scores, a score of one is not possible. We performed a linear regression of Lymphocyte Score on mean biopsy level logit-CTIP, treating Lymphocyte Score as continuous. We found that a one unit increase in mean biopsy level logit-CTIP was highly significantly associated with a 0.45 unit decrease in mean Lymphocyte Score (<span class="math inline">\(p &lt;&lt; 0.0001\)</span>).</p>
+</div>
+</div>
+<div id="survival-analysis" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Survival Analysis<a href="application.html#survival-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In order to assess association between CTIP and survival, we fit a
+Cox Proportional Hazards model using clinical data as well as CTIP
+values. Clinical patient data were retrieved from the TCGA
+website and matched to biopsy images via TCGA identifier. Logit
+IP was computed at the tile level for each biopsy, and the
+resulting values were averaged to provide a summary of
+infiltration for each biopsy. In addition to adjusting for average
+logit IP, we adjusted for cancer stage, age in years, and sex.
+In both models, age in years was standardized
+by subtracting the mean value and dividing by the standard deviation,
+as was average logit IP.</p>
+<p>Using this model, we found that after adjusting for other
+factors an increase in normalized logit-IP was significantly
+associated with increased hazard of death (<span class="math inline">\(p = 0.02\)</span>). See
+[Figure 4] for hazard ratio estimates and associated confidence
+intervals. It also bears mentioning that the inclusion of
+normalized logit-IP modestly improved the C-statistic
+(<span class="citation">Uno et al. (<a href="#ref-Uno11" role="doc-biblioref">2011</a>)</span>) of the Cox model relative to the model that
+contained only demographic information.
+[Note: this is obviously a pretty negligible improvement, and MCON
+improved it slightly more, from 0.61 to 0.63, so I’m somewhat
+ambivalent about appealing to C-statistics in this section
+In addition to this, we found that
+normalized age was significantly positively associated with an
+increased hazard of death <span class="math inline">\((p &lt; 0.05)\)</span>, as was having stage 3
+disease (relative to stage 1, <span class="math inline">\(p &lt; 0.05\)</span>). Having stage 4 disease
+was positively associated with increased hazard of death, though
+not significantly. This is most likely due to the lack of patients
+with stage 4 disease in the data set.</p>
+<p>In order to assess the the performance of CTIP relative to a more
+traditional measure of spatial association the same model was
+fitted with average logit CTIP exchanged for the average normalized
+value of the estimated Mark Connection Function (MCON) evaluated at
+<span class="math inline">\(r = 30\)</span>, which is the same as the radius of interaction used in
+our computation of IP. The Mark Connection Function is a natural
+point of comparison both because it is a commonly used tool for
+investigating spatial associations between points with discrete
+marks and also because it has been used elsewhere as a comparison
+point for similar survival modeling using spatial information
+(<span class="citation">Q. Li et al. (<a href="#ref-LiMIM19" role="doc-biblioref">2019</a>)</span>). As with the CTIP model, MCON was standardized
+by subtracting the mean and dividing by the standard deviation.
+While increased normalized MCON was also associated with an
+increased hazard of death, the association was not significant
+(<span class="math inline">\(p = 0.057\)</span>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:08"></span>
+<img src="Figures/forest.png" alt="Estimates and 95\% confidence intervals of hazard ratios from Cox Proportional Hazards Model estimates." width="100%" />
+<p class="caption">
+Figure 12.5: Estimates and 95% confidence intervals of hazard ratios from Cox Proportional Hazards Model estimates.
+</p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Akbani15" class="csl-entry">
+Akbani, Rehan, Kadir C Akdemir, B Arman Aksoy, Monique Albert, Adrian Ally, Samirkumar B Amin, Harindra Arachchi, et al. 2015. <span>“Genomic Classification of Cutaneous Melanoma.”</span> <em>Cell</em> 161 (7): 1681–96.
+</div>
+<div id="ref-Antohe19" class="csl-entry">
+Antohe, Mihaela, Roxana Nedelcu, Luciana Nichita, Cristiana Popp, Mirela Cioplea, Alice Brinzea, Anastasia Hodorogea, et al. 2019. <span>“Tumor Infiltrating Lymphocytes: The Regulator of Melanoma Evolution (Review).”</span> <em>Oncology Letters</em>, January. <a href="https://doi.org/10.3892/ol.2019.9940">https://doi.org/10.3892/ol.2019.9940</a>.
+</div>
+<div id="ref-Bankhead18" class="csl-entry">
+Bankhead, Peter, José A Fernández, Darragh G McArt, David P Boyle, Gerald Li, Maurice B Loughrey, Gareth W Irwin, et al. 2018. <span>“Integrated Tumor Identification and Automated Scoring Minimizes Pathologist Involvement and Provides New Insights to Key Biomarkers in Breast Cancer.”</span> <em>Laboratory Investigation</em> 98 (1): 15–26.
+</div>
+<div id="ref-Bankhead17" class="csl-entry">
+Bankhead, Peter, Maurice B Loughrey, José A Fernández, Yvonne Dombrowski, Darragh G McArt, Philip D Dunne, Stephen McQuaid, et al. 2017. <span>“QuPath: Open Source Software for Digital Pathology Image Analysis.”</span> <em>Scientific Reports</em> 7 (1): 1–7.
+</div>
+<div id="ref-Becht16" class="csl-entry">
+Becht, Etienne, Nicolas A. Giraldo, Laetitia Lacroix, Bénédicte Buttard, Nabila Elarouci, Florent Petitprez, Janick Selves, et al. 2016. <span>“Estimating the Population Abundance of Tissue-Infiltrating Immune and Stromal Cell Populations Using Gene Expression.”</span> <em>Genome Biology</em> 17 (1): 218. <a href="https://doi.org/10.1186/s13059-016-1070-5">https://doi.org/10.1186/s13059-016-1070-5</a>.
+</div>
+<div id="ref-Bhattacharya18" class="csl-entry">
+Bhattacharya, Sanchita, Patrick Dunn, Cristel G Thomas, Barry Smith, Henry Schaefer, Jieming Chen, Zicheng Hu, et al. 2018. <span>“ImmPort, Toward Repurposing of Open Access Immunological Assay Data for Translational and Clinical Research.”</span> <em>Scientific Data</em> 5 (1): 1–9.
+</div>
+<div id="ref-Breiman01" class="csl-entry">
+Breiman, L. 2001. <span>“Random Forests Machine Learning. 45: 5–32.”</span> <em>View Article PubMed/NCBI Google Scholar</em>.
+</div>
+<div id="ref-LiMIM19" class="csl-entry">
+Li, Qiwei, Xinlei Wang, Faming Liang, and Guanghua Xiao. 2019. <span>“A Bayesian Mark Interaction Model for Analysis of Tumor Pathology Images.”</span> <em>The Annals of Applied Statistics</em> 13 (3): 1708.
+</div>
+<div id="ref-TIMER20" class="csl-entry">
+Li, Taiwen, Jingxin Fu, Zexian Zeng, David Cohen, Jing Li, Qianming Chen, Bo Li, and X Shirley Liu. 2020. <span>“Timer2.0 for Analysis of Tumor-Infiltrating Immune Cells.”</span> <em>Nucleic Acids Research</em> 48 (W1): W509–14. <a href="https://doi.org/10.1093/nar/gkaa407">https://doi.org/10.1093/nar/gkaa407</a>.
+</div>
+<div id="ref-Mukherji13" class="csl-entry">
+Mukherji, Bijay. 2013. <span>“Immunology of Melanoma.”</span> <em>Clinics in Dermatology</em> 31 (2): 156–65. <a href="https://doi.org/10.1016/j.clindermatol.2012.08.017">https://doi.org/10.1016/j.clindermatol.2012.08.017</a>.
+</div>
+<div id="ref-Nguyen10" class="csl-entry">
+Nguyen, Linh T., Pei Hua Yen, Jessica Nie, Nicole Liadis, Danny Ghazarian, Ayman Al-Habeeb, Alexandra Easson, et al. 2010. <span>“Expansion and Characterization of Human Melanoma Tumor-Infiltrating Lymphocytes (TILs).”</span> Edited by Derya Unutmaz. <em>PLoS ONE</em> 5 (11): e13940. <a href="https://doi.org/10.1371/journal.pone.0013940">https://doi.org/10.1371/journal.pone.0013940</a>.
+</div>
+<div id="ref-Oble09" class="csl-entry">
+Oble, Darryl A., Robert Loewe, Ping Yu, and Martin C. Mihm Jr. 2009. <span>“Focus on TILs: Prognostic Significance of Tumor Infiltrating Lymphocytes in Human Melanoma.”</span> <em>Cancer Immunity</em> 9: 20.
+</div>
+<div id="ref-Pitcovski17" class="csl-entry">
+Pitcovski, Jacob, Ehud Shahar, Elina Aizenshtein, and Raphael Gorodetsky. 2017. <span>“Melanoma Antigens and Related Immunological Markers.”</span> <em>Critical Reviews in Oncology/Hematology</em> 115 (July): 36–49. <a href="https://doi.org/10.1016/j.critrevonc.2017.05.001">https://doi.org/10.1016/j.critrevonc.2017.05.001</a>.
+</div>
+<div id="ref-Rteam" class="csl-entry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-Ruifrok01" class="csl-entry">
+Ruifrok, Arnout C, Dennis A Johnston, et al. 2001. <span>“Quantification of Histochemical Staining by Color Deconvolution.”</span> <em>Analytical and Quantitative Cytology and Histology</em> 23 (4): 291–99.
+</div>
+<div id="ref-Sturm19" class="csl-entry">
+Sturm, Gregor, Francesca Finotello, Florent Petitprez, Jitao David Zhang, Jan Baumbach, Wolf H Fridman, Markus List, and Tatsiana Aneichyk. 2019. <span>“Comprehensive Evaluation of Transcriptome-Based Cell-Type Quantification Methods for Immuno-Oncology.”</span> <em>Bioinformatics</em> 35 (14): i436–45. <a href="https://doi.org/10.1093/bioinformatics/btz363">https://doi.org/10.1093/bioinformatics/btz363</a>.
+</div>
+<div id="ref-Uno11" class="csl-entry">
+Uno, Hajime, Tianxi Cai, Michael J Pencina, Ralph B D’Agostino, and Lee-Jen Wei. 2011. <span>“On the c-Statistics for Evaluating Overall Adequacy of Risk Prediction Procedures with Censored Survival Data.”</span> <em>Statistics in Medicine</em> 30 (10): 1105–17.
+</div>
+<div id="ref-Weiss16" class="csl-entry">
+Weiss, Sarah A., Sung Won Han, Kevin Lui, Jeremy Tchack, Richard Shapiro, Russell Berman, Judy Zhong, Michelle Krogsgaard, Iman Osman, and Farbod Darvishian. 2016. <span>“Immunologic Heterogeneity of Tumor-Infiltrating Lymphocyte Composition in Primary Melanoma.”</span> <em>Human Pathology</em> 57 (November): 116–25. <a href="https://doi.org/10.1016/j.humpath.2016.07.008">https://doi.org/10.1016/j.humpath.2016.07.008</a>.
+</div>
+<div id="ref-Yuan12" class="csl-entry">
+Yuan, Yinyin, Henrik Failmezger, Oscar M Rueda, H Raza Ali, Stefan Gräf, Suet-Feung Chin, Roland F Schwarz, et al. 2012. <span>“Quantitative Image Analysis of Cellular Heterogeneity in Breast Tumors Complements Genomic Profiling.”</span> <em>Science Translational Medicine</em> 4 (157): 157ra143–43.
+</div>
+<div id="ref-Zhu14" class="csl-entry">
+Zhu, Yitan, Peng Qiu, and Yuan Ji. 2014. <span>“TCGA-Assembler: Open-Source Software for Retrieving and Processing TCGA Data.”</span> <em>Nature Methods</em> 11 (6): 599–600.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="discussion-and-limitations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/scratch.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>S.3 Materials and Methods | SPARTYN Supplementary material</title>
+  <title>S.10 Materials and Methods | SPARTIN Supplementary material</title>
   <meta name="description" content="Supplementary material related to the SPARTYN pipeline" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="S.3 Materials and Methods | SPARTYN Supplementary material" />
+  <meta property="og:title" content="S.10 Materials and Methods | SPARTIN Supplementary material" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Supplementary material related to the SPARTYN pipeline" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="S.3 Materials and Methods | SPARTYN Supplementary material" />
+  <meta name="twitter:title" content="S.10 Materials and Methods | SPARTIN Supplementary material" />
   
   <meta name="twitter:description" content="Supplementary material related to the SPARTYN pipeline" />
   
@@ -31,8 +30,7 @@
   
   
 <link rel="prev" href="introduction.html"/>
-<link rel="next" href="results.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<link rel="next" href="simulation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,10 +48,75 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -94,28 +157,79 @@ div.csl-indent {
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>3</b> Materials and Methods</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="model-fitting.html"><a href="model-fitting.html"><i class="fa fa-check"></i><b>2</b> Model Fitting</a></li>
+<li class="chapter" data-level="3" data-path="biopsy-partition.html"><a href="biopsy-partition.html"><i class="fa fa-check"></i><b>3</b> Biopsy Partition</a></li>
+<li class="chapter" data-level="4" data-path="cell-classification-model.html"><a href="cell-classification-model.html"><i class="fa fa-check"></i><b>4</b> Cell Classification Model</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>3.2</b> Spatial Point Process Models</a></li>
-<li class="chapter" data-level="3.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>3.3</b> Pseudolikelihood Function</a></li>
-<li class="chapter" data-level="3.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>3.4</b> Intensity Thresholding and Partition</a></li>
-<li class="chapter" data-level="3.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>3.5</b> Cell Type Interaction Probability</a></li>
+<li class="chapter" data-level="4.1" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-retrieval-and-obtaining-training-labels"><i class="fa fa-check"></i><b>4.1</b> Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels</a></li>
+<li class="chapter" data-level="4.2" data-path="cell-classification-model.html"><a href="cell-classification-model.html#whole-slide-image-wsi-nucleus-segmentation"><i class="fa fa-check"></i><b>4.2</b> Whole-Slide Image (WSI) Nucleus Segmentation</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<li class="chapter" data-level="5" data-path="genomic-associations.html"><a href="genomic-associations.html"><i class="fa fa-check"></i><b>5</b> Genomic Associations</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#simulation"><i class="fa fa-check"></i><b>4.1</b> Simulation</a></li>
-<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#application"><i class="fa fa-check"></i><b>4.2</b> Application</a>
+<li class="chapter" data-level="5.1" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-significantly-mutated-genes"><i class="fa fa-check"></i><b>5.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="5.2" data-path="genomic-associations.html"><a href="genomic-associations.html#association-with-expression-of-immune-genes"><i class="fa fa-check"></i><b>5.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="association-with-deconvolution-data.html"><a href="association-with-deconvolution-data.html"><i class="fa fa-check"></i><b>6</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="7" data-path="spartin-r-package.html"><a href="spartin-r-package.html"><i class="fa fa-check"></i><b>7</b> SPARTIN R package</a></li>
+<li class="chapter" data-level="8" data-path="preface-1.html"><a href="preface-1.html"><i class="fa fa-check"></i><b>8</b> Preface</a></li>
+<li class="chapter" data-level="9" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
+<li class="chapter" data-level="10" data-path="materials-and-methods.html"><a href="materials-and-methods.html"><i class="fa fa-check"></i><b>10</b> Materials and Methods</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="results.html"><a href="results.html#genomic-associations"><i class="fa fa-check"></i><b>4.2.1</b> Genomic Associations</a></li>
-<li class="chapter" data-level="4.2.2" data-path="results.html"><a href="results.html#association-with-deconvolution-data"><i class="fa fa-check"></i><b>4.2.2</b> Association with Deconvolution Data</a></li>
-<li class="chapter" data-level="4.2.3" data-path="results.html"><a href="results.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>4.2.3</b> Association with Other Outcomes of Interest</a></li>
-<li class="chapter" data-level="4.2.4" data-path="results.html"><a href="results.html#survival-analysis"><i class="fa fa-check"></i><b>4.2.4</b> Survival Analysis</a></li>
+<li class="chapter" data-level="10.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#spatial-point-process-models"><i class="fa fa-check"></i><b>10.2</b> Spatial Point Process Models</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#data-structure"><i class="fa fa-check"></i><b>10.2.1</b> Data Structure</a></li>
+<li class="chapter" data-level="10.2.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#model"><i class="fa fa-check"></i><b>10.2.2</b> Model</a></li>
+<li class="chapter" data-level="10.2.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation"><i class="fa fa-check"></i><b>10.2.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#pseudolikelihood-function"><i class="fa fa-check"></i><b>10.3</b> Pseudolikelihood Function</a></li>
+<li class="chapter" data-level="10.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#intensity-thresholding-and-partition"><i class="fa fa-check"></i><b>10.4</b> Intensity Thresholding and Partition</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation-for-partition"><i class="fa fa-check"></i><b>10.4.1</b> Motivation for partition</a></li>
+<li class="chapter" data-level="10.4.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#partition-pipeline"><i class="fa fa-check"></i><b>10.4.2</b> Partition pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#cell-type-interaction-probability"><i class="fa fa-check"></i><b>10.5</b> Cell Type Interaction Probability</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="materials-and-methods.html"><a href="materials-and-methods.html#motivation"><i class="fa fa-check"></i><b>10.5.1</b> Motivation</a></li>
+<li class="chapter" data-level="10.5.2" data-path="materials-and-methods.html"><a href="materials-and-methods.html#definition"><i class="fa fa-check"></i><b>10.5.2</b> Definition</a></li>
+<li class="chapter" data-level="10.5.3" data-path="materials-and-methods.html"><a href="materials-and-methods.html#estimating-the-empirical-null-distribution"><i class="fa fa-check"></i><b>10.5.3</b> Estimating the empirical null distribution</a></li>
+<li class="chapter" data-level="10.5.4" data-path="materials-and-methods.html"><a href="materials-and-methods.html#computation-of-ctip"><i class="fa fa-check"></i><b>10.5.4</b> Computation of CTIP</a></li>
+<li class="chapter" data-level="10.5.5" data-path="materials-and-methods.html"><a href="materials-and-methods.html#interpretation-1"><i class="fa fa-check"></i><b>10.5.5</b> Interpretation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>5</b> Discussion and Limitations</a></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#simulation-overview"><i class="fa fa-check"></i><b>11.1</b> Simulation Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#negative-simulations"><i class="fa fa-check"></i><b>11.2</b> Negative simulations</a></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#positive-simulations"><i class="fa fa-check"></i><b>11.3</b> Positive simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>12</b> Application</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="application.html"><a href="application.html#background"><i class="fa fa-check"></i><b>12.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="application.html"><a href="application.html#data-and-pre-processing"><i class="fa fa-check"></i><b>12.1.1</b> Data and Pre-Processing</a></li>
+<li class="chapter" data-level="12.1.2" data-path="application.html"><a href="application.html#cell-classification-model-1"><i class="fa fa-check"></i><b>12.1.2</b> Cell Classification Model</a></li>
+<li class="chapter" data-level="12.1.3" data-path="application.html"><a href="application.html#melanoma"><i class="fa fa-check"></i><b>12.1.3</b> Melanoma</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="application.html"><a href="application.html#genomic-associations-1"><i class="fa fa-check"></i><b>12.2</b> Genomic Associations</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application.html"><a href="application.html#association-with-expression-of-significantly-mutated-genes-1"><i class="fa fa-check"></i><b>12.2.1</b> Association with expression of significantly mutated genes</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application.html"><a href="application.html#association-with-expression-of-immune-genes-1"><i class="fa fa-check"></i><b>12.2.2</b> Association with expression of immune genes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="application.html"><a href="application.html#association-with-deconvolution-data-1"><i class="fa fa-check"></i><b>12.3</b> Association with Deconvolution Data</a></li>
+<li class="chapter" data-level="12.4" data-path="application.html"><a href="application.html#association-with-other-outcomes-of-interest"><i class="fa fa-check"></i><b>12.4</b> Association with Other Outcomes of Interest</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="application.html"><a href="application.html#transcriptomic-classes"><i class="fa fa-check"></i><b>12.4.1</b> Transcriptomic classes</a></li>
+<li class="chapter" data-level="12.4.2" data-path="application.html"><a href="application.html#pathologist-assessment"><i class="fa fa-check"></i><b>12.4.2</b> Pathologist assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="application.html"><a href="application.html#survival-analysis"><i class="fa fa-check"></i><b>12.5</b> Survival Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html"><i class="fa fa-check"></i><b>13</b> Discussion and Limitations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#r-markdown"><i class="fa fa-check"></i><b>13.1</b> R Markdown</a></li>
+<li class="chapter" data-level="13.2" data-path="discussion-and-limitations.html"><a href="discussion-and-limitations.html#including-plots"><i class="fa fa-check"></i><b>13.2</b> Including Plots</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -128,7 +242,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTYN Supplementary material</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SPARTIN Supplementary material</a>
           </h1>
         </div>
 
@@ -136,11 +250,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="materials-and-methods" class="section level1" number="3">
-<h1><span class="header-section-number">S.3</span> Materials and Methods</h1>
-<div id="overview" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Overview</h2>
-<p>Figure b) illustrates the analysis pipeline for the processed data. For each
+<div id="materials-and-methods" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">S.10</span> Materials and Methods<a href="materials-and-methods.html#materials-and-methods" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Overview<a href="materials-and-methods.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Figure <a href="introduction.html#fig:01">9.1</a>b) illustrates the analysis pipeline for the processed data. For each
 biopsy, the smallest window that fit all cells in the biopsy is constructed by thresholding the image intensity
 (Figure 1, step A to step B).
 This window is then divided into tiles that fully partition it,
@@ -151,12 +265,17 @@ For each tile, this local distribution is compared to a
 tile-specific null distribution to compute the local CTIP value (step E), before being combined to summarize
 the overall level of interaction at the biopsy level (steps F and G).</p>
 </div>
-<div id="spatial-point-process-models" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Spatial Point Process Models</h2>
+<div id="spatial-point-process-models" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Spatial Point Process Models<a href="materials-and-methods.html#spatial-point-process-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-structure" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Data Structure<a href="materials-and-methods.html#data-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let <span class="math inline">\(B_1...B_n\)</span> be a set of independent regions with <span class="math inline">\(B_i \in \mathbb{R}^2 \times \mathbb{R}^2\)</span>, such that each <span class="math inline">\(B_i\)</span> has been partitioned into <span class="math inline">\(n_i\)</span> non-overlapping sub-regions <span class="math inline">\(b_{i1}..b_{in_i}\)</span> each with well-defined boundaries. Denote the set of points observed within sub-region <span class="math inline">\(j\)</span> of region <span class="math inline">\(i\)</span> by <span class="math inline">\({\mathbf{x}}_{ij}\)</span>, and the marks of those points as <span class="math inline">\({\mathbf{m}}_{ij}\)</span> where each mark <span class="math inline">\(m_{ijk} \in \{K_1,...,K_\ell\}\)</span>. Within each sub-region, this data can be naturally viewed as the realization of a marked point process and modeled as a Hierarchical Multitype Strauss Process.</p>
+</div>
+<div id="model" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Model<a href="materials-and-methods.html#model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The usage of a Strauss model to study spatial interaction in a marked point process is natural, since Strauss models were
 originally conceived for this purpose
-(<span class="citation"><a href="#ref-Strauss75" role="doc-biblioref">Strauss</a> (<a href="#ref-Strauss75" role="doc-biblioref">1975</a>)</span>) . As for the specific decision to use
+(<span class="citation">Strauss (<a href="#ref-Strauss75" role="doc-biblioref">1975</a>)</span>) . As for the specific decision to use
 the hierarchical variant over the more standard multitype model,
 there were two major considerations that influenced our decision.
 First, in our application treating the locations of the immune cells as conditional
@@ -178,7 +297,7 @@ cell types as were available for study in the future.</p>
 is defined by</p>
 <p><span class="math display">\[\begin{equation}
 \label{eqn:density}
-f({\mathbf{p}}_1, {\mathbf{p}}_2) \propto 
+f({\mathbf{p}}_1, {\mathbf{p}}_2) \propto
 \beta_1^{n_1} \beta_2^{n_2}
 \gamma_{11}^{S_{R_{11}}({\mathbf{p}}_1)}
 \gamma_{22}^{S_{R_{2}}({\mathbf{p}}_2)}
@@ -186,6 +305,9 @@ f({\mathbf{p}}_1, {\mathbf{p}}_2) \propto
 \tag{1}  
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\({\mathbf{p}}_t\)</span> is a vector of points of type <span class="math inline">\(t\)</span>, <span class="math inline">\(n_t\)</span> is the number of points of type <span class="math inline">\(t\)</span>, <span class="math inline">\(\beta_t\)</span> is the first order intensity of points of type <span class="math inline">\(t\)</span>, <span class="math inline">\(S_{R_{tl}}(\cdot)\)</span> counts the number of pairs of points of types <span class="math inline">\(t\)</span> and <span class="math inline">\(l\)</span> within <span class="math inline">\(R_{tl}\)</span> of one another where <span class="math inline">\(R_{tl}\)</span> is selected a priori based on subject specific knowledge, and <span class="math inline">\(\gamma_{tl}\)</span> captures the tendency of points of type <span class="math inline">\(l\)</span> to be near points of type <span class="math inline">\(t\)</span>.</p>
+</div>
+<div id="interpretation" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Interpretation<a href="materials-and-methods.html#interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As previously mentioned, <span class="math inline">\(\gamma_{tl}\)</span> can be thought of as the
 degree to which points of type <span class="math inline">\(l\)</span> tend to be close to or far away
 from points of type <span class="math inline">\(t\)</span>. This allows us to distinguish between
@@ -226,12 +348,13 @@ on the log scale negative values of <span class="math inline">\(\log(\gamma_{12}
 interaction, positive values indicate positive interaction, and a value
 of 0 indicates no interaction.</p>
 </div>
-<div id="pseudolikelihood-function" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Pseudolikelihood Function</h2>
-<p>Except in the trivial case where <span class="math inline">\(\gamma_{12} = 1\)</span>, the normalizing constant of this distribution is computationally intractable. This motivates the usage of the pseudolikelihood as outlined in <span class="citation"><a href="#ref-BT00" role="doc-biblioref">Baddeley and Turner</a> (<a href="#ref-BT00" role="doc-biblioref">2000</a>)</span>. For the density <span class="math inline">\(f(\cdot)\)</span> of the simplified Hierarchical Strauss model outlined above, define the conditional intensity function at a point <span class="math inline">\(u\)</span> given <span class="math inline">\(\theta = \{\beta_1, \beta_2, \gamma_{12}\}\)</span> and points <span class="math inline">\({\mathbf{x}}\)</span> observed in window <span class="math inline">\(A\)</span> by</p>
+</div>
+<div id="pseudolikelihood-function" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Pseudolikelihood Function<a href="materials-and-methods.html#pseudolikelihood-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Except in the trivial case where <span class="math inline">\(\gamma_{12} = 1\)</span>, the normalizing constant of this distribution is computationally intractable. This motivates the usage of the pseudolikelihood as outlined in <span class="citation">Baddeley and Turner (<a href="#ref-BT00" role="doc-biblioref">2000</a>)</span>. For the density <span class="math inline">\(f(\cdot)\)</span> of the simplified Hierarchical Strauss model outlined above, define the conditional intensity function at a point <span class="math inline">\(u\)</span> given <span class="math inline">\(\theta = \{\beta_1, \beta_2, \gamma_{12}\}\)</span> and points <span class="math inline">\({\mathbf{x}}\)</span> observed in window <span class="math inline">\(A\)</span> by</p>
 <p><span class="math display">\[\begin{equation}
 \label{eqn:CL}
-\lambda(u|\theta, {\mathbf{x}}) = 
+\lambda(u|\theta, {\mathbf{x}}) =
 \begin{cases}
 \frac{f({\mathbf{x}} \cup \{u\})}{f({\mathbf{x}})} &amp; u \not\in {\mathbf{x}} \\
 \frac{f({\mathbf{x}})}{f({\mathbf{x}} - \{u\})} &amp; u \in {\mathbf{x}}
@@ -241,21 +364,22 @@ of 0 indicates no interaction.</p>
 <p>Given this, the pseudolikelihood is defined by</p>
 <p><span class="math display">\[\begin{equation}
 \label{eqn:PL}
-PL(\theta | {\mathbf{x}}) = 
+PL(\theta | {\mathbf{x}}) =
 \prod_{x_i \in {\mathbf{x}}} \lambda(x_i | \theta, {\mathbf{x}}) \exp(-\int_A \lambda(u | \theta, {\mathbf{x}}) du) \tag{3}
 \end{equation}\]</span></p>
-<p>This provides a computationally tractable alternative to the likelihood function that can be used in inference. Specifically, the integral in the pseudolikelihood function can be easily approximated by summing over a weighted quadrature on <span class="math inline">\(A\)</span>. Thus, given a quadrature <span class="math inline">\({\mathbf{u}}\)</span> on <span class="math inline">\(A\)</span> with corresponding weights <span class="math inline">\({\mathbf{w}}\)</span>, Equation () can be approximated by</p>
+<p>This provides a computationally tractable alternative to the likelihood function that can be used in inference. Specifically, the integral in the pseudolikelihood function can be easily approximated by summing over a weighted quadrature on <span class="math inline">\(A\)</span>. Thus, given a quadrature <span class="math inline">\({\mathbf{u}}\)</span> on <span class="math inline">\(A\)</span> with corresponding weights <span class="math inline">\({\mathbf{w}}\)</span>, Equation (<span class="math inline">\(\ref{eqn:PL}\)</span>) can be approximated by</p>
 <p><span class="math display">\[\begin{equation}
 \label{eqn:PL_approx}
 PL(\theta | {\mathbf{x}}) \approx
 \prod_{x_i \in {\mathbf{x}}} \lambda(x_i | \theta, {\mathbf{x}}) \exp(-\sum_{u_j \in {\mathbf{u}}} \lambda(u_j | \theta, {\mathbf{x}}) w_j) \tag{4}
 \end{equation}\]</span></p>
 <p>The density of the selected quadrature <span class="math inline">\({\mathbf{u}}\)</span> on <span class="math inline">\(A\)</span> is chosen to balance the accuracy of the approximation against the computational load that larger quadratures impose.</p>
-<p>Using this approximation of the pseudolikelihood function in place of the more standard likelihood fnction, Bayesian analysis can proceed in the style of <span class="citation"><a href="#ref-King12" role="doc-biblioref">King et al.</a> (<a href="#ref-King12" role="doc-biblioref">2012</a>)</span> by simply assigning priors to the parameters of interest and using techniques to sample from non-closed form posterior likelihoods. We assigned non-informative normal priors with mean 0 and variance <span class="math inline">\(10^6\)</span> to <span class="math inline">\(\log(\gamma_{12})\)</span>, <span class="math inline">\(\log(\beta_1)\)</span>, and <span class="math inline">\(\log(\beta_2)\)</span>. In all analysis presented below the quadrature and weights used to estimate the integral in the pseudolikelihood function was generated by the spatstat package (<span class="citation"><a href="#ref-BT05" role="doc-biblioref">Baddeley and Turner</a> (<a href="#ref-BT05" role="doc-biblioref">2005</a>)</span>). Samples from the posterior were taken using JAGS via the R2jags package
-(<span class="citation"><a href="#ref-Su15" role="doc-biblioref">Su et al.</a> (<a href="#ref-Su15" role="doc-biblioref">2015</a>)</span>).</p>
+<p>Using this approximation of the pseudolikelihood function in place of the more standard likelihood function, Bayesian analysis can proceed in the style of <span class="citation">King et al. (<a href="#ref-King12" role="doc-biblioref">2012</a>)</span> by simply assigning priors to the parameters of interest and using techniques to sample from non-closed form posterior likelihoods. We assigned non-informative normal priors with mean 0 and variance <span class="math inline">\(10^6\)</span> to <span class="math inline">\(\log(\gamma_{12})\)</span>, <span class="math inline">\(\log(\beta_1)\)</span>, and <span class="math inline">\(\log(\beta_2)\)</span>. In all analysis presented below the quadrature and weights used to estimate the integral in the pseudolikelihood function was generated by the spatstat package (<span class="citation">Baddeley and Turner (<a href="#ref-BT05" role="doc-biblioref">2005</a>)</span>). Samples from the posterior were taken using JAGS via the R2jags package (<span class="citation">Su et al. (<a href="#ref-Su15" role="doc-biblioref">2015</a>)</span>). In order to use JAGS to fit the model, the so-called “Poisson zero trick” as described in <span class="citation">Kruschke (<a href="#ref-Kruschke14" role="doc-biblioref">2014</a>)</span>. Essentially, this allows for the fitting of a model with an arbitrary likelihood (or pseudolikelihood) function. Results were checked against both frequentist model fittings from the spatstat <code>ppm</code>/<code>hierstrauss</code> functions as well as STAN model fittings (<span class="citation">Carpenter et al. (<a href="#ref-Carpenter17" role="doc-biblioref">2017</a>)</span>) and yielded virtually indistinguishable results in both cases.</p>
 </div>
-<div id="intensity-thresholding-and-partition" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Intensity Thresholding and Partition</h2>
+<div id="intensity-thresholding-and-partition" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Intensity Thresholding and Partition<a href="materials-and-methods.html#intensity-thresholding-and-partition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="motivation-for-partition" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Motivation for partition<a href="materials-and-methods.html#motivation-for-partition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Each biopsy was partitioned into non-overlapping sub-regions,
 each of which was modeled separately as a point process. The
 primary motivation for structuring the analysis in this manner
@@ -271,13 +395,28 @@ an integral, calibrating the fineness of the partition entails a
 tradeoff between the precision with which one can assess the
 spatial heterogeneity within the biopsy and the computational
 load that a finer partition entails.</p>
+</div>
+<div id="partition-pipeline" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Partition pipeline<a href="materials-and-methods.html#partition-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to partition a given biopsy into non-overlapping
 sub-regions, we began with the smallest bounding rectangular
 window that contained cells <span class="math inline">\(1...c_i\)</span>. We then applied an
 intensity thresholding algorithm in order to find the
-smallest possible window that still contained all <span class="math inline">\(c_i\)</span> cells;
-see section [S] of the supplementary material for details.
-Next, we applied a voronoi tesselation to the <span class="math inline">\(T_i\)</span> tumor cells
+smallest possible window that still contained all <span class="math inline">\(c_i\)</span> cells.
+This was accomplished using the <code>density.ppp</code> function from the
+<code>spatstat</code> package (<span class="citation">Baddeley and Turner (<a href="#ref-BT05" role="doc-biblioref">2005</a>)</span>). The bounding rectangular window was
+broken up into small (15<span class="math inline">\(\mu m\)</span> <span class="math inline">\(\times\)</span> 15<span class="math inline">\(\mu m\)</span>) pixels, the
+intensity of which was estimated as a function of the number of
+points per square unit of area of the pixel. These values were
+also “smoothed” between pixels according to a pre-selected
+bandwidth of 25<span class="math inline">\(\mu m\)</span> chosen through experimentation. The
+final window was constructed by combining all pixels that were
+above a certain threshold into a window. The “pixel” size,
+smoothing bandwidth, and intensity threshold collectively
+determined the final window, and the same settings (15<span class="math inline">\(\mu m^2\)</span>
+pixel size and <span class="math inline">\(25\mu m\)</span> smoothing bandwidth) were applied
+across all biopsies.
+Next, we applied a voronoi tessellation to the <span class="math inline">\(T_i\)</span> tumor cells
 within the intensity thresholded window, partitioning it into
 tumor cell specific sub-windows <span class="math inline">\(1...T_i\)</span> corresponding to tumor
 cells <span class="math inline">\(1...T_i\)</span>. We then applied a modified version of k-means to
@@ -314,8 +453,11 @@ is considerable latitude in the choice of this quantity as well.
 We ultimately decided to summarize local infiltration using
 CTIP, defined in section 2.5.</p>
 </div>
-<div id="cell-type-interaction-probability" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Cell Type Interaction Probability</h2>
+</div>
+<div id="cell-type-interaction-probability" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Cell Type Interaction Probability<a href="materials-and-methods.html#cell-type-interaction-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="motivation" class="section level3 hasAnchor" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> Motivation<a href="materials-and-methods.html#motivation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For ease of notation denote the <span class="math inline">\(\gamma_{12}\)</span> parameter
 corresponding to tile <span class="math inline">\(k\)</span> of biopsy <span class="math inline">\(i\)</span> by <span class="math inline">\(\gamma_{i_{(k)}}\)</span>. While
 <span class="math inline">\(\gamma_{i_{(k)}}\)</span> allows us to distinguish between the relative
@@ -329,12 +471,18 @@ assess this, the observed distribution of <span class="math inline">\(\log(\gamm
 must be compared to a counterfactual distribution that captures
 the tendency when there is no interaction. This motivated
 the development of Cell Type Interaction Probability (CTIP).</p>
+</div>
+<div id="definition" class="section level3 hasAnchor" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Definition<a href="materials-and-methods.html#definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let <span class="math inline">\(f_{i_{(k)}}(\gamma)\)</span> be the true posterior distribution of <span class="math inline">\(\log(\gamma_{i_{(k)}})\)</span>, and <span class="math inline">\(f_{i_{(k)},0}(\gamma_0)\)</span> be the distribution of the log-interaction parameter absent interaction conditional upon the location of the tumor cells in tile <span class="math inline">\(k\)</span> of biopsy <span class="math inline">\(i\)</span>. Further, assume independence between the true distribution and the null distribution. Then we define the CTIP for tile <span class="math inline">\(k\)</span> of biopsy <span class="math inline">\(i\)</span> by:</p>
 <p><span class="math display">\[\begin{equation}
 \label{eqn:CTIP}
-\text{CTIP} \quad r_{i_{(k)}} = \int \int  I(\gamma &gt; \gamma_0) f_{i_{(k)}}(\gamma) f_{i_{(k)},0}(\gamma_0)  d\gamma d\gamma_0 
+\text{CTIP} \quad r_{i_{(k)}} = \int \int  I(\gamma &gt; \gamma_0) f_{i_{(k)}}(\gamma) f_{i_{(k)},0}(\gamma_0)  d\gamma d\gamma_0
 \tag{5}
 \end{equation}\]</span></p>
+</div>
+<div id="estimating-the-empirical-null-distribution" class="section level3 hasAnchor" number="10.5.3">
+<h3><span class="header-section-number">10.5.3</span> Estimating the empirical null distribution<a href="materials-and-methods.html#estimating-the-empirical-null-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The problem of estimating CTIP hinges on being able to estimate and sample from the null distribution of <span class="math inline">\(\log(\gamma_{i_{(k)}})\)</span>, since estimation of the true posterior can proceed as described in section 2.3.
 In order to estimate the null distribution
 of <span class="math inline">\(\log(\gamma_{i_{(k)}})\)</span> conditional upon the location of the observed tumor cells, we used simulation to construct an empirical “null” distribution.
@@ -342,12 +490,18 @@ Recall that when there is no interaction, by definition <span class="math inline
 reduces to two independent Poisson processes with
 intensities <span class="math inline">\(\beta_1, \beta_2\)</span>, which are trivial to simulate.</p>
 <p>Given this, the estimation of the null distribution for a given tile proceeded as follows. First, the first order intensity of the lymphocytes was estimated using the standard estimator, <span class="math inline">\(\hat{\beta}_2 = \frac{I_{ik}}{A_{ik}}\)</span> where <span class="math inline">\(I_{ik}\)</span> is the number of immune cells observed in tile <span class="math inline">\(k\)</span> of biopsy <span class="math inline">\(i\)</span> and <span class="math inline">\(A_{ik}\)</span> is the area in <span class="math inline">\(\mu m^2\)</span> of the tile. Next, <span class="math inline">\(S\)</span> simulations of immune cells were generated from a poisson process with intensity <span class="math inline">\(\hat{\beta}_2\)</span>, <span class="math inline">\(S\)</span> being selected a priori. Finally, each simulated set of immune cells was superimposed over the actual observed tumor cells, and samples were drawn from the resulting posterior distribution. These samples, combined across simulations <span class="math inline">\(1...S\)</span> served to estimate the tile specific null distribution of <span class="math inline">\(\log(\gamma)\)</span>.</p>
-<p>Having established the ability to sample from the true posterior distribution as well as the tile specific null distribution for <span class="math inline">\(\log(\gamma)\)</span>, estimation of CTIP can be done via stochastic integration . Note that equation () is equivalent to <span class="math inline">\(E_{\gamma, \gamma_0}[I(\gamma &gt; \gamma_0)]\)</span>. Thus, given <span class="math inline">\(P\)</span> posterior samples<span class="math inline">\(\gamma_1,...,\gamma_P\)</span> from the true posterior <span class="math inline">\(f_\gamma\)</span> and <span class="math inline">\(\gamma_{01},...,\gamma_{0P}\)</span> from the empirical null <span class="math inline">\(f_{\gamma_0}\)</span>, (<span class="math inline">\(\ref{eqn:CTIP}\)</span>) can be estimated by</p>
+</div>
+<div id="computation-of-ctip" class="section level3 hasAnchor" number="10.5.4">
+<h3><span class="header-section-number">10.5.4</span> Computation of CTIP<a href="materials-and-methods.html#computation-of-ctip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Having established the ability to sample from the true posterior distribution as well as the tile specific null distribution for <span class="math inline">\(\log(\gamma)\)</span>, estimation of CTIP can be done via stochastic integration . Note that equation (<span class="math inline">\(\ref{eqn:CTIP}\)</span>) is equivalent to <span class="math inline">\(E_{\gamma, \gamma_0}[I(\gamma &gt; \gamma_0)]\)</span>. Thus, given <span class="math inline">\(P\)</span> posterior samples<span class="math inline">\(\gamma_1,...,\gamma_P\)</span> from the true posterior <span class="math inline">\(f_\gamma\)</span> and <span class="math inline">\(\gamma_{01},...,\gamma_{0P}\)</span> from the empirical null <span class="math inline">\(f_{\gamma_0}\)</span>, (<span class="math inline">\(\ref{eqn:CTIP}\)</span>) can be estimated by</p>
 <p><span class="math display">\[\begin{equation}
 \label{eqn:CTIP_EST}
     \widehat{r_{i_{(k)}}} = \frac{1}{P} \sum_{j=1}^P I(\gamma_j &gt; \gamma_{0j})
     \tag{6}
 \end{equation}\]</span></p>
+</div>
+<div id="interpretation-1" class="section level3 hasAnchor" number="10.5.5">
+<h3><span class="header-section-number">10.5.5</span> Interpretation<a href="materials-and-methods.html#interpretation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>By definition, <span class="math inline">\(r_{i_{(k)}} \in [0, 1]\)</span>. As previously mentioned, <span class="math inline">\(r_{i_{(k)}}\)</span> can be
 understood as the expected value of an indicator random variable
 with respect to the joint distribution of <span class="math inline">\(\gamma_{i_{(k)}}\)</span>
@@ -361,6 +515,7 @@ aggregated across tiles to yield a measure of immune infiltration
 on a particular biopsy.</p>
 </div>
 </div>
+</div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-BT00" class="csl-entry">
@@ -369,8 +524,14 @@ Baddeley, Adrian, and Rolf Turner. 2000. <span>“Practical Maximum Pseudolikeli
 <div id="ref-BT05" class="csl-entry">
 ———. 2005. <span>“Spatstat: An r Package for Analyzing Spatial Point Patterns.”</span> <em>Journal of Statistical Software</em> 12: 1–42.
 </div>
+<div id="ref-Carpenter17" class="csl-entry">
+Carpenter, Bob, Andrew Gelman, Matthew D Hoffman, Daniel Lee, Ben Goodrich, Michael Betancourt, Marcus Brubaker, Jiqiang Guo, Peter Li, and Allen Riddell. 2017. <span>“Stan: A Probabilistic Programming Language.”</span> <em>Journal of Statistical Software</em> 76 (1).
+</div>
 <div id="ref-King12" class="csl-entry">
 King, Ruth, Janine B Illian, Stuart E King, Glenna F Nightingale, and Ditte K Hendrichsen. 2012. <span>“A Bayesian Approach to Fitting Gibbs Processes with Temporal Random Effects.”</span> <em>Journal of Agricultural, Biological, and Environmental Statistics</em> 17 (4): 601–22.
+</div>
+<div id="ref-Kruschke14" class="csl-entry">
+Kruschke, John. 2014. <span>“Doing Bayesian Data Analysis: A Tutorial with r, JAGS, and Stan.”</span>
 </div>
 <div id="ref-Strauss75" class="csl-entry">
 Strauss, David J. 1975. <span>“A Model for Clustering.”</span> <em>Biometrika</em> 62 (2): 467–75.
@@ -385,7 +546,7 @@ Su, Yu-Sung, Masanao Yajima, Maintainer Yu-Sung Su, and JAGS SystemRequirements.
         </div>
       </div>
 <a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -416,7 +577,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/scratch.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -1,5 +1,9 @@
+tab:wsi
+tab:SMG
 fig:04
-fig:05
+tab:unnamed-chunk-3
+fig:MCPSpearmanVolc
+tab:MCPSpearman
 preface
 model-fitting
 biopsy-partition

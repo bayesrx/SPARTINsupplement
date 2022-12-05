@@ -6,10 +6,10 @@
 \contentsline {section}{\numberline {4.2}Whole-Slide Image (WSI) Nucleus Segmentation}{11}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Genomic Associations}{13}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Association with expression of significantly mutated genes}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Association with expression of immune genes}{15}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Association with Deconvolution Data}{19}{chapter.6}%
-\contentsline {chapter}{\numberline {7}SPARTIN R package}{23}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Simulation and Model Fitting}{24}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Estimating CTIP}{26}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Tesselation and Intensity Thresholding}{27}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Interactive Visualization}{31}{section.7.4}%
+\contentsline {section}{\numberline {5.2}Association with expression of immune genes}{13}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Association with Deconvolution Data}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}SPARTIN R package}{19}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Simulation and Model Fitting}{20}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Estimating CTIP}{22}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Tesselation and Intensity Thresholding}{23}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Interactive Visualization}{27}{section.7.4}%

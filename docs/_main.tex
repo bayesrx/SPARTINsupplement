@@ -218,14 +218,18 @@ Before nuclear segmentation and extraction can be performed on the WSIs, certain
 
 Due to the variations in staining procedures across the dataset, it is difficult to accurately isolate whole cells on the slide, as the cytoplasmic boundaries are not well-defined due to lack of membrane staining. As heterogeneity in nuclear morphology has been shown to be a good discriminator, only the nucleus is segmented out of each cell in every image for classification purposes, using Qupath (\citet{Yuan12}). Watershed segmentation is used to obtain separated and contoured nuclei from the hematoxylin color channel of the whole slide image, in a patch-based manner (\citet{Bankhead18}). The separate hematoxylin channel is obtained by performing color deconvolution to separate out the stains used in the slide (\citet{Ruifrok01}). It was observed that an average of 200,000 cells were segmented out per image, and morphological and intensity features such as spatial location, eccentricity, circularity, and stain intensities were computed. All pertinent image analysis and nuclear segmentation was performed using Qupath, an open-sourced software platform that can be used for a range of pathological image analysis applications (\citet{Bankhead17}).
 
-\begin{tabular}{l|l|l|l|l|l}
+\begin{table}
+
+\caption{\label{tab:wsi}Cell type composition of training dataset.}
+\centering
+\begin{tabular}[t]{l|l|l|l|l|l}
 \hline
 Class & Tumor (1) & Immune (2) & Other Cells (3) & Macrophage (4) & Total Cells\\
 \hline
 Number of Labels & 288 & 349 & 252 & 361 & 1250\\
 \hline
-\multicolumn{6}{l}{\textsuperscript{} Table 4.2: Cell type composition of training dataset.}\\
 \end{tabular}
+\end{table}
 
 A Random Forest model is a type of ensemble learning method, where the weak predictive power of multiple decision trees is aggregated to produce an accurate result \citet{Breiman01}. Our four-class classifier model was developed with a pathologist labelled dataset of 1250 morphologically diverse cells, each belonging to Tumor, Immune, Macrophage, or other cells (including cell types such as stromal cells). 5-fold cross-validation was used to assess model accuracy and the receiver operator characteristic curve AUC for each class, with proportional representation of all 4 classes ensured. After adjusting for multiple parameters, including the number of decision trees, the accuracy was obtained in the range of 87-91\%.
 
@@ -254,9 +258,13 @@ was assessed via univariate simple linear regression, carried out
 separately for each gene. The Wald statistic of the coefficient
 corresponding to gene expression was used to produce a \(p\)-value.
 After correcting for multiple testing using a Bonferroni correction with \(\alpha = 0.05\), we found that LRRC37A3 was significantly positively associated with
-average logit CTIP (\(p << 0.0001\)). See Table 5.2 below for the full list of genes, significance of associations, and directionality of associations.
+average logit CTIP (\(p << 0.0001\)). See Table \ref{tab:SMG} below for the full list of genes, significance of associations, and directionality of associations.
 
-\begin{tabular}{l|l|l}
+\begin{table}
+
+\caption{\label{tab:SMG}Significantly mutated genes, unadjusted p-values, and direction of association with biopsy level average logit CTIP. Asterisk indicates significance under Bonferroni correction, alpha = 0.05.}
+\centering
+\begin{tabular}[t]{l|l|l}
 \hline
 Gene & P-value & Direction of Association\\
 \hline
@@ -344,12 +352,8 @@ FAM58A & 0.95 & Positive\\
 \hline
 KNSTRN & 0.98 & Positive\\
 \hline
-\multicolumn{3}{l}{\textsuperscript{} Table 5.2: Significantly mutated genes,}\\
-\multicolumn{3}{l}{unadjusted p-values, and direction of}\\
-\multicolumn{3}{l}{association with biopsy level average logit}\\
-\multicolumn{3}{l}{CTIP. Asterisk indicates significance under}\\
-\multicolumn{3}{l}{Bonferroni correction, alpha = 0.05.}\\
 \end{tabular}
+\end{table}
 
 \hypertarget{association-with-expression-of-immune-genes}{%
 \section{Association with expression of immune genes}\label{association-with-expression-of-immune-genes}}
@@ -366,7 +370,11 @@ associated with immune activity. \citet{Bhattacharya18} have collected and class
 \caption{$-log_{10}$ p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction}\label{fig:04}
 \end{figure}
 
-\begin{tabular}{l|l|l|l}
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.}
+\centering
+\begin{tabular}[t]{l|l|l|l}
 \hline
 Gene & Group & Spearman Correlation & P-Value\\
 \hline
@@ -422,9 +430,8 @@ CRABP1 & Antimicrobials & 0.23 & < 0.0001\\
 \hline
 CYBB & Antimicrobials & -0.23 & < 0.0001\\
 \hline
-\multicolumn{4}{l}{\textsuperscript{} Table 5.2: IMMPORT Genes significantly associated with average}\\
-\multicolumn{4}{l}{logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.}\\
 \end{tabular}
+\end{table}
 
 \hypertarget{association-with-deconvolution-data}{%
 \chapter{Association with Deconvolution Data}\label{association-with-deconvolution-data}}
@@ -439,10 +446,14 @@ After applying a Bonferroni correction (\(\alpha = 0.05\)), we found that six di
 
 }
 
-\caption{Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05.}\label{fig:05}
+\caption{Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05.}\label{fig:MCPSpearmanVolc}
 \end{figure}
 
-\begin{tabular}{l|r|r}
+\begin{table}
+
+\caption{\label{tab:MCPSpearman}IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.}
+\centering
+\begin{tabular}[t]{l|r|r}
 \hline
 Cell Type & Spearman Correlation & P-Value\\
 \hline
@@ -468,10 +479,8 @@ Endothelial cell & 0.0614183 & 0.2628597\\
 \hline
 Cancer associated fibroblast & 0.1419220 & 0.0094486\\
 \hline
-\multicolumn{3}{l}{\textsuperscript{} Table 6.1: IMMPORT Genes significantly associated with}\\
-\multicolumn{3}{l}{average logit biopsy level CTIP after Bonferroni}\\
-\multicolumn{3}{l}{correction, alpha = 0.05.}\\
 \end{tabular}
+\end{table}
 
 \hypertarget{spartin-r-package}{%
 \chapter{SPARTIN R package}\label{spartin-r-package}}

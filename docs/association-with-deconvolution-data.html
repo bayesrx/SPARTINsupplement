@@ -202,13 +202,16 @@ div.csl-indent {
 <h1><span class="header-section-number">S.6</span> Association with Deconvolution Data<a href="association-with-deconvolution-data.html#association-with-deconvolution-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Using data from TIMER2.0 (<span class="citation">Li et al. (<a href="#ref-TIMER20" role="doc-biblioref">2020</a>)</span>), we examined the association between the prevalence of different types of immune cells and biopsy level mean logit CTIP. We ultimately decided to use the MCP-counter algorithm (<span class="citation">Becht et al. (<a href="#ref-Becht16" role="doc-biblioref">2016</a>)</span>) based on the analysis of <span class="citation">Sturm et al. (<a href="#ref-Sturm19" role="doc-biblioref">2019</a>)</span>, since it was judged to be most effective in detecting the presence and prevalence of the most relevant types of immune cells. We investigated the association of the score of each type of immune cell estimated by MCP-counter with biopsy level mean logit CTIP using Spearman correlation. Significance was assessed using the standard test of statistical significance of Spearman correlation as implemented by the pspearman package.</p>
 <p>After applying a Bonferroni correction (<span class="math inline">\(\alpha = 0.05\)</span>), we found that six different immune cell scores as computed by MCP-counter were significantly negatively associated with biopsy level mean logit CTIP: CD8+ T cells, B cells, Monocytes, Macrophages, Myeloid Dendritic Cells, and Natural Killer cells. No cell types were significantly positively associated with biopsy level mean logit CTIP after the Bonferroni correction, though the magnitude of the positive association with Cancer Associated Fibroblasts (CAFs) is notable, and while not statistically significant still highly consistent with a truly positive underlying association between biopsy level CTIP and prevalence of CAFs.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:05"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MCPSpearmanVolc"></span>
 <img src="Figures/MCP%20Spearman%20Volcano.png" alt="Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05." width="100%" />
 <p class="caption">
 Figure 6.1: Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05.
 </p>
 </div>
 <table>
+<caption>
+<span id="tab:MCPSpearman">Table 6.1: </span>IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.
+</caption>
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -345,13 +348,6 @@ Cancer associated fibroblast
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; border:0;" colspan="100%">
-<sup></sup> Table 6.1: IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.
-</td>
-</tr>
-</tfoot>
 </table>
 </div>
 <h3>References</h3>

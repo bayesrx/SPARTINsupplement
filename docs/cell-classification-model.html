@@ -209,6 +209,9 @@ div.csl-indent {
 <p>Before nuclear segmentation and extraction can be performed on the WSIs, certain pre-processing steps are carried out to ensure staining uniformity across images. A representative and generalizable stain vector estimation for each of the stains being used in the image is estimated, to normalize the staining intensities across all the images. In our application, vectors from hematoxylin, eosin and residual stains were estimated from a standard image, selected by the clinician. These vectors are then applied across all images to keep the stain detection parameters uniform across the dataset (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead18" role="doc-biblioref">2018</a>)</span>).</p>
 <p>Due to the variations in staining procedures across the dataset, it is difficult to accurately isolate whole cells on the slide, as the cytoplasmic boundaries are not well-defined due to lack of membrane staining. As heterogeneity in nuclear morphology has been shown to be a good discriminator, only the nucleus is segmented out of each cell in every image for classification purposes, using Qupath (<span class="citation">Yuan et al. (<a href="#ref-Yuan12" role="doc-biblioref">2012</a>)</span>). Watershed segmentation is used to obtain separated and contoured nuclei from the hematoxylin color channel of the whole slide image, in a patch-based manner (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead18" role="doc-biblioref">2018</a>)</span>). The separate hematoxylin channel is obtained by performing color deconvolution to separate out the stains used in the slide (<span class="citation">Ruifrok, Johnston, et al. (<a href="#ref-Ruifrok01" role="doc-biblioref">2001</a>)</span>). It was observed that an average of 200,000 cells were segmented out per image, and morphological and intensity features such as spatial location, eccentricity, circularity, and stain intensities were computed. All pertinent image analysis and nuclear segmentation was performed using Qupath, an open-sourced software platform that can be used for a range of pathological image analysis applications (<span class="citation">Bankhead et al. (<a href="#ref-Bankhead17" role="doc-biblioref">2017</a>)</span>).</p>
 <table>
+<caption>
+<span id="tab:wsi">Table 4.1: </span>Cell type composition of training dataset.
+</caption>
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -253,13 +256,6 @@ Number of Labels
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; border:0;" colspan="100%">
-<sup></sup> Table 4.2: Cell type composition of training dataset.
-</td>
-</tr>
-</tfoot>
 </table>
 <p>A Random Forest model is a type of ensemble learning method, where the weak predictive power of multiple decision trees is aggregated to produce an accurate result <span class="citation">Breiman (<a href="#ref-Breiman01" role="doc-biblioref">2001</a>)</span>. Our four-class classifier model was developed with a pathologist labelled dataset of 1250 morphologically diverse cells, each belonging to Tumor, Immune, Macrophage, or other cells (including cell types such as stromal cells). 5-fold cross-validation was used to assess model accuracy and the receiver operator characteristic curve AUC for each class, with proportional representation of all 4 classes ensured. After adjusting for multiple parameters, including the number of decision trees, the accuracy was obtained in the range of 87-91%.</p>
 <p>This step allowed for a preparation of a dataset for each cell with its spatial location using global coordinates and class of the cell, which is then used for further downstream analysis. The training, testing, and classification of cells from the WSIs was performed on MATLAB version 2017A.</p>

@@ -100,13 +100,13 @@ Before nuclear segmentation and extraction can be performed on the WSIs, certain
 
 Due to the variations in staining procedures across the dataset, it is difficult to accurately isolate whole cells on the slide, as the cytoplasmic boundaries are not well-defined due to lack of membrane staining. As heterogeneity in nuclear morphology has been shown to be a good discriminator, only the nucleus is segmented out of each cell in every image for classification purposes, using Qupath (@Yuan12). Watershed segmentation is used to obtain separated and contoured nuclei from the hematoxylin color channel of the whole slide image, in a patch-based manner (@Bankhead18). The separate hematoxylin channel is obtained by performing color deconvolution to separate out the stains used in the slide (@Ruifrok01). It was observed that an average of 200,000 cells were segmented out per image, and morphological and intensity features such as spatial location, eccentricity, circularity, and stain intensities were computed.  All pertinent image analysis and nuclear segmentation was performed using Qupath, an open-sourced software platform that can be used for a range of pathological image analysis applications (@Bankhead17).
 
-```{r echo=FALSE}
+```{r wsi, echo=FALSE}
 tribble(
   ~Class, ~`Tumor (1)`, ~`Immune (2)`, ~`Other Cells (3)`, ~`Macrophage (4)`, ~`Total Cells`,
   "Number of Labels", "288", "349", "252", "361", "1250"
 ) %>% 
-  knitr::kable() %>% 
-  add_footnote(label = c("Table 4.2: Cell type composition of training dataset."), notation = "none")
+  knitr::kable(caption = "Cell type composition of training dataset.") # %>% 
+  # add_footnote(label = c("Table S1: Cell type composition of training dataset."), notation = "none")
 ```
 
 A Random Forest model is a type of ensemble learning method, where the weak predictive power of multiple decision trees is aggregated to produce an accurate result @Breiman01. Our four-class classifier model was developed with a pathologist labelled dataset of 1250 morphologically diverse cells, each belonging to Tumor, Immune, Macrophage, or other cells (including cell types such as stromal cells). 5-fold cross-validation was used to assess model accuracy and the receiver operator characteristic curve AUC for each class, with proportional representation of all 4 classes ensured.  After adjusting for multiple parameters, including the number of decision trees, the accuracy was obtained in the range of 87-91%.
@@ -142,12 +142,12 @@ was assessed via univariate simple linear regression, carried out
 separately for each gene. The Wald statistic of the coefficient
 corresponding to gene expression was used to produce a $p$-value. 
 After correcting for multiple testing using a Bonferroni correction with $\alpha = 0.05$, we found that LRRC37A3 was significantly positively associated with 
-average logit CTIP ($p << 0.0001$). See Table 5.2 below for the full list of genes, significance of associations, and directionality of associations. 
+average logit CTIP ($p << 0.0001$). See Table \@ref(tab:SMG) below for the full list of genes, significance of associations, and directionality of associations. 
 
-```{r T1, echo=FALSE}
+```{r SMG, echo=FALSE}
 knitr::kable(readRDS(here("Tables/SMG_Table.RData")) %>% 
-  select(-raw_p)) %>% 
-  add_footnote(label = c("Table 5.2: Significantly mutated genes, unadjusted p-values, and direction of association with biopsy level average logit CTIP. Asterisk indicates significance under Bonferroni correction, alpha = 0.05."), notation = "none")
+                select(-raw_p), 
+             caption = "Significantly mutated genes, unadjusted p-values, and direction of association with biopsy level average logit CTIP. Asterisk indicates significance under Bonferroni correction, alpha = 0.05.")
 ```
 
 
@@ -185,9 +185,8 @@ knitr::kable(spearman_tib %>%
       as.character()
   ) %>% 
   rename(Gene = Symbol, `P-Value` = pval) %>% 
-  select(Gene, Group, `Spearman Correlation`, `P-Value`)
-  ) %>% 
-  add_footnote(label = c("Table 5.2: IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05."), notation = "none")
+  select(Gene, Group, `Spearman Correlation`, `P-Value`),
+  caption = "IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.")
 ```
 
 
@@ -197,20 +196,13 @@ Using data from TIMER2.0 (@TIMER20), we examined the association between the pre
 
 After applying a Bonferroni correction ($\alpha = 0.05$), we found that six different immune cell scores as computed by MCP-counter were significantly negatively associated with biopsy level mean logit CTIP: CD8+ T cells, B cells, Monocytes, Macrophages, Myeloid Dendritic Cells, and Natural Killer cells. No cell types were significantly positively associated with biopsy level mean logit CTIP after the Bonferroni correction, though the magnitude of the positive association with Cancer Associated Fibroblasts (CAFs) is notable, and while not statistically significant still highly consistent with a truly positive underlying association between biopsy level CTIP and prevalence of CAFs. 
 
-```{r}
-#| 05, echo = FALSE,
-#| out.width = '100%',
-#| fig.align = 'center',
-#| fig.cap = "Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05."
+```{r MCPSpearmanVolc, echo = FALSE, out.width = '100%', fig.align = 'center', fig.cap = "Negative log-10 p-values plotted against Spearman Correlation. Colors indicate Group as determined by IMMPORT; Red line indicates Bonferroni correction, alpha = 0.05."}
 
 knitr::include_graphics("Figures/MCP Spearman Volcano.png")
 ```
 
-```{r echo=FALSE}
-MCP_spearman_tib = readRDS(here("Tables/MCP_spearman_table.RData"))
-
-knitr::kable(MCP_spearman_tib) %>% 
-  add_footnote(label = c("Table 6.1: IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05."), notation = "none")
+```{r MCPSpearman, echo=FALSE}
+knitr::kable(readRDS(here("Tables/MCP_spearman_table.RData")), caption = "IMMPORT Genes significantly associated with average logit biopsy level CTIP after Bonferroni correction, alpha = 0.05.")
 ```
 
 

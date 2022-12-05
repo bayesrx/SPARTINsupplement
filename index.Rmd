@@ -72,7 +72,7 @@ In order to use JAGS to fit the model, the so-called "Poisson zero trick" as des
 | | Propose $\theta^*$ \
 | | Evaluate PL(\theta^* | \cdot ) \
 | | Set $\theta^{(i)} = \theta^*$ with probability $min(\frac{PL(\theta^*)}{PL(\theta)}, 1)$; otherwise, set $\theta^{(i)} = \theta$ \
-| **End For**
+| **End For** \
 **End For**
 
 **Return:** $\beta_1^{(1)}, \dots, \beta_1^{(n\_iter)}$, $\beta_2^{(1)}, \dots, \beta_2^{(n\_iter)}$, $\gamma_{12}^{(1)}, \dots, \gamma_{12}^{(n\_iter)}$

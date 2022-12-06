@@ -45,6 +45,37 @@ information on the pipeline and methods.
 If you have a question that is not adequately addressed in this
 supplement, please email oshern (at) umich.edu.
 
+# Data Summary
+
+Our data set contained 335 SKCM biopsies. The cell counts varied by biopsy, both in terms of the overall numbers and the specific numbers of tumor cells and immune cells. See Figures \@ref(fig:ncells), \@ref(fig:ntum), and \@ref(fig:nimm) below.
+
+```{r}
+#| ncells, echo = FALSE,
+#| out.width = '100%',
+#| fig.align = 'center',
+#| fig.cap = "*Distribution of cell counts.* Distribution of total number of cells across all biopsies."
+
+knitr::include_graphics("Figures/n_cells.png")
+```
+
+```{r}
+#| ntum, echo = FALSE,
+#| out.width = '100%',
+#| fig.align = 'center',
+#| fig.cap = "*Distribution of tumor cell counts.* Distribution of total number of tumor cells across all biopsies."
+
+knitr::include_graphics("Figures/n_tum.png")
+```
+
+```{r}
+#| nimm, echo = FALSE,
+#| out.width = '100%',
+#| fig.align = 'center',
+#| fig.cap = "*Distribution of immune cell counts.* Distribution of total number of immune cells across all biopsies."
+
+knitr::include_graphics("Figures/n_imm.png")
+```
+
 # Model Fitting
 
 Given a quadrature $\bm{u}$ on $A$ with corresponding weights $\bm{w}$, the pseduolikelihood function (equation (3) in the main paper) can be approximated by

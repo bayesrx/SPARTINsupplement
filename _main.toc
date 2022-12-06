@@ -1,15 +1,16 @@
 \contentsline {chapter}{\numberline {1}Preface}{5}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Model Fitting}{7}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Biopsy Partition}{9}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Cell Classification Model}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Whole-Slide Image (WSI) Nucleus Segmentation}{11}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Genomic Associations}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Association with expression of significantly mutated genes}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Association with expression of immune genes}{13}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Association with Deconvolution Data}{17}{chapter.6}%
-\contentsline {chapter}{\numberline {7}SPARTIN R package}{19}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Simulation and Model Fitting}{20}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Estimating CTIP}{22}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Tesselation and Intensity Thresholding}{23}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Interactive Visualization}{27}{section.7.4}%
+\contentsline {chapter}{\numberline {2}Data Summary}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Model Fitting}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Biopsy Partition}{11}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Cell Classification Model}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Whole-Slide Image (WSI) Retrieval and Obtaining Training Labels}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Whole-Slide Image (WSI) Nucleus Segmentation}{13}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Genomic Associations}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Association with expression of significantly mutated genes}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Association with expression of immune genes}{15}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Association with Deconvolution Data}{19}{chapter.7}%
+\contentsline {chapter}{\numberline {8}SPARTIN R package}{21}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Simulation and Model Fitting}{22}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Estimating CTIP}{24}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Tesselation and Intensity Thresholding}{25}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Interactive Visualization}{29}{section.8.4}%

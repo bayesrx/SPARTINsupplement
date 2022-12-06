@@ -1,10 +1,14 @@
+fig:ncells
+fig:ntum
+fig:nimm
 tab:wsi
 tab:SMG
 fig:04
-tab:unnamed-chunk-3
+tab:unnamed-chunk-6
 fig:MCPSpearmanVolc
 tab:MCPSpearman
 preface
+data-summary
 model-fitting
 biopsy-partition
 cell-classification-model

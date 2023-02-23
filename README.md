@@ -1,1 +1,1 @@
-Bookdown supplementary material for first SPARTYN pipeline paper.
+Bookdown supplementary material for first SPARTIN pipeline paper.
